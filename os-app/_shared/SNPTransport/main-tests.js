@@ -115,14 +115,6 @@ describe('SNPTransportExport', function test_SNPTransportExport() {
 			})).SNPDocument.shift(), item);
 		});
 
-		it('excludes if $SNPDocumentIsInbox', function () {
-			deepEqual((ZDRTestingWrap.App.SNPTransport.SNPTransportExport({
-				SNPDocument: [StubDocumentObjectValid({
-					$SNPDocumentIsInbox: true,
-				})],
-			})).SNPDocument, []);
-		});
-
 		it('strips dynamic attributes', function () {
 			const item = StubDocumentObjectValid({
 				$alfa: Math.random().toString(),

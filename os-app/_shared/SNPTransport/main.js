@@ -53,9 +53,7 @@ export default {
 				}
 				
 				return Object.assign(coll, {
-					[key]: value.filter(function (e) {
-						return !e.$SNPDocumentIsInbox;
-					}).map(OLSKRemoteStorage.OLSKRemoteStorageSafeCopy),
+					[key]: value.map(OLSKRemoteStorage.OLSKRemoteStorageSafeCopy),
 				});
 			}, {});
 		},
