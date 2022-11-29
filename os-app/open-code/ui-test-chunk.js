@@ -10,14 +10,6 @@ describe('SNPCode_Chunk', function () {
 		return browser.pressButton(SNPCodeToggleFormButton);
 	});
 
-	before(function () {
-		browser.fill(SNPCodeFormField, Math.random().toString());
-	});
-
-	before(function () {
-		return browser.pressButton(SNPCodeFormSubmitButton);
-	});
-
 	it('binds OLSKCollectionChunkFunction', function () {
 		browser.assert.element('.OLSKCollectionChunkHeading');
 	});

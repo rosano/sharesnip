@@ -38,14 +38,6 @@ const mod = {
 
 	_ValueIsLoading: true,
 
-	_ValueFormIsVisible: false,
-	_ValueFormData: '',
-	_ValueFormDataTags: [],
-
-	_ValueInboxIsVisible: false,
-
-	_ValueRevealArchiveIsVisible: false,
-
 	async ValueSetting (param1, param2) {
 		await mod._ValueZDRWrap.App.SNPSetting.ZDRModelWriteObject({
 			SNPSettingKey: param1,
@@ -59,11 +51,7 @@ const mod = {
 
 	_ValueSaveDocumentThrottleMap: {},
 
-	_ValueSavePublishThrottleMap: {},
-
 	_IsRunningDemo: false,
-
-	OLSKTaxonomySuggestionItems: [],
 
 	// DATA
 
@@ -137,14 +125,6 @@ const mod = {
 					},
 				},
 				{
-					LCHRecipeName: 'SNPCodeLauncherFakeCreateTaggedItem',
-					LCHRecipeCallback: async function SNPCodeLauncherFakeCreateTaggedItem () {
-						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
-							SNPDocumentTags: [window.prompt()],
-						})));
-					},
-				},
-				{
 					LCHRecipeName: 'FakeFundDocumentLimit',
 					LCHRecipeCallback: async function FakeFundDocumentLimit () {
 						await Promise.all(Array.from(Array(mod._ValueDocumentRemainder)).map(function (e) {
@@ -196,16 +176,6 @@ const mod = {
 			outputData.push(...mod._SNPCodeDetail.modPublic.SNPCodeDetailRecipes());
 		}
 
-		if (mod._ValueRevealArchiveIsVisible) {
-			outputData.push({
-				LCHRecipeSignature: 'SNPCodeLauncherItemRevealArchive',
-				LCHRecipeName: OLSKLocalized('SNPCodeRevealArchiveButtonText'),
-				LCHRecipeCallback: function SNPCodeLauncherItemRevealArchive () {
-					mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive();
-				},
-			});
-		}
-
 		return outputData;
 	},
 
@@ -215,7 +185,7 @@ const mod = {
 
 	DataStubDocumentObject (inputData = {}) {
 		return Object.assign({
-			SNPDocumentNotes: '',
+			SNPDocumentName: '',
 		}, inputData);
 	},
 
@@ -230,55 +200,11 @@ const mod = {
 	// INTERFACE
 
 	InterfaceAddButtonDidClick () {
-		if (!mod._ValueFormIsVisible && mod._ValueDocumentRemainder < 1 && !mod.DataIsEligible()) {
+		if (mod._ValueDocumentRemainder < 1 && !mod.DataIsEligible()) {
 			return mod.OLSKFundDocumentGate();
 		}
 
 		mod._ValueFormIsVisible = !mod._ValueFormIsVisible;
-	},
-
-	InterfaceFormDispatchTags (inputData) {
-		mod._ValueFormDataTags = inputData;
-	},
-
-	InterfaceFormSubmitButtonDidClick (event) {
-		event.preventDefault();
-
-		mod.ControlFormSubmit();
-	},
-
-	InterfaceClearInboxButtonDidClick () {
-		mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-			return e.$SNPDocumentIsInbox;
-		}).map(mod._OLSKCatalog.modPublic.OLSKCatalogRemove);
-
-		mod._ValueInboxIsVisible = false;
-
-		window.location.hash = '';
-	},
-
-	InterfaceWindowDidKeydown (event) {
-		if (window.Launchlet.LCHSingletonExists()) {
-			return;
-		}
-
-		const handlerFunctions = {
-			Enter () {
-				if (!mod._ValueFormIsVisible) {
-					return;
-				}
-
-				if (event.ctrlKey || event.metaKey) {
-					return mod.ControlFormSubmit();
-				}
-			},
-		};
-
-		handlerFunctions[event.key] && handlerFunctions[event.key]();
-	},
-
-	InterfaceStashButtonDidClick () {
-		mod._OLSKCatalog.modPublic.OLSKCatalogStashEnabled(true);
 	},
 
 	// CONTROL
@@ -296,38 +222,8 @@ const mod = {
 		}
 	},
 
-	ControlTextAdd (inputData, properties = {}) {
-		const disableDuplicateURLs = false;
-
-		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
-			return e.SNPDocumentURL;
-		}).filter(function (e) {
-			return !!e;
-		});
-
-		return Promise.all(SNPCodeLogic.SNPCodeDocuments(inputData).reverse().map(function (e) {
-			return Object.assign(e, properties);
-		}).filter(function (e) {
-			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.SNPDocumentURL));
-		}).map(mod.ControlDocumentAdd));
-	},
-
 	async ControlDocumentAdd (inputData) {
 		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData));
-
-		if (OLSK_SPEC_UI()) {
-			return;
-		}
-
-		if (inputData.SNPDocumentDidFetch) {
-			return;
-		}
-
-		mod.ControlDocumentFetch(inputData);
-	},
-	
-	ControlInboxAdd (inputData) {
-		inputData.map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert);
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
@@ -336,10 +232,6 @@ const mod = {
 	},
 	
 	ControlDocumentActivate(inputData) {
-		mod.OLSKTaxonomySuggestionItems = mod._OLSKTaxonomySuggestionItems.filter(function (e) {
-			return !(inputData.SNPDocumentTags || []).includes(e);
-		});
-		
 		mod._OLSKCatalog.modPublic.OLSKCatalogSelect(inputData);
 
 		if (!inputData) {
@@ -355,54 +247,10 @@ const mod = {
 		mod._OLSKCatalog.modPublic.OLSKCatalogActivateDetail();
 	},
 
-	ControlDocumentArchive (inputData) {
-		inputData.SNPDocumentArchiveDate = new Date();
-
-		mod.ControlDocumentSave(inputData);
-
-		mod.ControlDocumentActivate(inputData); // #purge-svelte-force-update
-	},
-	
-	ControlDocumentUnarchive (inputData) {
-		delete inputData.SNPDocumentArchiveDate;
-
-		mod.ControlDocumentSave(inputData);
-
-		mod.ControlDocumentActivate(inputData); // #purge-svelte-force-update
-	},
-	
-	async ControlDocumentFetch (inputData) {
-		mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
-			return SNPCodeLogic.SNPCodeFetch(inputData);
-		}));
-
-		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
-	},
-	
 	ControlDocumentDiscard (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogRemove(inputData);
 
 		mod._ValueZDRWrap.App.SNPDocument.ZDRModelDeleteObject(inputData);
-	},
-
-	ControlDocumentQueue (inputData) {
-		mod.ControlDocumentAdd(Object.keys(mod.DataStubDocumentObjectValid()).concat('$SNPDocumentIsInbox').reduce(function (coll, item) {
-			if (!Object.keys(mod.DataStubDocumentObject()).includes(item)) {
-				delete coll[item];
-			}
-
-			return coll;
-		}, mod.DataStubDocumentObject(inputData)));
-	},
-
-	ControlFormSubmit () {
-		mod.ControlTextAdd(mod._ValueFormData, mod._ValueFormDataTags.length ? {
-			SNPDocumentTags: mod._ValueFormDataTags,
-		} : {});
-
-		mod._ValueFormIsVisible = false;
-		mod._ValueFormData = '';
-		mod._ValueFormDataTags = [];
 	},
 
 	// MESSAGE
@@ -431,32 +279,8 @@ const mod = {
 		document.querySelector('.SNPCodeDetailToolbarBackButton').focus();
 	},
 	
-	OLSKCatalogDispatchArchivedHide () {
-		mod._ValueRevealArchiveIsVisible = true;
-	},
-
-	OLSKCatalogDispatchArchivedShow () {
-		mod._ValueRevealArchiveIsVisible = false;
-	},
-
 	OLSKCatalogDispatchQuantity (inputData) {
-		mod._OLSKTaxonomySuggestionItems = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().reduce(function (coll, item) {
-			return coll.concat((item.SNPDocumentTags || []).filter(function (e) {
-				return !coll.includes(e);
-			}));
-		}, []);
-
 		mod.ReactDocumentLimit();
-	},
-
-	OLSKCatalogDispatchStash (inputData) {
-		if (!inputData.length) {
-			return;
-		}
-
-		mod._SNPCodeShareItems = inputData;
-		
-		mod._SNPCodeShareModal.modPublic.OLSKModalViewShow();
 	},
 
 	OLSKAppToolbarDispatchApropos () {
@@ -514,28 +338,16 @@ const mod = {
 		mod._OLSKCatalog.modPublic.OLSKCatalogFocusMaster();
 	},
 
-	SNPCodeDetailDispatchArchive () {
-		mod.ControlDocumentArchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
-	},
-
-	SNPCodeDetailDispatchUnarchive () {
-		mod.ControlDocumentUnarchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
-	},
-
-	SNPCodeDetailDispatchFetch () {
-		mod.ControlDocumentFetch(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
-	},
-
 	SNPCodeDetailDispatchUpdate () {
 		mod.ControlDocumentSave(mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected()));
 	},
 
-	SNPCodeDetailDispatchDiscard () {
-		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
-	},
-
 	SNPCodeDetailDispatchQueue () {
 		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
+	},
+
+	SNPCodeDetailDispatchDiscard () {
+		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
 	async OLSKTransportDispatchImportJSON (inputData) {
@@ -550,33 +362,6 @@ const mod = {
 			SNPSetting: await mod._ValueZDRWrap.App.SNPSetting.SNPSettingList(),
 		});
 	},
-
-	OLSKHashDispatchInitialize (inputData) {
-		if (inputData[SNPCodeLogic.SNPCodeCaptureAnchor()]) {
-			return mod.ControlTextAdd(inputData[SNPCodeLogic.SNPCodeCaptureAnchor()], {
-				SNPDocumentName: inputData[SNPCodeLogic.SNPCodeNameAnchor()] || undefined,
-				SNPDocumentImageURL: inputData[SNPCodeLogic.SNPCodeImageAnchor()] || undefined,
-			}).then(function () {
-				return !OLSK_SPEC_UI() && new Promise(function () {
-					return setTimeout(function () {
-						return window.close();
-					}, 100);
-				});
-			});
-		}
-
-		if (inputData[SNPCodeLogic.SNPCodeInboxAnchor()]) {
-			mod._ValueInboxIsVisible = true;
-
-			return mod.ControlInboxAdd(JSON.parse(inputData[SNPCodeLogic.SNPCodeInboxAnchor()]).reverse().map(function (e) {
-				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap(), true))), {
-					$SNPDocumentIsInbox: true,
-				});
-			}));
-		}
-	},
-
-	OLSKHashDispatchChange (inputData) {},
 
 	ZDRSchemaDispatchSyncCreateDocument (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(inputData);
@@ -760,14 +545,6 @@ const mod = {
 		}));
 	},
 
-	SetupValueFetchQueue() {
-		mod._ValueFetchQueue = OLSKQueue.OLSKQueueAPI();
-	},
-
-	SetupHash() {
-		return OLSKHash.OLSKHashSetup(mod);
-	},
-
 	async _SetupFund () {
 		OLSKFund.OLSKFundSetup({
 			ParamMod: mod,
@@ -849,7 +626,6 @@ import OLSKCatalog from 'OLSKCatalog';
 import SNPCodeListItem from '../sub-item/main.svelte';
 import SNPCodeDetail from '../sub-detail/main.svelte';
 import SNPCodeShare from '../sub-share/main.svelte';
-import OLSKTaxonomy from 'OLSKTaxonomy';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -871,8 +647,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCollectionItemAccessibilitySummaryFunction={ SNPCodeLogic.SNPCodeAccessibilitySummary }
 	OLSKCollectionItemClass={ 'OLSKCommonEdgeBottom' }
 
-	_OLSKCatalogArchiveField={ 'SNPDocumentArchiveDate' }
-	
 	OLSKCatalogSortFunction={ SNPCodeLogic.SNPCodeSortFunction }
 	OLSKCatalogIsMatch={ SNPCodeLogic.SNPCodeIsMatch }
 
@@ -884,10 +658,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCollectionDispatchClick={ mod.OLSKCollectionDispatchClick }
 	OLSKCollectionDispatchArrow={ mod.OLSKCollectionDispatchArrow }
 	OLSKCatalogDispatchDetailActivate={ mod.OLSKCatalogDispatchDetailActivate }
-	OLSKCatalogDispatchArchivedHide={ mod.OLSKCatalogDispatchArchivedHide }
-	OLSKCatalogDispatchArchivedShow={ mod.OLSKCatalogDispatchArchivedShow }
 	OLSKCatalogDispatchQuantity={ mod.OLSKCatalogDispatchQuantity }
-	OLSKCatalogDispatchStash={ mod.OLSKCatalogDispatchStash }
 
 	let:OLSKCollectionItem
 	>
@@ -895,45 +666,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER -->
 
 	<div class="OLSKToolbarElementGroup" slot="OLSKNarrowToolbarTail">
-		<button class="SNPCodeStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
-			<div class="SNPCodeStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
-		</button>
 		<button class="SNPCodeToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
 			<div class="SNPCodeToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
 		</button>
 	</div>
-
-	<!-- MASTER BODY HEAD -->
-
-	{#if mod._ValueFormIsVisible }
-		<div class="SNPCodeForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
-			<p>
-				<textarea class="SNPCodeFormField" placeholder={ OLSKLocalized('SNPCodeFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
-			</p>
-			
-			<hr role="presentation" />
-			
-			<p>
-				<OLSKTaxonomy
-					OLSKTaxonomyItems={ [] }
-					OLSKTaxonomySuggestionItems={ mod._OLSKTaxonomySuggestionItems }
-					OLSKTaxonomyDispatchUpdate={ mod.InterfaceFormDispatchTags }
-					/>
-			</p>
-			
-			<hr role="presentation" />
-			
-			<p>
-				<button class="SNPCodeFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('SNPCodeFormSubmitButtonText') }</button>
-			</p>
-		</div>
-	{/if}
-
-	{#if mod._ValueInboxIsVisible }
-		<div class="SNPCodeClearInbox">
-			<button class="SNPCodeClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('SNPCodeClearInboxButtonText') }</button>
-		</div>
-	{/if}
 
 	<!-- MASTER LIST ITEM -->
 
@@ -941,25 +677,15 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		<SNPCodeListItem SNPCodeListItemObject={ OLSKCollectionItem } />
 	</div>
 
-	<!-- MASTER BODY TAIL -->
-
-	<div class="SNPCodeRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
-		<button class="SNPCodeRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('SNPCodeRevealArchiveButtonText') }</button>
-	{/if}</div>
-
 	<!-- DETAIL -->
 	
 	<div class="SNPCodeDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
 		<SNPCodeDetail
 			SNPCodeDetailItem={ OLSKCatalogItemSelected }
-			OLSKTaxonomySuggestionItems={ mod.OLSKTaxonomySuggestionItems }
 			SNPCodeDetailDispatchBack={ mod.SNPCodeDetailDispatchBack }
-			SNPCodeDetailDispatchArchive={ mod.SNPCodeDetailDispatchArchive }
-			SNPCodeDetailDispatchUnarchive={ mod.SNPCodeDetailDispatchUnarchive }
-			SNPCodeDetailDispatchFetch={ mod.SNPCodeDetailDispatchFetch }
 			SNPCodeDetailDispatchUpdate={ mod.SNPCodeDetailDispatchUpdate }
-			SNPCodeDetailDispatchDiscard={ mod.SNPCodeDetailDispatchDiscard }
 			SNPCodeDetailDispatchQueue={ mod.SNPCodeDetailDispatchQueue }
+			SNPCodeDetailDispatchDiscard={ mod.SNPCodeDetailDispatchDiscard }
 			bind:this={ mod._SNPCodeDetail }
 			/>
 	</div>
@@ -1028,22 +754,3 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		<SNPCodeShare SNPCodeShareItems={ mod._SNPCodeShareItems } />
 	</div>
 </OLSKModalView>
-
-<style>
-.SNPCodeForm {
-	font-size: unset;
-}
-
-.SNPCodeForm p:last-child {
-	margin-bottom: 0;
-}
-
-.SNPCodeClearInbox, .SNPCodeRevealArchive {
-	padding: 10px;
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex-shrink: 0;
-}
-</style>

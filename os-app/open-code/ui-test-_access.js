@@ -6,22 +6,10 @@ const OLSKObject = require('OLSKObject');
 Object.entries({
 	SNPCode: '.SNPCode',
 	
-	SNPCodeStashButton: '.SNPCodeStashButton',
-	SNPCodeStashButtonImage: '.SNPCodeStashButtonImage',
-	
 	SNPCodeToggleFormButton: '.SNPCodeToggleFormButton',
 	SNPCodeToggleFormButtonImage: '.SNPCodeToggleFormButtonImage',
 
-	SNPCodeForm: '.SNPCodeForm',
-	SNPCodeFormField: '.SNPCodeFormField',
-	SNPCodeFormTaxonomy: '.SNPCodeForm .OLSKTaxonomy',
-	SNPCodeFormSubmitButton: '.SNPCodeFormSubmitButton',
-
-	SNPCodeClearInboxButton: '.SNPCodeClearInboxButton',
-
 	SNPCodeListItem: '.SNPCodeListItem',
-
-	SNPCodeRevealArchiveButton: '.SNPCodeRevealArchiveButton',
 
 	SNPCodeViewportFooter: '.SNPCodeViewportFooter',
 	
@@ -46,36 +34,12 @@ describe('SNPCode_Access', function () {
 		browser.assert.elements('.OLSKCatalog', 1);
 	});
 
-	it('shows SNPCodeStashButton', function () {
-		browser.assert.elements(SNPCodeStashButton, 1);
-	});
-
-	it('shows SNPCodeStashButtonImage', function () {
-		browser.assert.elements(SNPCodeStashButtonImage, 1);
-	});
-
 	it('shows SNPCodeToggleFormButton', function () {
 		browser.assert.elements(SNPCodeToggleFormButton, 1);
 	});
 
 	it('shows SNPCodeToggleFormButtonImage', function () {
 		browser.assert.elements(SNPCodeToggleFormButtonImage, 1);
-	});
-
-	it('hides SNPCodeForm', function () {
-		browser.assert.elements(SNPCodeForm, 0);
-	});
-
-	it('hides SNPCodeClearInboxButton', function () {
-		browser.assert.elements(SNPCodeClearInboxButton, 0);
-	});
-
-	it('hides SNPCodeListItem', function () {
-		browser.assert.elements(SNPCodeListItem, 0);
-	});
-
-	it('hides SNPCodeRevealArchiveButton', function () {
-		browser.assert.elements(SNPCodeRevealArchiveButton, 0);
 	});
 
 	it('shows SNPCodeViewportFooter', function () {
@@ -196,57 +160,11 @@ describe('SNPCode_Access', function () {
 
 	}); 
 
-	context('toggle_form', function test_toggle_form () {
+	context('select', function test_select() {
 
 		before(function () {
 			return browser.pressButton(SNPCodeToggleFormButton);
 		});
-
-		it('shows SNPCodeForm', function () {
-			browser.assert.elements(SNPCodeForm, 1);
-		});
-
-		it('shows SNPCodeFormField', function () {
-			browser.assert.elements(SNPCodeFormField, 1);
-		});
-
-		it('shows SNPCodeFormTaxonomy', function () {
-			browser.assert.elements(SNPCodeFormTaxonomy, 1);
-		});
-
-		it('shows SNPCodeFormSubmitButton', function () {
-			browser.assert.elements(SNPCodeFormSubmitButton, 1);
-		});
-
-		context('create', function test_create() {
-
-			const count = Math.max(1, Date.now() % 10);
-			
-			before(function () {
-				browser.pressButton(SNPCodeToggleFormButton);
-			});
-
-			before(function () {
-				browser.fill(SNPCodeFormField, Array.from(Array(count)).map(Math.random).join('\n\n'));
-			});
-
-			before(function () {
-				return browser.pressButton(SNPCodeFormSubmitButton);
-			});
-
-			it('hides SNPCodeForm', function () {
-				browser.assert.elements(SNPCodeForm, 0);
-			});
-
-			it('shows SNPCodeListItem', function () {
-				browser.assert.elements(SNPCodeListItem, count);
-			});
-		
-		});
-
-	});
-
-	context('select', function test_select() {
 
 		before(function () {
 			return browser.click(SNPCodeListItem);
@@ -254,112 +172,6 @@ describe('SNPCode_Access', function () {
 
 		it('shows SNPCodeDetailLauncherFakeItemProxy', function () {
 			return browser.assert.OLSKLauncherItems('SNPCodeDetailLauncherFakeItemProxy', 1);
-		});
-	
-	});
-
-	context('archive', function test_archive () {
-
-		before(function () {
-			return browser.pressButton('.SNPCodeDetailToolbarArchiveButton');
-		});
-
-		it('hides SNPCodeRevealArchiveButton', function () {
-			browser.assert.elements('.SNPCodeRevealArchiveButton', 0);
-		});
-
-		it('hides SNPCodeLauncherItemRevealArchive', function () {
-			return browser.assert.OLSKLauncherItems('SNPCodeLauncherItemRevealArchive', 0);
-		});
-
-		context('clear_selection', function () {
-			
-			before(function () {
-				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
-			});
-
-			it('shows SNPCodeRevealArchiveButton', function () {
-				browser.assert.elements('.SNPCodeRevealArchiveButton', 1);
-			});
-
-			it('shows SNPCodeLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItems('SNPCodeLauncherItemRevealArchive', 1);
-			});
-		
-		});
-
-	});
-
-	context('stash', function test_stash () {
-		
-		before(function() {
-			return browser.OLSKVisit(kDefaultRoute);
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
-		});
-
-		before(function () {
-			browser.fill(SNPCodeFormField, Math.random().toString());
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeFormSubmitButton);
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeStashButton);
-		});
-
-		before(function () {
-			return browser.click('.OLSKCollectionItem');
-		});
-
-		before(function () {
-			return browser.click('.OLSKCatalogStashDoneButton');
-		});
-
-		it('shows SNPCodeShareModal', function () {
-			browser.assert.elements(SNPCodeShareModal, 1);
-		});
-	
-	});
-
-	context('inbox', function test_inbox () {
-
-		before(function() {
-			return browser.OLSKVisit(kDefaultRoute, {
-				OLSKRoutingHash: {
-					[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-						SNPDocumentURL: Math.random().toString(),
-					}), SNPCodeLogic.SNPCodeRemap())])),
-				},
-			});
-		});
-
-		it('shows SNPCodeClearInboxButton', function () {
-			browser.assert.elements(SNPCodeClearInboxButton, 1);
-		});
-
-		it('shows SNPCodeListItem', function () {
-			browser.assert.elements(SNPCodeListItem, 1);
-		});
-
-		context('click', function () {
-			
-			before(function () {
-				return browser.pressButton(SNPCodeClearInboxButton);
-			});
-
-			it('hides SNPCodeClearInboxButton', function () {
-				browser.assert.elements(SNPCodeClearInboxButton, 0);
-			});
-
-			it('hides SNPCodeListItem', function () {
-				browser.assert.elements(SNPCodeListItem, 0);
-			});
-		
 		});
 	
 	});

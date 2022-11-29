@@ -21,10 +21,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text('title', uLocalized('SNPCodeTitle'));
 		});
 
-		it('localizes SNPCodeStashButton', function () {
-			browser.assert.attribute(SNPCodeStashButton, 'title', uLocalized('SNPCodeStashButtonText'));
-		});
-
 		it('localizes SNPCodeToggleFormButton', function () {
 			browser.assert.attribute(SNPCodeToggleFormButton, 'title', uLocalized('SNPCodeToggleFormButtonText'));
 		});
@@ -57,58 +53,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 			after(function () {
 				return browser.pressButton('#TestLCHDebugCloseButton');
-			});
-
-		});
-
-		describe('SNPCodeFormField', function test_SNPCodeFormField () {
-
-			before(function () {
-				return browser.pressButton(SNPCodeToggleFormButton);
-			});
-
-			it('localizes SNPCodeFormField', function () {
-				browser.assert.attribute(SNPCodeFormField, 'placeholder', uLocalized('SNPCodeFormFieldText'));
-			});
-			
-		});
-
-		describe('SNPCodeFormSubmitButton', function test_SNPCodeFormSubmitButton () {
-
-			it('localizes SNPCodeFormSubmitButton', function () {
-				browser.assert.text(SNPCodeFormSubmitButton, uLocalized('SNPCodeFormSubmitButtonText'));
-			});
-			
-		});
-
-		context('archive', function test_archive () {
-
-			before(function () {
-				browser.fill(SNPCodeFormField, Math.random().toString());
-			});
-
-			before(function () {
-				return browser.pressButton(SNPCodeFormSubmitButton);
-			});
-
-			before(function () {
-				return browser.click(SNPCodeListItem);
-			});
-
-			before(function () {
-				return browser.pressButton('.SNPCodeDetailToolbarArchiveButton');
-			});
-
-			before(function () {
-				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
-			});
-
-			it('localizes SNPCodeRevealArchiveButton', function () {
-				browser.assert.text(SNPCodeRevealArchiveButton, uLocalized('SNPCodeRevealArchiveButtonText'));
-			});
-
-			it('localizes SNPCodeLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItemText('SNPCodeLauncherItemRevealArchive', uLocalized('SNPCodeRevealArchiveButtonText'));
 			});
 
 		});
@@ -193,25 +137,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPCodeShareModalTitleText'));
 			});
 
-		});
-
-		context('inbox', function test_inbox () {
-
-			before(function() {
-				return browser.OLSKVisit(kDefaultRoute, {
-					OLSKRoutingLanguage,
-					OLSKRoutingHash: {
-						[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-							SNPDocumentURL: Math.random().toString(),
-						}), SNPCodeLogic.SNPCodeRemap())])),
-					},
-				});
-			});
-
-			it('localizes SNPCodeClearInboxButton', function () {
-				browser.assert.text(SNPCodeClearInboxButton, uLocalized('SNPCodeClearInboxButtonText'));
-			});
-		
 		});
 
 	});

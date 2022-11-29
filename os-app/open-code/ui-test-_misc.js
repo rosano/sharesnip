@@ -33,30 +33,6 @@ describe('SNPCode_Misc', function () {
 
 	});
 
-	describe('SNPCodeStashButton', function test_SNPCodeStashButton () {
-		
-		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPCodeStashButton, 'OLSKDecorButtonNoStyle');
-		});
-
-		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPCodeStashButton, 'OLSKDecorTappable');
-		});
-
-		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPCodeStashButton, 'OLSKToolbarButton');
-		});
-		
-	});
-
-	describe('SNPCodeStashButtonImage', function test_SNPCodeStashButtonImage () {
-
-		it('sets src', function () {
-			browser.assert.elements(`${ SNPCodeStashButtonImage } #_OLSKSharedStash`, 1);
-		});
-	
-	});
-
 	describe('SNPCodeToggleFormButton', function test_SNPCodeToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
@@ -85,42 +61,10 @@ describe('SNPCode_Misc', function () {
 	
 	});
 
-	describe('SNPCodeForm', function test_SNPCodeForm () {
-
-		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
-		});
-
-		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(SNPCodeForm, 'OLSKDecor');
-		});
-
-		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(SNPCodeForm, 'OLSKDecorBigForm');
-		});
-
-		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(SNPCodeForm, 'OLSKCommonEdgeBottom');
-		});
-	
-	});
-
-	describe('SNPCodeFormField', function test_SNPCodeFormField () {
-
-		it('sets autofocus', function () {
-			browser.assert.attribute(SNPCodeFormField, 'autofocus', '');
-		});
-	
-	});
-
 	describe('OLSKCollectionItem', function test_OLSKCollectionItem () {
 
 		before(function () {
-			browser.fill(SNPCodeFormField, Math.random().toString());
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeFormSubmitButton);
+			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
@@ -195,24 +139,6 @@ describe('SNPCode_Misc', function () {
 			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
-	});
-
-	context('SNPCodeClearInboxButton', function test_SNPCodeClearInboxButton () {
-
-		before(function() {
-			return browser.OLSKVisit(kDefaultRoute, {
-				OLSKRoutingHash: {
-					[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-						SNPDocumentURL: Math.random().toString(),
-					}), SNPCodeLogic.SNPCodeRemap())])),
-				},
-			});
-		});
-
-		it('classes OLSKDecorPress', function () {
-			browser.assert.hasClass(SNPCodeClearInboxButton, 'OLSKDecorPress');
-		});
-
 	});
 
 });

@@ -12,14 +12,6 @@ describe('SNPCode_Catalog', function () {
 			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
-		before(function () {
-			browser.fill(SNPCodeFormField, Math.random().toString());
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeFormSubmitButton);
-		});
-
 		it('adds item', function () {
 			browser.assert.elements(SNPCodeListItem, 1);
 		});
@@ -94,14 +86,6 @@ describe('SNPCode_Catalog', function () {
 		
 		before(function () {
 			return browser.pressButton(SNPCodeToggleFormButton);
-		});
-
-		before(function () {
-			browser.fill(SNPCodeFormField, Math.random().toString() + '\n\n' + Math.random().toString());
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeFormSubmitButton);
 		});
 
 		before(function () {

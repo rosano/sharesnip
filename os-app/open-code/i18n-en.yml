@@ -1,12 +1,5 @@
 SNPCodeTitle: Code
-SNPCodeStashButtonText: Stash
 SNPCodeToggleFormButtonText: Add
-SNPCodeClearInboxButtonText: Clear inbox
-SNPCodeFormFieldText: Paste your links here.
-SNPCodeFormSubmitButtonText: Submit
-SNPCodeChunkInboxText: Inbox
 SNPCodeChunkTodayText: Today
 SNPCodeChunkYesterdayText: Yesterday
-SNPCodeChunkArchiveText: Archive
-SNPCodeRevealArchiveButtonText: Reveal archive
 SNPCodeShareModalTitleText: Share
