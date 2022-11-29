@@ -2,10 +2,6 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
-	const uLocalized = function (inputData) {
-		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
-	};
-
 	describe.skip(`SNPRootLink_Localize-${ kDefaultRoute.OLSKRouteSignature }-${ OLSKRoutingLanguage }`, function () {
 
 		before(function() {

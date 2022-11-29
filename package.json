@@ -28,7 +28,6 @@
   "devDependencies": {
     "OLSKPithToolchain": "olsk/OLSKPithToolchain",
     "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
-    "node-fetch": "2.x",
-    "jsdom": "latest"
+    "node-fetch": "2.x"
   }
 }

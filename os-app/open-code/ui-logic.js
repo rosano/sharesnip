@@ -1,12 +1,6 @@
-import OLSKString from 'OLSKString';
-import OLSKDOM from 'OLSKDOM';
-import OLSKEmbed from 'OLSKEmbed';
-import OLSKMoment from 'OLSKMoment';
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
-const uAscending = function (a, b) {
-  return (a < b) ? -1 : ((a > b) ? 1 : 0);
-};
+import OLSKString from 'OLSKString';
 
 const uDescending = function (a, b) {
   return (a > b) ? -1 : ((a < b) ? 1 : 0);

@@ -1,13 +1,6 @@
 const { throws, rejects, deepEqual } = require('assert');
 
 const mod = require('./ui-logic.js').default;
-const OLSKMoment = require('OLSKMoment');
-const OLSKEmbed = require('OLSKEmbed');
-import { JSDOM } from 'jsdom';
-
-const uLocalized = function (inputData) {
-	return inputData + '-LOCALIZED';
-};
 
 describe('SNPCodeAccessibilitySummary', function test_SNPCodeAccessibilitySummary() {
 
