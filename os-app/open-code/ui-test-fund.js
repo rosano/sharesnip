@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCode_Fund', function () {
+describe.skip('SNPCode_Fund', function () {
 
 	require('OLSKFund/ui-test_template').default({
 		kDefaultRoute,
