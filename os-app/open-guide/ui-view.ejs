@@ -1,0 +1,36 @@
+<%
+locals.OLSKPageTitle = OLSKLocalized('JBXGuideTitle');
+locals.OLSKPageDescription = OLSKLocalized('JBXGuideDescription');
+locals.OLSKPageAssets = [
+	'/_shared/__external/normalize.css/normalize.css',
+	'/_shared/__external/OLSKDecor/ui-style.css',
+	'/_shared/common/ui-style.css',
+	'ui-style.css',
+];
+%>
+
+<div class="JBXGuide OLSKDecor OLSKDecorCapped">
+
+<div class="JBXGuideCrown OLSKCommonCard OLSKCommonCrownCard">
+	<section>
+		<span class="JBXGuideCrownName"><%= OLSKLocalized('JBXGuideTitle') %></span>
+	</section>
+</div>
+
+<div class="JBXGuideContent">
+<%- OLSKStringReplaceTokens(JBXGuideContent, {
+	JBXGuideTokenTextbox1a: 'alfa\nbravo',
+	JBXGuideTokenTextbox1b: 'alfa\nbravo\nhttps://example.com',
+	JBXGuideTokenTextbox2a: 'alfa\n\nbravo',
+	JBXGuideTokenTextbox2b: 'alfa\nbravo\nhttps://example.com/1\n\ncharlie\nhttps://example.com/2',
+	JBXGuideTokenTextbox2c: 'alfa https://example.com/1\nbravo https://example.com/2',
+	JBXGuideTokenTextbox2d: 'alfa https://example.com/1 https://ex\nample.com/2',
+}) %>
+
+</div>
+
+<hr role="presentation" />
+
+<%- include('../_shared/JBXRootLink/main.ejs') %>
+
+</div>

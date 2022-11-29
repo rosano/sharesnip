@@ -1,0 +1,14 @@
+:root {
+	--OLSKCommonBackground: #fee8b1;
+	--OLSKDecorBackgroundDeep: var(--OLSKCommonBackground);
+	--OLSKCommonForeground: #333;
+
+	--OLSKCodeForeground: #7c7b5b;
+	--OLSKCodeBackground: #e8e1a3;
+
+	--OLSKDecorForegroundLight: #999;
+}
+
+a {
+	color: rgb(255, 93, 35);
+}
