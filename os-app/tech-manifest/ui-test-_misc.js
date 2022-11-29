@@ -4,8 +4,8 @@ describe('SNPManifest_Misc', function () {
 
 	it('sends json', async function () {
 		browser.assert.deepEqual(await (await browser.fetch('http://localhost' + kDefaultRoute.OLSKRoutePath)).json(), {
-			name: 'Joybox',
-			short_name: 'Joybox',
+			name: 'Sharesnip',
+			short_name: 'Sharesnip',
 			start_url: require('../open-play/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,
 			display: 'standalone',
 			background_color: 'black',

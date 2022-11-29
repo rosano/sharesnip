@@ -5,8 +5,8 @@ exports.OLSKControllerRoutes = function() {
 		OLSKRouteSignature: 'SNPManifestRoute',
 		OLSKRouteFunction (req, res, next) {
 			return res.json({
-				name: 'Joybox',
-				short_name: 'Joybox',
+				name: 'Sharesnip',
+				short_name: 'Sharesnip',
 				start_url: res.locals.OLSKCanonical('SNPCodeRoute'),
 				display: 'standalone',
 				background_color: 'black',
