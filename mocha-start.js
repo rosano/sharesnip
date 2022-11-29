@@ -29,6 +29,7 @@
 
 		StubDocumentObject(inputData) {
 			return Object.assign({
+				SNPDocumentData: Math.random().toString(),
 				SNPDocumentName: Math.random().toString(),
 			}, inputData);
 		},

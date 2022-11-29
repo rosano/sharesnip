@@ -53,6 +53,26 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 		});
 	});
 
+	it('returns object if SNPDocumentData not string', function() {
+		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
+			SNPDocumentData: null,
+		})), {
+			SNPDocumentData: [
+				'SNPErrorNotString',
+			],
+		});
+	});
+
+	it('returns object if SNPDocumentData not filled', function() {
+		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
+			SNPDocumentData: ' ',
+		})), {
+			SNPDocumentData: [
+				'SNPErrorNotFilled',
+			],
+		});
+	});
+
 	it('returns null', function() {
 		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid()), null);
 	});

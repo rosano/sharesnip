@@ -34,6 +34,16 @@ const mod = {
 			];
 		}
 
+		if (typeof inputData.SNPDocumentData !== 'string') {
+			errors.SNPDocumentData = [
+				'SNPErrorNotString',
+			];
+		} else if (!inputData.SNPDocumentData.trim()) {
+			errors.SNPDocumentData = [
+				'SNPErrorNotFilled',
+			];
+		}
+
 		if (typeof inputData.SNPDocumentName !== 'undefined') {
 			if (typeof inputData.SNPDocumentName !== 'string') {
 				errors.SNPDocumentName = [
