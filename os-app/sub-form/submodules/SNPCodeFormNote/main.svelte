@@ -18,6 +18,6 @@ const mod = {
 
 <div class="SNPCodeFormNote">
 
-<input class="SNPCodeFormNoteField SNPCodeFormDataField" type="text" required placeholder="{ OLSKLocalized('SNPCodeFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill }>
+<input class="SNPCodeFormNoteField SNPCodeFormDataField" type="text" required autofocus placeholder="{ OLSKLocalized('SNPCodeFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill }>
 
 </div>

@@ -20,6 +20,10 @@ describe('SNPCodeFormNote_Misc', function () {
 			browser.assert.attribute(SNPCodeFormNoteField, 'required', '');
 		});
 
+		it('sets autofocus', function () {
+			browser.assert.attribute(SNPCodeFormNoteField, 'autofocus', '');
+		});
+
 		context('fill', function () {
 			
 			before(function () {
