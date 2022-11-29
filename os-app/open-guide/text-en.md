@@ -9,28 +9,6 @@ Sharesnip helps you organize audio and video links. You can add them to your col
 
 You can also share a playlist from multiple platforms in one place.
 
-# Add with one click
-
-The following 'bookmarklets' can be dragged to your browser's favourites and will do something special on click.
-
-|||
-:--- | ---
-| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(location.href)+'&SNPCodeNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPCodeImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Sharesnip','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
-| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Sharesnip','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
-
-# Add by pasting links or text
-
-Text input is interpreted based on how lines are spaced. The link can be at the beginning, middle, or end of a block of text.
-
-|||
-:--- | ---
-| **Two lines single-spaced:**<br><pre>SNPGuideTokenTextbox1a</pre> | Add one item. |
-| **Three lines single-spaced, including a link:**<br><pre>SNPGuideTokenTextbox1b</pre> | Add one item. |
-| **Two blocks double-spaced:**<br><pre>SNPGuideTokenTextbox2a</pre> | Add two items. |
-| **Two blocks double-spaced, each with a link:**<br><pre>SNPGuideTokenTextbox2b</pre> | Add two items. |
-| **Two lines single-spaced, each with a link:**<br><pre>SNPGuideTokenTextbox2c</pre> | Add two items. |
-| **Two links on the same line:**<br><pre>SNPGuideTokenTextbox2d</pre> | Add two items. |
-
 # Item catalog
 
 On the left side of the interface, you can create, search, and select items. On the right side, you can edit the details.
@@ -41,47 +19,9 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 </div>
 
-*SNPCodeDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *SNPCodeRevealArchiveButtonText* button was pressed.
-
-*SNPCodeDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
-
-*SNPCodeDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCodeDetailMediaFetchButtonText*.
-
-*SNPCodeDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
-
-*OLSKTaxonomyFieldText* can be used to organize items and make them easier to find.
-
-# Sharing playlists
-
-## Sending a playlist
-
-1. Press the *SNPCodeStashButtonText* button.
-2. Select one or more items from the list, then press OK.
-3. Re-order if necessary by dragging or pressing the arrow buttons, then press *SNPCodeShareCopyButtonText*.
-
-## Receiving a playlist
-
-The items are grouped at the top of the list in a section called *SNPCodeChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
-
-Clear the inbox by pressing *SNPCodeClearInboxButtonText*.
-
 Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarQueueButtonText* button.
 
-# API Parameters
-
-`SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#PARAM=TEXT`
-
-<div class="OLSKDecorNotice">
-
-Note: this only works with a trailing slash before `#`.
-
-</div>
-
-| PARAM | TEXT |
-:--- | ---
-| `SNPCodeCaptureAnchor` | URL or plain text. |
-| `SNPCodeNameAnchor` | Item name. Note: if multiple URLs are present in `SNPCodeCaptureAnchor`, this will set the name for all items. |
-| `SNPCodeInboxAnchor` | URL-encoded JSON array of objects. |
+*SNPCodeDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCodeDetailMediaFetchButtonText*.
 
 # Shortcuts
 
@@ -95,8 +35,7 @@ Note: this only works with a trailing slash before `#`.
 
 | Item catalog ||
 :--- | ---
-| Open capture box | `AccessKey+n` |
-| Submit capture box | `Control+Enter` or `Command+Enter` |
+| Add new item | `AccessKey+n` |
 | Select previous or next item, if filter field is focused | `Up` or `Down` |
 | Clear filter text and selected item, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |
