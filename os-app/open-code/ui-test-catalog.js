@@ -21,6 +21,10 @@ describe('SNPCode_Catalog', function () {
 	context('OLSKCollectionDispatchClick', function test_OLSKCollectionDispatchClick () {
 		
 		before(function () {
+			return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
+		});
+
+		before(function () {
 			browser.assert.elements('.SNPCodeDetail', 0);
 		});
 
