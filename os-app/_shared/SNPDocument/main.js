@@ -1,7 +1,6 @@
 import { factory } from 'ulid';
 const uniqueID = factory();
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
-import OLSKWash from 'OLSKWash';
 
 const mod = {
 

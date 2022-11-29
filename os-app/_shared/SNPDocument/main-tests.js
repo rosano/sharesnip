@@ -3,7 +3,6 @@ const { rejects, throws, deepEqual, strictEqual, notStrictEqual } = require('ass
 const mod = require('./main.js').default;
 
 const OLSKObject = require('OLSKObject');
-const OLSKWash = require('OLSKWash');
 
 describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
