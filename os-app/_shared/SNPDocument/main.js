@@ -8,6 +8,12 @@ const mod = {
 		return 'TYPE_STRING';
 	},
 
+	SNPDocumentTypes () {
+		return [
+			mod.SNPDocumentTypeString(),
+		];
+	},
+
 	SNPDocumentErrors (inputData, options = {}) {
 		if (typeof inputData !== 'object' || inputData === null) {
 			throw new Error('SNPErrorInputNotValid');

@@ -12,6 +12,16 @@ describe('SNPDocumentTypeString', function test_SNPDocumentTypeString() {
 
 });
 
+describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypes(), [
+			mod.SNPDocumentTypeString(),
+			]);
+	});
+
+});
+
 describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 	it('throws error if not object', function() {
