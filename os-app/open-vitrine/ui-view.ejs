@@ -43,12 +43,6 @@ locals.OLSKPagePublicConstants = {
 
 <h1 class="SNPVitrineDeeperHeading"><%= OLSKLocalized('OLSKWordingDeeperHeading') %></h1>
 
-<dl class="SNPVitrineGlossary OLSKDecorGlossary">
-	<dt><a class="SNPVitrineGlossaryEphemerataLink" href="<%= process.env.SNP_VITRINE_EPHEMERATA_URL %>" target="_blank">Ephemerata</a></dt>
-	<dd class="SNPVitrineGlossaryEphemerataBlurb"><%= OLSKLocalized('SNPVitrineGlossaryEphemerataBlurbText') %></dd>
-	<%- include('../../node_modules/ROCOGlossary/main.ejs') %>
-</dl>
-
 <%- include('../../node_modules/ROCOGazette/main.ejs', {
 	_OLSKModulesDirPrefix: '../.',
 	ROCOBulletinProject: process.env.ROCO_SHARED_PROJECT_ID,

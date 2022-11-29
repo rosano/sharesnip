@@ -10,9 +10,6 @@ Object.entries({
 	SNPVitrineGuideButton: '.SNPVitrineGuideButton',
 
 	SNPVitrineDeeperHeading: '.SNPVitrineDeeperHeading',
-	SNPVitrineGlossary: '.SNPVitrineGlossary',
-	SNPVitrineGlossaryEphemerataLink: '.SNPVitrineGlossaryEphemerataLink',
-	SNPVitrineGlossaryEphemerataBlurb: '.SNPVitrineGlossaryEphemerataBlurb',
 
 	SNPVitrineSupportHeading: '.SNPVitrineSupportHeading',
 	SNPVitrineSupportBlurb: '.SNPVitrineSupportBlurb',
@@ -60,18 +57,6 @@ describe('SNPVitrine_Access', function () {
 
 	it('shows SNPVitrineDeeperHeading', function () {
 		browser.assert.elements(SNPVitrineDeeperHeading, 1);
-	});
-
-	it('shows SNPVitrineGlossary', function () {
-		browser.assert.elements(SNPVitrineGlossary, 1);
-	});
-
-	it('shows SNPVitrineGlossaryEphemerataLink', function () {
-		browser.assert.elements(SNPVitrineGlossaryEphemerataLink, 1);
-	});
-
-	it('shows SNPVitrineGlossaryEphemerataBlurb', function () {
-		browser.assert.elements(SNPVitrineGlossaryEphemerataBlurb, 1);
 	});
 
 	it('shows ROCOGlossary', function () {

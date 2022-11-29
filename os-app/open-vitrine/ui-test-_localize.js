@@ -34,10 +34,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPVitrineDeeperHeading, uLocalized('OLSKWordingDeeperHeading'));
 		});
 
-		it('localizes SNPVitrineGlossaryEphemerataBlurb', function () {
-			browser.assert.text(SNPVitrineGlossaryEphemerataBlurb, uLocalized('SNPVitrineGlossaryEphemerataBlurbText'));
-		});
-
 		it('localizes SNPVitrineSupportHeading', function () {
 			browser.assert.text(SNPVitrineSupportHeading, uLocalized('OLSKWordingFeedbackHeading'));
 		});

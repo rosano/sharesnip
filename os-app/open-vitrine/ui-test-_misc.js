@@ -70,30 +70,6 @@ describe('SNPVitrine_Misc', function () {
 	
 	});
 
-	describe('SNPVitrineGlossary', function test_SNPVitrineGlossary () {
-
-		it('classes OLSKDecorGlossary', function () {
-			browser.assert.hasClass(SNPVitrineGlossary, 'OLSKDecorGlossary');
-		});
-		
-	});
-
-	describe('SNPVitrineGlossaryEphemerataLink', function test_SNPVitrineGlossaryEphemerataLink () {
-
-		it('sets href', function () {
-			browser.assert.attribute(SNPVitrineGlossaryEphemerataLink, 'href', process.env.SNP_VITRINE_EPHEMERATA_URL);
-		});
-
-		it('sets target', function () {
-			browser.assert.attribute(SNPVitrineGlossaryEphemerataLink, 'target', 	'_blank');
-		});
-
-		it('sets text', function () {
-			browser.assert.text(SNPVitrineGlossaryEphemerataLink, 'Ephemerata');
-		});
-	
-	});
-
 	describe('ROCOGazette', function test_ROCOGazette () {
 
 		it('sets ROCOBulletinProject', function () {
