@@ -9,9 +9,6 @@
 	--OLSKCollectionItemsLocusColorDefault: #555;
 	--OLSKCollectionItemsLocusColorActive: rgb(255, 93, 35);
 	--OLSKCollectionItemsLocusColorActiveInverse: white;
-
-	--OLSKChunkHeadingBorderColor: #555;
-	--OLSKChunkHeadingBackground: #303030;
 }
 
 input, textarea {

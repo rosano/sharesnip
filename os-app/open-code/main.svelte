@@ -258,14 +258,6 @@ const mod = {
 		return inputData.SNPDocumentID;
 	},
 
-	OLSKCollectionChunkFunction (inputData) {
-		return SNPCodeLogic.SNPCodeChunkFunction(inputData, OLSKLocalized);
-	},
-
-	OLSKCollectionChunkKeySortFunction () {
-		return SNPCodeLogic.SNPCodeChunkKeySortFunction(OLSKLocalized)(...arguments);
-	},
-
 	OLSKCollectionDispatchClick (inputData) {
 		mod.ControlDocumentActivate(inputData);
 	},
@@ -650,9 +642,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCatalogIsMatch={ SNPCodeLogic.SNPCodeIsMatch }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
-
-	OLSKCollectionChunkFunction={ mod.OLSKCollectionChunkFunction }
-	OLSKCollectionChunkKeySortFunction={ mod.OLSKCollectionChunkKeySortFunction }
 
 	OLSKCollectionDispatchClick={ mod.OLSKCollectionDispatchClick }
 	OLSKCollectionDispatchArrow={ mod.OLSKCollectionDispatchArrow }

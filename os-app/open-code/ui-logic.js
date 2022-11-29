@@ -40,43 +40,6 @@ const mod = {
 		}).length;
 	},
 
-	_SNPCodeChunk (inputData, OLSKLocalized) {
-		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
-
-		if (inputData.SNPDocumentCreationDate >= today) {
-			return OLSKLocalized('SNPCodeChunkTodayText');
-		}
-
-		if (inputData.SNPDocumentCreationDate >= (new Date(today - 1000 * 60 * 60 * 24))) {
-			return OLSKLocalized('SNPCodeChunkYesterdayText');
-		}
-
-		return OLSKMoment.OLSKMomentPerceptionDate(inputData.SNPDocumentCreationDate).toLocaleDateString();
-	},
-
-	SNPCodeChunkFunction (inputData, OLSKLocalized) {
-		if (!Array.isArray(inputData)) {
-			throw new Error('SNPErrorInputNotValid');
-		}
-
-		return inputData.reduce(function (coll, item) {
-			const group = mod._SNPCodeChunk(item, OLSKLocalized);
-			return Object.assign(coll, {
-				[group]: (coll[group] || []).concat(item),
-			});
-		}, {});
-	},
-
-	SNPCodeChunkKeySortFunction (OLSKLocalized) {
-		if (typeof OLSKLocalized !== 'function') {
-			throw new Error('SNPErrorInputNotValid');
-		}
-
-		return function (a, b) {
-			return uAscending(a, b);
-		};
-	},
-
 	SNPCodeDocumentCount (inputData) {
 		if (!Array.isArray(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
