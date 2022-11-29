@@ -48,6 +48,18 @@ const mod = {
 		}, 0);
 	},
 
+	SNPCodeCloned (inputData) {
+		if (typeof inputData !== 'object' || inputData === null) {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		const outputData = Object.assign({}, inputData);
+
+		delete outputData.SNPDocumentID;
+
+		return outputData;
+	},
+
 };
 
 export default mod;

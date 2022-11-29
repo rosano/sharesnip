@@ -91,3 +91,28 @@ describe('SNPCodeDocumentCount', function test_SNPCodeDocumentCount() {
 	});
 
 });
+
+describe('SNPCodeCloned', function test_SNPCodeCloned() {
+
+	it('throws if not object', function () {
+		throws(function () {
+			mod.SNPCodeCloned(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns input', function() {
+		deepEqual(mod.SNPCodeCloned({}), {});
+	});
+
+	it('returns copy', function() {
+		const item = StubDocumentObjectValid({});
+		require('assert').notStrictEqual(mod.SNPCodeCloned(item), item);
+	});
+
+	it('removes SNPDocumentID', function() {
+		deepEqual(mod.SNPCodeCloned(StubDocumentObjectValid({
+			SNPDocumentID: Math.random().toString(),
+		})).SNPDocumentID, undefined);
+	});
+
+});
