@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('JBXShare_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPShare_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -14,12 +14,12 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
-		it('localizes JBXPlayShareLinkField', function () {
-			browser.assert.attribute(JBXPlayShareLinkField, 'placeholder', uLocalized('JBXPlayShareLinkFieldText'));
+		it('localizes SNPPlayShareLinkField', function () {
+			browser.assert.attribute(SNPPlayShareLinkField, 'placeholder', uLocalized('SNPPlayShareLinkFieldText'));
 		});
 
-		it('localizes JBXPlayShareCopyButton', function () {
-			browser.assert.text(JBXPlayShareCopyButton, uLocalized('JBXPlayShareCopyButtonText'));
+		it('localizes SNPPlayShareCopyButton', function () {
+			browser.assert.text(SNPPlayShareCopyButton, uLocalized('SNPPlayShareCopyButtonText'));
 		});
 
 	});

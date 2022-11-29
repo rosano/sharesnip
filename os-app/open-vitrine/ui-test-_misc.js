@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXVitrine_Misc', function () {
+describe('SNPVitrine_Misc', function () {
 
 	before(function () {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
@@ -10,18 +10,18 @@ describe('JBXVitrine_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
-	describe('JBXVitrine', function () {
+	describe('SNPVitrine', function () {
 		
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JBXVitrine, 'OLSKDecor');
+			browser.assert.hasClass(SNPVitrine, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorCapped', function () {
-			browser.assert.hasClass(JBXVitrine, 'OLSKDecorCapped');
+			browser.assert.hasClass(SNPVitrine, 'OLSKDecorCapped');
 		});
 
 		it('classes OLSKDecorNoTopPad', function () {
-			browser.assert.hasClass(JBXVitrine, 'OLSKDecorNoTopPad');
+			browser.assert.hasClass(SNPVitrine, 'OLSKDecorNoTopPad');
 		});
 	
 	});
@@ -29,19 +29,19 @@ describe('JBXVitrine_Misc', function () {
 	describe('OLSKCrown', function test_OLSKCrown () {
 
 		it('sets OLSKCrownCardImageURL', function () {
-			browser.assert.attribute('.OLSKCrownCardImage', 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
+			browser.assert.attribute('.OLSKCrownCardImage', 'src', '/_shared/SNPRootLink/ui-assets/identity.svg');
 		});
 	
 	});
 
-	describe('JBXVitrineVideo', function () {
+	describe('SNPVitrineVideo', function () {
 
 		it('sets src', function () {
-			browser.assert.attribute(JBXVitrineVideo, 'src', process.env.JBX_VITRINE_VIDEO_URL);
+			browser.assert.attribute(SNPVitrineVideo, 'src', process.env.SNP_VITRINE_VIDEO_URL);
 		});
 
 		it('sets allowfullscreen', function () {
-			browser.assert.attribute(JBXVitrineVideo, 'allowfullscreen', '');
+			browser.assert.attribute(SNPVitrineVideo, 'allowfullscreen', '');
 		});
 
 	});
@@ -54,42 +54,42 @@ describe('JBXVitrine_Misc', function () {
 	
 	});
 
-	describe('JBXVitrineGuideButton', function test_JBXVitrineGuideButton () {
+	describe('SNPVitrineGuideButton', function test_SNPVitrineGuideButton () {
 
 		it('classes OLSKDecorPress', function () {
-			browser.assert.hasClass(JBXVitrineGuideButton, 'OLSKDecorPress');
+			browser.assert.hasClass(SNPVitrineGuideButton, 'OLSKDecorPress');
 		});
 		
 		it('classes OLSKDecorPressCall', function () {
-			browser.assert.hasClass(JBXVitrineGuideButton, 'OLSKDecorPressCall');
+			browser.assert.hasClass(SNPVitrineGuideButton, 'OLSKDecorPressCall');
 		});
 		
 		it('sets href', function () {
-			browser.assert.attribute(JBXVitrineGuideButton, 'href', OLSKTestingCanonical(require('../open-guide/controller.js').OLSKControllerRoutes().shift()));
+			browser.assert.attribute(SNPVitrineGuideButton, 'href', OLSKTestingCanonical(require('../open-guide/controller.js').OLSKControllerRoutes().shift()));
 		});
 	
 	});
 
-	describe('JBXVitrineGlossary', function test_JBXVitrineGlossary () {
+	describe('SNPVitrineGlossary', function test_SNPVitrineGlossary () {
 
 		it('classes OLSKDecorGlossary', function () {
-			browser.assert.hasClass(JBXVitrineGlossary, 'OLSKDecorGlossary');
+			browser.assert.hasClass(SNPVitrineGlossary, 'OLSKDecorGlossary');
 		});
 		
 	});
 
-	describe('JBXVitrineGlossaryEphemerataLink', function test_JBXVitrineGlossaryEphemerataLink () {
+	describe('SNPVitrineGlossaryEphemerataLink', function test_SNPVitrineGlossaryEphemerataLink () {
 
 		it('sets href', function () {
-			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'href', process.env.JBX_VITRINE_EPHEMERATA_URL);
+			browser.assert.attribute(SNPVitrineGlossaryEphemerataLink, 'href', process.env.SNP_VITRINE_EPHEMERATA_URL);
 		});
 
 		it('sets target', function () {
-			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'target', 	'_blank');
+			browser.assert.attribute(SNPVitrineGlossaryEphemerataLink, 'target', 	'_blank');
 		});
 
 		it('sets text', function () {
-			browser.assert.text(JBXVitrineGlossaryEphemerataLink, 'Ephemerata');
+			browser.assert.text(SNPVitrineGlossaryEphemerataLink, 'Ephemerata');
 		});
 	
 	});

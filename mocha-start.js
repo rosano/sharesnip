@@ -1,4 +1,4 @@
-(function JBXMochaWrap() {
+(function SNPMochaWrap() {
 	if (process.env.OLSK_SPEC_MOCHA_INTERFACE === 'true') {
 		return;
 	}
@@ -10,9 +10,9 @@
 				ZDRScopeKey: 'App',
 				ZDRScopeDirectory: 'joybox',
 				ZDRScopeSchemas: [
-					require('./os-app/_shared/JBXDocument/main.js').default,
-					require('./os-app/_shared/JBXSetting/main.js').default,
-					require('./os-app/_shared/JBXTransport/main.js').default,
+					require('./os-app/_shared/SNPDocument/main.js').default,
+					require('./os-app/_shared/SNPSetting/main.js').default,
+					require('./os-app/_shared/SNPTransport/main.js').default,
 					],
 			}],
 			_ZDRParamDispatchJSONPreStringify: require('OLSKObject').OLSKObjectSafeCopy,
@@ -24,27 +24,27 @@
 	});
 })();
 
-(function JBXMochaStubs() {
+(function SNPMochaStubs() {
 	Object.entries({
 
 		StubDocumentObject(inputData) {
 			return Object.assign({
-				JBXDocumentNotes: Math.random().toString(),
+				SNPDocumentNotes: Math.random().toString(),
 			}, inputData);
 		},
 
 		StubDocumentObjectValid(inputData) {
 			return StubDocumentObject(Object.assign({
-				JBXDocumentID: Math.random().toString(),
-				JBXDocumentCreationDate: new Date(),
-				JBXDocumentModificationDate: new Date(),
+				SNPDocumentID: Math.random().toString(),
+				SNPDocumentCreationDate: new Date(),
+				SNPDocumentModificationDate: new Date(),
 			}, inputData));
 		},
 
 		StubSettingObjectValid (inputData = {}) {
 			return Object.assign({
-				JBXSettingKey: Math.random().toString(),
-				JBXSettingValue: Math.random().toString(),
+				SNPSettingKey: Math.random().toString(),
+				SNPSettingValue: Math.random().toString(),
 			}, inputData);
 		},
 

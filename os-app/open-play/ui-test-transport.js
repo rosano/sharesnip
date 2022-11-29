@@ -1,12 +1,12 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXPlay_Transport', function () {	
+describe('SNPPlay_Transport', function () {	
 
 	const json = {};
 
 	describe('OLSKTransportDispatchImportJSON', function test_OLSKTransportDispatchImportJSON() {
 
-		const JBXDocumentNotes = Math.random().toString();
+		const SNPDocumentNotes = Math.random().toString();
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute);
@@ -25,10 +25,10 @@ describe('JBXPlay_Transport', function () {
 				return browser.click('.LCHLauncherPipeItem');
 			}, function (dialog) {
 				dialog.response = JSON.stringify({
-					JBXDocument: [StubDocumentObjectValid({
-						JBXDocumentNotes,
+					SNPDocument: [StubDocumentObjectValid({
+						SNPDocumentNotes,
 					})],
-					JBXSetting: [StubSettingObjectValid()],
+					SNPSetting: [StubSettingObjectValid()],
 				});
 
 				Object.assign(json, JSON.parse(dialog.response));
@@ -38,7 +38,7 @@ describe('JBXPlay_Transport', function () {
 		});
 
 		it('creates note', function () {
-			browser.assert.text('.JBXPlayListItemSnippet', JBXDocumentNotes);
+			browser.assert.text('.SNPPlayListItemSnippet', SNPDocumentNotes);
 		});
 
 	});

@@ -1,36 +1,36 @@
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
 export default {
-	ZDRSchemaKey: 'JBXTransport',
+	ZDRSchemaKey: 'SNPTransport',
 	ZDRSchemaDispatchValidate: (function () {}),
 	ZDRSchemaPath: (function () {}),
 	ZDRSchemaStub: (function () {}),
 	ZDRSchemaMethods: {
 
-		async JBXTransportImport (inputData) {
+		async SNPTransportImport (inputData) {
 			if (typeof inputData !== 'object' || inputData === null) {
-				throw new Error('JBXErrorInputNotValid');
+				throw new Error('SNPErrorInputNotValid');
 			}
 
 			const _this = this;
 
 			return Object.fromEntries(await Promise.all(Object.entries(inputData).map(async function ([key, value]) {
 				if (!Array.isArray(value)) {
-					throw new Error('JBXErrorInputNotValid');
+					throw new Error('SNPErrorInputNotValid');
 				}
 
 				return [key, await ({
-					JBXDocument: (function () {
+					SNPDocument: (function () {
 						return Promise.all(value.map(function (e) {
-							return _this.App.JBXDocument.JBXDocumentCreate(e).catch(function () {
-								throw new Error('JBXErrorInputNotValid');
+							return _this.App.SNPDocument.SNPDocumentCreate(e).catch(function () {
+								throw new Error('SNPErrorInputNotValid');
 							});
 						}));
 					}),
-					JBXSetting: (function () {
+					SNPSetting: (function () {
 						return Promise.all(value.map(function (e) {
-							return _this.App.JBXSetting.ZDRModelWriteObject(e).catch(function () {
-								throw new Error('JBXErrorInputNotValid');
+							return _this.App.SNPSetting.ZDRModelWriteObject(e).catch(function () {
+								throw new Error('SNPErrorInputNotValid');
 							});
 						}));
 					}),
@@ -38,14 +38,14 @@ export default {
 			})));
 		},
 
-		JBXTransportExport (inputData) {
+		SNPTransportExport (inputData) {
 			if (typeof inputData !== 'object' || inputData === null) {
-				throw new Error('JBXErrorInputNotValid');
+				throw new Error('SNPErrorInputNotValid');
 			}
 
 			return Object.entries(inputData).reduce(function (coll, [key, value]) {
 				if (!Array.isArray(value)) {
-					throw new Error('JBXErrorInputNotValid');
+					throw new Error('SNPErrorInputNotValid');
 				}
 
 				if (!value.length) {
@@ -54,7 +54,7 @@ export default {
 				
 				return Object.assign(coll, {
 					[key]: value.filter(function (e) {
-						return !e.$JBXDocumentIsInbox;
+						return !e.$SNPDocumentIsInbox;
 					}).map(OLSKRemoteStorage.OLSKRemoteStorageSafeCopy),
 				});
 			}, {});

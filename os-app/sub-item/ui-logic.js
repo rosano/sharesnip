@@ -2,9 +2,9 @@ import OLSKString from 'OLSKString';
 
 const mod = {
 
-	JBXPlayListItemHumanURL (inputData) {
+	SNPPlayListItemHumanURL (inputData) {
 		if (typeof inputData !== 'string') {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return OLSKString.OLSKStringSnippet(inputData.replace(/https?:\/\/(www\.)?/, ''));

@@ -1,8 +1,8 @@
 exports.OLSKControllerRoutes = function() {
 	return [{
-		OLSKRoutePath: '/stub/JBXPlayShare',
+		OLSKRoutePath: '/stub/SNPPlayShare',
 		OLSKRouteMethod: 'get',
-		OLSKRouteSignature: 'JBXPlayShareStubRoute',
+		OLSKRouteSignature: 'SNPPlayShareStubRoute',
 		OLSKRouteFunction (req, res, next) {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'stub-view'));
 		},

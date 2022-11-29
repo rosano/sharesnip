@@ -15,8 +15,8 @@ The following 'bookmarklets' can be dragged to your browser's favourites and wil
 
 |||
 :--- | ---
-| <a class="JBXGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(location.href)+'&JBXPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&JBXPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
-| <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(location.href)+'&SNPPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
 
 # Add by pasting links or text
 
@@ -24,12 +24,12 @@ Text input is interpreted based on how lines are spaced. The link can be at the 
 
 |||
 :--- | ---
-| **Two lines single-spaced:**<br><pre>JBXGuideTokenTextbox1a</pre> | Add one item. |
-| **Three lines single-spaced, including a link:**<br><pre>JBXGuideTokenTextbox1b</pre> | Add one item. |
-| **Two blocks double-spaced:**<br><pre>JBXGuideTokenTextbox2a</pre> | Add two items. |
-| **Two blocks double-spaced, each with a link:**<br><pre>JBXGuideTokenTextbox2b</pre> | Add two items. |
-| **Two lines single-spaced, each with a link:**<br><pre>JBXGuideTokenTextbox2c</pre> | Add two items. |
-| **Two links on the same line:**<br><pre>JBXGuideTokenTextbox2d</pre> | Add two items. |
+| **Two lines single-spaced:**<br><pre>SNPGuideTokenTextbox1a</pre> | Add one item. |
+| **Three lines single-spaced, including a link:**<br><pre>SNPGuideTokenTextbox1b</pre> | Add one item. |
+| **Two blocks double-spaced:**<br><pre>SNPGuideTokenTextbox2a</pre> | Add two items. |
+| **Two blocks double-spaced, each with a link:**<br><pre>SNPGuideTokenTextbox2b</pre> | Add two items. |
+| **Two lines single-spaced, each with a link:**<br><pre>SNPGuideTokenTextbox2c</pre> | Add two items. |
+| **Two links on the same line:**<br><pre>SNPGuideTokenTextbox2d</pre> | Add two items. |
 
 # Item catalog
 
@@ -41,13 +41,13 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 </div>
 
-*JBXPlayDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *JBXPlayRevealArchiveButtonText* button was pressed.
+*SNPPlayDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *SNPPlayRevealArchiveButtonText* button was pressed.
 
-*JBXPlayDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
+*SNPPlayDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
 
-*JBXPlayDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *JBXPlayDetailMediaFetchButtonText*.
+*SNPPlayDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPPlayDetailMediaFetchButtonText*.
 
-*JBXPlayDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
+*SNPPlayDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
 
 *OLSKTaxonomyFieldText* can be used to organize items and make them easier to find.
 
@@ -55,21 +55,21 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 ## Sending a playlist
 
-1. Press the *JBXPlayStashButtonText* button.
+1. Press the *SNPPlayStashButtonText* button.
 2. Select one or more items from the list, then press OK.
-3. Re-order if necessary by dragging or pressing the arrow buttons, then press *JBXPlayShareCopyButtonText*.
+3. Re-order if necessary by dragging or pressing the arrow buttons, then press *SNPPlayShareCopyButtonText*.
 
 ## Receiving a playlist
 
-The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
+The items are grouped at the top of the list in a section called *SNPPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
 
-Clear the inbox by pressing *JBXPlayClearInboxButtonText*.
+Clear the inbox by pressing *SNPPlayClearInboxButtonText*.
 
-Add an inbox item to your collection by pressing the *JBXPlayDetailToolbarQueueButtonText* button.
+Add an inbox item to your collection by pressing the *SNPPlayDetailToolbarQueueButtonText* button.
 
 # API Parameters
 
-`JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#PARAM=TEXT`
+`SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#PARAM=TEXT`
 
 <div class="OLSKDecorNotice">
 
@@ -79,9 +79,9 @@ Note: this only works with a trailing slash before `#`.
 
 | PARAM | TEXT |
 :--- | ---
-| `JBXPlayCaptureAnchor` | URL or plain text. |
-| `JBXPlayNameAnchor` | Item name. Note: if multiple URLs are present in `JBXPlayCaptureAnchor`, this will set the name for all items. |
-| `JBXPlayInboxAnchor` | URL-encoded JSON array of objects. |
+| `SNPPlayCaptureAnchor` | URL or plain text. |
+| `SNPPlayNameAnchor` | Item name. Note: if multiple URLs are present in `SNPPlayCaptureAnchor`, this will set the name for all items. |
+| `SNPPlayInboxAnchor` | URL-encoded JSON array of objects. |
 
 # Shortcuts
 
@@ -121,7 +121,7 @@ Note: this only works with a trailing slash before `#`.
 
 This web app can be 'installed' and used as if it were a native mobile app (with an icon, working without internet access, running as a standalone app outside of the browser).
 
-1. [Open the app](JBXPlayRoute) in your browser, then follow the steps based on your operating system:
+1. [Open the app](SNPPlayRoute) in your browser, then follow the steps based on your operating system:
 
 ## iOS + Safari
 2. Tap the Share button <img height="22" valign="middle" alt="Share button icon" src="/_shared/__external/OLSKUIAssets/_OLSKSharediOSShare.svg" />

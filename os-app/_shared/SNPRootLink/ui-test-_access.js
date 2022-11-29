@@ -1,19 +1,19 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	JBXRootLink: '.JBXRootLink',
+	SNPRootLink: '.SNPRootLink',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('JBXRootLink_Access', function () {
+describe('SNPRootLink_Access', function () {
 	
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 	
-	it('shows JBXRootLink', function() {
-		browser.assert.elements(JBXRootLink, 1);
+	it('shows SNPRootLink', function() {
+		browser.assert.elements(SNPRootLink, 1);
 	});
 	
 	it('shows OLSKRootLink', function() {

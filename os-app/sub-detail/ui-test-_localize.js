@@ -6,99 +6,99 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('JBXPlayDetail_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPPlayDetail_Localize-' + OLSKRoutingLanguage, function () {
 
-		context('JBXPlayDetailItem', function() {
+		context('SNPPlayDetailItem', function() {
 		
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
-					JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-						JBXDocumentURL: Math.random().toString(),
+					SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+						SNPDocumentURL: Math.random().toString(),
 					})),
 				});
 			});
 
-			it('localizes JBXPlayDetailToolbarBackButton', function () {
-				browser.assert.attribute(JBXPlayDetailToolbarBackButton, 'title', uLocalized('JBXPlayDetailToolbarBackButtonText'));
+			it('localizes SNPPlayDetailToolbarBackButton', function () {
+				browser.assert.attribute(SNPPlayDetailToolbarBackButton, 'title', uLocalized('SNPPlayDetailToolbarBackButtonText'));
 			});
 
-			it('localizes JBXPlayDetailToolbarArchiveButton', function () {
-				browser.assert.attribute(JBXPlayDetailToolbarArchiveButton, 'title', uLocalized('JBXPlayDetailToolbarArchiveButtonText'));
+			it('localizes SNPPlayDetailToolbarArchiveButton', function () {
+				browser.assert.attribute(SNPPlayDetailToolbarArchiveButton, 'title', uLocalized('SNPPlayDetailToolbarArchiveButtonText'));
 			});
 
-			it('localizes JBXPlayDetailToolbarDiscardButton', function () {
-				browser.assert.attribute(JBXPlayDetailToolbarDiscardButton, 'title', uLocalized('JBXPlayDetailToolbarDiscardButtonText'));
+			it('localizes SNPPlayDetailToolbarDiscardButton', function () {
+				browser.assert.attribute(SNPPlayDetailToolbarDiscardButton, 'title', uLocalized('SNPPlayDetailToolbarDiscardButtonText'));
 			});
 
-			it('localizes JBXPlayDetailMediaURLField', function () {
-				browser.assert.attribute(JBXPlayDetailMediaURLField, 'placeholder', uLocalized('JBXPlayDetailMediaURLFieldText'));
+			it('localizes SNPPlayDetailMediaURLField', function () {
+				browser.assert.attribute(SNPPlayDetailMediaURLField, 'placeholder', uLocalized('SNPPlayDetailMediaURLFieldText'));
 			});
 
-			it('localizes JBXPlayDetailMediaOpenButton', function () {
-				browser.assert.text(JBXPlayDetailMediaOpenButton, uLocalized('JBXPlayDetailMediaOpenButtonText'));
+			it('localizes SNPPlayDetailMediaOpenButton', function () {
+				browser.assert.text(SNPPlayDetailMediaOpenButton, uLocalized('SNPPlayDetailMediaOpenButtonText'));
 			});
 
-			it('localizes JBXPlayDetailMediaFetchButton', function () {
-				browser.assert.text(JBXPlayDetailMediaFetchButton, uLocalized('JBXPlayDetailMediaFetchButtonText'));
+			it('localizes SNPPlayDetailMediaFetchButton', function () {
+				browser.assert.text(SNPPlayDetailMediaFetchButton, uLocalized('SNPPlayDetailMediaFetchButtonText'));
 			});
 
-			it('localizes JBXPlayDetailFormNameField', function () {
-				browser.assert.attribute(JBXPlayDetailFormNameField, 'placeholder', uLocalized('JBXPlayDetailFormNameFieldText'));
+			it('localizes SNPPlayDetailFormNameField', function () {
+				browser.assert.attribute(SNPPlayDetailFormNameField, 'placeholder', uLocalized('SNPPlayDetailFormNameFieldText'));
 			});
 
-			it('localizes JBXPlayDetailFormNotesField', function () {
-				browser.assert.attribute(JBXPlayDetailFormNotesField, 'placeholder', uLocalized('JBXPlayDetailFormNotesFieldText'));
+			it('localizes SNPPlayDetailFormNotesField', function () {
+				browser.assert.attribute(SNPPlayDetailFormNotesField, 'placeholder', uLocalized('SNPPlayDetailFormNotesFieldText'));
 			});
 
-			it('localizes JBXPlayDetailLauncherItemArchive', function () {
-				return browser.assert.OLSKLauncherItemText('JBXPlayDetailLauncherItemArchive', uLocalized('JBXPlayDetailToolbarArchiveButtonText'));
+			it('localizes SNPPlayDetailLauncherItemArchive', function () {
+				return browser.assert.OLSKLauncherItemText('SNPPlayDetailLauncherItemArchive', uLocalized('SNPPlayDetailToolbarArchiveButtonText'));
 			});
 
 			context('discard', function () {
 			
-				it('localizes JBXPlayDetailDiscardConfirm', function() {
+				it('localizes SNPPlayDetailDiscardConfirm', function() {
 					browser.assert.OLSKConfirmQuestion(function () {
-						return browser.pressButton(JBXPlayDetailToolbarDiscardButton);
+						return browser.pressButton(SNPPlayDetailToolbarDiscardButton);
 					}, uLocalized('OLSKWordingConfirmText'));
 				});
 		
 			});
 
-			context('JBXDocumentArchiveDate', function() {
+			context('SNPDocumentArchiveDate', function() {
 
 				before(function() {
 					return browser.OLSKVisit(kDefaultRoute, {
 						OLSKRoutingLanguage,
-						JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-							JBXDocumentArchiveDate: new Date(),
+						SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+							SNPDocumentArchiveDate: new Date(),
 						})),
 					});
 				});
 
-				it('localizes JBXPlayDetailToolbarUnarchiveButton', function () {
-					browser.assert.attribute(JBXPlayDetailToolbarUnarchiveButton, 'title', uLocalized('JBXPlayDetailToolbarUnarchiveButtonText'));
+				it('localizes SNPPlayDetailToolbarUnarchiveButton', function () {
+					browser.assert.attribute(SNPPlayDetailToolbarUnarchiveButton, 'title', uLocalized('SNPPlayDetailToolbarUnarchiveButtonText'));
 				});
 
-				it('localizes JBXPlayDetailLauncherItemUnarchive', function () {
-					return browser.assert.OLSKLauncherItemText('JBXPlayDetailLauncherItemUnarchive', uLocalized('JBXPlayDetailToolbarUnarchiveButtonText'));
+				it('localizes SNPPlayDetailLauncherItemUnarchive', function () {
+					return browser.assert.OLSKLauncherItemText('SNPPlayDetailLauncherItemUnarchive', uLocalized('SNPPlayDetailToolbarUnarchiveButtonText'));
 				});
 
 			});
 
-			context('$JBXDocumentIsInbox', function() {
+			context('$SNPDocumentIsInbox', function() {
 
 				before(function() {
 					return browser.OLSKVisit(kDefaultRoute, {
 						OLSKRoutingLanguage,
-						JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-							$JBXDocumentIsInbox: true,
+						SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+							$SNPDocumentIsInbox: true,
 						})),
 					});
 				});
 
-				it('localizes JBXPlayDetailToolbarQueueButton', function () {
-					browser.assert.attribute(JBXPlayDetailToolbarQueueButton, 'title', uLocalized('JBXPlayDetailToolbarQueueButtonText'));
+				it('localizes SNPPlayDetailToolbarQueueButton', function () {
+					browser.assert.attribute(SNPPlayDetailToolbarQueueButton, 'title', uLocalized('SNPPlayDetailToolbarQueueButtonText'));
 				});
 
 			});

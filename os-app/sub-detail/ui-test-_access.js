@@ -1,238 +1,238 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	JBXPlayDetail: '.JBXPlayDetail',
+	SNPPlayDetail: '.SNPPlayDetail',
 
-	JBXPlayDetailToolbar: '.JBXPlayDetailToolbar',
+	SNPPlayDetailToolbar: '.SNPPlayDetailToolbar',
 	
-	JBXPlayDetailToolbarBackButton: '.JBXPlayDetailToolbarBackButton',
-	JBXPlayDetailToolbarBackButtonImage: '.JBXPlayDetailToolbarBackButtonImage',
+	SNPPlayDetailToolbarBackButton: '.SNPPlayDetailToolbarBackButton',
+	SNPPlayDetailToolbarBackButtonImage: '.SNPPlayDetailToolbarBackButtonImage',
 
-	JBXPlayDetailToolbarQueueButton: '.JBXPlayDetailToolbarQueueButton',	
-	JBXPlayDetailToolbarQueueButtonImage: '.JBXPlayDetailToolbarQueueButtonImage',
+	SNPPlayDetailToolbarQueueButton: '.SNPPlayDetailToolbarQueueButton',	
+	SNPPlayDetailToolbarQueueButtonImage: '.SNPPlayDetailToolbarQueueButtonImage',
 	
-	JBXPlayDetailToolbarArchiveButton: '.JBXPlayDetailToolbarArchiveButton',
-	JBXPlayDetailToolbarArchiveButtonImage: '.JBXPlayDetailToolbarArchiveButtonImage',
-	JBXPlayDetailToolbarUnarchiveButton: '.JBXPlayDetailToolbarUnarchiveButton',
-	JBXPlayDetailToolbarUnarchiveButtonImage: '.JBXPlayDetailToolbarUnarchiveButtonImage',
+	SNPPlayDetailToolbarArchiveButton: '.SNPPlayDetailToolbarArchiveButton',
+	SNPPlayDetailToolbarArchiveButtonImage: '.SNPPlayDetailToolbarArchiveButtonImage',
+	SNPPlayDetailToolbarUnarchiveButton: '.SNPPlayDetailToolbarUnarchiveButton',
+	SNPPlayDetailToolbarUnarchiveButtonImage: '.SNPPlayDetailToolbarUnarchiveButtonImage',
 
-	JBXPlayDetailToolbarDiscardButton: '.JBXPlayDetailToolbarDiscardButton',	
-	JBXPlayDetailToolbarDiscardButtonImage: '.JBXPlayDetailToolbarDiscardButtonImage',
+	SNPPlayDetailToolbarDiscardButton: '.SNPPlayDetailToolbarDiscardButton',	
+	SNPPlayDetailToolbarDiscardButtonImage: '.SNPPlayDetailToolbarDiscardButtonImage',
 
-	JBXPlayDetailMedia: '.JBXPlayDetailMedia',
-	JBXPlayDetailMediaPlayer: '.JBXPlayDetailMediaPlayer',
-	JBXPlayDetailMediaURLField: '.JBXPlayDetailMediaURLField',
-	JBXPlayDetailMediaOpenButton: '.JBXPlayDetailMediaOpenButton',
-	JBXPlayDetailMediaFetchButton: '.JBXPlayDetailMediaFetchButton',
+	SNPPlayDetailMedia: '.SNPPlayDetailMedia',
+	SNPPlayDetailMediaPlayer: '.SNPPlayDetailMediaPlayer',
+	SNPPlayDetailMediaURLField: '.SNPPlayDetailMediaURLField',
+	SNPPlayDetailMediaOpenButton: '.SNPPlayDetailMediaOpenButton',
+	SNPPlayDetailMediaFetchButton: '.SNPPlayDetailMediaFetchButton',
 
-	JBXPlayDetailForm: '.JBXPlayDetailForm',
-	JBXPlayDetailFormNameField: '.JBXPlayDetailFormNameField',
-	JBXPlayDetailFormNotesField: '.JBXPlayDetailFormNotesField',
+	SNPPlayDetailForm: '.SNPPlayDetailForm',
+	SNPPlayDetailFormNameField: '.SNPPlayDetailFormNameField',
+	SNPPlayDetailFormNotesField: '.SNPPlayDetailFormNotesField',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('JBXPlayDetail_Access', function () {
+describe('SNPPlayDetail_Access', function () {
 	
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows JBXPlayDetail', function () {
-		browser.assert.elements(JBXPlayDetail, 1);
+	it('shows SNPPlayDetail', function () {
+		browser.assert.elements(SNPPlayDetail, 1);
 	});
 
-	it('shows JBXPlayDetailToolbar', function () {
-		browser.assert.elements(JBXPlayDetailToolbar, 1);
+	it('shows SNPPlayDetailToolbar', function () {
+		browser.assert.elements(SNPPlayDetailToolbar, 1);
 	});
 
-	it('shows JBXPlayDetailToolbarBackButton', function () {
-		browser.assert.elements(JBXPlayDetailToolbarBackButton, 1);
+	it('shows SNPPlayDetailToolbarBackButton', function () {
+		browser.assert.elements(SNPPlayDetailToolbarBackButton, 1);
 	});
 
-	it('shows JBXPlayDetailToolbarBackButtonImage', function () {
-		browser.assert.elements(JBXPlayDetailToolbarBackButtonImage, 1);
+	it('shows SNPPlayDetailToolbarBackButtonImage', function () {
+		browser.assert.elements(SNPPlayDetailToolbarBackButtonImage, 1);
 	});
 
-	it('hides JBXPlayDetailToolbarQueueButton', function () {
-		browser.assert.elements(JBXPlayDetailToolbarQueueButton, 0);
+	it('hides SNPPlayDetailToolbarQueueButton', function () {
+		browser.assert.elements(SNPPlayDetailToolbarQueueButton, 0);
 	});
 
-	it('shows JBXPlayDetailToolbarArchiveButton', function () {
-		browser.assert.elements(JBXPlayDetailToolbarArchiveButton, 1);
+	it('shows SNPPlayDetailToolbarArchiveButton', function () {
+		browser.assert.elements(SNPPlayDetailToolbarArchiveButton, 1);
 	});
 
-	it('shows JBXPlayDetailToolbarArchiveButtonImage', function () {
-		browser.assert.elements(JBXPlayDetailToolbarArchiveButtonImage, 1);
+	it('shows SNPPlayDetailToolbarArchiveButtonImage', function () {
+		browser.assert.elements(SNPPlayDetailToolbarArchiveButtonImage, 1);
 	});
 
-	it('hides JBXPlayDetailToolbarUnarchiveButton', function () {
-		browser.assert.elements(JBXPlayDetailToolbarUnarchiveButton, 0);
+	it('hides SNPPlayDetailToolbarUnarchiveButton', function () {
+		browser.assert.elements(SNPPlayDetailToolbarUnarchiveButton, 0);
 	});
 
-	it('shows JBXPlayDetailToolbarDiscardButton', function () {
-		browser.assert.elements(JBXPlayDetailToolbarDiscardButton, 1);
+	it('shows SNPPlayDetailToolbarDiscardButton', function () {
+		browser.assert.elements(SNPPlayDetailToolbarDiscardButton, 1);
 	});
 
-	it('shows JBXPlayDetailToolbarDiscardButtonImage', function () {
-		browser.assert.elements(JBXPlayDetailToolbarDiscardButtonImage, 1);
+	it('shows SNPPlayDetailToolbarDiscardButtonImage', function () {
+		browser.assert.elements(SNPPlayDetailToolbarDiscardButtonImage, 1);
 	});
 
-	it('hides JBXPlayDetailMedia', function () {
-		browser.assert.elements(JBXPlayDetailMedia, 0);
+	it('hides SNPPlayDetailMedia', function () {
+		browser.assert.elements(SNPPlayDetailMedia, 0);
 	});
 
-	it('shows JBXPlayDetailForm', function () {
-		browser.assert.elements(JBXPlayDetailForm, 1);
+	it('shows SNPPlayDetailForm', function () {
+		browser.assert.elements(SNPPlayDetailForm, 1);
 	});
 
-	it('shows JBXPlayDetailFormNameField', function () {
-		browser.assert.elements(JBXPlayDetailFormNameField, 1);
+	it('shows SNPPlayDetailFormNameField', function () {
+		browser.assert.elements(SNPPlayDetailFormNameField, 1);
 	});
 
-	it('shows JBXPlayDetailFormNotesField', function () {
-		browser.assert.elements(JBXPlayDetailFormNotesField, 1);
+	it('shows SNPPlayDetailFormNotesField', function () {
+		browser.assert.elements(SNPPlayDetailFormNotesField, 1);
 	});
 
 	it('shows OLSKTaxonomy', function () {
 		browser.assert.elements('.OLSKTaxonomy', 1);
 	});
 
-	it('shows JBXPlayDetailLauncherItemArchive', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 1);
+	it('shows SNPPlayDetailLauncherItemArchive', function () {
+		return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemArchive', 1);
 	});
 
-	it('hides JBXPlayDetailLauncherItemUnarchive', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 0);
+	it('hides SNPPlayDetailLauncherItemUnarchive', function () {
+		return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemUnarchive', 0);
 	});
 
-	context('JBXDocumentURL', function() {
+	context('SNPDocumentURL', function() {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentURL: Math.random().toString(),
+				SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					SNPDocumentURL: Math.random().toString(),
 				})),
 			});
 		});
 
-		it('shows JBXPlayDetailMedia', function () {
-			browser.assert.elements(JBXPlayDetailMedia, 1);
+		it('shows SNPPlayDetailMedia', function () {
+			browser.assert.elements(SNPPlayDetailMedia, 1);
 		});
 
-		it('hides JBXPlayDetailMediaPlayer', function () {
-			browser.assert.elements(JBXPlayDetailMediaPlayer, 0);
+		it('hides SNPPlayDetailMediaPlayer', function () {
+			browser.assert.elements(SNPPlayDetailMediaPlayer, 0);
 		});
 
-		it('shows JBXPlayDetailMediaURLField', function () {
-			browser.assert.elements(JBXPlayDetailMediaURLField, 1);
+		it('shows SNPPlayDetailMediaURLField', function () {
+			browser.assert.elements(SNPPlayDetailMediaURLField, 1);
 		});
 
-		it('shows JBXPlayDetailMediaOpenButton', function () {
-			browser.assert.elements(JBXPlayDetailMediaOpenButton, 1);
+		it('shows SNPPlayDetailMediaOpenButton', function () {
+			browser.assert.elements(SNPPlayDetailMediaOpenButton, 1);
 		});
 
-		it('shows JBXPlayDetailMediaFetchButton', function () {
-			browser.assert.elements(JBXPlayDetailMediaFetchButton, 1);
-		});
-
-	});
-
-	context('JBXDocumentEmbedURL', function() {
-
-		before(function() {
-			return browser.OLSKVisit(kDefaultRoute, {
-				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentURL: Math.random().toString(),
-					JBXDocumentEmbedURL: '/?' + Math.random().toString(),
-				})),
-			});
-		});
-
-		it('shows JBXPlayDetailMediaPlayer', function () {
-			browser.assert.elements(JBXPlayDetailMediaPlayer, 1);
+		it('shows SNPPlayDetailMediaFetchButton', function () {
+			browser.assert.elements(SNPPlayDetailMediaFetchButton, 1);
 		});
 
 	});
 
-	context('JBXDocumentArchiveDate', function() {
+	context('SNPDocumentEmbedURL', function() {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentArchiveDate: new Date(),
+				SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					SNPDocumentURL: Math.random().toString(),
+					SNPDocumentEmbedURL: '/?' + Math.random().toString(),
 				})),
 			});
 		});
 
-		it('hides JBXPlayDetailToolbarArchiveButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarArchiveButton, 0);
-		});
-
-		it('shows JBXPlayDetailToolbarUnarchiveButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarUnarchiveButton, 1);
-		});
-
-		it('shows JBXPlayDetailToolbarUnarchiveButtonImage', function () {
-			browser.assert.elements(JBXPlayDetailToolbarUnarchiveButtonImage, 1);
-		});
-
-		it('hides JBXPlayDetailLauncherItemArchive', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 0);
-		});
-
-		it('shows JBXPlayDetailLauncherItemUnarchive', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 1);
+		it('shows SNPPlayDetailMediaPlayer', function () {
+			browser.assert.elements(SNPPlayDetailMediaPlayer, 1);
 		});
 
 	});
 
-	context('$JBXDocumentIsInbox', function() {
+	context('SNPDocumentArchiveDate', function() {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					$JBXDocumentIsInbox: true,
+				SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					SNPDocumentArchiveDate: new Date(),
 				})),
 			});
 		});
 
-		it('shows JBXPlayDetailToolbarQueueButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarQueueButton, 1);
+		it('hides SNPPlayDetailToolbarArchiveButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarArchiveButton, 0);
 		});
 
-		it('shows JBXPlayDetailToolbarQueueButtonImage', function () {
-			browser.assert.elements(JBXPlayDetailToolbarQueueButtonImage, 1);
+		it('shows SNPPlayDetailToolbarUnarchiveButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarUnarchiveButton, 1);
 		});
 
-		it('hides JBXPlayDetailToolbarArchiveButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarArchiveButton, 0);
+		it('shows SNPPlayDetailToolbarUnarchiveButtonImage', function () {
+			browser.assert.elements(SNPPlayDetailToolbarUnarchiveButtonImage, 1);
 		});
 
-		it('hides JBXPlayDetailToolbarUnarchiveButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarUnarchiveButton, 0);
+		it('hides SNPPlayDetailLauncherItemArchive', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemArchive', 0);
 		});
 
-		it('hides JBXPlayDetailToolbarDiscardButton', function () {
-			browser.assert.elements(JBXPlayDetailToolbarDiscardButton, 0);
+		it('shows SNPPlayDetailLauncherItemUnarchive', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemUnarchive', 1);
 		});
 
-		it('hides JBXPlayDetailMediaFetchButton', function () {
-			browser.assert.elements(JBXPlayDetailMediaFetchButton, 0);
+	});
+
+	context('$SNPDocumentIsInbox', function() {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					$SNPDocumentIsInbox: true,
+				})),
+			});
+		});
+
+		it('shows SNPPlayDetailToolbarQueueButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarQueueButton, 1);
+		});
+
+		it('shows SNPPlayDetailToolbarQueueButtonImage', function () {
+			browser.assert.elements(SNPPlayDetailToolbarQueueButtonImage, 1);
+		});
+
+		it('hides SNPPlayDetailToolbarArchiveButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarArchiveButton, 0);
+		});
+
+		it('hides SNPPlayDetailToolbarUnarchiveButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarUnarchiveButton, 0);
+		});
+
+		it('hides SNPPlayDetailToolbarDiscardButton', function () {
+			browser.assert.elements(SNPPlayDetailToolbarDiscardButton, 0);
+		});
+
+		it('hides SNPPlayDetailMediaFetchButton', function () {
+			browser.assert.elements(SNPPlayDetailMediaFetchButton, 0);
 		});
 
 		it('hides OLSKTaxonomy', function () {
 			browser.assert.elements('.OLSKTaxonomy', 0);
 		});
 
-		it('hides JBXPlayDetailLauncherItemArchive', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 0);
+		it('hides SNPPlayDetailLauncherItemArchive', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemArchive', 0);
 		});
 
-		it('hides JBXPlayDetailLauncherItemUnarchive', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 0);
+		it('hides SNPPlayDetailLauncherItemUnarchive', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherItemUnarchive', 0);
 		});
 
 	});

@@ -4,7 +4,7 @@ const mod = {
 		return [{
 			OLSKRoutePath: '/play',
 			OLSKRouteMethod: 'get',
-			OLSKRouteSignature: 'JBXPlayRoute',
+			OLSKRouteSignature: 'SNPPlayRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'ui-view.ejs'));
 			},
@@ -12,7 +12,7 @@ const mod = {
 		}, {
 			OLSKRoutePath: '/proxy',
 			OLSKRouteMethod: 'get',
-			OLSKRouteSignature: 'JBXProxyRoute',
+			OLSKRouteSignature: 'SNPProxyRoute',
 			async OLSKRouteFunction (req, res, next) {
 				return res.send(await (await require('node-fetch')(req.query.uri)).text());
 			},

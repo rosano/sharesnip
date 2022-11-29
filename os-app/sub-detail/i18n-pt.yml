@@ -1,10 +1,10 @@
-JBXPlayDetailToolbarBackButtonText: Voltar
-JBXPlayDetailToolbarQueueButtonText: Adicionar à coleção
-JBXPlayDetailToolbarArchiveButtonText: Arquivar
-JBXPlayDetailToolbarUnarchiveButtonText: Desarquivar
-JBXPlayDetailToolbarDiscardButtonText: Descartar
-JBXPlayDetailMediaURLFieldText: URL
-JBXPlayDetailMediaOpenButtonText: Abrir
-JBXPlayDetailMediaFetchButtonText: Buscar
-JBXPlayDetailFormNameFieldText: Nome
-JBXPlayDetailFormNotesFieldText: Notas
+SNPPlayDetailToolbarBackButtonText: Voltar
+SNPPlayDetailToolbarQueueButtonText: Adicionar à coleção
+SNPPlayDetailToolbarArchiveButtonText: Arquivar
+SNPPlayDetailToolbarUnarchiveButtonText: Desarquivar
+SNPPlayDetailToolbarDiscardButtonText: Descartar
+SNPPlayDetailMediaURLFieldText: URL
+SNPPlayDetailMediaOpenButtonText: Abrir
+SNPPlayDetailMediaFetchButtonText: Buscar
+SNPPlayDetailFormNameFieldText: Nome
+SNPPlayDetailFormNotesFieldText: Notas

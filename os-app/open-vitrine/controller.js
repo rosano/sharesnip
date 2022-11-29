@@ -2,7 +2,7 @@ exports.OLSKControllerRoutes = function() {
 	return [{
 		OLSKRoutePath: '/',
 		OLSKRouteMethod: 'get',
-		OLSKRouteSignature: 'JBXVitrineRoute',
+		OLSKRouteSignature: 'SNPVitrineRoute',
 		OLSKRouteFunction (req, res, next) {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'ui-view'));
 		},

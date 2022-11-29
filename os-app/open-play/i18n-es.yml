@@ -1,12 +1,12 @@
-JBXPlayTitle: Poner
-JBXPlayStashButtonText: Apilar
-JBXPlayToggleFormButtonText: Añadir
-JBXPlayClearInboxButtonText: Borrar la bandeja de entrada
-JBXPlayFormFieldText: Pegue sus enlaces aquí.
-JBXPlayFormSubmitButtonText: Enviar
-JBXPlayChunkInboxText: Bandeja de entrada
-JBXPlayChunkTodayText: Hoy
-JBXPlayChunkYesterdayText: Ayer
-JBXPlayChunkArchiveText: Archivo
-JBXPlayRevealArchiveButtonText: Revelar el archivo
-JBXPlayShareModalTitleText: Compartir
+SNPPlayTitle: Poner
+SNPPlayStashButtonText: Apilar
+SNPPlayToggleFormButtonText: Añadir
+SNPPlayClearInboxButtonText: Borrar la bandeja de entrada
+SNPPlayFormFieldText: Pegue sus enlaces aquí.
+SNPPlayFormSubmitButtonText: Enviar
+SNPPlayChunkInboxText: Bandeja de entrada
+SNPPlayChunkTodayText: Hoy
+SNPPlayChunkYesterdayText: Ayer
+SNPPlayChunkArchiveText: Archivo
+SNPPlayRevealArchiveButtonText: Revelar el archivo
+SNPPlayShareModalTitleText: Compartir

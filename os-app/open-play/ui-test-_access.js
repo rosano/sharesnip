@@ -1,89 +1,89 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const JBXPlayLogic = require('./ui-logic.js').default;
+const SNPPlayLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
 Object.entries({
-	JBXPlay: '.JBXPlay',
+	SNPPlay: '.SNPPlay',
 	
-	JBXPlayStashButton: '.JBXPlayStashButton',
-	JBXPlayStashButtonImage: '.JBXPlayStashButtonImage',
+	SNPPlayStashButton: '.SNPPlayStashButton',
+	SNPPlayStashButtonImage: '.SNPPlayStashButtonImage',
 	
-	JBXPlayToggleFormButton: '.JBXPlayToggleFormButton',
-	JBXPlayToggleFormButtonImage: '.JBXPlayToggleFormButtonImage',
+	SNPPlayToggleFormButton: '.SNPPlayToggleFormButton',
+	SNPPlayToggleFormButtonImage: '.SNPPlayToggleFormButtonImage',
 
-	JBXPlayForm: '.JBXPlayForm',
-	JBXPlayFormField: '.JBXPlayFormField',
-	JBXPlayFormTaxonomy: '.JBXPlayForm .OLSKTaxonomy',
-	JBXPlayFormSubmitButton: '.JBXPlayFormSubmitButton',
+	SNPPlayForm: '.SNPPlayForm',
+	SNPPlayFormField: '.SNPPlayFormField',
+	SNPPlayFormTaxonomy: '.SNPPlayForm .OLSKTaxonomy',
+	SNPPlayFormSubmitButton: '.SNPPlayFormSubmitButton',
 
-	JBXPlayClearInboxButton: '.JBXPlayClearInboxButton',
+	SNPPlayClearInboxButton: '.SNPPlayClearInboxButton',
 
-	JBXPlayListItem: '.JBXPlayListItem',
+	SNPPlayListItem: '.SNPPlayListItem',
 
-	JBXPlayRevealArchiveButton: '.JBXPlayRevealArchiveButton',
+	SNPPlayRevealArchiveButton: '.SNPPlayRevealArchiveButton',
 
-	JBXPlayViewportFooter: '.JBXPlayViewportFooter',
+	SNPPlayViewportFooter: '.SNPPlayViewportFooter',
 	
-	JBXPlayCloudToolbar: '.JBXPlayCloudToolbar',
+	SNPPlayCloudToolbar: '.SNPPlayCloudToolbar',
 	
-	JBXPlayShareModal: '.OLSKModalView .JBXPlayShare',
+	SNPPlayShareModal: '.OLSKModalView .SNPPlayShare',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('JBXPlay_Access', function () {
+describe('SNPPlay_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	it('shows JBXPlay', function () {
-		browser.assert.elements(JBXPlay, 1);
+	it('shows SNPPlay', function () {
+		browser.assert.elements(SNPPlay, 1);
 	});
 
 	it('shows OLSKCatalog', function () {
 		browser.assert.elements('.OLSKCatalog', 1);
 	});
 
-	it('shows JBXPlayStashButton', function () {
-		browser.assert.elements(JBXPlayStashButton, 1);
+	it('shows SNPPlayStashButton', function () {
+		browser.assert.elements(SNPPlayStashButton, 1);
 	});
 
-	it('shows JBXPlayStashButtonImage', function () {
-		browser.assert.elements(JBXPlayStashButtonImage, 1);
+	it('shows SNPPlayStashButtonImage', function () {
+		browser.assert.elements(SNPPlayStashButtonImage, 1);
 	});
 
-	it('shows JBXPlayToggleFormButton', function () {
-		browser.assert.elements(JBXPlayToggleFormButton, 1);
+	it('shows SNPPlayToggleFormButton', function () {
+		browser.assert.elements(SNPPlayToggleFormButton, 1);
 	});
 
-	it('shows JBXPlayToggleFormButtonImage', function () {
-		browser.assert.elements(JBXPlayToggleFormButtonImage, 1);
+	it('shows SNPPlayToggleFormButtonImage', function () {
+		browser.assert.elements(SNPPlayToggleFormButtonImage, 1);
 	});
 
-	it('hides JBXPlayForm', function () {
-		browser.assert.elements(JBXPlayForm, 0);
+	it('hides SNPPlayForm', function () {
+		browser.assert.elements(SNPPlayForm, 0);
 	});
 
-	it('hides JBXPlayClearInboxButton', function () {
-		browser.assert.elements(JBXPlayClearInboxButton, 0);
+	it('hides SNPPlayClearInboxButton', function () {
+		browser.assert.elements(SNPPlayClearInboxButton, 0);
 	});
 
-	it('hides JBXPlayListItem', function () {
-		browser.assert.elements(JBXPlayListItem, 0);
+	it('hides SNPPlayListItem', function () {
+		browser.assert.elements(SNPPlayListItem, 0);
 	});
 
-	it('hides JBXPlayRevealArchiveButton', function () {
-		browser.assert.elements(JBXPlayRevealArchiveButton, 0);
+	it('hides SNPPlayRevealArchiveButton', function () {
+		browser.assert.elements(SNPPlayRevealArchiveButton, 0);
 	});
 
-	it('shows JBXPlayViewportFooter', function () {
-		browser.assert.elements(JBXPlayViewportFooter, 1);
+	it('shows SNPPlayViewportFooter', function () {
+		browser.assert.elements(SNPPlayViewportFooter, 1);
 	});
 
-	it('hides JBXPlayCloudToolbar', function () {
-		browser.assert.elements(JBXPlayCloudToolbar, 0);
+	it('hides SNPPlayCloudToolbar', function () {
+		browser.assert.elements(SNPPlayCloudToolbar, 0);
 	});
 
 	it('shows OLSKAppToolbar', function () {
@@ -110,12 +110,12 @@ describe('JBXPlay_Access', function () {
 		browser.assert.elements('.OLSKInstall', 1);
 	});
 
-	it('hides JBXPlayShareModal', function () {
-		browser.assert.elements(JBXPlayShareModal, 0);
+	it('hides SNPPlayShareModal', function () {
+		browser.assert.elements(SNPPlayShareModal, 0);
 	});
 
-	it('hides JBXPlayDetailLauncherFakeItemProxy', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 0);
+	it('hides SNPPlayDetailLauncherFakeItemProxy', function () {
+		return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherFakeItemProxy', 0);
 	});
 
 	it('shows ZDRLauncherFakeItemProxy', function () {
@@ -160,8 +160,8 @@ describe('JBXPlay_Access', function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
-		it('shows JBXPlayCloudToolbar', function () {
-			browser.assert.elements(JBXPlayCloudToolbar, 1);
+		it('shows SNPPlayCloudToolbar', function () {
+			browser.assert.elements(SNPPlayCloudToolbar, 1);
 		});
 
 		it('shows OLSKCloud', function () {
@@ -199,23 +199,23 @@ describe('JBXPlay_Access', function () {
 	context('toggle_form', function test_toggle_form () {
 
 		before(function () {
-			return browser.pressButton(JBXPlayToggleFormButton);
+			return browser.pressButton(SNPPlayToggleFormButton);
 		});
 
-		it('shows JBXPlayForm', function () {
-			browser.assert.elements(JBXPlayForm, 1);
+		it('shows SNPPlayForm', function () {
+			browser.assert.elements(SNPPlayForm, 1);
 		});
 
-		it('shows JBXPlayFormField', function () {
-			browser.assert.elements(JBXPlayFormField, 1);
+		it('shows SNPPlayFormField', function () {
+			browser.assert.elements(SNPPlayFormField, 1);
 		});
 
-		it('shows JBXPlayFormTaxonomy', function () {
-			browser.assert.elements(JBXPlayFormTaxonomy, 1);
+		it('shows SNPPlayFormTaxonomy', function () {
+			browser.assert.elements(SNPPlayFormTaxonomy, 1);
 		});
 
-		it('shows JBXPlayFormSubmitButton', function () {
-			browser.assert.elements(JBXPlayFormSubmitButton, 1);
+		it('shows SNPPlayFormSubmitButton', function () {
+			browser.assert.elements(SNPPlayFormSubmitButton, 1);
 		});
 
 		context('create', function test_create() {
@@ -223,23 +223,23 @@ describe('JBXPlay_Access', function () {
 			const count = Math.max(1, Date.now() % 10);
 			
 			before(function () {
-				browser.pressButton(JBXPlayToggleFormButton);
+				browser.pressButton(SNPPlayToggleFormButton);
 			});
 
 			before(function () {
-				browser.fill(JBXPlayFormField, Array.from(Array(count)).map(Math.random).join('\n\n'));
+				browser.fill(SNPPlayFormField, Array.from(Array(count)).map(Math.random).join('\n\n'));
 			});
 
 			before(function () {
-				return browser.pressButton(JBXPlayFormSubmitButton);
+				return browser.pressButton(SNPPlayFormSubmitButton);
 			});
 
-			it('hides JBXPlayForm', function () {
-				browser.assert.elements(JBXPlayForm, 0);
+			it('hides SNPPlayForm', function () {
+				browser.assert.elements(SNPPlayForm, 0);
 			});
 
-			it('shows JBXPlayListItem', function () {
-				browser.assert.elements(JBXPlayListItem, count);
+			it('shows SNPPlayListItem', function () {
+				browser.assert.elements(SNPPlayListItem, count);
 			});
 		
 		});
@@ -249,11 +249,11 @@ describe('JBXPlay_Access', function () {
 	context('select', function test_select() {
 
 		before(function () {
-			return browser.click(JBXPlayListItem);
+			return browser.click(SNPPlayListItem);
 		});
 
-		it('shows JBXPlayDetailLauncherFakeItemProxy', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 1);
+		it('shows SNPPlayDetailLauncherFakeItemProxy', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayDetailLauncherFakeItemProxy', 1);
 		});
 	
 	});
@@ -261,15 +261,15 @@ describe('JBXPlay_Access', function () {
 	context('archive', function test_archive () {
 
 		before(function () {
-			return browser.pressButton('.JBXPlayDetailToolbarArchiveButton');
+			return browser.pressButton('.SNPPlayDetailToolbarArchiveButton');
 		});
 
-		it('hides JBXPlayRevealArchiveButton', function () {
-			browser.assert.elements('.JBXPlayRevealArchiveButton', 0);
+		it('hides SNPPlayRevealArchiveButton', function () {
+			browser.assert.elements('.SNPPlayRevealArchiveButton', 0);
 		});
 
-		it('hides JBXPlayLauncherItemRevealArchive', function () {
-			return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemRevealArchive', 0);
+		it('hides SNPPlayLauncherItemRevealArchive', function () {
+			return browser.assert.OLSKLauncherItems('SNPPlayLauncherItemRevealArchive', 0);
 		});
 
 		context('clear_selection', function () {
@@ -278,12 +278,12 @@ describe('JBXPlay_Access', function () {
 				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
 			});
 
-			it('shows JBXPlayRevealArchiveButton', function () {
-				browser.assert.elements('.JBXPlayRevealArchiveButton', 1);
+			it('shows SNPPlayRevealArchiveButton', function () {
+				browser.assert.elements('.SNPPlayRevealArchiveButton', 1);
 			});
 
-			it('shows JBXPlayLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemRevealArchive', 1);
+			it('shows SNPPlayLauncherItemRevealArchive', function () {
+				return browser.assert.OLSKLauncherItems('SNPPlayLauncherItemRevealArchive', 1);
 			});
 		
 		});
@@ -297,19 +297,19 @@ describe('JBXPlay_Access', function () {
 		});
 
 		before(function () {
-			return browser.pressButton(JBXPlayToggleFormButton);
+			return browser.pressButton(SNPPlayToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(JBXPlayFormField, Math.random().toString());
+			browser.fill(SNPPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JBXPlayFormSubmitButton);
+			return browser.pressButton(SNPPlayFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.pressButton(JBXPlayStashButton);
+			return browser.pressButton(SNPPlayStashButton);
 		});
 
 		before(function () {
@@ -320,8 +320,8 @@ describe('JBXPlay_Access', function () {
 			return browser.click('.OLSKCatalogStashDoneButton');
 		});
 
-		it('shows JBXPlayShareModal', function () {
-			browser.assert.elements(JBXPlayShareModal, 1);
+		it('shows SNPPlayShareModal', function () {
+			browser.assert.elements(SNPPlayShareModal, 1);
 		});
 	
 	});
@@ -331,33 +331,33 @@ describe('JBXPlay_Access', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				OLSKRoutingHash: {
-					[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-						JBXDocumentURL: Math.random().toString(),
-					}), JBXPlayLogic.JBXPlayRemap())])),
+					[SNPPlayLogic.SNPPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+						SNPDocumentURL: Math.random().toString(),
+					}), SNPPlayLogic.SNPPlayRemap())])),
 				},
 			});
 		});
 
-		it('shows JBXPlayClearInboxButton', function () {
-			browser.assert.elements(JBXPlayClearInboxButton, 1);
+		it('shows SNPPlayClearInboxButton', function () {
+			browser.assert.elements(SNPPlayClearInboxButton, 1);
 		});
 
-		it('shows JBXPlayListItem', function () {
-			browser.assert.elements(JBXPlayListItem, 1);
+		it('shows SNPPlayListItem', function () {
+			browser.assert.elements(SNPPlayListItem, 1);
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				return browser.pressButton(JBXPlayClearInboxButton);
+				return browser.pressButton(SNPPlayClearInboxButton);
 			});
 
-			it('hides JBXPlayClearInboxButton', function () {
-				browser.assert.elements(JBXPlayClearInboxButton, 0);
+			it('hides SNPPlayClearInboxButton', function () {
+				browser.assert.elements(SNPPlayClearInboxButton, 0);
 			});
 
-			it('hides JBXPlayListItem', function () {
-				browser.assert.elements(JBXPlayListItem, 0);
+			it('hides SNPPlayListItem', function () {
+				browser.assert.elements(SNPPlayListItem, 0);
 			});
 		
 		});

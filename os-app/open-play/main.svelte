@@ -14,10 +14,10 @@ const uSerial2 = function (inputData) {
 	}, Promise.resolve([]));
 };
 
-import JBXDocument from '../_shared/JBXDocument/main.js';
-import JBXSetting from '../_shared/JBXSetting/main.js';
-import JBXTransport from '../_shared/JBXTransport/main.js';
-import JBXPlayLogic from './ui-logic.js';
+import SNPDocument from '../_shared/SNPDocument/main.js';
+import SNPSetting from '../_shared/SNPSetting/main.js';
+import SNPTransport from '../_shared/SNPTransport/main.js';
+import SNPPlayLogic from './ui-logic.js';
 import OLSKThrottle from 'OLSKThrottle';
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 import OLSKObject from 'OLSKObject';
@@ -47,9 +47,9 @@ const mod = {
 	_ValueRevealArchiveIsVisible: false,
 
 	async ValueSetting (param1, param2) {
-		await mod._ValueZDRWrap.App.JBXSetting.ZDRModelWriteObject({
-			JBXSettingKey: param1,
-			JBXSettingValue: param2,
+		await mod._ValueZDRWrap.App.SNPSetting.ZDRModelWriteObject({
+			SNPSettingKey: param1,
+			SNPSettingValue: param2,
 		});
 
 		mod._ValueSettingsAll[param1] = param2;
@@ -95,26 +95,26 @@ const mod = {
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncCreateDocument () {
-						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObject({
-							JBXDocumentNotes: 'FakeZDRSchemaDispatchSyncCreateDocument',
+						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
+							SNPDocumentNotes: 'FakeZDRSchemaDispatchSyncCreateDocument',
 						})));
 					},
 				},
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncUpdateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncUpdateDocument () {
-						return mod.ZDRSchemaDispatchSyncUpdateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(Object.assign(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.JBXDocumentNotes.match('FakeZDRSchemaDispatchSync');
+						return mod.ZDRSchemaDispatchSyncUpdateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(Object.assign(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
+							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSync');
 						}).pop(), {
-							JBXDocumentNotes: 'FakeZDRSchemaDispatchSyncUpdateDocument',
+							SNPDocumentNotes: 'FakeZDRSchemaDispatchSyncUpdateDocument',
 						})));
 					},
 				},
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncDeleteDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncDeleteDocument () {
-						return mod.ZDRSchemaDispatchSyncDeleteDocument(await mod._ValueZDRWrap.App.JBXDocument.ZDRModelDeleteObject(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.JBXDocumentNotes.match('FakeZDRSchemaDispatchSync');
+						return mod.ZDRSchemaDispatchSyncDeleteDocument(await mod._ValueZDRWrap.App.SNPDocument.ZDRModelDeleteObject(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
+							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSync');
 						}).pop()));
 					},
 				},
@@ -122,16 +122,16 @@ const mod = {
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncConflictDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncConflictDocument () {
 						const item = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.JBXDocumentNotes.match('FakeZDRSchemaDispatchSyncConflictDocument');
+							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSyncConflictDocument');
 						}).pop();
 						
 						return mod.ZDRSchemaDispatchSyncConflictDocument({
 							origin: 'conflict',
-							oldValue: JSON.parse(JSON.stringify(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(Object.assign(Object.assign({}, item), {
-								JBXDocumentNotes: item.JBXDocumentNotes + '-local',
+							oldValue: JSON.parse(JSON.stringify(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(Object.assign(Object.assign({}, item), {
+								SNPDocumentNotes: item.SNPDocumentNotes + '-local',
 							})))),
 							newValue: JSON.parse(JSON.stringify(Object.assign(Object.assign({}, item), {
-								JBXDocumentNotes: item.JBXDocumentNotes + '-remote',
+								SNPDocumentNotes: item.SNPDocumentNotes + '-remote',
 							}))),
 						});
 					},
@@ -139,8 +139,8 @@ const mod = {
 				{
 					LCHRecipeName: 'OLSKPlayLauncherFakeCreateTaggedItem',
 					LCHRecipeCallback: async function OLSKPlayLauncherFakeCreateTaggedItem () {
-						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObject({
-							JBXDocumentTags: [window.prompt()],
+						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
+							SNPDocumentTags: [window.prompt()],
 						})));
 					},
 				},
@@ -148,8 +148,8 @@ const mod = {
 					LCHRecipeName: 'FakeFundDocumentLimit',
 					LCHRecipeCallback: async function FakeFundDocumentLimit () {
 						await Promise.all(Array.from(Array(mod._ValueDocumentRemainder)).map(function (e) {
-							return mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate({
-								JBXDocumentNotes: Math.random().toString(),
+							return mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate({
+								SNPDocumentNotes: Math.random().toString(),
 							});
 						}));
 
@@ -192,15 +192,15 @@ const mod = {
 
 		outputData.push(...OLSKServiceWorker.OLSKServiceWorkerRecipes(window, mod.DataNavigator(), OLSKLocalized, OLSK_SPEC_UI()));
 
-		if (mod._JBXPlayDetail) {
-			outputData.push(...mod._JBXPlayDetail.modPublic.JBXPlayDetailRecipes());
+		if (mod._SNPPlayDetail) {
+			outputData.push(...mod._SNPPlayDetail.modPublic.SNPPlayDetailRecipes());
 		}
 
 		if (mod._ValueRevealArchiveIsVisible) {
 			outputData.push({
-				LCHRecipeSignature: 'JBXPlayLauncherItemRevealArchive',
-				LCHRecipeName: OLSKLocalized('JBXPlayRevealArchiveButtonText'),
-				LCHRecipeCallback: function JBXPlayLauncherItemRevealArchive () {
+				LCHRecipeSignature: 'SNPPlayLauncherItemRevealArchive',
+				LCHRecipeName: OLSKLocalized('SNPPlayRevealArchiveButtonText'),
+				LCHRecipeCallback: function SNPPlayLauncherItemRevealArchive () {
 					mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive();
 				},
 			});
@@ -215,15 +215,15 @@ const mod = {
 
 	DataStubDocumentObject (inputData = {}) {
 		return Object.assign({
-			JBXDocumentNotes: '',
+			SNPDocumentNotes: '',
 		}, inputData);
 	},
 
 	DataStubDocumentObjectValid (inputData = {}) {
 		return mod.DataStubDocumentObject(Object.assign({
-			JBXDocumentID: Math.random().toString(),
-			JBXDocumentCreationDate: new Date(),
-			JBXDocumentModificationDate: new Date(),
+			SNPDocumentID: Math.random().toString(),
+			SNPDocumentCreationDate: new Date(),
+			SNPDocumentModificationDate: new Date(),
 		}, inputData));
 	},
 
@@ -249,7 +249,7 @@ const mod = {
 
 	InterfaceClearInboxButtonDidClick () {
 		mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-			return e.$JBXDocumentIsInbox;
+			return e.$SNPDocumentIsInbox;
 		}).map(mod._OLSKCatalog.modPublic.OLSKCatalogRemove);
 
 		mod._ValueInboxIsVisible = false;
@@ -284,15 +284,15 @@ const mod = {
 	// CONTROL
 
 	ControlDocumentSave(inputData) {
-		OLSKThrottle.OLSKThrottleMappedTimeout(mod._ValueSaveDocumentThrottleMap, inputData.JBXDocumentID, {
+		OLSKThrottle.OLSKThrottleMappedTimeout(mod._ValueSaveDocumentThrottleMap, inputData.SNPDocumentID, {
 			OLSKThrottleDuration: 500,
 			OLSKThrottleCallback () {
-				mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(inputData);
+				mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(inputData);
 			},
 		});
 
 		if (OLSK_SPEC_UI()) {
-			OLSKThrottle.OLSKThrottleSkip(mod._ValueSaveDocumentThrottleMap[inputData.JBXDocumentID])	
+			OLSKThrottle.OLSKThrottleSkip(mod._ValueSaveDocumentThrottleMap[inputData.SNPDocumentID])	
 		}
 	},
 
@@ -300,26 +300,26 @@ const mod = {
 		const disableDuplicateURLs = false;
 
 		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
-			return e.JBXDocumentURL;
+			return e.SNPDocumentURL;
 		}).filter(function (e) {
 			return !!e;
 		});
 
-		return Promise.all(JBXPlayLogic.JBXPlayDocuments(inputData).reverse().map(function (e) {
+		return Promise.all(SNPPlayLogic.SNPPlayDocuments(inputData).reverse().map(function (e) {
 			return Object.assign(e, properties);
 		}).filter(function (e) {
-			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
+			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.SNPDocumentURL));
 		}).map(mod.ControlDocumentAdd));
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(inputData));
+		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData));
 
 		if (OLSK_SPEC_UI()) {
 			return;
 		}
 
-		if (inputData.JBXDocumentDidFetch) {
+		if (inputData.SNPDocumentDidFetch) {
 			return;
 		}
 
@@ -332,12 +332,12 @@ const mod = {
 	
 	_ControlHotfixUpdateInPlace(inputData) {
 		mod.ControlDocumentActivate(inputData);
-		mod._JBXPlayDetail.modPublic._JBXPlayDetailTriggerUpdate();
+		mod._SNPPlayDetail.modPublic._SNPPlayDetailTriggerUpdate();
 	},
 	
 	ControlDocumentActivate(inputData) {
 		mod.OLSKTaxonomySuggestionItems = mod._OLSKTaxonomySuggestionItems.filter(function (e) {
-			return !(inputData.JBXDocumentTags || []).includes(e);
+			return !(inputData.SNPDocumentTags || []).includes(e);
 		});
 		
 		mod._OLSKCatalog.modPublic.OLSKCatalogSelect(inputData);
@@ -356,7 +356,7 @@ const mod = {
 	},
 
 	ControlDocumentArchive (inputData) {
-		inputData.JBXDocumentArchiveDate = new Date();
+		inputData.SNPDocumentArchiveDate = new Date();
 
 		mod.ControlDocumentSave(inputData);
 
@@ -364,7 +364,7 @@ const mod = {
 	},
 	
 	ControlDocumentUnarchive (inputData) {
-		delete inputData.JBXDocumentArchiveDate;
+		delete inputData.SNPDocumentArchiveDate;
 
 		mod.ControlDocumentSave(inputData);
 
@@ -373,7 +373,7 @@ const mod = {
 	
 	async ControlDocumentFetch (inputData) {
 		mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
-			return JBXPlayLogic.JBXPlayFetch(inputData);
+			return SNPPlayLogic.SNPPlayFetch(inputData);
 		}));
 
 		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
@@ -382,11 +382,11 @@ const mod = {
 	ControlDocumentDiscard (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogRemove(inputData);
 
-		mod._ValueZDRWrap.App.JBXDocument.ZDRModelDeleteObject(inputData);
+		mod._ValueZDRWrap.App.SNPDocument.ZDRModelDeleteObject(inputData);
 	},
 
 	ControlDocumentQueue (inputData) {
-		mod.ControlDocumentAdd(Object.keys(mod.DataStubDocumentObjectValid()).concat('$JBXDocumentIsInbox').reduce(function (coll, item) {
+		mod.ControlDocumentAdd(Object.keys(mod.DataStubDocumentObjectValid()).concat('$SNPDocumentIsInbox').reduce(function (coll, item) {
 			if (!Object.keys(mod.DataStubDocumentObject()).includes(item)) {
 				delete coll[item];
 			}
@@ -397,7 +397,7 @@ const mod = {
 
 	ControlFormSubmit () {
 		mod.ControlTextAdd(mod._ValueFormData, mod._ValueFormDataTags.length ? {
-			JBXDocumentTags: mod._ValueFormDataTags,
+			SNPDocumentTags: mod._ValueFormDataTags,
 		} : {});
 
 		mod._ValueFormIsVisible = false;
@@ -408,15 +408,15 @@ const mod = {
 	// MESSAGE
 
 	_OLSKCatalogDispatchKey (inputData) {
-		return inputData.JBXDocumentID;
+		return inputData.SNPDocumentID;
 	},
 
 	OLSKCollectionChunkFunction (inputData) {
-		return JBXPlayLogic.JBXPlayChunkFunction(inputData, OLSKLocalized);
+		return SNPPlayLogic.SNPPlayChunkFunction(inputData, OLSKLocalized);
 	},
 
 	OLSKCollectionChunkKeySortFunction () {
-		return JBXPlayLogic.JBXPlayChunkKeySortFunction(OLSKLocalized)(...arguments);
+		return SNPPlayLogic.SNPPlayChunkKeySortFunction(OLSKLocalized)(...arguments);
 	},
 
 	OLSKCollectionDispatchClick (inputData) {
@@ -428,7 +428,7 @@ const mod = {
 	},
 
 	OLSKCatalogDispatchDetailActivate () {
-		document.querySelector('.JBXPlayDetailToolbarBackButton').focus();
+		document.querySelector('.SNPPlayDetailToolbarBackButton').focus();
 	},
 	
 	OLSKCatalogDispatchArchivedHide () {
@@ -441,7 +441,7 @@ const mod = {
 
 	OLSKCatalogDispatchQuantity (inputData) {
 		mod._OLSKTaxonomySuggestionItems = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().reduce(function (coll, item) {
-			return coll.concat((item.JBXDocumentTags || []).filter(function (e) {
+			return coll.concat((item.SNPDocumentTags || []).filter(function (e) {
 				return !coll.includes(e);
 			}));
 		}, []);
@@ -454,9 +454,9 @@ const mod = {
 			return;
 		}
 
-		mod._JBXPlayShareItems = inputData;
+		mod._SNPPlayShareItems = inputData;
 		
-		mod._JBXPlayShareModal.modPublic.OLSKModalViewShow();
+		mod._SNPPlayShareModal.modPublic.OLSKModalViewShow();
 	},
 
 	OLSKAppToolbarDispatchApropos () {
@@ -510,52 +510,52 @@ const mod = {
 		});
 	},
 
-	JBXPlayDetailDispatchBack () {
+	SNPPlayDetailDispatchBack () {
 		mod._OLSKCatalog.modPublic.OLSKCatalogFocusMaster();
 	},
 
-	JBXPlayDetailDispatchArchive () {
+	SNPPlayDetailDispatchArchive () {
 		mod.ControlDocumentArchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	JBXPlayDetailDispatchUnarchive () {
+	SNPPlayDetailDispatchUnarchive () {
 		mod.ControlDocumentUnarchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	JBXPlayDetailDispatchFetch () {
+	SNPPlayDetailDispatchFetch () {
 		mod.ControlDocumentFetch(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	JBXPlayDetailDispatchUpdate () {
+	SNPPlayDetailDispatchUpdate () {
 		mod.ControlDocumentSave(mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected()));
 	},
 
-	JBXPlayDetailDispatchDiscard () {
+	SNPPlayDetailDispatchDiscard () {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	JBXPlayDetailDispatchQueue () {
+	SNPPlayDetailDispatchQueue () {
 		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
 	async OLSKTransportDispatchImportJSON (inputData) {
-		await mod._ValueZDRWrap.App.JBXTransport.JBXTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(inputData));
+		await mod._ValueZDRWrap.App.SNPTransport.SNPTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(inputData));
 
 		await mod.SetupCatalog();
 	},
 
 	async OLSKTransportDispatchExportInput () {
-		return mod._ValueZDRWrap.App.JBXTransport.JBXTransportExport({
-			JBXDocument: mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll(),
-			JBXSetting: await mod._ValueZDRWrap.App.JBXSetting.JBXSettingList(),
+		return mod._ValueZDRWrap.App.SNPTransport.SNPTransportExport({
+			SNPDocument: mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll(),
+			SNPSetting: await mod._ValueZDRWrap.App.SNPSetting.SNPSettingList(),
 		});
 	},
 
 	OLSKHashDispatchInitialize (inputData) {
-		if (inputData[JBXPlayLogic.JBXPlayCaptureAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], {
-				JBXDocumentName: inputData[JBXPlayLogic.JBXPlayNameAnchor()] || undefined,
-				JBXDocumentImageURL: inputData[JBXPlayLogic.JBXPlayImageAnchor()] || undefined,
+		if (inputData[SNPPlayLogic.SNPPlayCaptureAnchor()]) {
+			return mod.ControlTextAdd(inputData[SNPPlayLogic.SNPPlayCaptureAnchor()], {
+				SNPDocumentName: inputData[SNPPlayLogic.SNPPlayNameAnchor()] || undefined,
+				SNPDocumentImageURL: inputData[SNPPlayLogic.SNPPlayImageAnchor()] || undefined,
 			}).then(function () {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
@@ -565,12 +565,12 @@ const mod = {
 			});
 		}
 
-		if (inputData[JBXPlayLogic.JBXPlayInboxAnchor()]) {
+		if (inputData[SNPPlayLogic.SNPPlayInboxAnchor()]) {
 			mod._ValueInboxIsVisible = true;
 
-			return mod.ControlInboxAdd(JSON.parse(inputData[JBXPlayLogic.JBXPlayInboxAnchor()]).reverse().map(function (e) {
-				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(), true))), {
-					$JBXDocumentIsInbox: true,
+			return mod.ControlInboxAdd(JSON.parse(inputData[SNPPlayLogic.SNPPlayInboxAnchor()]).reverse().map(function (e) {
+				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, SNPPlayLogic.SNPPlayRemap(), true))), {
+					$SNPDocumentIsInbox: true,
 				});
 			}));
 		}
@@ -585,7 +585,7 @@ const mod = {
 	ZDRSchemaDispatchSyncUpdateDocument (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
 		
-		if (!OLSK_SPEC_UI() && mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected() && mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected().JBXDocumentID === inputData.JBXDocumentID) {
+		if (!OLSK_SPEC_UI() && mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected() && mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected().SNPDocumentID === inputData.SNPDocumentID) {
 			mod._ControlHotfixUpdateInPlace(inputData);
 		}
 	},
@@ -596,7 +596,7 @@ const mod = {
 
 	ZDRSchemaDispatchSyncConflictDocument (inputData) {
 		return setTimeout(async function () {
-			mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKRemoteStorage.OLSKRemoteStorageChangeDelegateConflictSelectRecent(inputData))))
+			mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKRemoteStorage.OLSKRemoteStorageChangeDelegateConflictSelectRecent(inputData))))
 		}, OLSK_SPEC_UI() ? 0 : 500);
 	},
 
@@ -663,7 +663,7 @@ const mod = {
 	},
 
 	OLSKFundSetupDispatchClue () {
-		return mod.DataSetting('JBXSettingFundClue') || null;
+		return mod.DataSetting('SNPSettingFundClue') || null;
 	},
 	
 	_OLSKFundSetupDispatchUpdate (inputData) {
@@ -674,12 +674,12 @@ const mod = {
 		mod._ValueFundClue = inputData; // #hotfix-missing-persist
 		
 		if (!inputData) {
-			return mod._ValueZDRWrap.App.JBXSetting.JBXSettingsDelete({
-				JBXSettingKey: 'JBXSettingFundClue',
+			return mod._ValueZDRWrap.App.SNPSetting.SNPSettingsDelete({
+				SNPSettingKey: 'SNPSettingFundClue',
 			});
 		}
 
-		return mod.ValueSetting('JBXSettingFundClue', inputData).then(function () {
+		return mod.ValueSetting('SNPSettingFundClue', inputData).then(function () {
 			if (OLSK_SPEC_UI()) {
 				return;
 			}
@@ -693,7 +693,7 @@ const mod = {
 	// REACT
 
 	ReactDocumentLimit () {
-		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(JBXPlayLogic.JBXPlayDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
+		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(SNPPlayLogic.SNPPlayDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
 	},
 
 	// SETUP
@@ -712,14 +712,14 @@ const mod = {
 				ZDRScopeDirectory: 'joybox',
 				ZDRScopeCreatorDirectory: 'rCreativ',
 				ZDRScopeSchemas: [
-					Object.assign(JBXDocument, {
+					Object.assign(SNPDocument, {
 						ZDRSchemaDispatchSyncCreate: mod.ZDRSchemaDispatchSyncCreateDocument,
 						ZDRSchemaDispatchSyncUpdate: mod.ZDRSchemaDispatchSyncUpdateDocument,
 						ZDRSchemaDispatchSyncDelete: mod.ZDRSchemaDispatchSyncDeleteDocument,
 						ZDRSchemaDispatchSyncConflict: mod.ZDRSchemaDispatchSyncConflictDocument,
 					}),
-					JBXSetting,
-					JBXTransport,
+					SNPSetting,
+					SNPTransport,
 					],
 			}],
 			ZDRParamDispatchError: mod.ZDRParamDispatchError,
@@ -749,14 +749,14 @@ const mod = {
 			client.ZDRCloudDisconnect();
 		};
 
-		if (!(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentList()).map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert).length) {
+		if (!(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentList()).map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert).length) {
 			mod.OLSKCatalogDispatchQuantity(0);
 		}
 	},
 
 	async SetupValueSettingsAll() {
-		mod._ValueSettingsAll = Object.fromEntries((await mod._ValueZDRWrap.App.JBXSetting.JBXSettingList()).map(function (e) {
-			return [e.JBXSettingKey, e.JBXSettingValue];
+		mod._ValueSettingsAll = Object.fromEntries((await mod._ValueZDRWrap.App.SNPSetting.SNPSettingList()).map(function (e) {
+			return [e.SNPSettingKey, e.SNPSettingValue];
 		}));
 	},
 
@@ -800,7 +800,7 @@ const mod = {
 				OLSKPactAuthProof: mod._ValueCloudToken,
 				OLSKPactAuthMetadata: {
 					OLSKPactAuthMetadataModuleName: 'joybox',
-					OLSKPactAuthMetadataFolderPath: JBXDocument.JBXDocumentDirectory() + '/',
+					OLSKPactAuthMetadataFolderPath: SNPDocument.SNPDocumentDirectory() + '/',
 				},
 				OLSKPactPayIdentity: mod._ValueCloudIdentity,
 				OLSKPactPayClue: mod._ValueFundClue,
@@ -846,9 +846,9 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleWillMount);
 
 import OLSKCatalog from 'OLSKCatalog';
-import JBXPlayListItem from '../sub-item/main.svelte';
-import JBXPlayDetail from '../sub-detail/main.svelte';
-import JBXPlayShare from '../sub-share/main.svelte';
+import SNPPlayListItem from '../sub-item/main.svelte';
+import SNPPlayDetail from '../sub-detail/main.svelte';
+import SNPPlayShare from '../sub-share/main.svelte';
 import OLSKTaxonomy from 'OLSKTaxonomy';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
@@ -861,20 +861,20 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 <svelte:window on:keydown={ mod.InterfaceWindowDidKeydown } />
 
-<div class="JBXPlay OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
+<div class="SNPPlay OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
 
 <div class="OLSKViewportContent">
 
 <OLSKCatalog
 	bind:this={ mod._OLSKCatalog }
 
-	OLSKCollectionItemAccessibilitySummaryFunction={ JBXPlayLogic.JBXPlayAccessibilitySummary }
+	OLSKCollectionItemAccessibilitySummaryFunction={ SNPPlayLogic.SNPPlayAccessibilitySummary }
 	OLSKCollectionItemClass={ 'OLSKCommonEdgeBottom' }
 
-	_OLSKCatalogArchiveField={ 'JBXDocumentArchiveDate' }
+	_OLSKCatalogArchiveField={ 'SNPDocumentArchiveDate' }
 	
-	OLSKCatalogSortFunction={ JBXPlayLogic.JBXPlaySortFunction }
-	OLSKCatalogIsMatch={ JBXPlayLogic.JBXPlayIsMatch }
+	OLSKCatalogSortFunction={ SNPPlayLogic.SNPPlaySortFunction }
+	OLSKCatalogIsMatch={ SNPPlayLogic.SNPPlayIsMatch }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
 
@@ -895,20 +895,20 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER -->
 
 	<div class="OLSKToolbarElementGroup" slot="OLSKNarrowToolbarTail">
-		<button class="JBXPlayStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
-			<div class="JBXPlayStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
+		<button class="SNPPlayStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
+			<div class="SNPPlayStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
 		</button>
-		<button class="JBXPlayToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
-			<div class="JBXPlayToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
+		<button class="SNPPlayToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
+			<div class="SNPPlayToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
 		</button>
 	</div>
 
 	<!-- MASTER BODY HEAD -->
 
 	{#if mod._ValueFormIsVisible }
-		<div class="JBXPlayForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
+		<div class="SNPPlayForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
 			<p>
-				<textarea class="JBXPlayFormField" placeholder={ OLSKLocalized('JBXPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
+				<textarea class="SNPPlayFormField" placeholder={ OLSKLocalized('SNPPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
 			</p>
 			
 			<hr role="presentation" />
@@ -924,43 +924,43 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<hr role="presentation" />
 			
 			<p>
-				<button class="JBXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('JBXPlayFormSubmitButtonText') }</button>
+				<button class="SNPPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('SNPPlayFormSubmitButtonText') }</button>
 			</p>
 		</div>
 	{/if}
 
 	{#if mod._ValueInboxIsVisible }
-		<div class="JBXPlayClearInbox">
-			<button class="JBXPlayClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('JBXPlayClearInboxButtonText') }</button>
+		<div class="SNPPlayClearInbox">
+			<button class="SNPPlayClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('SNPPlayClearInboxButtonText') }</button>
 		</div>
 	{/if}
 
 	<!-- MASTER LIST ITEM -->
 
 	<div slot="OLSKCollectionItem">
-		<JBXPlayListItem JBXPlayListItemObject={ OLSKCollectionItem } />
+		<SNPPlayListItem SNPPlayListItemObject={ OLSKCollectionItem } />
 	</div>
 
 	<!-- MASTER BODY TAIL -->
 
-	<div class="JBXPlayRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
-		<button class="JBXPlayRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('JBXPlayRevealArchiveButtonText') }</button>
+	<div class="SNPPlayRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
+		<button class="SNPPlayRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('SNPPlayRevealArchiveButtonText') }</button>
 	{/if}</div>
 
 	<!-- DETAIL -->
 	
-	<div class="JBXPlayDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
-		<JBXPlayDetail
-			JBXPlayDetailItem={ OLSKCatalogItemSelected }
+	<div class="SNPPlayDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
+		<SNPPlayDetail
+			SNPPlayDetailItem={ OLSKCatalogItemSelected }
 			OLSKTaxonomySuggestionItems={ mod.OLSKTaxonomySuggestionItems }
-			JBXPlayDetailDispatchBack={ mod.JBXPlayDetailDispatchBack }
-			JBXPlayDetailDispatchArchive={ mod.JBXPlayDetailDispatchArchive }
-			JBXPlayDetailDispatchUnarchive={ mod.JBXPlayDetailDispatchUnarchive }
-			JBXPlayDetailDispatchFetch={ mod.JBXPlayDetailDispatchFetch }
-			JBXPlayDetailDispatchUpdate={ mod.JBXPlayDetailDispatchUpdate }
-			JBXPlayDetailDispatchDiscard={ mod.JBXPlayDetailDispatchDiscard }
-			JBXPlayDetailDispatchQueue={ mod.JBXPlayDetailDispatchQueue }
-			bind:this={ mod._JBXPlayDetail }
+			SNPPlayDetailDispatchBack={ mod.SNPPlayDetailDispatchBack }
+			SNPPlayDetailDispatchArchive={ mod.SNPPlayDetailDispatchArchive }
+			SNPPlayDetailDispatchUnarchive={ mod.SNPPlayDetailDispatchUnarchive }
+			SNPPlayDetailDispatchFetch={ mod.SNPPlayDetailDispatchFetch }
+			SNPPlayDetailDispatchUpdate={ mod.SNPPlayDetailDispatchUpdate }
+			SNPPlayDetailDispatchDiscard={ mod.SNPPlayDetailDispatchDiscard }
+			SNPPlayDetailDispatchQueue={ mod.SNPPlayDetailDispatchQueue }
+			bind:this={ mod._SNPPlayDetail }
 			/>
 	</div>
 
@@ -968,10 +968,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<footer class="JBXPlayViewportFooter OLSKMobileViewFooter">
+<footer class="SNPPlayViewportFooter OLSKMobileViewFooter">
 
 	{#if !mod._ValueCloudToolbarHidden }
-		<div class="JBXPlayCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
+		<div class="SNPPlayCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
 			<div class="OLSKToolbarElementGroup">
 			</div>
 
@@ -993,7 +993,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<OLSKAppToolbar
 		OLSKAppToolbarDispatchApropos={ mod.OLSKAppToolbarDispatchApropos }
 		OLSKAppToolbarDispatchTongue={ mod.OLSKAppToolbarDispatchTongue }
-		OLSKAppToolbarGuideURL={ window.OLSKCanonical('JBXGuideRoute') }
+		OLSKAppToolbarGuideURL={ window.OLSKCanonical('SNPGuideRoute') }
 		OLSKAppToolbarFundShowProgress={ mod._ValueOLSKFundProgress }
 		OLSKAppToolbarFundLimitText={ mod._ValueDocumentRemainder }
 		OLSKAppToolbarCloudConnected={ !!mod._ValueCloudIdentity }
@@ -1007,7 +1007,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<OLSKInstall />
 
 	{#if !OLSK_SPEC_UI()}
-		<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('JBXServiceWorkerRoute') } />
+		<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('SNPServiceWorkerRoute') } />
 	{/if}
 </footer>
 
@@ -1023,22 +1023,22 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		/>
 </OLSKModalView>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('JBXPlayShareModalTitleText') } bind:this={ mod._JBXPlayShareModal }>
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPPlayShareModalTitleText') } bind:this={ mod._SNPPlayShareModal }>
 	<div>
-		<JBXPlayShare JBXPlayShareItems={ mod._JBXPlayShareItems } />
+		<SNPPlayShare SNPPlayShareItems={ mod._SNPPlayShareItems } />
 	</div>
 </OLSKModalView>
 
 <style>
-.JBXPlayForm {
+.SNPPlayForm {
 	font-size: unset;
 }
 
-.JBXPlayForm p:last-child {
+.SNPPlayForm p:last-child {
 	margin-bottom: 0;
 }
 
-.JBXPlayClearInbox, .JBXPlayRevealArchive {
+.SNPPlayClearInbox, .SNPPlayRevealArchive {
 	padding: 10px;
 	
 	display: flex;

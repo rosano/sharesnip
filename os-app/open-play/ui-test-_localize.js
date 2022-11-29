@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const JBXPlayLogic = require('./ui-logic.js').default;
+const SNPPlayLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
 kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
@@ -9,7 +9,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('JBXPlay_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPPlay_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -18,15 +18,15 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		});
 
 		it('localizes title', function() {
-			browser.assert.text('title', uLocalized('JBXPlayTitle'));
+			browser.assert.text('title', uLocalized('SNPPlayTitle'));
 		});
 
-		it('localizes JBXPlayStashButton', function () {
-			browser.assert.attribute(JBXPlayStashButton, 'title', uLocalized('JBXPlayStashButtonText'));
+		it('localizes SNPPlayStashButton', function () {
+			browser.assert.attribute(SNPPlayStashButton, 'title', uLocalized('SNPPlayStashButtonText'));
 		});
 
-		it('localizes JBXPlayToggleFormButton', function () {
-			browser.assert.attribute(JBXPlayToggleFormButton, 'title', uLocalized('JBXPlayToggleFormButtonText'));
+		it('localizes SNPPlayToggleFormButton', function () {
+			browser.assert.attribute(SNPPlayToggleFormButton, 'title', uLocalized('SNPPlayToggleFormButtonText'));
 		});
 
 		describe('OLSKAppToolbarLauncherButton', function test_OLSKAppToolbarLauncherButton () {
@@ -61,22 +61,22 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('JBXPlayFormField', function test_JBXPlayFormField () {
+		describe('SNPPlayFormField', function test_SNPPlayFormField () {
 
 			before(function () {
-				return browser.pressButton(JBXPlayToggleFormButton);
+				return browser.pressButton(SNPPlayToggleFormButton);
 			});
 
-			it('localizes JBXPlayFormField', function () {
-				browser.assert.attribute(JBXPlayFormField, 'placeholder', uLocalized('JBXPlayFormFieldText'));
+			it('localizes SNPPlayFormField', function () {
+				browser.assert.attribute(SNPPlayFormField, 'placeholder', uLocalized('SNPPlayFormFieldText'));
 			});
 			
 		});
 
-		describe('JBXPlayFormSubmitButton', function test_JBXPlayFormSubmitButton () {
+		describe('SNPPlayFormSubmitButton', function test_SNPPlayFormSubmitButton () {
 
-			it('localizes JBXPlayFormSubmitButton', function () {
-				browser.assert.text(JBXPlayFormSubmitButton, uLocalized('JBXPlayFormSubmitButtonText'));
+			it('localizes SNPPlayFormSubmitButton', function () {
+				browser.assert.text(SNPPlayFormSubmitButton, uLocalized('SNPPlayFormSubmitButtonText'));
 			});
 			
 		});
@@ -84,31 +84,31 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		context('archive', function test_archive () {
 
 			before(function () {
-				browser.fill(JBXPlayFormField, Math.random().toString());
+				browser.fill(SNPPlayFormField, Math.random().toString());
 			});
 
 			before(function () {
-				return browser.pressButton(JBXPlayFormSubmitButton);
+				return browser.pressButton(SNPPlayFormSubmitButton);
 			});
 
 			before(function () {
-				return browser.click(JBXPlayListItem);
+				return browser.click(SNPPlayListItem);
 			});
 
 			before(function () {
-				return browser.pressButton('.JBXPlayDetailToolbarArchiveButton');
+				return browser.pressButton('.SNPPlayDetailToolbarArchiveButton');
 			});
 
 			before(function () {
 				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
 			});
 
-			it('localizes JBXPlayRevealArchiveButton', function () {
-				browser.assert.text(JBXPlayRevealArchiveButton, uLocalized('JBXPlayRevealArchiveButtonText'));
+			it('localizes SNPPlayRevealArchiveButton', function () {
+				browser.assert.text(SNPPlayRevealArchiveButton, uLocalized('SNPPlayRevealArchiveButtonText'));
 			});
 
-			it('localizes JBXPlayLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItemText('JBXPlayLauncherItemRevealArchive', uLocalized('JBXPlayRevealArchiveButtonText'));
+			it('localizes SNPPlayLauncherItemRevealArchive', function () {
+				return browser.assert.OLSKLauncherItemText('SNPPlayLauncherItemRevealArchive', uLocalized('SNPPlayRevealArchiveButtonText'));
 			});
 
 		});
@@ -157,7 +157,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('JBXPlayShareModal', function test_JBXPlayShareModal() {
+		describe('SNPPlayShareModal', function test_SNPPlayShareModal() {
 
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
@@ -166,19 +166,19 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			before(function () {
-				return browser.pressButton(JBXPlayToggleFormButton);
+				return browser.pressButton(SNPPlayToggleFormButton);
 			});
 
 			before(function () {
-				browser.fill(JBXPlayFormField, Math.random().toString());
+				browser.fill(SNPPlayFormField, Math.random().toString());
 			});
 
 			before(function () {
-				return browser.pressButton(JBXPlayFormSubmitButton);
+				return browser.pressButton(SNPPlayFormSubmitButton);
 			});
 
 			before(function () {
-				return browser.pressButton(JBXPlayStashButton);
+				return browser.pressButton(SNPPlayStashButton);
 			});
 
 			before(function () {
@@ -190,7 +190,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			it('sets OLSKModalViewTitleText', function () {
-				browser.assert.text('.OLSKModalViewTitle', uLocalized('JBXPlayShareModalTitleText'));
+				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPPlayShareModalTitleText'));
 			});
 
 		});
@@ -201,15 +201,15 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
 					OLSKRoutingHash: {
-						[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-							JBXDocumentURL: Math.random().toString(),
-						}), JBXPlayLogic.JBXPlayRemap())])),
+						[SNPPlayLogic.SNPPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+							SNPDocumentURL: Math.random().toString(),
+						}), SNPPlayLogic.SNPPlayRemap())])),
 					},
 				});
 			});
 
-			it('localizes JBXPlayClearInboxButton', function () {
-				browser.assert.text(JBXPlayClearInboxButton, uLocalized('JBXPlayClearInboxButtonText'));
+			it('localizes SNPPlayClearInboxButton', function () {
+				browser.assert.text(SNPPlayClearInboxButton, uLocalized('SNPPlayClearInboxButtonText'));
 			});
 		
 		});

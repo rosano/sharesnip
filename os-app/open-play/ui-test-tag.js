@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXPlay_Tag', function () {
+describe('SNPPlay_Tag', function () {
 
 	const item = Math.random().toString();
 
@@ -29,7 +29,7 @@ describe('JBXPlay_Tag', function () {
 	context('create', function () {
 
 		before(function () {
-			return browser.pressButton(JBXPlayToggleFormButton);
+			return browser.pressButton(SNPPlayToggleFormButton);
 		});
 
 		it('binds OLSKTaxonomySuggestionItems', function () {
@@ -41,15 +41,15 @@ describe('JBXPlay_Tag', function () {
 	context('select', function () {
 
 		before(function () {
-			browser.fill(JBXPlayFormField, Math.random().toString());
+			browser.fill(SNPPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JBXPlayFormSubmitButton);
+			return browser.pressButton(SNPPlayFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(JBXPlayListItem);
+			return browser.click(SNPPlayListItem);
 		});
 
 		it('binds OLSKTaxonomySuggestionItems', function () {

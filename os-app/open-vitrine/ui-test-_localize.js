@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('JBXVitrine_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPVitrine_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -15,41 +15,41 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		});
 
 		it('localizes title', function() {
-			browser.assert.text('title', uLocalized('JBXVitrineTitle'));
+			browser.assert.text('title', uLocalized('SNPVitrineTitle'));
 		});
 
 		it('localizes meta[description]', function() {
-			browser.assert.attribute('meta[name=description]', 'content', uLocalized('JBXVitrineDescription'));
+			browser.assert.attribute('meta[name=description]', 'content', uLocalized('SNPVitrineDescription'));
 		});
 
-		it('localizes JBXVitrineFeaturesHeading', function () {
-			browser.assert.text(JBXVitrineFeaturesHeading, uLocalized('OLSKWordingFeatures'));
+		it('localizes SNPVitrineFeaturesHeading', function () {
+			browser.assert.text(SNPVitrineFeaturesHeading, uLocalized('OLSKWordingFeatures'));
 		});
 
-		it('localizes JBXVitrineGuideButton', function () {
-			browser.assert.text(JBXVitrineGuideButton, uLocalized('OLSKWordingOpenGuide'));
+		it('localizes SNPVitrineGuideButton', function () {
+			browser.assert.text(SNPVitrineGuideButton, uLocalized('OLSKWordingOpenGuide'));
 		});
 
-		it('localizes JBXVitrineDeeperHeading', function () {
-			browser.assert.text(JBXVitrineDeeperHeading, uLocalized('OLSKWordingDeeperHeading'));
+		it('localizes SNPVitrineDeeperHeading', function () {
+			browser.assert.text(SNPVitrineDeeperHeading, uLocalized('OLSKWordingDeeperHeading'));
 		});
 
-		it('localizes JBXVitrineGlossaryEphemerataBlurb', function () {
-			browser.assert.text(JBXVitrineGlossaryEphemerataBlurb, uLocalized('JBXVitrineGlossaryEphemerataBlurbText'));
+		it('localizes SNPVitrineGlossaryEphemerataBlurb', function () {
+			browser.assert.text(SNPVitrineGlossaryEphemerataBlurb, uLocalized('SNPVitrineGlossaryEphemerataBlurbText'));
 		});
 
-		it('localizes JBXVitrineSupportHeading', function () {
-			browser.assert.text(JBXVitrineSupportHeading, uLocalized('OLSKWordingFeedbackHeading'));
+		it('localizes SNPVitrineSupportHeading', function () {
+			browser.assert.text(SNPVitrineSupportHeading, uLocalized('OLSKWordingFeedbackHeading'));
 		});
 
-		it('localizes JBXVitrineSupportBlurb', function () {
-			browser.assert.text(JBXVitrineSupportBlurb, uLocalized('OLSKWordingFeedbackBlurb'));
+		it('localizes SNPVitrineSupportBlurb', function () {
+			browser.assert.text(SNPVitrineSupportBlurb, uLocalized('OLSKWordingFeedbackBlurb'));
 		});
 
 		context('OLSKCrown', function test_OLSKCrown () {
 
 			it('localizes OLSKCrownCardName', function () {
-				browser.assert.text('.OLSKCrownCardName', uLocalized('JBXVitrineTitle'));
+				browser.assert.text('.OLSKCrownCardName', uLocalized('SNPVitrineTitle'));
 			});
 		
 		});
@@ -57,7 +57,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		context('OLSKLanding', function test_OLSKLanding () {
 
 			it('localizes OLSKLandingHeadingText', function () {
-				browser.assert.text('.OLSKLandingHeading', uLocalized('JBXVitrineDescription'));
+				browser.assert.text('.OLSKLandingHeading', uLocalized('SNPVitrineDescription'));
 			});
 
 			it('localizes OLSKLandingBlurbText', function () {

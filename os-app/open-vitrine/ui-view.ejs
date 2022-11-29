@@ -1,7 +1,7 @@
 <%
-locals.OLSKPageTitle = OLSKLocalized('JBXVitrineTitle');
-locals.OLSKPageDescription = OLSKLocalized('JBXVitrineDescription');
-locals.OLSKPageManifest = OLSKCanonical('JBXManifestRoute');
+locals.OLSKPageTitle = OLSKLocalized('SNPVitrineTitle');
+locals.OLSKPageDescription = OLSKLocalized('SNPVitrineDescription');
+locals.OLSKPageManifest = OLSKCanonical('SNPManifestRoute');
 locals.OLSKPageAssets = [
 	'/_shared/__external/normalize.css/normalize.css',
 	'/_shared/__external/OLSKDecor/ui-style.css',
@@ -13,39 +13,39 @@ locals.OLSKPagePublicConstants = {
 };
 %>
 
-<div class="JBXVitrine OLSKDecor OLSKDecorCapped OLSKDecorNoTopPad">	
+<div class="SNPVitrine OLSKDecor OLSKDecorCapped OLSKDecorNoTopPad">	
 
 <%- include('../../node_modules/OLSKCrown/main.ejs', {
-	OLSKCrownCardImageURL: '/_shared/JBXRootLink/ui-assets/identity.svg',
-	OLSKCrownCardNameText: OLSKLocalized('JBXVitrineTitle'),
+	OLSKCrownCardImageURL: '/_shared/SNPRootLink/ui-assets/identity.svg',
+	OLSKCrownCardNameText: OLSKLocalized('SNPVitrineTitle'),
 }) %>
 
 <%- include('../../node_modules/OLSKLanding/main.ejs', {
-	OLSKLandingHeadingText: OLSKLocalized('JBXVitrineDescription'),
+	OLSKLandingHeadingText: OLSKLocalized('SNPVitrineDescription'),
 	OLSKLandingBlurbText: OLSKLocalized('OLSKLandingBlurbText'),
 	OLSKLandingActionText: OLSKLocalized('OLSKWordingOpenApp'),
-	OLSKLandingActionHref: OLSKCanonicalLocalized('JBXPlayRoute'),
+	OLSKLandingActionHref: OLSKCanonicalLocalized('SNPPlayRoute'),
 }) %>
 
 <div class="OLSKCommonVideoList">
-	<p class="JBXVitrineVideo OLSKCommonVideoListItem">
-		<iframe src="<%= process.env.JBX_VITRINE_VIDEO_URL %>" allowfullscreen></iframe>
+	<p class="SNPVitrineVideo OLSKCommonVideoListItem">
+		<iframe src="<%= process.env.SNP_VITRINE_VIDEO_URL %>" allowfullscreen></iframe>
 	</p>
 </div>
 
-<h1 class="JBXVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
+<h1 class="SNPVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
 
 <%- include('../../node_modules/OLSKAppFeatureList/main.ejs', {
 	OLSKAppFeatureListRepoURL: process.env.OLSK_REPO_URL,
 }).replace(/node_modules/g, '_shared/__external') %>
 
-<a class="JBXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JBXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
+<a class="SNPVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('SNPGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
 
-<h1 class="JBXVitrineDeeperHeading"><%= OLSKLocalized('OLSKWordingDeeperHeading') %></h1>
+<h1 class="SNPVitrineDeeperHeading"><%= OLSKLocalized('OLSKWordingDeeperHeading') %></h1>
 
-<dl class="JBXVitrineGlossary OLSKDecorGlossary">
-	<dt><a class="JBXVitrineGlossaryEphemerataLink" href="<%= process.env.JBX_VITRINE_EPHEMERATA_URL %>" target="_blank">Ephemerata</a></dt>
-	<dd class="JBXVitrineGlossaryEphemerataBlurb"><%= OLSKLocalized('JBXVitrineGlossaryEphemerataBlurbText') %></dd>
+<dl class="SNPVitrineGlossary OLSKDecorGlossary">
+	<dt><a class="SNPVitrineGlossaryEphemerataLink" href="<%= process.env.SNP_VITRINE_EPHEMERATA_URL %>" target="_blank">Ephemerata</a></dt>
+	<dd class="SNPVitrineGlossaryEphemerataBlurb"><%= OLSKLocalized('SNPVitrineGlossaryEphemerataBlurbText') %></dd>
 	<%- include('../../node_modules/ROCOGlossary/main.ejs') %>
 </dl>
 
@@ -58,8 +58,8 @@ locals.OLSKPagePublicConstants = {
 	OLSKEditURL: process.env.OLSK_REPO_URL,
 }) %>
 
-<h1 class="JBXVitrineSupportHeading"><%= OLSKLocalized('OLSKWordingFeedbackHeading') %></h1>
-<p class="JBXVitrineSupportBlurb"><%= OLSKLocalized('OLSKWordingFeedbackBlurb') %></p>
+<h1 class="SNPVitrineSupportHeading"><%= OLSKLocalized('OLSKWordingFeedbackHeading') %></h1>
+<p class="SNPVitrineSupportBlurb"><%= OLSKLocalized('OLSKWordingFeedbackBlurb') %></p>
 
 <hr role="presentation" />
 

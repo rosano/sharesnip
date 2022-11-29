@@ -1,9 +1,9 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const JBXPlayLogic = require('./ui-logic.js').default;
+const SNPPlayLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
-describe('JBXPlay_Misc', function () {
+describe('SNPPlay_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -25,90 +25,90 @@ describe('JBXPlay_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
-	describe('JBXPlay', function test_JBXPlay () {
+	describe('SNPPlay', function test_SNPPlay () {
 		
 		it('classes OLSKDecorFormBlend', function () {
-			browser.assert.hasClass(JBXPlay, 'OLSKDecorFormBlend');
+			browser.assert.hasClass(SNPPlay, 'OLSKDecorFormBlend');
 		});
 
 	});
 
-	describe('JBXPlayStashButton', function test_JBXPlayStashButton () {
+	describe('SNPPlayStashButton', function test_SNPPlayStashButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JBXPlayStashButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPPlayStashButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JBXPlayStashButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPPlayStashButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JBXPlayStashButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPPlayStashButton, 'OLSKToolbarButton');
 		});
 		
 	});
 
-	describe('JBXPlayStashButtonImage', function test_JBXPlayStashButtonImage () {
+	describe('SNPPlayStashButtonImage', function test_SNPPlayStashButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JBXPlayStashButtonImage } #_OLSKSharedStash`, 1);
+			browser.assert.elements(`${ SNPPlayStashButtonImage } #_OLSKSharedStash`, 1);
 		});
 	
 	});
 
-	describe('JBXPlayToggleFormButton', function test_JBXPlayToggleFormButton () {
+	describe('SNPPlayToggleFormButton', function test_SNPPlayToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKToolbarButton');
 		});
 		
 		it('sets accesskey', function () {
-			browser.assert.attribute(JBXPlayToggleFormButton, 'accesskey', 'n');
+			browser.assert.attribute(SNPPlayToggleFormButton, 'accesskey', 'n');
 		});
 	
 	});
 
-	describe('JBXPlayToggleFormButtonImage', function test_JBXPlayToggleFormButtonImage () {
+	describe('SNPPlayToggleFormButtonImage', function test_SNPPlayToggleFormButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JBXPlayToggleFormButtonImage } #_OLSKSharedCreate`, 1);
+			browser.assert.elements(`${ SNPPlayToggleFormButtonImage } #_OLSKSharedCreate`, 1);
 		});
 	
 	});
 
-	describe('JBXPlayForm', function test_JBXPlayForm () {
+	describe('SNPPlayForm', function test_SNPPlayForm () {
 
 		before(function () {
-			return browser.pressButton(JBXPlayToggleFormButton);
+			return browser.pressButton(SNPPlayToggleFormButton);
 		});
 
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JBXPlayForm, 'OLSKDecor');
+			browser.assert.hasClass(SNPPlayForm, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(JBXPlayForm, 'OLSKDecorBigForm');
+			browser.assert.hasClass(SNPPlayForm, 'OLSKDecorBigForm');
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JBXPlayForm, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(SNPPlayForm, 'OLSKCommonEdgeBottom');
 		});
 	
 	});
 
-	describe('JBXPlayFormField', function test_JBXPlayFormField () {
+	describe('SNPPlayFormField', function test_SNPPlayFormField () {
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(JBXPlayFormField, 'autofocus', '');
+			browser.assert.attribute(SNPPlayFormField, 'autofocus', '');
 		});
 	
 	});
@@ -116,11 +116,11 @@ describe('JBXPlay_Misc', function () {
 	describe('OLSKCollectionItem', function test_OLSKCollectionItem () {
 
 		before(function () {
-			browser.fill(JBXPlayFormField, Math.random().toString());
+			browser.fill(SNPPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JBXPlayFormSubmitButton);
+			return browser.pressButton(SNPPlayFormSubmitButton);
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
@@ -132,23 +132,23 @@ describe('JBXPlay_Misc', function () {
 	context('select', function test_select () {
 		
 		before(function () {
-			return browser.click(JBXPlayListItem);
+			return browser.click(SNPPlayListItem);
 		});
 
-		it('sets JBXPlayListItemSelected', function () {
+		it('sets SNPPlayListItemSelected', function () {
 			browser.assert.elements('.OLSKCollectionItemLocus', 1);
 		});
 
-		it('sets JBXPlayDetailItem', function () {
-			browser.assert.elements('.JBXPlayDetail', 1);
+		it('sets SNPPlayDetailItem', function () {
+			browser.assert.elements('.SNPPlayDetail', 1);
 		});
 
 	});
 
-	describe('JBXPlayViewportFooter', function test_JBXPlayViewportFooter () {
+	describe('SNPPlayViewportFooter', function test_SNPPlayViewportFooter () {
 
 		it('classes OLSKMobileViewFooter', function () {
-			browser.assert.hasClass(JBXPlayViewportFooter, 'OLSKMobileViewFooter');
+			browser.assert.hasClass(SNPPlayViewportFooter, 'OLSKMobileViewFooter');
 		});
 
 	});
@@ -177,40 +177,40 @@ describe('JBXPlay_Misc', function () {
 
 	});
 
-	describe('JBXPlayCloudToolbar', function test_JBXPlayCloudToolbar () {
+	describe('SNPPlayCloudToolbar', function test_SNPPlayCloudToolbar () {
 
 		before(function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKToolbarJustify');
 		});
 		
 		it('classes OLSKCommonEdgeTop', function () {
-			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKCommonEdgeTop');
+			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
 	});
 
-	context('JBXPlayClearInboxButton', function test_JBXPlayClearInboxButton () {
+	context('SNPPlayClearInboxButton', function test_SNPPlayClearInboxButton () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				OLSKRoutingHash: {
-					[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
-						JBXDocumentURL: Math.random().toString(),
-					}), JBXPlayLogic.JBXPlayRemap())])),
+					[SNPPlayLogic.SNPPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+						SNPDocumentURL: Math.random().toString(),
+					}), SNPPlayLogic.SNPPlayRemap())])),
 				},
 			});
 		});
 
 		it('classes OLSKDecorPress', function () {
-			browser.assert.hasClass(JBXPlayClearInboxButton, 'OLSKDecorPress');
+			browser.assert.hasClass(SNPPlayClearInboxButton, 'OLSKDecorPress');
 		});
 
 	});

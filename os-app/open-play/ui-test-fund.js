@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXPlay_Fund', function () {
+describe('SNPPlay_Fund', function () {
 
 	require('OLSKFund/ui-test_template').default({
 		kDefaultRoute,
@@ -8,22 +8,22 @@ describe('JBXPlay_Fund', function () {
 		ParamProject: process.env.ROCO_SHARED_PROJECT_ID,
 		
 		ParamTriggerGate () {
-			return browser.pressButton('.JBXPlayToggleFormButton');
+			return browser.pressButton('.SNPPlayToggleFormButton');
 		},
 
 		async ParamCreateDocument () {
-			await browser.pressButton('.JBXPlayToggleFormButton');
+			await browser.pressButton('.SNPPlayToggleFormButton');
 			
-			browser.fill('.JBXPlayFormField', Math.random().toString());
+			browser.fill('.SNPPlayFormField', Math.random().toString());
 			
-			await browser.pressButton('.JBXPlayFormSubmitButton');
+			await browser.pressButton('.SNPPlayFormSubmitButton');
 		},
 
 		async ParamDeleteDocument () {
 			await browser.click('.OLSKCollectionItem');
 
 			return browser.OLSKConfirm(function () {
-				return browser.pressButton('.JBXPlayDetailToolbarDiscardButton');
+				return browser.pressButton('.SNPPlayDetailToolbarDiscardButton');
 			});
 		},
 

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXPlay_Stash', function () {
+describe('SNPPlay_Stash', function () {
 
 	const count = Math.max(1, uRandomInt(10));
 	const items = Array.from(Array(count)).map(Math.random);
@@ -11,15 +11,15 @@ describe('JBXPlay_Stash', function () {
 	});
 
 	before(function () {
-		return browser.pressButton(JBXPlayToggleFormButton);
+		return browser.pressButton(SNPPlayToggleFormButton);
 	});
 
 	before(function () {
-		browser.fill(JBXPlayFormField, items.join('\n\n'));
+		browser.fill(SNPPlayFormField, items.join('\n\n'));
 	});
 
 	before(function () {
-		return browser.pressButton(JBXPlayFormSubmitButton);
+		return browser.pressButton(SNPPlayFormSubmitButton);
 	});
 
 	before(function () {
@@ -27,7 +27,7 @@ describe('JBXPlay_Stash', function () {
 	});
 
 	before(function () {
-		return browser.pressButton(JBXPlayStashButton);
+		return browser.pressButton(SNPPlayStashButton);
 	});
 
 	it('calls OLSKCatalogStashEnabled', function () {
@@ -48,8 +48,8 @@ describe('JBXPlay_Stash', function () {
 			return browser.click('.OLSKCatalogStashDoneButton');
 		});
 
-		it('shows JBXPlayListItem', function () {
-			browser.assert.elements(`${ JBXPlayShareModal } .JBXPlayListItem`, stash);
+		it('shows SNPPlayListItem', function () {
+			browser.assert.elements(`${ SNPPlayShareModal } .SNPPlayListItem`, stash);
 		});
 	
 	});

@@ -2,37 +2,37 @@ import RollupStart from './main.svelte';
 
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
-const JBXPlayDetail = new RollupStart({
+const SNPPlayDetail = new RollupStart({
 	target: document.body,
 	props: Object.assign({
-		JBXPlayDetailDispatchBack: (function  () {
-			window.TestJBXPlayDetailDispatchBack.innerHTML = parseInt(window.TestJBXPlayDetailDispatchBack.innerHTML) + 1;
+		SNPPlayDetailDispatchBack: (function  () {
+			window.TestSNPPlayDetailDispatchBack.innerHTML = parseInt(window.TestSNPPlayDetailDispatchBack.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchArchive: (function  () {
-			window.TestJBXPlayDetailDispatchArchive.innerHTML = parseInt(window.TestJBXPlayDetailDispatchArchive.innerHTML) + 1;
+		SNPPlayDetailDispatchArchive: (function  () {
+			window.TestSNPPlayDetailDispatchArchive.innerHTML = parseInt(window.TestSNPPlayDetailDispatchArchive.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchUnarchive: (function  () {
-			window.TestJBXPlayDetailDispatchUnarchive.innerHTML = parseInt(window.TestJBXPlayDetailDispatchUnarchive.innerHTML) + 1;
+		SNPPlayDetailDispatchUnarchive: (function  () {
+			window.TestSNPPlayDetailDispatchUnarchive.innerHTML = parseInt(window.TestSNPPlayDetailDispatchUnarchive.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchFetch: (function  () {
-			window.TestJBXPlayDetailDispatchFetch.innerHTML = parseInt(window.TestJBXPlayDetailDispatchFetch.innerHTML) + 1;
+		SNPPlayDetailDispatchFetch: (function  () {
+			window.TestSNPPlayDetailDispatchFetch.innerHTML = parseInt(window.TestSNPPlayDetailDispatchFetch.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchUpdate: (function  () {
-			window.TestJBXPlayDetailDispatchUpdate.innerHTML = parseInt(window.TestJBXPlayDetailDispatchUpdate.innerHTML) + 1;
+		SNPPlayDetailDispatchUpdate: (function  () {
+			window.TestSNPPlayDetailDispatchUpdate.innerHTML = parseInt(window.TestSNPPlayDetailDispatchUpdate.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchDiscard: (function  () {
-			window.TestJBXPlayDetailDispatchDiscard.innerHTML = parseInt(window.TestJBXPlayDetailDispatchDiscard.innerHTML) + 1;
+		SNPPlayDetailDispatchDiscard: (function  () {
+			window.TestSNPPlayDetailDispatchDiscard.innerHTML = parseInt(window.TestSNPPlayDetailDispatchDiscard.innerHTML) + 1;
 		}),
-		JBXPlayDetailDispatchQueue: (function  () {
-			window.TestJBXPlayDetailDispatchQueue.innerHTML = parseInt(window.TestJBXPlayDetailDispatchQueue.innerHTML) + 1;
+		SNPPlayDetailDispatchQueue: (function  () {
+			window.TestSNPPlayDetailDispatchQueue.innerHTML = parseInt(window.TestSNPPlayDetailDispatchQueue.innerHTML) + 1;
 		}),
 		_DebugLauncher: true,
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
-		if (['JBXPlayDetailItem', 'OLSKTaxonomySuggestionItems'].includes(e[0])) {
+		if (['SNPPlayDetailItem', 'OLSKTaxonomySuggestionItems'].includes(e[0])) {
 			e[1] = JSON.parse(e[1]);
 		}
 
-		if (e[0] === 'JBXPlayDetailItem') {
+		if (e[0] === 'SNPPlayDetailItem') {
 			e[1] = OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(e[1]);
 		}
 
@@ -40,4 +40,4 @@ const JBXPlayDetail = new RollupStart({
 	}))),
 });
 
-export default JBXPlayDetail;
+export default SNPPlayDetail;

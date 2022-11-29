@@ -4,7 +4,7 @@ const uLocalized = function (inputData) {
 	return OLSKTestingLocalized(inputData, 'en');
 };
 
-describe('JBXPlay_Cloud', function () {
+describe('SNPPlay_Cloud', function () {
 
 	describe('OLSKAppToolbar', function test_OLSKAppToolbar() {
 

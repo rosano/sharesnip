@@ -1,12 +1,12 @@
-JBXPlayTitle: Play
-JBXPlayStashButtonText: Stash
-JBXPlayToggleFormButtonText: Add
-JBXPlayClearInboxButtonText: Clear inbox
-JBXPlayFormFieldText: Paste your links here.
-JBXPlayFormSubmitButtonText: Submit
-JBXPlayChunkInboxText: Inbox
-JBXPlayChunkTodayText: Today
-JBXPlayChunkYesterdayText: Yesterday
-JBXPlayChunkArchiveText: Archive
-JBXPlayRevealArchiveButtonText: Reveal archive
-JBXPlayShareModalTitleText: Share
+SNPPlayTitle: Play
+SNPPlayStashButtonText: Stash
+SNPPlayToggleFormButtonText: Add
+SNPPlayClearInboxButtonText: Clear inbox
+SNPPlayFormFieldText: Paste your links here.
+SNPPlayFormSubmitButtonText: Submit
+SNPPlayChunkInboxText: Inbox
+SNPPlayChunkTodayText: Today
+SNPPlayChunkYesterdayText: Yesterday
+SNPPlayChunkArchiveText: Archive
+SNPPlayRevealArchiveButtonText: Reveal archive
+SNPPlayShareModalTitleText: Share

@@ -1,44 +1,44 @@
 <script>
-export let JBXPlayListItemObject;
+export let SNPPlayListItemObject;
 
 import OLSKString from 'OLSKString';
-import JBXPlayListItemLogic from './ui-logic.js';
+import SNPPlayListItemLogic from './ui-logic.js';
 </script>
 
-<div class="JBXPlayListItem OLSKCommonCard" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentArchiveDate }>
+<div class="SNPPlayListItem OLSKCommonCard" class:SNPPlayListItemArchived={ SNPPlayListItemObject.SNPDocumentArchiveDate }>
 
-{#if JBXPlayListItemObject.JBXDocumentImageURL }
-	<img class="JBXPlayListItemImage" src={ JBXPlayListItemObject.JBXDocumentImageURL } role="presentation" />
+{#if SNPPlayListItemObject.SNPDocumentImageURL }
+	<img class="SNPPlayListItemImage" src={ SNPPlayListItemObject.SNPDocumentImageURL } role="presentation" />
 {/if}
 
 <section>
-	<span class="JBXPlayListItemTitle">{ OLSKString.OLSKStringSnippet(JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '')) }</span>
+	<span class="SNPPlayListItemTitle">{ OLSKString.OLSKStringSnippet(SNPPlayListItemObject.SNPDocumentName || SNPPlayListItemLogic.SNPPlayListItemHumanURL(SNPPlayListItemObject.SNPDocumentURL || '')) }</span>
 
-	<span class="JBXPlayListItemSnippet">{ OLSKString.OLSKStringSnippet(JBXPlayListItemObject.JBXDocumentNotes) }</span>
+	<span class="SNPPlayListItemSnippet">{ OLSKString.OLSKStringSnippet(SNPPlayListItemObject.SNPDocumentNotes) }</span>
 
-	<span class="JBXPlayListItemTags">{ (JBXPlayListItemObject.JBXDocumentTags || []).join(', ') }</span>
+	<span class="SNPPlayListItemTags">{ (SNPPlayListItemObject.SNPDocumentTags || []).join(', ') }</span>
 </section>
 
 </div>
 
 <style>
-.JBXPlayListItem {
+.SNPPlayListItem {
 	min-height: 46px;
 	padding: 10px;
 
 	color: var(--OLSKCommonForeground);
 }
 
-.JBXPlayListItemArchived {
+.SNPPlayListItemArchived {
 	border-left: 10px solid var(--OLSKCommonForeground);
 	opacity: 0.8;
 }
 
-.JBXPlayListItemTitle {
+.SNPPlayListItemTitle {
 	font-weight: bold;
 }
 
-.JBXPlayListItemSnippet {
+.SNPPlayListItemSnippet {
 	display: block;
 	
 	margin-top: 5px;
@@ -46,7 +46,7 @@ import JBXPlayListItemLogic from './ui-logic.js';
 	opacity: 0.5;
 }
 
-.JBXPlayListItemTags {
+.SNPPlayListItemTags {
 	opacity: 0.4;
 }
 </style>

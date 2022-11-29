@@ -1,59 +1,59 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	JBXPlayListItem: '.JBXPlayListItem',
+	SNPPlayListItem: '.SNPPlayListItem',
 
-	JBXPlayListItemImage: '.JBXPlayListItemImage',
+	SNPPlayListItemImage: '.SNPPlayListItemImage',
 
-	JBXPlayListItemTitle: '.JBXPlayListItemTitle',
+	SNPPlayListItemTitle: '.SNPPlayListItemTitle',
 
-	JBXPlayListItemSnippet: '.JBXPlayListItemSnippet',
+	SNPPlayListItemSnippet: '.SNPPlayListItemSnippet',
 
-	JBXPlayListItemTags: '.JBXPlayListItemTags',
+	SNPPlayListItemTags: '.SNPPlayListItemTags',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('JBXPlayListItem_Access', function () {
+describe('SNPPlayListItem_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JBXPlayListItemObject: JSON.stringify(StubDocumentObjectValid()),
+			SNPPlayListItemObject: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows JBXPlayListItem', function () {
-		browser.assert.elements(JBXPlayListItem, 1);
+	it('shows SNPPlayListItem', function () {
+		browser.assert.elements(SNPPlayListItem, 1);
 	});
 
-	it('hides JBXPlayListItemImage', function () {
-		browser.assert.elements(JBXPlayListItemImage, 0);
+	it('hides SNPPlayListItemImage', function () {
+		browser.assert.elements(SNPPlayListItemImage, 0);
 	});
 
-	it('shows JBXPlayListItemTitle', function () {
-		browser.assert.elements(JBXPlayListItemTitle, 1);
+	it('shows SNPPlayListItemTitle', function () {
+		browser.assert.elements(SNPPlayListItemTitle, 1);
 	});
 
-	it('shows JBXPlayListItemSnippet', function () {
-		browser.assert.elements(JBXPlayListItemSnippet, 1);
+	it('shows SNPPlayListItemSnippet', function () {
+		browser.assert.elements(SNPPlayListItemSnippet, 1);
 	});
 
-	it('shows JBXPlayListItemTags', function () {
-		browser.assert.elements(JBXPlayListItemTags, 1);
+	it('shows SNPPlayListItemTags', function () {
+		browser.assert.elements(SNPPlayListItemTags, 1);
 	});
 
-	context('JBXDocumentImageURL', function () {
+	context('SNPDocumentImageURL', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JBXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentImageURL: Math.random().toString(),
+				SNPPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
+					SNPDocumentImageURL: Math.random().toString(),
 				})),
 			});
 		});
 
-		it('shows JBXPlayListItemImage', function () {
-			browser.assert.elements(JBXPlayListItemImage, 1);
+		it('shows SNPPlayListItemImage', function () {
+			browser.assert.elements(SNPPlayListItemImage, 1);
 		});
 	
 	});

@@ -1,33 +1,33 @@
 const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().shift().OLSKRoutePath;
 
 Object.entries({
-	JBXVitrine: '.JBXVitrine',
+	SNPVitrine: '.SNPVitrine',
 	
-	JBXVitrineVideo: '.OLSKCommonVideoList .OLSKCommonVideoListItem.JBXVitrineVideo iframe',
+	SNPVitrineVideo: '.OLSKCommonVideoList .OLSKCommonVideoListItem.SNPVitrineVideo iframe',
 
-	JBXVitrineFeaturesHeading: '.JBXVitrineFeaturesHeading',
+	SNPVitrineFeaturesHeading: '.SNPVitrineFeaturesHeading',
 
-	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
+	SNPVitrineGuideButton: '.SNPVitrineGuideButton',
 
-	JBXVitrineDeeperHeading: '.JBXVitrineDeeperHeading',
-	JBXVitrineGlossary: '.JBXVitrineGlossary',
-	JBXVitrineGlossaryEphemerataLink: '.JBXVitrineGlossaryEphemerataLink',
-	JBXVitrineGlossaryEphemerataBlurb: '.JBXVitrineGlossaryEphemerataBlurb',
+	SNPVitrineDeeperHeading: '.SNPVitrineDeeperHeading',
+	SNPVitrineGlossary: '.SNPVitrineGlossary',
+	SNPVitrineGlossaryEphemerataLink: '.SNPVitrineGlossaryEphemerataLink',
+	SNPVitrineGlossaryEphemerataBlurb: '.SNPVitrineGlossaryEphemerataBlurb',
 
-	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
-	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
+	SNPVitrineSupportHeading: '.SNPVitrineSupportHeading',
+	SNPVitrineSupportBlurb: '.SNPVitrineSupportBlurb',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('JBXVitrine_Access', function () {
+describe('SNPVitrine_Access', function () {
 
 	before(function() {
 		return browser.visit(kDefaultRoutePath);
 	});
 	
-	it('shows JBXVitrine', function() {
-		browser.assert.elements(JBXVitrine, 1);
+	it('shows SNPVitrine', function() {
+		browser.assert.elements(SNPVitrine, 1);
 	});
 	
 	it('shows OLSKCrown', function() {
@@ -38,12 +38,12 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements('.OLSKLanding', 1);
 	});
 
-	it('shows JBXVitrineVideo', function () {
-		browser.assert.elements(JBXVitrineVideo, 1);
+	it('shows SNPVitrineVideo', function () {
+		browser.assert.elements(SNPVitrineVideo, 1);
 	});
 
-	it('shows JBXVitrineFeaturesHeading', function () {
-		browser.assert.elements(JBXVitrineFeaturesHeading, 1);
+	it('shows SNPVitrineFeaturesHeading', function () {
+		browser.assert.elements(SNPVitrineFeaturesHeading, 1);
 	});
 
 	it('shows OLSKAppFeatureList', function () {
@@ -54,24 +54,24 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements('.OLSKAppFeatureListItemOpenSource', 1);
 	});
 
-	it('shows JBXVitrineGuideButton', function () {
-		browser.assert.elements(JBXVitrineGuideButton, 1);
+	it('shows SNPVitrineGuideButton', function () {
+		browser.assert.elements(SNPVitrineGuideButton, 1);
 	});
 
-	it('shows JBXVitrineDeeperHeading', function () {
-		browser.assert.elements(JBXVitrineDeeperHeading, 1);
+	it('shows SNPVitrineDeeperHeading', function () {
+		browser.assert.elements(SNPVitrineDeeperHeading, 1);
 	});
 
-	it('shows JBXVitrineGlossary', function () {
-		browser.assert.elements(JBXVitrineGlossary, 1);
+	it('shows SNPVitrineGlossary', function () {
+		browser.assert.elements(SNPVitrineGlossary, 1);
 	});
 
-	it('shows JBXVitrineGlossaryEphemerataLink', function () {
-		browser.assert.elements(JBXVitrineGlossaryEphemerataLink, 1);
+	it('shows SNPVitrineGlossaryEphemerataLink', function () {
+		browser.assert.elements(SNPVitrineGlossaryEphemerataLink, 1);
 	});
 
-	it('shows JBXVitrineGlossaryEphemerataBlurb', function () {
-		browser.assert.elements(JBXVitrineGlossaryEphemerataBlurb, 1);
+	it('shows SNPVitrineGlossaryEphemerataBlurb', function () {
+		browser.assert.elements(SNPVitrineGlossaryEphemerataBlurb, 1);
 	});
 
 	it('shows ROCOGlossary', function () {
@@ -86,12 +86,12 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements('.OLSKEdit', 1);
 	});
 
-	it('shows JBXVitrineSupportHeading', function () {
-		browser.assert.elements(JBXVitrineSupportHeading, 1);
+	it('shows SNPVitrineSupportHeading', function () {
+		browser.assert.elements(SNPVitrineSupportHeading, 1);
 	});
 
-	it('shows JBXVitrineSupportBlurb', function () {
-		browser.assert.elements(JBXVitrineSupportBlurb, 1);
+	it('shows SNPVitrineSupportBlurb', function () {
+		browser.assert.elements(SNPVitrineSupportBlurb, 1);
 	});
 
 	it('shows SWARLink', function() {

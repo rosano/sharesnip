@@ -2,12 +2,12 @@ exports.OLSKControllerRoutes = function() {
 	return [{
 		OLSKRoutePath: '/manifest.json',
 		OLSKRouteMethod: 'get',
-		OLSKRouteSignature: 'JBXManifestRoute',
+		OLSKRouteSignature: 'SNPManifestRoute',
 		OLSKRouteFunction (req, res, next) {
 			return res.json({
 				name: 'Joybox',
 				short_name: 'Joybox',
-				start_url: res.locals.OLSKCanonical('JBXPlayRoute'),
+				start_url: res.locals.OLSKCanonical('SNPPlayRoute'),
 				display: 'standalone',
 				background_color: 'black',
 				theme_color: 'black',

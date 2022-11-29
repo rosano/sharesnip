@@ -6,22 +6,22 @@ kDefaultRoute._OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('JBXGuide_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPGuide_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute);
 		});
 
 		it('localizes title', function() {
-			browser.assert.text('title', uLocalized('JBXGuideTitle'));
+			browser.assert.text('title', uLocalized('SNPGuideTitle'));
 		});
 
 		it('localizes meta[description]', function() {
-			browser.assert.attribute('meta[name=description]', 'content', uLocalized('JBXGuideDescription'));
+			browser.assert.attribute('meta[name=description]', 'content', uLocalized('SNPGuideDescription'));
 		});
 
-		it('localizes JBXGuideCrownName', function () {
-			browser.assert.text(JBXGuideCrownName, uLocalized('JBXGuideTitle'));
+		it('localizes SNPGuideCrownName', function () {
+			browser.assert.text(SNPGuideCrownName, uLocalized('SNPGuideTitle'));
 		});
 
 	});

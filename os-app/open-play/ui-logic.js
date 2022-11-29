@@ -2,12 +2,12 @@ import OLSKString from 'OLSKString';
 import OLSKDOM from 'OLSKDOM';
 import OLSKEmbed from 'OLSKEmbed';
 import OLSKMoment from 'OLSKMoment';
-import JBXDocument from '../_shared/JBXDocument/main.js';
+import SNPDocument from '../_shared/SNPDocument/main.js';
 
-const kJBXPlayCaptureAnchor = 'capture';
-const kJBXPlayNameAnchor = 'name';
-const kJBXPlayImageAnchor = 'image';
-const kJBXPlayInboxAnchor = 'inbox';
+const kSNPPlayCaptureAnchor = 'capture';
+const kSNPPlayNameAnchor = 'name';
+const kSNPPlayImageAnchor = 'image';
+const kSNPPlayInboxAnchor = 'inbox';
 
 const uAscending = function (a, b) {
   return (a < b) ? -1 : ((a > b) ? 1 : 0);
@@ -19,90 +19,90 @@ const uDescending = function (a, b) {
 
 const mod = {
 
-	JBXPlayAccessibilitySummary (inputData) {
-		if (JBXDocument.JBXDocumentErrors(inputData)) {
-			throw new Error('JBXErrorInputNotValid');
+	SNPPlayAccessibilitySummary (inputData) {
+		if (SNPDocument.SNPDocumentErrors(inputData)) {
+			throw new Error('SNPErrorInputNotValid');
 		}
 
-		return OLSKString.OLSKStringSnippet(inputData.JBXDocumentNotes);
+		return OLSKString.OLSKStringSnippet(inputData.SNPDocumentNotes);
 	},
 
-	JBXPlaySortFunction (a, b, log) {
-		if (a.$JBXDocumentIsInbox !== b.$JBXDocumentIsInbox) {
-			return uDescending(!!a.$JBXDocumentIsInbox, !!b.$JBXDocumentIsInbox);
+	SNPPlaySortFunction (a, b, log) {
+		if (a.$SNPDocumentIsInbox !== b.$SNPDocumentIsInbox) {
+			return uDescending(!!a.$SNPDocumentIsInbox, !!b.$SNPDocumentIsInbox);
 		}
 
-		if ([a.JBXDocumentArchiveDate, b.JBXDocumentArchiveDate].filter(function (e) {
+		if ([a.SNPDocumentArchiveDate, b.SNPDocumentArchiveDate].filter(function (e) {
 			return !e;
 		}) === 1) {
-			return uAscending(!!a.JBXDocumentArchiveDate, !!b.JBXDocumentArchiveDate);
+			return uAscending(!!a.SNPDocumentArchiveDate, !!b.SNPDocumentArchiveDate);
 		}
 
 		return (function(e) {
 			return uDescending(a[e], b[e]);
-		})(['JBXDocumentArchiveDate', 'JBXDocumentCreationDate'].filter(function (e) {
+		})(['SNPDocumentArchiveDate', 'SNPDocumentCreationDate'].filter(function (e) {
 			return a[e] && b[e];
 		}).shift());
 	},
 
-	JBXPlayIsMatch (param1, param2) {
+	SNPPlayIsMatch (param1, param2) {
 		if (typeof param2 !== 'string') {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
-		return [param1.JBXDocumentURL, param1.JBXDocumentName, param1.JBXDocumentNotes].concat(param1.JBXDocumentTags).filter(function (e) {
+		return [param1.SNPDocumentURL, param1.SNPDocumentName, param1.SNPDocumentNotes].concat(param1.SNPDocumentTags).filter(function (e) {
 			return !!e && OLSKString.OLSKStringMatch(param2, e);
 		}).length;
 	},
 
-	_JBXPlayChunk (inputData, OLSKLocalized) {
+	_SNPPlayChunk (inputData, OLSKLocalized) {
 		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
 
-		if (inputData.JBXDocumentArchiveDate) {
-			return OLSKLocalized('JBXPlayChunkArchiveText');
+		if (inputData.SNPDocumentArchiveDate) {
+			return OLSKLocalized('SNPPlayChunkArchiveText');
 		}
 
-		if (inputData.$JBXDocumentIsInbox) {
-			return OLSKLocalized('JBXPlayChunkInboxText');
+		if (inputData.$SNPDocumentIsInbox) {
+			return OLSKLocalized('SNPPlayChunkInboxText');
 		}
 
-		if (inputData.JBXDocumentCreationDate >= today) {
-			return OLSKLocalized('JBXPlayChunkTodayText');
+		if (inputData.SNPDocumentCreationDate >= today) {
+			return OLSKLocalized('SNPPlayChunkTodayText');
 		}
 
-		if (inputData.JBXDocumentCreationDate >= (new Date(today - 1000 * 60 * 60 * 24))) {
-			return OLSKLocalized('JBXPlayChunkYesterdayText');
+		if (inputData.SNPDocumentCreationDate >= (new Date(today - 1000 * 60 * 60 * 24))) {
+			return OLSKLocalized('SNPPlayChunkYesterdayText');
 		}
 
-		return OLSKMoment.OLSKMomentPerceptionDate(inputData.JBXDocumentCreationDate).toLocaleDateString();
+		return OLSKMoment.OLSKMomentPerceptionDate(inputData.SNPDocumentCreationDate).toLocaleDateString();
 	},
 
-	JBXPlayChunkFunction (inputData, OLSKLocalized) {
+	SNPPlayChunkFunction (inputData, OLSKLocalized) {
 		if (!Array.isArray(inputData)) {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return inputData.reduce(function (coll, item) {
-			const group = mod._JBXPlayChunk(item, OLSKLocalized);
+			const group = mod._SNPPlayChunk(item, OLSKLocalized);
 			return Object.assign(coll, {
 				[group]: (coll[group] || []).concat(item),
 			});
 		}, {});
 	},
 
-	JBXPlayChunkKeySortFunction (OLSKLocalized) {
+	SNPPlayChunkKeySortFunction (OLSKLocalized) {
 		if (typeof OLSKLocalized !== 'function') {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return function (a, b) {
-			return uAscending(a === OLSKLocalized('JBXPlayChunkArchiveText'), b === OLSKLocalized('JBXPlayChunkArchiveText'));
+			return uAscending(a === OLSKLocalized('SNPPlayChunkArchiveText'), b === OLSKLocalized('SNPPlayChunkArchiveText'));
 		};
 	},
 
-	JBXPlayDocuments (inputData) {
+	SNPPlayDocuments (inputData) {
 		if (typeof inputData !== 'string') {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
 		const recurse = function (coll, item) {
@@ -121,20 +121,20 @@ const mod = {
 				return item.split('\n').reduce(recurse, coll);
 			}
 
-			const JBXDocumentNotes = urls.reduce(function (coll, item) {
+			const SNPDocumentNotes = urls.reduce(function (coll, item) {
 				return coll.split(item).join(' ');
 			}, item).trim();
 
 			if (!urls.length) {
 				return coll.concat({
-					JBXDocumentNotes,
+					SNPDocumentNotes,
 				});
 			}
 
-			return coll.concat(urls.map(function (JBXDocumentURL) {
+			return coll.concat(urls.map(function (SNPDocumentURL) {
 				return {
-					JBXDocumentNotes,
-					JBXDocumentURL,
+					SNPDocumentNotes,
+					SNPDocumentURL,
 				};
 			}));
 		};
@@ -144,30 +144,30 @@ const mod = {
 		}).reduce(recurse, []);
 	},
 
-	async JBXPlayFetch (inputData, debug = {}) {
-		if (JBXDocument.JBXDocumentErrors(inputData)) {
-			throw new Error('JBXErrorInputNotValid');
+	async SNPPlayFetch (inputData, debug = {}) {
+		if (SNPDocument.SNPDocumentErrors(inputData)) {
+			throw new Error('SNPErrorInputNotValid');
 		}
 
-		if (!inputData.JBXDocumentURL) {
+		if (!inputData.SNPDocumentURL) {
 			return inputData;
 		}
 
-		const embed = OLSKEmbed.OLSKEmbedEndpointURL(inputData.JBXDocumentURL);
+		const embed = OLSKEmbed.OLSKEmbedEndpointURL(inputData.SNPDocumentURL);
 
 		const metadata = {};
 
 		try {
-			Object.assign(metadata, await (await (debug.window || window).fetch(OLSKEmbed.OLSKEmbedFetchURL(embed, inputData.JBXDocumentURL))).json());
+			Object.assign(metadata, await (await (debug.window || window).fetch(OLSKEmbed.OLSKEmbedFetchURL(embed, inputData.SNPDocumentURL))).json());
 		} catch {};
 
 		if (Object.keys(metadata).length <= 1) {
-			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text(), debug));
+			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('SNP_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.SNPDocumentURL))).text(), debug));
 		}
 
 		return Object.assign(inputData, {
-			JBXDocumentName: inputData.JBXDocumentName || metadata.title,
-			JBXDocumentEmbedURL: metadata.html ? metadata.html.match(/src=\u0022(\S*)\u0022/)[1] : [
+			SNPDocumentName: inputData.SNPDocumentName || metadata.title,
+			SNPDocumentEmbedURL: metadata.html ? metadata.html.match(/src=\u0022(\S*)\u0022/)[1] : [
 				'og:video:secure_url',
 				'og:video:url',
 				'og:video',
@@ -175,50 +175,50 @@ const mod = {
 			].reduce(function (coll, item) {
 				return coll || metadata[item];
 			}, undefined),
-			JBXDocumentImageURL: [
+			SNPDocumentImageURL: [
 				'thumbnail_url',
 				'og:image',
 			].reduce(function (coll, item) {
 				return coll || metadata[item];
 			}, undefined),
-			JBXDocumentDidFetch: true,
+			SNPDocumentDidFetch: true,
 		});
 	},
 
-	JBXPlayCaptureAnchor () {
-		return kJBXPlayCaptureAnchor;
+	SNPPlayCaptureAnchor () {
+		return kSNPPlayCaptureAnchor;
 	},
 
-	JBXPlayNameAnchor () {
-		return kJBXPlayNameAnchor;
+	SNPPlayNameAnchor () {
+		return kSNPPlayNameAnchor;
 	},
 
-	JBXPlayImageAnchor () {
-		return kJBXPlayImageAnchor;
+	SNPPlayImageAnchor () {
+		return kSNPPlayImageAnchor;
 	},
 
-	JBXPlayInboxAnchor () {
-		return kJBXPlayInboxAnchor;
+	SNPPlayInboxAnchor () {
+		return kSNPPlayInboxAnchor;
 	},
 
-	JBXPlayRemap () {
+	SNPPlayRemap () {
 		return {
-			JBXDocumentNotes: 'description',
-			JBXDocumentURL: 'url',
-			JBXDocumentName: 'name',
-			JBXDocumentEmbedURL: 'embedUrl',
-			JBXDocumentImageURL: 'image',
-			JBXDocumentDidFetch: 'didFetch',
+			SNPDocumentNotes: 'description',
+			SNPDocumentURL: 'url',
+			SNPDocumentName: 'name',
+			SNPDocumentEmbedURL: 'embedUrl',
+			SNPDocumentImageURL: 'image',
+			SNPDocumentDidFetch: 'didFetch',
 		};
 	},
 
-	JBXPlayDocumentCount (inputData) {
+	SNPPlayDocumentCount (inputData) {
 		if (!Array.isArray(inputData)) {
-			throw new Error('JBXErrorInputNotValid');
+			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return inputData.reduce(function (coll, item) {
-			if (!item || item.$JBXDocumentIsInbox) {
+			if (!item || item.$SNPDocumentIsInbox) {
 				return coll;
 			}
 

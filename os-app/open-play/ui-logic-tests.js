@@ -9,194 +9,194 @@ const uLocalized = function (inputData) {
 	return inputData + '-LOCALIZED';
 };
 
-describe('JBXPlayAccessibilitySummary', function test_JBXPlayAccessibilitySummary() {
+describe('SNPPlayAccessibilitySummary', function test_SNPPlayAccessibilitySummary() {
 
 	it('throws if not valid', function () {
 		throws(function () {
-			mod.JBXPlayAccessibilitySummary({});
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayAccessibilitySummary({});
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns string', function() {
-		const JBXDocumentNotes = Math.random().toString();
-		deepEqual(mod.JBXPlayAccessibilitySummary(StubDocumentObjectValid({
-			JBXDocumentNotes,
-		})), JBXDocumentNotes);
+		const SNPDocumentNotes = Math.random().toString();
+		deepEqual(mod.SNPPlayAccessibilitySummary(StubDocumentObjectValid({
+			SNPDocumentNotes,
+		})), SNPDocumentNotes);
 	});
 
 	it('truncates long string', function() {
 		const item = Array.from(Array(100)).map(Math.random).join(' ');
-		deepEqual(mod.JBXPlayAccessibilitySummary(StubDocumentObjectValid({
-			JBXDocumentNotes: item,
+		deepEqual(mod.SNPPlayAccessibilitySummary(StubDocumentObjectValid({
+			SNPDocumentNotes: item,
 		})), require('OLSKString').OLSKStringSnippet(item));
 	});
 
 });
 
-describe('JBXPlaySortFunction', function test_JBXPlaySortFunction() {
+describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
 
-	it('sorts by JBXDocumentCreationDate descending', function() {
+	it('sorts by SNPDocumentCreationDate descending', function() {
 		const item1 = {
-			JBXDocumentCreationDate: new Date(0),
+			SNPDocumentCreationDate: new Date(0),
 		};
 		const item2 = {
-			JBXDocumentCreationDate: new Date(1),
+			SNPDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
 	});
 
-	it('sorts JBXDocumentArchiveDate below others', function() {
+	it('sorts SNPDocumentArchiveDate below others', function() {
 		const item1 = {
-			JBXDocumentCreationDate: new Date(0),
-			JBXDocumentArchiveDate: new Date(),
+			SNPDocumentCreationDate: new Date(0),
+			SNPDocumentArchiveDate: new Date(),
 		};
 		const item2 = {
-			JBXDocumentCreationDate: new Date(1),
+			SNPDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
 	});
 
-	it('sorts by JBXDocumentArchiveDate descending', function() {
+	it('sorts by SNPDocumentArchiveDate descending', function() {
 		const item1 = {
-			JBXDocumentCreationDate: new Date(1),
-			JBXDocumentArchiveDate: new Date(0),
+			SNPDocumentCreationDate: new Date(1),
+			SNPDocumentArchiveDate: new Date(0),
 		};
 		const item2 = {
-			JBXDocumentCreationDate: new Date(0),
-			JBXDocumentArchiveDate: new Date(1),
+			SNPDocumentCreationDate: new Date(0),
+			SNPDocumentArchiveDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
 	});
 
-	it('sorts $JBXDocumentIsInbox above others', function() {
+	it('sorts $SNPDocumentIsInbox above others', function() {
 		const item1 = {
-			JBXDocumentCreationDate: new Date(1),
+			SNPDocumentCreationDate: new Date(1),
 		};
 		const item2 = {
-			JBXDocumentCreationDate: new Date(0),
-			$JBXDocumentIsInbox: true,
+			SNPDocumentCreationDate: new Date(0),
+			$SNPDocumentIsInbox: true,
 		};
 
-		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
 	});
 
 });
 
-describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
+describe('SNPPlayIsMatch', function test_SNPPlayIsMatch() {
 
 	it('throws error param2 if not string', function() {
 		throws(function() {
-			mod.JBXPlayIsMatch({}, null);
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayIsMatch({}, null);
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns false if no match', function() {
-		const key = uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes', 'JBXDocumentTags');
+		const key = uRandomElement('SNPDocumentURL', 'SNPDocumentName', 'SNPDocumentNotes', 'SNPDocumentTags');
 		const haystack = 'alfa';
-		deepEqual(mod.JBXPlayIsMatch({
-			[key]: key === 'JBXDocumentTags' ? [haystack] : haystack,
+		deepEqual(mod.SNPPlayIsMatch({
+			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
 		}, 'bravo'), false);
 	});
 
 	it('matches OLSKStringMatch', function() {
-		const key = uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes', 'JBXDocumentTags');
+		const key = uRandomElement('SNPDocumentURL', 'SNPDocumentName', 'SNPDocumentNotes', 'SNPDocumentTags');
 		const haystack = uRandomElement('alfa', 'álfa');
-		deepEqual(mod.JBXPlayIsMatch({
-			[key]: key === 'JBXDocumentTags' ? [haystack] : haystack,
+		deepEqual(mod.SNPPlayIsMatch({
+			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
 });
 
-describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
+describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
 
-	const _JBXPlayChunkFunction = function (inputData) {
-		return mod.JBXPlayChunkFunction([stub], uLocalized);
+	const _SNPPlayChunkFunction = function (inputData) {
+		return mod.SNPPlayChunkFunction([stub], uLocalized);
 	};
 
 	it('throws if not array', function () {
 		throws(function () {
-			mod.JBXPlayChunkFunction(null);
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayChunkFunction(null);
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns object', function() {
-		deepEqual(mod.JBXPlayChunkFunction([]), {});
+		deepEqual(mod.SNPPlayChunkFunction([]), {});
 	});
 
 	it('groups if inbox', function() {
 		const item = {
-			$JBXDocumentIsInbox: true,
+			$SNPDocumentIsInbox: true,
 		};
-		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
-			[uLocalized('JBXPlayChunkInboxText')]: [item],
+		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+			[uLocalized('SNPPlayChunkInboxText')]: [item],
 		});
 	});
 
 	it('groups if today', function() {
 		const item = {
-			JBXDocumentCreationDate: OLSKMoment.OLSKMomentPerceptionDate(new Date()),
+			SNPDocumentCreationDate: OLSKMoment.OLSKMomentPerceptionDate(new Date()),
 		};
-		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
-			[uLocalized('JBXPlayChunkTodayText')]: [item],
+		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+			[uLocalized('SNPPlayChunkTodayText')]: [item],
 		});
 	});
 
 	it('groups if yesterday', function() {
 		const item = {
-			JBXDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1),
+			SNPDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1),
 		};
-		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
-			[uLocalized('JBXPlayChunkYesterdayText')]: [item],
+		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+			[uLocalized('SNPPlayChunkYesterdayText')]: [item],
 		});
 	});
 
 	it('groups if before yesterday', function() {
 		const item = {
-			JBXDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1000 * 60 * 60 * 24 - 1),
+			SNPDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1000 * 60 * 60 * 24 - 1),
 		};
-		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
-			[OLSKMoment.OLSKMomentPerceptionDate(item.JBXDocumentCreationDate).toLocaleDateString()]: [item],
+		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+			[OLSKMoment.OLSKMomentPerceptionDate(item.SNPDocumentCreationDate).toLocaleDateString()]: [item],
 		});
 	});
 
 	it('groups if archive', function() {
 		const item = {
-			JBXDocumentCreationDate: new Date(),
-			JBXDocumentArchiveDate: new Date(),
+			SNPDocumentCreationDate: new Date(),
+			SNPDocumentArchiveDate: new Date(),
 		};
-		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
-			[uLocalized('JBXPlayChunkArchiveText')]: [item],
+		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+			[uLocalized('SNPPlayChunkArchiveText')]: [item],
 		});
 	});
 
 });
 
-describe('JBXPlayChunkKeySortFunction', function test_JBXPlayChunkKeySortFunction() {
+describe('SNPPlayChunkKeySortFunction', function test_SNPPlayChunkKeySortFunction() {
 
 	it('throws if not function', function () {
 		throws(function () {
-			mod.JBXPlayChunkKeySortFunction(null);
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayChunkKeySortFunction(null);
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns function', function () {
-		deepEqual(typeof mod.JBXPlayChunkKeySortFunction(function () {}), 'function');
+		deepEqual(typeof mod.SNPPlayChunkKeySortFunction(function () {}), 'function');
 	});
 
-	it('sorts JBXPlayChunkArchiveText below others', function() {
-		const item1 = uLocalized('JBXPlayChunkArchiveText');
+	it('sorts SNPPlayChunkArchiveText below others', function() {
+		const item1 = uLocalized('SNPPlayChunkArchiveText');
 		const item2 = Math.random().toString();
 
-		deepEqual([item1, item2].sort(mod.JBXPlayChunkKeySortFunction(uLocalized)), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPPlayChunkKeySortFunction(uLocalized)), [item2, item1]);
 	});
 
 });
 
-describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
+describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 
 	const uItems = function (inputData) {
 		return Array.from(Array(Math.max(2, uRandomInt(10)))).map(inputData);
@@ -204,21 +204,21 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 
 	it('throws if not string', function () {
 		throws(function () {
-			mod.JBXPlayDocuments(null);
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayDocuments(null);
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns array', function () {
-		deepEqual(mod.JBXPlayDocuments(''), []);
+		deepEqual(mod.SNPPlayDocuments(''), []);
 	});
 
 	it('parses strings', function () {
 		const item = uItems(function () {
 			return Math.random().toString();
 		});
-		deepEqual(mod.JBXPlayDocuments(item.join('\n\n')), item.map(function (e) {
+		deepEqual(mod.SNPPlayDocuments(item.join('\n\n')), item.map(function (e) {
 			return {
-				JBXDocumentNotes: e,
+				SNPDocumentNotes: e,
 			};
 		}));
 	});
@@ -227,10 +227,10 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 		const item = uItems(function () {
 			return uRandomElement('http', 'https') + '://example.com/' + Math.random().toString();
 		});
-		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.SNPPlayDocuments(item.join('\n')), item.map(function (e) {
 			return {
-				JBXDocumentURL: e,
-				JBXDocumentNotes: '',
+				SNPDocumentURL: e,
+				SNPDocumentNotes: '',
 			};
 		}));
 	});
@@ -244,25 +244,25 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 			return (textFirst ? [text, link] : [link, text]).join(' ');
 		});
 
-		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.SNPPlayDocuments(item.join('\n')), item.map(function (e) {
 			const [ text, link ] = textFirst ? e.split(' ') : e.split(' ').reverse();
 			return {
-				JBXDocumentURL: link,
-				JBXDocumentNotes: text,
+				SNPDocumentURL: link,
+				SNPDocumentNotes: text,
 			};
 		}));
 	});
 
 	it('parses multi-url line', function () {
-		const JBXDocumentNotes = Math.random().toString();
+		const SNPDocumentNotes = Math.random().toString();
 		const links = uItems(function () {
 			return uLink();
 		});
 
-		deepEqual(mod.JBXPlayDocuments([JBXDocumentNotes].concat(links).join(' ')), links.map(function (JBXDocumentURL) {
+		deepEqual(mod.SNPPlayDocuments([SNPDocumentNotes].concat(links).join(' ')), links.map(function (SNPDocumentURL) {
 			return {
-				JBXDocumentURL,
-				JBXDocumentNotes,
+				SNPDocumentURL,
+				SNPDocumentNotes,
 			};
 		}));
 	});
@@ -272,58 +272,58 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 			return [Math.random().toString(), uLink()];
 		});
 
-		deepEqual(mod.JBXPlayDocuments(items.map(function ([text, link]) {
+		deepEqual(mod.SNPPlayDocuments(items.map(function ([text, link]) {
 			return [text, link].join(' ');
-		}).join('\n')), items.map(function ([JBXDocumentNotes, JBXDocumentURL]) {
+		}).join('\n')), items.map(function ([SNPDocumentNotes, SNPDocumentURL]) {
 			return {
-				JBXDocumentURL,
-				JBXDocumentNotes,
+				SNPDocumentURL,
+				SNPDocumentNotes,
 			};
 		}));
 	});
 
 	it('parses single-url block', function () {
-		const JBXDocumentNotes = uItems(function () {
+		const SNPDocumentNotes = uItems(function () {
 			return Math.random().toString();
 		}).join('\n');
-		const JBXDocumentURL = uLink();
+		const SNPDocumentURL = uLink();
 
-		deepEqual(mod.JBXPlayDocuments([JBXDocumentURL, JBXDocumentNotes].join('\n')), [{
-			JBXDocumentURL,
-			JBXDocumentNotes,
+		deepEqual(mod.SNPPlayDocuments([SNPDocumentURL, SNPDocumentNotes].join('\n')), [{
+			SNPDocumentURL,
+			SNPDocumentNotes,
 		}]);
 	});
 
 });
 
-describe('JBXPlayFetch', function test_JBXPlayFetch () {
+describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 	it('rejects if not valid', async function () {
-		await rejects(mod.JBXPlayFetch({}), /JBXErrorInputNotValid/);
+		await rejects(mod.SNPPlayFetch({}), /SNPErrorInputNotValid/);
 	});
 
 	it('returns inputData', async function () {
 		const item = StubDocumentObjectValid();
-		deepEqual(await mod.JBXPlayFetch(item), item);
+		deepEqual(await mod.SNPPlayFetch(item), item);
 	});
 
 	it('calls window.fetch', function () {
-		const JBXDocumentURL = Math.random().toString();
+		const SNPDocumentURL = Math.random().toString();
 		deepEqual(uCapture(function (fetch) {
-			mod.JBXPlayFetch(StubDocumentObjectValid({
-				JBXDocumentURL,
+			mod.SNPPlayFetch(StubDocumentObjectValid({
+				SNPDocumentURL,
 			}), {
 				window: {
 					fetch,
 				},
 			});
-		}), ['JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + JBXDocumentURL]);
+		}), ['SNP_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + SNPDocumentURL]);
 	});
 
-	it('sets JBXDocumentName', async function () {
+	it('sets SNPDocumentName', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-			JBXDocumentURL: Math.random().toString(),
+		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			SNPDocumentURL: Math.random().toString(),
 		}), {
 			window: {
 				fetch: (function () {
@@ -335,14 +335,14 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 				}),
 			},
 			JSDOM: JSDOM.fragment,
-		})).JBXDocumentName, item);
+		})).SNPDocumentName, item);
 	});
 
-	it('keeps existing JBXDocumentName', async function () {
-		const JBXDocumentName = Math.random().toString();
-		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-			JBXDocumentName,
-			JBXDocumentURL: Math.random().toString(),
+	it('keeps existing SNPDocumentName', async function () {
+		const SNPDocumentName = Math.random().toString();
+		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			SNPDocumentName,
+			SNPDocumentURL: Math.random().toString(),
 		}), {
 			window: {
 				fetch: (function () {
@@ -354,10 +354,10 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 				}),
 			},
 			JSDOM: JSDOM.fragment,
-		})).JBXDocumentName, JBXDocumentName);
+		})).SNPDocumentName, SNPDocumentName);
 	});
 
-	context('JBXDocumentEmbedURL', function () {
+	context('SNPDocumentEmbedURL', function () {
 
 		const item = Math.random().toString();
 		Object.entries({
@@ -370,8 +370,8 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 		}).forEach(function ([key, value]) {
 
 			it('extracts ' + key, async function () {
-				deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-					JBXDocumentURL: Math.random().toString(),
+				deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+					SNPDocumentURL: Math.random().toString(),
 				}), {
 					window: {
 						fetch: (function () {
@@ -386,14 +386,14 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 						}),
 					},
 					JSDOM: JSDOM.fragment,
-				})).JBXDocumentEmbedURL, item);
+				})).SNPDocumentEmbedURL, item);
 			});
 
 		});
 	
 	});
 
-	context('JBXDocumentImageURL', function () {
+	context('SNPDocumentImageURL', function () {
 		
 		const item = Math.random().toString();
 		Object.entries({
@@ -401,8 +401,8 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 		}).forEach(function ([key, value]) {
 
 			it('extracts ' + key, async function () {
-				deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-					JBXDocumentURL: Math.random().toString(),
+				deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+					SNPDocumentURL: Math.random().toString(),
 				}), {
 					window: {
 						fetch: (function () {
@@ -414,17 +414,17 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 						}),
 					},
 					JSDOM: JSDOM.fragment,
-				})).JBXDocumentImageURL, item);
+				})).SNPDocumentImageURL, item);
 			});
 
 		});
 	
 	});
 
-	it('sets JBXDocumentDidFetch', async function () {
+	it('sets SNPDocumentDidFetch', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-			JBXDocumentURL: Math.random().toString(),
+		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			SNPDocumentURL: Math.random().toString(),
 		}), {
 			window: {
 				fetch: (function () {
@@ -436,28 +436,28 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 				}),
 			},
 			JSDOM: JSDOM.fragment,
-		})).JBXDocumentDidFetch, true);
+		})).SNPDocumentDidFetch, true);
 	});
 
 	context('oembed', function () {
 
 		it('fetch embed url', function () {
-			const JBXDocumentURL = OLSKEmbed._OLSKEmbedCanonicalURL();
+			const SNPDocumentURL = OLSKEmbed._OLSKEmbedCanonicalURL();
 			deepEqual(uCapture(function (fetch) {
-				mod.JBXPlayFetch(StubDocumentObjectValid({
-					JBXDocumentURL,
+				mod.SNPPlayFetch(StubDocumentObjectValid({
+					SNPDocumentURL,
 				}), {
 					window: {
 						fetch,
 					},
 				});
-			}), [OLSKEmbed.OLSKEmbedFetchURL(OLSKEmbed.OLSKEmbedEndpointURL(JBXDocumentURL), JBXDocumentURL)]);
+			}), [OLSKEmbed.OLSKEmbedFetchURL(OLSKEmbed.OLSKEmbedEndpointURL(SNPDocumentURL), SNPDocumentURL)]);
 		});
 
-		it('sets JBXDocumentName', async function () {
+		it('sets SNPDocumentName', async function () {
 			const title = Math.random().toString();
-			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
 					fetch: (function () {
@@ -472,13 +472,13 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 					}),
 				},
 				JSDOM: JSDOM.fragment,
-			})).JBXDocumentName, title);
+			})).SNPDocumentName, title);
 		});
 
-		it('sets JBXDocumentImageURL', async function () {
+		it('sets SNPDocumentImageURL', async function () {
 			const thumbnail_url = Math.random().toString();
-			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
 					fetch: (function () {
@@ -493,14 +493,14 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 					}),
 				},
 				JSDOM: JSDOM.fragment,
-			})).JBXDocumentImageURL, thumbnail_url);
+			})).SNPDocumentImageURL, thumbnail_url);
 		});
 
-		it('sets JBXDocumentEmbedURL', async function () {
+		it('sets SNPDocumentEmbedURL', async function () {
 			const url = 'https://www.youtube.com/embed/oKjXqck4AS8?feature=oembed';
 			const html = `"html":"\u003ciframe width=\u0022200\u0022 height=\u0022113\u0022 src=\u0022${ url }\u0022 frameborder=\u00220\u0022 allow=\u0022accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\u0022 allowfullscreen\u003e\u003c/iframe\u003e"}`;
-			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
 					fetch: (function () {
@@ -515,87 +515,87 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 					}),
 				},
 				JSDOM: JSDOM.fragment,
-			})).JBXDocumentEmbedURL, url);
+			})).SNPDocumentEmbedURL, url);
 		});
 	
 	});
 
 });
 
-describe('JBXPlayCaptureAnchor', function test_JBXPlayCaptureAnchor() {
+describe('SNPPlayCaptureAnchor', function test_SNPPlayCaptureAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayCaptureAnchor(), 'capture');
+		deepEqual(mod.SNPPlayCaptureAnchor(), 'capture');
 	});
 
 });
 
-describe('JBXPlayNameAnchor', function test_JBXPlayNameAnchor() {
+describe('SNPPlayNameAnchor', function test_SNPPlayNameAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayNameAnchor(), 'name');
+		deepEqual(mod.SNPPlayNameAnchor(), 'name');
 	});
 
 });
 
-describe('JBXPlayImageAnchor', function test_JBXPlayImageAnchor() {
+describe('SNPPlayImageAnchor', function test_SNPPlayImageAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayImageAnchor(), 'image');
+		deepEqual(mod.SNPPlayImageAnchor(), 'image');
 	});
 
 });
 
-describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor() {
+describe('SNPPlayInboxAnchor', function test_SNPPlayInboxAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayInboxAnchor(), 'inbox');
+		deepEqual(mod.SNPPlayInboxAnchor(), 'inbox');
 	});
 
 });
 
-describe('JBXPlayRemap', function test_JBXPlayRemap() {
+describe('SNPPlayRemap', function test_SNPPlayRemap() {
 
 	it('returns object', function() {
-		deepEqual(mod.JBXPlayRemap(), {
-			JBXDocumentNotes: 'description',
-			JBXDocumentURL: 'url',
-			JBXDocumentName: 'name',
-			JBXDocumentEmbedURL: 'embedUrl',
-			JBXDocumentImageURL: 'image',
-			JBXDocumentDidFetch: 'didFetch',
+		deepEqual(mod.SNPPlayRemap(), {
+			SNPDocumentNotes: 'description',
+			SNPDocumentURL: 'url',
+			SNPDocumentName: 'name',
+			SNPDocumentEmbedURL: 'embedUrl',
+			SNPDocumentImageURL: 'image',
+			SNPDocumentDidFetch: 'didFetch',
 		});
 	});
 
 });
 
-describe('JBXPlayDocumentCount', function test_JBXPlayDocumentCount() {
+describe('SNPPlayDocumentCount', function test_SNPPlayDocumentCount() {
 
 	it('throws if not array', function () {
 		throws(function () {
-			mod.JBXPlayDocumentCount(null);
-		}, /JBXErrorInputNotValid/);
+			mod.SNPPlayDocumentCount(null);
+		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns number', function () {
-		deepEqual(mod.JBXPlayDocumentCount([]), 0);
+		deepEqual(mod.SNPPlayDocumentCount([]), 0);
 	});
 
 	it('excludes if not invalid', function () {
-		deepEqual(mod.JBXPlayDocumentCount([null]), 0);
+		deepEqual(mod.SNPPlayDocumentCount([null]), 0);
 	});
 
 	it('includes if valid', function () {
 		const item = uRandomInt();
-		deepEqual(mod.JBXPlayDocumentCount(Array.from(Array(item)).map(function () {
+		deepEqual(mod.SNPPlayDocumentCount(Array.from(Array(item)).map(function () {
 			return StubDocumentObjectValid();
 		})), item);
 	});
 
-	it('excludes if $JBXDocumentIsInbox', function () {
-		deepEqual(mod.JBXPlayDocumentCount(Array.from(Array(uRandomInt())).map(function () {
+	it('excludes if $SNPDocumentIsInbox', function () {
+		deepEqual(mod.SNPPlayDocumentCount(Array.from(Array(uRandomInt())).map(function () {
 			return StubDocumentObjectValid({
-				$JBXDocumentIsInbox: true,
+				$SNPDocumentIsInbox: true,
 			});
 		})), 0);
 	});

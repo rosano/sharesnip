@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JBXRootLink_Misc', function () {
+describe('SNPRootLink_Misc', function () {
 
 	before(function () {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -9,7 +9,7 @@ describe('JBXRootLink_Misc', function () {
 	describe('OLSKRootLink', function () {
 		
 		it('sets OLSKRootLinkImageURL', function () {
-			browser.assert.attribute('.OLSKRootLinkImage', 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
+			browser.assert.attribute('.OLSKRootLinkImage', 'src', '/_shared/SNPRootLink/ui-assets/identity.svg');
 		});
 	
 	});
