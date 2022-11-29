@@ -110,7 +110,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			before(function () {
-				return browser.pressButton(SNPCodeToggleFormButton);
+				return uCreateDocument();
 			});
 
 			before(function () {

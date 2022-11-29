@@ -93,7 +93,7 @@ describe('SNPCode_Sync', function () {
 	describe.skip('ZDRSchemaDispatchSyncConflictDocument', function test_ZDRSchemaDispatchSyncConflictDocument () {
 
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		before(function () {

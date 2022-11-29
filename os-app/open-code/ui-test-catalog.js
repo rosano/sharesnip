@@ -9,7 +9,7 @@ describe('SNPCode_Catalog', function () {
 	context('create', function test_create () {
 		
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		it('adds item', function () {
@@ -89,11 +89,11 @@ describe('SNPCode_Catalog', function () {
 	context('OLSKCollectionDispatchArrow', function test_OLSKCollectionDispatchArrow () {
 		
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		before(function () {

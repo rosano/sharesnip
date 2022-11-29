@@ -7,13 +7,9 @@ describe.skip('SNPCode_Fund', function () {
 
 		ParamProject: process.env.ROCO_SHARED_PROJECT_ID,
 		
-		ParamTriggerGate () {
-			return browser.pressButton('.SNPCodeToggleFormButton');
-		},
+		ParamTriggerGate: uCreateDocument,
 
-		ParamCreateDocument () {
-			return browser.pressButton('.SNPCodeToggleFormButton');
-		},
+		ParamCreateDocument: uCreateDocument,
 
 		async ParamDeleteDocument () {
 			await browser.click('.OLSKCollectionItem');

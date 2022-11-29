@@ -64,7 +64,7 @@ describe('SNPCode_Misc', function () {
 	describe('OLSKCollectionItem', function test_OLSKCollectionItem () {
 
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {

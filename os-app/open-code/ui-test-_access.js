@@ -163,7 +163,7 @@ describe('SNPCode_Access', function () {
 	context('select', function test_select() {
 
 		before(function () {
-			return browser.pressButton(SNPCodeToggleFormButton);
+			return uCreateDocument();
 		});
 
 		before(function () {
