@@ -1,5 +1,6 @@
 <script>
 export let SNPCodeFormBaseObject;
+export let SNPCodeFormDidSubmit;
 
 export const modPublic = {
 };
@@ -12,13 +13,23 @@ const mod = {
 
 	_ValueChildClass: SNPCodeFormBaseLogic.SNPCodeFormBaseChildClass(SNPCodeFormBaseObject.SNPDocumentType),
 
+	// INTERFACE
+
+	InterfaceSaveButtonDidClick () {
+		SNPCodeFormDidSubmit(Object.assign(mod._ValueChildObject, SNPCodeFormBaseObject))
+	},
+
 	// MESSAGE
 
-	SNPCodeFormValid () {
+	SNPCodeFormValid (inputData) {
+		mod._ValueChildObject = inputData;
+
 		mod.SNPCodeFormBaseSaveButton.disabled = null;
 	},
 
 	SNPCodeFormNotValid () {
+		delete mod._ValueChildObject;
+
 		mod.SNPCodeFormBaseSaveButton.disabled = true;
 	},
 
@@ -33,6 +44,6 @@ import SNPCodeFormNote from './submodules/SNPCodeFormNote/main.svelte';
 	<SNPCodeFormNote SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } />
 {/if}
 
-<button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>
+<button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>
 
 </div>
