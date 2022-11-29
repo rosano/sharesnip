@@ -8,8 +8,8 @@ Object.entries({
 	SNPCodeDetailToolbarBackButton: '.SNPCodeDetailToolbarBackButton',
 	SNPCodeDetailToolbarBackButtonImage: '.SNPCodeDetailToolbarBackButtonImage',
 
-	SNPCodeDetailToolbarQueueButton: '.SNPCodeDetailToolbarQueueButton',	
-	SNPCodeDetailToolbarQueueButtonImage: '.SNPCodeDetailToolbarQueueButtonImage',
+	SNPCodeDetailToolbarCloneButton: '.SNPCodeDetailToolbarCloneButton',	
+	SNPCodeDetailToolbarCloneButtonImage: '.SNPCodeDetailToolbarCloneButtonImage',
 	
 	SNPCodeDetailToolbarDiscardButton: '.SNPCodeDetailToolbarDiscardButton',	
 	SNPCodeDetailToolbarDiscardButtonImage: '.SNPCodeDetailToolbarDiscardButtonImage',
@@ -44,12 +44,12 @@ describe('SNPCodeDetail_Access', function () {
 		browser.assert.elements(SNPCodeDetailToolbarBackButtonImage, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarQueueButton', function () {
-		browser.assert.elements(SNPCodeDetailToolbarQueueButton, 1);
+	it('shows SNPCodeDetailToolbarCloneButton', function () {
+		browser.assert.elements(SNPCodeDetailToolbarCloneButton, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarQueueButtonImage', function () {
-		browser.assert.elements(SNPCodeDetailToolbarQueueButtonImage, 1);
+	it('shows SNPCodeDetailToolbarCloneButtonImage', function () {
+		browser.assert.elements(SNPCodeDetailToolbarCloneButtonImage, 1);
 	});
 
 	it('shows SNPCodeDetailToolbarDiscardButton', function () {

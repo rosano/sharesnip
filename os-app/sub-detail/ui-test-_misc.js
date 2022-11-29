@@ -92,42 +92,42 @@ describe('SNPCodeDetail_Misc', function () {
 	
 	});
 
-	describe('SNPCodeDetailToolbarQueueButton', function test_SNPCodeDetailToolbarQueueButton () {
+	describe('SNPCodeDetailToolbarCloneButton', function test_SNPCodeDetailToolbarCloneButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeDetailToolbarCloneButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeDetailToolbarCloneButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeDetailToolbarCloneButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestSNPCodeDetailDispatchQueue', '0');
+				browser.assert.text('#TestSNPCodeDetailDispatchClone', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(SNPCodeDetailToolbarQueueButton);
+				return browser.pressButton(SNPCodeDetailToolbarCloneButton);
 			});
 
-			it('sends SNPCodeDetailDispatchQueue', function () {
-				browser.assert.text('#TestSNPCodeDetailDispatchQueue', '1');
+			it('sends SNPCodeDetailDispatchClone', function () {
+				browser.assert.text('#TestSNPCodeDetailDispatchClone', '1');
 			});
 		
 		});
 	
 	});
 
-	describe('SNPCodeDetailToolbarQueueButtonImage', function test_SNPCodeDetailToolbarQueueButtonImage () {
+	describe('SNPCodeDetailToolbarCloneButtonImage', function test_SNPCodeDetailToolbarCloneButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPCodeDetailToolbarQueueButtonImage } #_OLSKSharedClone`, 1);
+			browser.assert.elements(`${ SNPCodeDetailToolbarCloneButtonImage } #_OLSKSharedClone`, 1);
 		});
 	
 	});

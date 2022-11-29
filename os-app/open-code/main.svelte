@@ -25,7 +25,6 @@ import OLSKServiceWorker from 'OLSKServiceWorker';
 import RemoteStorage from 'remotestoragejs';
 import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
-import OLSKQueue from 'OLSKQueue';
 import OLSKTransport from 'OLSKTransport';
 import OLSKFund from 'OLSKFund';
 import OLSKPact from 'OLSKPact';
@@ -241,6 +240,10 @@ const mod = {
 		mod._OLSKCatalog.modPublic.OLSKCatalogActivateDetail();
 	},
 
+	ControlDocumentClone (inputData) {
+		mod.ControlDocumentAdd(SNPCodeLogic.SNPCodeCloned(inputData));
+	},
+	
 	ControlDocumentDiscard (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogRemove(inputData);
 
@@ -334,8 +337,8 @@ const mod = {
 		mod.ControlDocumentSave(mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected()));
 	},
 
-	SNPCodeDetailDispatchQueue () {
-		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
+	SNPCodeDetailDispatchClone () {
+		mod.ControlDocumentClone(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
 	SNPCodeDetailDispatchDiscard () {
@@ -673,7 +676,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			SNPCodeDetailItem={ OLSKCatalogItemSelected }
 			SNPCodeDetailDispatchBack={ mod.SNPCodeDetailDispatchBack }
 			SNPCodeDetailDispatchUpdate={ mod.SNPCodeDetailDispatchUpdate }
-			SNPCodeDetailDispatchQueue={ mod.SNPCodeDetailDispatchQueue }
+			SNPCodeDetailDispatchClone={ mod.SNPCodeDetailDispatchClone }
 			SNPCodeDetailDispatchDiscard={ mod.SNPCodeDetailDispatchDiscard }
 			bind:this={ mod._SNPCodeDetail }
 			/>

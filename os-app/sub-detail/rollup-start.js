@@ -11,8 +11,8 @@ const SNPCodeDetail = new RollupStart({
 		SNPCodeDetailDispatchUpdate: (function  () {
 			window.TestSNPCodeDetailDispatchUpdate.innerHTML = parseInt(window.TestSNPCodeDetailDispatchUpdate.innerHTML) + 1;
 		}),
-		SNPCodeDetailDispatchQueue: (function  () {
-			window.TestSNPCodeDetailDispatchQueue.innerHTML = parseInt(window.TestSNPCodeDetailDispatchQueue.innerHTML) + 1;
+		SNPCodeDetailDispatchClone: (function  () {
+			window.TestSNPCodeDetailDispatchClone.innerHTML = parseInt(window.TestSNPCodeDetailDispatchClone.innerHTML) + 1;
 		}),
 		SNPCodeDetailDispatchDiscard: (function  () {
 			window.TestSNPCodeDetailDispatchDiscard.innerHTML = parseInt(window.TestSNPCodeDetailDispatchDiscard.innerHTML) + 1;

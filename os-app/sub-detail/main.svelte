@@ -2,7 +2,7 @@
 export let SNPCodeDetailItem;
 export let SNPCodeDetailDispatchBack;
 export let SNPCodeDetailDispatchUpdate;
-export let SNPCodeDetailDispatchQueue;
+export let SNPCodeDetailDispatchClone;
 export let SNPCodeDetailDispatchDiscard;
 export let _DebugLauncher = false;
 
@@ -77,8 +77,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	</div>
 
 	<div class="OLSKToolbarElementGroup">
-		<button class="SNPCodeDetailToolbarQueueButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarQueueButtonText') } on:click={ SNPCodeDetailDispatchQueue }>
-			<div class="SNPCodeDetailToolbarQueueButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
+		<button class="SNPCodeDetailToolbarCloneButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarCloneButtonText') } on:click={ SNPCodeDetailDispatchClone }>
+			<div class="SNPCodeDetailToolbarCloneButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
 		</button>
 
 		<button class="SNPCodeDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && SNPCodeDetailDispatchDiscard() }>

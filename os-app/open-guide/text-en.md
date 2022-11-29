@@ -19,7 +19,7 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 </div>
 
-Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarQueueButtonText* button.
+Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarCloneButtonText* button.
 
 *SNPCodeDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCodeDetailMediaFetchButtonText*.
 

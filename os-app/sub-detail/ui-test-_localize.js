@@ -23,8 +23,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.attribute(SNPCodeDetailToolbarBackButton, 'title', uLocalized('SNPCodeDetailToolbarBackButtonText'));
 			});
 
-			it('localizes SNPCodeDetailToolbarQueueButton', function () {
-				browser.assert.attribute(SNPCodeDetailToolbarQueueButton, 'title', uLocalized('SNPCodeDetailToolbarQueueButtonText'));
+			it('localizes SNPCodeDetailToolbarCloneButton', function () {
+				browser.assert.attribute(SNPCodeDetailToolbarCloneButton, 'title', uLocalized('SNPCodeDetailToolbarCloneButtonText'));
 			});
 
 			it('localizes SNPCodeDetailToolbarDiscardButton', function () {

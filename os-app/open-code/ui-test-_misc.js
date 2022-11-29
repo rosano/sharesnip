@@ -89,6 +89,26 @@ describe('SNPCode_Misc', function () {
 
 	});
 
+	context('clone', function test_clone () {
+
+		before(function () {
+			return browser.fill(SNPCodeDetailFormNameField, 'alfa');
+		});
+
+		before(function () {
+			return browser.pressButton('.SNPCodeDetailToolbarCloneButton');
+		});
+
+		it('creates item', function () {
+			browser.assert.elements('.SNPCodeListItem', 2);
+		});
+
+		it('copies properties from previous item', function () {
+			browser.assert.text('.SNPCodeListItem', 'alfaalfa');
+		});
+
+	});
+
 	describe('SNPCodeViewportFooter', function test_SNPCodeViewportFooter () {
 
 		it('classes OLSKMobileViewFooter', function () {
