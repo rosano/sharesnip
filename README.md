@@ -1,12 +1,12 @@
-<a href="https://joybox.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/joybox/identity.svg" width="64" /></a>
+<a href="https://sharesnip.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/joybox/identity.svg" width="64" /></a>
 
-# [Joybox](https://joybox.rosano.ca)
+# [Sharesnip](https://sharesnip.rosano.ca)
 
 _A pinboard for audiovisual media_
 
-<a href="https://joybox.rosano.ca">Joybox</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://joybox.rosano.ca/guide">guide</a> for more details.
+<a href="https://sharesnip.rosano.ca">Sharesnip</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://sharesnip.rosano.ca/guide">guide</a> for more details.
 
-<a href="https://joybox.rosano.ca/play"><img alt="Open app" src="http://static.rosano.ca/_shared/_RCSAppButton.svg" /></a>
+<a href="https://sharesnip.rosano.ca/play"><img alt="Open app" src="http://static.rosano.ca/_shared/_RCSAppButton.svg" /></a>
 
 ## Architecture
 
