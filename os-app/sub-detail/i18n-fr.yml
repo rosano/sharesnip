@@ -1,10 +1,4 @@
 SNPPlayDetailToolbarBackButtonText: Retour
 SNPPlayDetailToolbarQueueButtonText: Ajouter à la collection
-SNPPlayDetailToolbarArchiveButtonText: Archiver
-SNPPlayDetailToolbarUnarchiveButtonText: Désarchiver
 SNPPlayDetailToolbarDiscardButtonText: Jeter
-SNPPlayDetailMediaURLFieldText: URL
-SNPPlayDetailMediaOpenButtonText: Ouvrir
-SNPPlayDetailMediaFetchButtonText: Chercher
 SNPPlayDetailFormNameFieldText: Nom
-SNPPlayDetailFormNotesFieldText: Notes
