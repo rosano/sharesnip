@@ -53,38 +53,8 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 		});
 	});
 
-	it('returns object if SNPDocumentNotes not string', function() {
-		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-			SNPDocumentNotes: null,
-		})), {
-			SNPDocumentNotes: [
-				'SNPErrorNotString',
-			],
-		});
-	});
-
 	it('returns null', function() {
 		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid()), null);
-	});
-
-	context('SNPDocumentURL', function() {
-
-		it('returns object if not string', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentURL: null,
-			})), {
-				SNPDocumentURL: [
-					'SNPErrorNotString',
-				],
-			});
-		});
-
-		it('returns null', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentURL: Math.random().toString(),
-			})), null);
-		});
-
 	});
 
 	context('SNPDocumentName', function() {
@@ -106,96 +76,6 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 		});
 
 	});
-
-	context('SNPDocumentEmbedURL', function() {
-
-		it('returns object if not string', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentEmbedURL: null,
-			})), {
-				SNPDocumentEmbedURL: [
-					'SNPErrorNotString',
-				],
-			});
-		});
-
-		it('returns null', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentEmbedURL: Math.random().toString(),
-			})), null);
-		});
-
-	});
-
-	context('SNPDocumentImageURL', function() {
-
-		it('returns object if not string', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentImageURL: null,
-			})), {
-				SNPDocumentImageURL: [
-					'SNPErrorNotString',
-				],
-			});
-		});
-
-		it('returns null', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentImageURL: Math.random().toString(),
-			})), null);
-		});
-
-	});
-
-	context('SNPDocumentDidFetch', function() {
-
-		it('returns object if not boolean', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentDidFetch: null,
-			})), {
-				SNPDocumentDidFetch: [
-					'SNPErrorNotBoolean',
-				],
-			});
-		});
-
-		it('returns null', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentDidFetch: true,
-			})), null);
-		});
-
-	});
-
-	it('returns object if SNPDocumentArchiveDate not date', function() {
-		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-			SNPDocumentArchiveDate: new Date('alfa'),
-		})), {
-			SNPDocumentArchiveDate: [
-				'SNPErrorNotDate',
-			],
-		});
-	});
-
-	context('SNPDocumentTags', function () {
-
-		it('returns object if not array', function () {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentTags: null,
-			})), {
-				SNPDocumentTags: [
-					'SNPErrorNotArray',
-				],
-			});
-		});
-
-		it('returns null', function () {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentTags: [],
-			})), null);
-		});
-
-	});	
 
 });
 
@@ -240,42 +120,6 @@ describe('_SNPDocumentProcess', function test__SNPDocumentProcess() {
 	it('returns inputData', function() {
 		const item = StubDocumentObjectValid();
 		strictEqual(mod._SNPDocumentProcess(item), item);
-	});
-
-	it('calls OLSKWash', function() {
-		const key = uRandomElement('SNPDocumentURL', 'SNPDocumentEmbedURL');
-		const value = 'https://player.vimeo.com/video/535982936';
-		deepEqual(mod._SNPDocumentProcess(StubDocumentObjectValid({
-			[key]: [value, '?', uRandomElement(OLSKWash._OLSKWashGlobalKeys()), '=', Math.random().toString()].join(''),
-		}))[key], value);
-	});
-
-	it('removes autoplay from vimeo', function() {
-		const SNPDocumentEmbedURL = 'https://player.vimeo.com/video/535982936?autoplay=1';
-		deepEqual(mod._SNPDocumentProcess(StubDocumentObjectValid({
-			SNPDocumentEmbedURL,
-		})).SNPDocumentEmbedURL, SNPDocumentEmbedURL.replace('autoplay=1', 'autoplay=0'));
-	});
-
-	it('renames youtube.com', function() {
-		const SNPDocumentEmbedURL = 'https://www.youtube.com/embed/q-ngFA8VBOM?list=OLAK5uy_nxjqj-pnNjTI2tfejntOuHILUVCtvO7Es';
-		deepEqual(mod._SNPDocumentProcess(StubDocumentObjectValid({
-			SNPDocumentEmbedURL,
-		})).SNPDocumentEmbedURL, SNPDocumentEmbedURL.replace('youtube.com', 'youtube-nocookie.com'));
-	});
-
-	it('filters empty tags', function() {
-		const SNPDocumentTags = ['', ' ', null];
-		deepEqual(mod._SNPDocumentProcess(StubDocumentObjectValid({
-			SNPDocumentTags,
-		})).SNPDocumentTags, []);
-	});
-
-	it('filters duplicate tags', function() {
-		const item = Math.random().toString();
-		deepEqual(mod._SNPDocumentProcess(StubDocumentObjectValid({
-			SNPDocumentTags: [item, item],
-		})).SNPDocumentTags, [item]);
 	});
 
 	it('strips __SNPDocumentProcessTest', function() {

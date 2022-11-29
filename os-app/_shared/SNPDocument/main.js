@@ -34,64 +34,10 @@ const mod = {
 			];
 		}
 
-		if (typeof inputData.SNPDocumentNotes !== 'string') {
-			errors.SNPDocumentNotes = [
-				'SNPErrorNotString',
-			];
-		}
-
-		if (typeof inputData.SNPDocumentURL !== 'undefined') {
-			if (typeof inputData.SNPDocumentURL !== 'string') {
-				errors.SNPDocumentURL = [
-					'SNPErrorNotString',
-				];
-			}
-		}
-
 		if (typeof inputData.SNPDocumentName !== 'undefined') {
 			if (typeof inputData.SNPDocumentName !== 'string') {
 				errors.SNPDocumentName = [
 					'SNPErrorNotString',
-				];
-			}
-		}
-
-		if (typeof inputData.SNPDocumentEmbedURL !== 'undefined') {
-			if (typeof inputData.SNPDocumentEmbedURL !== 'string') {
-				errors.SNPDocumentEmbedURL = [
-					'SNPErrorNotString',
-				];
-			}
-		}
-
-		if (typeof inputData.SNPDocumentImageURL !== 'undefined') {
-			if (typeof inputData.SNPDocumentImageURL !== 'string') {
-				errors.SNPDocumentImageURL = [
-					'SNPErrorNotString',
-				];
-			}
-		}
-
-		if (typeof inputData.SNPDocumentDidFetch !== 'undefined') {
-			if (typeof inputData.SNPDocumentDidFetch !== 'boolean') {
-				errors.SNPDocumentDidFetch = [
-					'SNPErrorNotBoolean',
-				];
-			}
-		}
-
-		if (typeof inputData.SNPDocumentArchiveDate !== 'undefined') {
-			if (!(inputData.SNPDocumentArchiveDate instanceof Date) || Number.isNaN(inputData.SNPDocumentArchiveDate.getTime())) {
-				errors.SNPDocumentArchiveDate = [
-					'SNPErrorNotDate',
-				];
-			}
-		}
-
-		if (inputData.SNPDocumentTags !== undefined) {
-			if (!Array.isArray(inputData.SNPDocumentTags)) {
-				errors.SNPDocumentTags = [
-					'SNPErrorNotArray',
 				];
 			}
 		}
@@ -116,36 +62,6 @@ const mod = {
 	_SNPDocumentProcess (inputData) {
 		if (typeof inputData !== 'object' || inputData === null) {
 			throw new Error('SNPErrorInputNotValid');
-		}
-
-		['SNPDocumentURL', 'SNPDocumentEmbedURL'].forEach(function (e) {
-			if (!inputData[e]) {
-				return;
-			}
-
-			Object.assign(inputData, {
-				[e]: OLSKWash.OLSKWash(inputData[e]),
-			});
-		});
-
-		if ((inputData.SNPDocumentEmbedURL || '').match('vimeo')) {
-			Object.assign(inputData, {
-				SNPDocumentEmbedURL: inputData.SNPDocumentEmbedURL.replace('autoplay=1', 'autoplay=0'),
-			});
-		}
-
-		if ((inputData.SNPDocumentEmbedURL || '').match('youtube.com')) {
-			Object.assign(inputData, {
-				SNPDocumentEmbedURL: inputData.SNPDocumentEmbedURL.replace('youtube.com', 'youtube-nocookie.com'),
-			});
-		}
-
-		if ((inputData.SNPDocumentTags || []).length) {
-			Object.assign(inputData, {
-				SNPDocumentTags: inputData.SNPDocumentTags.filter(function (e, i, coll) {
-					return !!(e || '').trim() && coll.indexOf(e) === i;
-				}),
-			});
 		}
 
 		delete inputData.__SNPDocumentProcessTest;
