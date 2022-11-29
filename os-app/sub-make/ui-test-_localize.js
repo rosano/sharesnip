@@ -18,12 +18,24 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPCodeMakeHeading, uLocalized('SNPCodeMakeHeadingText'));
 		});
 
-		it('localizes SNPCodeMakeNoteButton', function () {
-			browser.assert.text(SNPCodeMakeNoteButton, uLocalized('SNPCodeMakeNoteButtonText'));
+		it('localizes SNPCodeMakeTypesNoteButton', function () {
+			browser.assert.text(SNPCodeMakeTypesNoteButton, uLocalized('SNPCodeMakeTypesNoteButtonText'));
 		});
 
-		it('localizes SNPCodeMakeLinkButton', function () {
-			browser.assert.text(SNPCodeMakeLinkButton, uLocalized('SNPCodeMakeLinkButtonText'));
+		it('localizes SNPCodeMakeTypesLinkButton', function () {
+			browser.assert.text(SNPCodeMakeTypesLinkButton, uLocalized('SNPCodeMakeTypesLinkButtonText'));
+		});
+
+		context('option', function () {
+			
+			before(function () {
+				return browser.pressButton(SNPCodeMakeTypesNoteButton);
+			});
+
+			it('localizes SNPCodeMakeChangeButton', function () {
+				browser.assert.text(SNPCodeMakeChangeButton, uLocalized('SNPCodeMakeChangeButtonText'));
+			});
+
 		});
 
 	});

@@ -1,3 +1,4 @@
 SNPCodeMakeHeadingText: Make a code
-SNPCodeMakeNoteButtonText: text
-SNPCodeMakeLinkButtonText: link
+SNPCodeMakeTypesNoteButtonText: text
+SNPCodeMakeTypesLinkButtonText: link
+SNPCodeMakeChangeButtonText: Change type
