@@ -90,15 +90,6 @@ describe('SNPCodeChunkFunction', function test_SNPCodeChunkFunction() {
 		deepEqual(mod.SNPCodeChunkFunction([]), {});
 	});
 
-	it('groups if inbox', function() {
-		const item = {
-			$SNPDocumentIsInbox: true,
-		};
-		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
-			[uLocalized('SNPCodeChunkInboxText')]: [item],
-		});
-	});
-
 	it('groups if today', function() {
 		const item = {
 			SNPDocumentCreationDate: OLSKMoment.OLSKMomentPerceptionDate(new Date()),

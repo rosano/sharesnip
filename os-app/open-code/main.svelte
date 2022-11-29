@@ -84,7 +84,7 @@ const mod = {
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncCreateDocument () {
 						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
-							SNPDocumentNotes: 'FakeZDRSchemaDispatchSyncCreateDocument',
+							SNPDocumentName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 						})));
 					},
 				},
@@ -92,9 +92,9 @@ const mod = {
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncUpdateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncUpdateDocument () {
 						return mod.ZDRSchemaDispatchSyncUpdateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(Object.assign(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSync');
+							return e.SNPDocumentName.match('FakeZDRSchemaDispatchSync');
 						}).pop(), {
-							SNPDocumentNotes: 'FakeZDRSchemaDispatchSyncUpdateDocument',
+							SNPDocumentName: 'FakeZDRSchemaDispatchSyncUpdateDocument',
 						})));
 					},
 				},
@@ -102,7 +102,7 @@ const mod = {
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncDeleteDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncDeleteDocument () {
 						return mod.ZDRSchemaDispatchSyncDeleteDocument(await mod._ValueZDRWrap.App.SNPDocument.ZDRModelDeleteObject(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSync');
+							return e.SNPDocumentName.match('FakeZDRSchemaDispatchSync');
 						}).pop()));
 					},
 				},
@@ -110,16 +110,16 @@ const mod = {
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncConflictDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncConflictDocument () {
 						const item = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
-							return e.SNPDocumentNotes.match('FakeZDRSchemaDispatchSyncConflictDocument');
+							return e.SNPDocumentName.match('FakeZDRSchemaDispatchSyncConflictDocument');
 						}).pop();
 						
 						return mod.ZDRSchemaDispatchSyncConflictDocument({
 							origin: 'conflict',
 							oldValue: JSON.parse(JSON.stringify(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentUpdate(Object.assign(Object.assign({}, item), {
-								SNPDocumentNotes: item.SNPDocumentNotes + '-local',
+								SNPDocumentName: item.SNPDocumentName + '-local',
 							})))),
 							newValue: JSON.parse(JSON.stringify(Object.assign(Object.assign({}, item), {
-								SNPDocumentNotes: item.SNPDocumentNotes + '-remote',
+								SNPDocumentName: item.SNPDocumentName + '-remote',
 							}))),
 						});
 					},
@@ -129,7 +129,7 @@ const mod = {
 					LCHRecipeCallback: async function FakeFundDocumentLimit () {
 						await Promise.all(Array.from(Array(mod._ValueDocumentRemainder)).map(function (e) {
 							return mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate({
-								SNPDocumentNotes: Math.random().toString(),
+								SNPDocumentName: Math.random().toString(),
 							});
 						}));
 

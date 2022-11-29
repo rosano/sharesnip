@@ -25,7 +25,7 @@ describe('SNPTransportImport', function test_SNPTransportImport() {
 		it('rejects if not valid', async function () {
 			await rejects(ZDRTestingWrap.App.SNPTransport.SNPTransportImport({
 				SNPDocument: [StubDocumentObjectValid({
-					SNPDocumentNotes: null,
+					SNPDocumentName: null,
 				})],
 			}), /SNPErrorInputNotValid/);
 		});

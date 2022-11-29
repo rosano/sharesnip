@@ -6,7 +6,7 @@ describe('SNPCode_Transport', function () {
 
 	describe('OLSKTransportDispatchImportJSON', function test_OLSKTransportDispatchImportJSON() {
 
-		const SNPDocumentNotes = Math.random().toString();
+		const SNPDocumentName = Math.random().toString();
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute);
@@ -26,7 +26,7 @@ describe('SNPCode_Transport', function () {
 			}, function (dialog) {
 				dialog.response = JSON.stringify({
 					SNPDocument: [StubDocumentObjectValid({
-						SNPDocumentNotes,
+						SNPDocumentName,
 					})],
 					SNPSetting: [StubSettingObjectValid()],
 				});
@@ -38,7 +38,7 @@ describe('SNPCode_Transport', function () {
 		});
 
 		it('creates item', function () {
-			browser.assert.text('.SNPCodeListItemSnippet', SNPDocumentNotes);
+			browser.assert.text('.SNPCodeListItemSnippet', SNPDocumentName);
 		});
 
 	});

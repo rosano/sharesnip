@@ -140,9 +140,9 @@ describe('SNPDocumentCreate', function test_SNPDocumentCreate() {
 
 	it('rejects with errors if not valid', async function() {
 		await rejects(ZDRTestingWrap.App.SNPDocument.SNPDocumentCreate(StubDocumentObject({
-			SNPDocumentNotes: null,
+			SNPDocumentName: null,
 		})), {
-			SNPDocumentNotes: [
+			SNPDocumentName: [
 				'SNPErrorNotString',
 			],
 		});

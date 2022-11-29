@@ -170,10 +170,6 @@ import { fade } from 'svelte/transition';
 	<input class="SNPCodeDetailFormNameField" placeholder={ OLSKLocalized('SNPCodeDetailFormNameFieldText') } type="text" bind:value={ SNPCodeDetailItem.SNPDocumentName } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null } />
 </p>
 
-<p>
-	<textarea class="SNPCodeDetailFormNotesField" placeholder="{ OLSKLocalized('SNPCodeDetailFormNotesFieldText') }" bind:value={ SNPCodeDetailItem.SNPDocumentNotes } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null }></textarea>
-</p>
-
 {#if !SNPCodeDetailItem.$SNPDocumentIsInbox }
 <hr role="presentation" />
 
