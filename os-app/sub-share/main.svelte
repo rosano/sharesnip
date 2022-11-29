@@ -5,7 +5,6 @@ import { OLSKLocalized } from 'OLSKInternational';
 
 import SNPCodeLogic from '../open-code/ui-logic.js';
 import OLSKString from 'OLSKString';
-import OLSKHash from 'OLSKHash';
 import OLSKObject from 'OLSKObject';
 
 const mod = {
@@ -29,11 +28,7 @@ const mod = {
 	// CONTROL
 
 	ControlUpdateLink (inputData) {
-		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCodeRoute') + '/#' + OLSKHash.OLSKHashString({
-			[SNPCodeLogic.SNPCodeInboxAnchor()]: OLSKString.OLSKStringEncode(JSON.stringify(inputData.map(function (e) {
-				return OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap(e));
-			}))),
-		});
+		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCodeRoute') + '/#';
 	},
 
 	// REACT

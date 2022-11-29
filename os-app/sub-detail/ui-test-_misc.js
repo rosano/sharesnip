@@ -8,7 +8,7 @@ describe('SNPCodeDetail_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeDetailItem: item,
+			SNPCodeDetailItem: JSON.stringify(item),
 		});
 	});
 

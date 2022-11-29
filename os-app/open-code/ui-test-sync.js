@@ -43,7 +43,7 @@ describe('SNPCode_Sync', function () {
 			});
 
 			before(function () {
-				return browser.fill('.SNPCodeDetailFormNotesField', 'FakeZDRSchemaDispatchSyncCreateDocument');
+				return browser.fill('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncCreateDocument');
 			});
 
 			before(function () {
@@ -51,7 +51,7 @@ describe('SNPCode_Sync', function () {
 			});
 
 			it('updates detail', function () {
-				browser.assert.input('.SNPCodeDetailFormNotesField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
+				browser.assert.input('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
 			});
 
 		});
@@ -97,19 +97,11 @@ describe('SNPCode_Sync', function () {
 		});
 
 		before(function () {
-			browser.fill(SNPCodeFormField, Math.random().toString());
-		});
-
-		before(function () {
-			return browser.pressButton(SNPCodeFormSubmitButton);
-		});
-
-		before(function () {
 			return browser.click('.SNPCodeListItem');
 		});
 
 		before(function () {
-			return browser.fill('.SNPCodeDetailFormNotesField', 'FakeZDRSchemaDispatchSyncConflictDocument');
+			return browser.fill('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncConflictDocument');
 		});
 
 		before(function () {

@@ -11,12 +11,8 @@ describe('SNPCode_Fund', function () {
 			return browser.pressButton('.SNPCodeToggleFormButton');
 		},
 
-		async ParamCreateDocument () {
-			await browser.pressButton('.SNPCodeToggleFormButton');
-			
-			browser.fill('.SNPCodeFormField', Math.random().toString());
-			
-			await browser.pressButton('.SNPCodeFormSubmitButton');
+		ParamCreateDocument () {
+			return browser.pressButton('.SNPCodeToggleFormButton');
 		},
 
 		async ParamDeleteDocument () {

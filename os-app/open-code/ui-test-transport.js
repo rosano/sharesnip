@@ -38,7 +38,7 @@ describe('SNPCode_Transport', function () {
 		});
 
 		it('creates item', function () {
-			browser.assert.text('.SNPCodeListItemSnippet', SNPDocumentName);
+			browser.assert.text('.SNPCodeListItemTitle', SNPDocumentName);
 		});
 
 	});

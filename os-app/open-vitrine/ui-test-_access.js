@@ -10,6 +10,7 @@ Object.entries({
 	SNPVitrineGuideButton: '.SNPVitrineGuideButton',
 
 	SNPVitrineDeeperHeading: '.SNPVitrineDeeperHeading',
+	SNPVitrineGlossary: '.SNPVitrineGlossary',
 
 	SNPVitrineSupportHeading: '.SNPVitrineSupportHeading',
 	SNPVitrineSupportBlurb: '.SNPVitrineSupportBlurb',
@@ -57,6 +58,10 @@ describe('SNPVitrine_Access', function () {
 
 	it('shows SNPVitrineDeeperHeading', function () {
 		browser.assert.elements(SNPVitrineDeeperHeading, 1);
+	});
+
+	it('shows SNPVitrineGlossary', function () {
+		browser.assert.elements(SNPVitrineGlossary, 1);
 	});
 
 	it('shows ROCOGlossary', function () {

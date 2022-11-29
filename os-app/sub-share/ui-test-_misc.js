@@ -1,7 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const SNPCodeLogic = require('../open-code/ui-logic.js').default;
-const OLSKHash = require('OLSKHash');
 const OLSKObject = require('OLSKObject');
 
 describe('SNPCodeShare_Misc', function () {
@@ -9,11 +8,7 @@ describe('SNPCodeShare_Misc', function () {
 	const items = [StubDocumentObjectValid(), StubDocumentObjectValid()];
 
 	const uValue = function (inputData) {
-		return browser.window.location.origin + require('../open-code/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath + '/#' + OLSKHash.OLSKHashString({
-			[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify(inputData.map(function (e) {
-				return OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap(e));
-			}))),
-		});
+		return browser.window.location.origin + require('../open-code/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath + '/#';
 	};
 
 	before(function() {

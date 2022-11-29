@@ -27,7 +27,6 @@ import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKQueue from 'OLSKQueue';
 import OLSKTransport from 'OLSKTransport';
-import OLSKHash from 'OLSKHash';
 import OLSKFund from 'OLSKFund';
 import OLSKPact from 'OLSKPact';
 import zerodatawrap from 'zerodatawrap';
@@ -204,7 +203,7 @@ const mod = {
 			return mod.OLSKFundDocumentGate();
 		}
 
-		mod._ValueFormIsVisible = !mod._ValueFormIsVisible;
+		mod.ControlDocumentAdd();
 	},
 
 	// CONTROL
@@ -223,7 +222,7 @@ const mod = {
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData));
+		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData || mod.DataStubDocumentObject()));
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {

@@ -101,7 +101,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('SNPCodeShareModal', function test_SNPCodeShareModal() {
+		describe.skip('SNPCodeShareModal', function test_SNPCodeShareModal() {
 
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
@@ -111,18 +111,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 			before(function () {
 				return browser.pressButton(SNPCodeToggleFormButton);
-			});
-
-			before(function () {
-				browser.fill(SNPCodeFormField, Math.random().toString());
-			});
-
-			before(function () {
-				return browser.pressButton(SNPCodeFormSubmitButton);
-			});
-
-			before(function () {
-				return browser.pressButton(SNPCodeStashButton);
 			});
 
 			before(function () {

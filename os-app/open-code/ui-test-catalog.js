@@ -89,6 +89,10 @@ describe('SNPCode_Catalog', function () {
 		});
 
 		before(function () {
+			return browser.pressButton(SNPCodeToggleFormButton);
+		});
+
+		before(function () {
 			return browser.click(SNPCodeListItem);
 		});
 
