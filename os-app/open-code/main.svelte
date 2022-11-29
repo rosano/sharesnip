@@ -82,6 +82,7 @@ const mod = {
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncCreateDocument () {
+
 						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
 							SNPDocumentName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 						})));
@@ -184,16 +185,10 @@ const mod = {
 
 	DataStubDocumentObject (inputData = {}) {
 		return Object.assign({
+			SNPDocumentData: Math.random().toString(),
 			SNPDocumentName: '',
+			SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 		}, inputData);
-	},
-
-	DataStubDocumentObjectValid (inputData = {}) {
-		return mod.DataStubDocumentObject(Object.assign({
-			SNPDocumentID: Math.random().toString(),
-			SNPDocumentCreationDate: new Date(),
-			SNPDocumentModificationDate: new Date(),
-		}, inputData));
 	},
 
 	// INTERFACE
@@ -202,8 +197,8 @@ const mod = {
 		if (mod._ValueDocumentRemainder < 1 && !mod.DataIsEligible()) {
 			return mod.OLSKFundDocumentGate();
 		}
-
-		mod.ControlDocumentAdd();
+		
+		mod._SNPCodeMakeModal.modPublic.OLSKModalViewShow();
 	},
 
 	// CONTROL
@@ -222,7 +217,7 @@ const mod = {
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod.ControlDocumentActivate(mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData || mod.DataStubDocumentObject())));
+		mod.ControlDocumentActivate(mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData)));
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
@@ -323,6 +318,12 @@ const mod = {
 			LCHOptionRecipes: mod.DataCodeRecipes(),
 			LCHOptionLanguage: window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'),
 		});
+	},
+
+	SNPCodeFormDidSubmit (inputData) {
+		mod._SNPCodeMakeModal.modPublic.OLSKModalViewClose();
+
+		mod.ControlDocumentAdd(inputData);
 	},
 
 	SNPCodeDetailDispatchBack () {
@@ -616,7 +617,7 @@ onMount(mod.LifecycleModuleWillMount);
 import OLSKCatalog from 'OLSKCatalog';
 import SNPCodeListItem from '../sub-item/main.svelte';
 import SNPCodeDetail from '../sub-detail/main.svelte';
-import SNPCodeShare from '../sub-share/main.svelte';
+import SNPCodeMake from '../sub-make/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -737,8 +738,11 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		/>
 </OLSKModalView>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPCodeShareModalTitleText') } bind:this={ mod._SNPCodeShareModal }>
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPCodeMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPCodeMakeModal }>
 	<div>
-		<SNPCodeShare SNPCodeShareItems={ mod._SNPCodeShareItems } />
+		<SNPCodeMake SNPCodeMakeObject={ Object.assign(mod.DataStubDocumentObject(), {
+			SNPDocumentType: null,
+			SNPDocumentData: null,
+		}) } SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
 	</div>
 </OLSKModalView>

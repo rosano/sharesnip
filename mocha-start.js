@@ -52,8 +52,11 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			}, inputData);
 		},
 
-		uCreateDocument () {
-			return browser.pressButton('.SNPCodeToggleFormButton');
+		async uCreateDocument () {
+			await browser.pressButton('.SNPCodeToggleFormButton');
+			await browser.pressButton('.SNPCodeMakeTypesNoteButton');			
+			await browser.fill('.SNPCodeFormDataField', Math.random().toString());
+			return browser.pressButton(SNPCodeFormBaseSaveButton);
 		},
 
 	}).map(function (e) {

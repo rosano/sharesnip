@@ -1,27 +1,24 @@
 <script>
+export let SNPCodeMakeObject;
+export let SNPCodeFormDidSubmit;
+
 import { OLSKLocalized } from 'OLSKInternational';
 
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
 const mod = {
 
-	// VALUE
-	
-	_ValueObject: {},
-
 	// INTERFACE
 
 	InterfaceTextButtonDidClick () {
-		mod._ValueObject.SNPDocumentType = SNPDocument.SNPDocumentTypeNote();
-		// SNPCodeMakeDispatchNote();
+		SNPCodeMakeObject.SNPDocumentType = SNPDocument.SNPDocumentTypeNote();
 	},
 
 	InterfaceLinkButtonDidClick () {
-		// SNPCodeMakeDispatchLink();
 	},
 
 	InterfaceChangeButtonDidClick () {
-		mod._ValueObject.SNPDocumentType = null;
+		SNPCodeMakeObject.SNPDocumentType = null;
 	},
 
 };
@@ -33,7 +30,7 @@ import SNPCodeFormBase from '../sub-form/main.svelte';
 
 <h1 class="SNPCodeMakeHeading">{ OLSKLocalized('SNPCodeMakeHeadingText') }</h1>
 
-{#if !mod._ValueObject.SNPDocumentType }
+{#if !SNPCodeMakeObject.SNPDocumentType }
 <div class="SNPCodeMakeTypes">
 		
 <button class="SNPCodeMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPCodeMakeTypesNoteButtonText') }</button>
@@ -43,11 +40,11 @@ import SNPCodeFormBase from '../sub-form/main.svelte';
 </div>
 {/if}
 
-{#if mod._ValueObject.SNPDocumentType }
+{#if SNPCodeMakeObject.SNPDocumentType }
 	
 <button class="SNPCodeMakeChangeButton" on:click={ mod.InterfaceChangeButtonDidClick }>{ OLSKLocalized('SNPCodeMakeChangeButtonText') }</button>
 
-<SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } />
+<SNPCodeFormBase SNPCodeFormBaseObject={ SNPCodeMakeObject } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
 
 {/if}
 

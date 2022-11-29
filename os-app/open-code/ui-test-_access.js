@@ -15,6 +15,8 @@ Object.entries({
 	
 	SNPCodeCloudToolbar: '.SNPCodeCloudToolbar',
 	
+	SNPCodeMakeModal: '.OLSKModalView .SNPCodeMake',
+	
 	SNPCodeShareModal: '.OLSKModalView .SNPCodeShare',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
@@ -72,6 +74,10 @@ describe('SNPCode_Access', function () {
 
 	it('shows OLSKInstall', function () {
 		browser.assert.elements('.OLSKInstall', 1);
+	});
+
+	it('hides SNPCodeMakeModal', function () {
+		browser.assert.elements(SNPCodeMakeModal, 0);
 	});
 
 	it('hides SNPCodeShareModal', function () {
@@ -160,11 +166,39 @@ describe('SNPCode_Access', function () {
 
 	}); 
 
-	context('select', function test_select() {
+	context('create', function test_create() {
 
 		before(function () {
-			return uCreateDocument();
+			return browser.pressButton('.SNPCodeToggleFormButton');
 		});
+
+		it('shows SNPCodeMakeModal', function () {
+			browser.assert.elements(SNPCodeMakeModal, 1);
+		});
+
+		context('submit', function () {
+
+			before(function () {
+				return browser.pressButton(SNPCodeMakeTypesNoteButton);
+			});
+			
+			before(function () {
+				return browser.fill('.SNPCodeFormDataField', Math.random().toString());
+			});
+
+			before(function () {
+				return browser.pressButton(SNPCodeFormBaseSaveButton);
+			});
+
+			it('hides SNPCodeMakeModal', function () {
+				browser.assert.elements(SNPCodeMakeModal, 0);
+			});
+		
+		});
+	
+	});
+
+	context('select', function test_select() {
 
 		before(function () {
 			return browser.click(SNPCodeListItem);

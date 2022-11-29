@@ -16,7 +16,7 @@ const mod = {
 	// INTERFACE
 
 	InterfaceSaveButtonDidClick () {
-		SNPCodeFormDidSubmit(Object.assign(mod._ValueChildObject, SNPCodeFormBaseObject))
+		SNPCodeFormDidSubmit(Object.assign(SNPCodeFormBaseObject, mod._ValueChildObject))
 	},
 
 	// MESSAGE

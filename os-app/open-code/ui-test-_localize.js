@@ -101,6 +101,28 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
+		describe('SNPCodeMakeModal', function test_SNPCodeMakeModal() {
+
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
+				});
+			});
+
+			before(function () {
+				return browser.pressButton('.SNPCodeToggleFormButton');
+			});
+
+			it('sets OLSKModalViewTitleText', function () {
+				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPCodeMakeHeadingText'));
+			});
+
+			it('sets OLSKModalViewCloseText', function () {
+				browser.assert.text('.OLSKModalViewCloseButton', uLocalized('OLSKWordingCancelText'));
+			});
+
+		});
+
 		describe.skip('SNPCodeShareModal', function test_SNPCodeShareModal() {
 
 			before(function() {
