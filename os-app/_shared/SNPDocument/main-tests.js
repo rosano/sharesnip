@@ -4,10 +4,10 @@ const mod = require('./main.js').default;
 
 const OLSKObject = require('OLSKObject');
 
-describe('SNPDocumentTypeString', function test_SNPDocumentTypeString() {
+describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPDocumentTypeString(), 'TYPE_STRING');
+		deepEqual(mod.SNPDocumentTypeNote(), 'TYPE_NOTE');
 	});
 
 });
@@ -16,7 +16,7 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypes(), [
-			mod.SNPDocumentTypeString(),
+			mod.SNPDocumentTypeNote(),
 			]);
 	});
 

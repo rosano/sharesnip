@@ -33,7 +33,7 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return Object.assign({
 				SNPDocumentData: Math.random().toString(),
 				SNPDocumentName: Math.random().toString(),
-				SNPDocumentType: SNPDocument.SNPDocumentTypeString(),
+				SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 			}, inputData);
 		},
 

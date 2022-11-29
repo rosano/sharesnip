@@ -4,13 +4,13 @@ import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
 const mod = {
 
-	SNPDocumentTypeString () {
-		return 'TYPE_STRING';
+	SNPDocumentTypeNote () {
+		return 'TYPE_NOTE';
 	},
 
 	SNPDocumentTypes () {
 		return [
-			mod.SNPDocumentTypeString(),
+			mod.SNPDocumentTypeNote(),
 		];
 	},
 
