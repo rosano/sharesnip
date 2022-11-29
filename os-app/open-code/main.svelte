@@ -709,7 +709,7 @@ const mod = {
 			})(),
 			ZDRParamScopes: [{
 				ZDRScopeKey: 'App',
-				ZDRScopeDirectory: 'joybox',
+				ZDRScopeDirectory: 'sharesnip',
 				ZDRScopeCreatorDirectory: 'rCreativ',
 				ZDRScopeSchemas: [
 					Object.assign(SNPDocument, {
@@ -799,7 +799,7 @@ const mod = {
 				OLSKPactAuthIdentity: mod._ValueCloudIdentity,
 				OLSKPactAuthProof: mod._ValueCloudToken,
 				OLSKPactAuthMetadata: {
-					OLSKPactAuthMetadataModuleName: 'joybox',
+					OLSKPactAuthMetadataModuleName: 'sharesnip',
 					OLSKPactAuthMetadataFolderPath: SNPDocument.SNPDocumentDirectory() + '/',
 				},
 				OLSKPactPayIdentity: mod._ValueCloudIdentity,

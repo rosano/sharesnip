@@ -8,7 +8,7 @@
 			ZDRParamLibrary: require('remotestoragejs'),
 			ZDRParamScopes: [{
 				ZDRScopeKey: 'App',
-				ZDRScopeDirectory: 'joybox',
+				ZDRScopeDirectory: 'sharesnip',
 				ZDRScopeSchemas: [
 					require('./os-app/_shared/SNPDocument/main.js').default,
 					require('./os-app/_shared/SNPSetting/main.js').default,

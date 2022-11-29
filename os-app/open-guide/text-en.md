@@ -5,7 +5,7 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 </div>
 
 
-Joybox helps you organize audio and video links. You can add them to your collection, with tags if needed, and then go through them based on your mood.
+Sharesnip helps you organize audio and video links. You can add them to your collection, with tags if needed, and then go through them based on your mood.
 
 You can also share a playlist from multiple platforms in one place.
 
@@ -15,8 +15,8 @@ The following 'bookmarklets' can be dragged to your browser's favourites and wil
 
 |||
 :--- | ---
-| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(location.href)+'&SNPCodeNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPCodeImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
-| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(location.href)+'&SNPCodeNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPCodeImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Sharesnip','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Sharesnip','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
 
 # Add by pasting links or text
 
