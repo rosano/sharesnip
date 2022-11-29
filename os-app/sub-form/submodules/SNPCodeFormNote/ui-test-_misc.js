@@ -8,6 +8,10 @@ describe('SNPCodeFormNote_Misc', function () {
 
 	describe('SNPCodeFormNoteField', function test_SNPCodeFormNoteField () {
 
+		it('classes SNPCodeFormDataField', function () {
+			browser.assert.hasClass(SNPCodeFormNoteField, 'SNPCodeFormDataField');
+		});
+
 		it('sets type', function () {
 			browser.assert.attribute(SNPCodeFormNoteField, 'type', 'text');
 		});
