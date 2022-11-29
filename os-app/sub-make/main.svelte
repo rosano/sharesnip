@@ -28,8 +28,6 @@ import SNPCodeFormBase from '../sub-form/main.svelte';
 
 <div class="SNPCodeMake">
 
-<h1 class="SNPCodeMakeHeading">{ OLSKLocalized('SNPCodeMakeHeadingText') }</h1>
-
 {#if !SNPCodeMakeObject.SNPDocumentType }
 <div class="SNPCodeMakeTypes">
 		

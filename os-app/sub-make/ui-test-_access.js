@@ -3,8 +3,6 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 Object.entries({
 	SNPCodeMake: '.SNPCodeMake',
 	
-	SNPCodeMakeHeading: '.SNPCodeMakeHeading',
-
 	SNPCodeMakeTypes: '.SNPCodeMakeTypes',
 	SNPCodeMakeTypesNoteButton: '.SNPCodeMakeTypesNoteButton',
 	SNPCodeMakeTypesLinkButton: '.SNPCodeMakeTypesLinkButton',
@@ -22,10 +20,6 @@ describe('SNPCodeMake_Access', function () {
 
 	it('shows SNPCodeMake', function () {
 		browser.assert.elements(SNPCodeMake, 1);
-	});
-
-	it('shows SNPCodeMakeHeading', function () {
-		browser.assert.elements(SNPCodeMakeHeading, 1);
 	});
 
 	it('shows SNPCodeMakeTypes', function () {

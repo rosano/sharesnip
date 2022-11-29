@@ -14,10 +14,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
-		it('localizes SNPCodeMakeHeading', function () {
-			browser.assert.text(SNPCodeMakeHeading, uLocalized('SNPCodeMakeHeadingText'));
-		});
-
 		it('localizes SNPCodeMakeTypesNoteButton', function () {
 			browser.assert.text(SNPCodeMakeTypesNoteButton, uLocalized('SNPCodeMakeTypesNoteButtonText'));
 		});
