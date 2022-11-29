@@ -43,6 +43,12 @@ const mod = {
 			];
 		}
 
+		if (!mod.SNPDocumentTypes().includes(inputData.SNPDocumentType)) {
+			errors.SNPDocumentType = [
+				'SNPErrorNotValid',
+			];
+		}
+
 		if (typeof inputData.SNPDocumentData !== 'string') {
 			errors.SNPDocumentData = [
 				'SNPErrorNotString',

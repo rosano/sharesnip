@@ -90,6 +90,16 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 		});
 	});
 
+	it('returns object if SNPDocumentType not valid', function() {
+		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
+			SNPDocumentType: Math.random().toString(),
+		})), {
+			SNPDocumentType: [
+				'SNPErrorNotValid',
+			],
+		});
+	});
+
 	it('returns null', function() {
 		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid()), null);
 	});

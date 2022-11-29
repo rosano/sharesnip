@@ -1,3 +1,5 @@
+const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
+
 (function SNPMochaWrap() {
 	if (process.env.OLSK_SPEC_MOCHA_INTERFACE === 'true') {
 		return;
@@ -10,7 +12,7 @@
 				ZDRScopeKey: 'App',
 				ZDRScopeDirectory: 'sharesnip',
 				ZDRScopeSchemas: [
-					require('./os-app/_shared/SNPDocument/main.js').default,
+					SNPDocument,
 					require('./os-app/_shared/SNPSetting/main.js').default,
 					require('./os-app/_shared/SNPTransport/main.js').default,
 					],
@@ -31,6 +33,7 @@
 			return Object.assign({
 				SNPDocumentData: Math.random().toString(),
 				SNPDocumentName: Math.random().toString(),
+				SNPDocumentType: SNPDocument.SNPDocumentTypeString(),
 			}, inputData);
 		},
 
