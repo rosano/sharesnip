@@ -9,8 +9,10 @@ const mod = {
 	// INTERFACE
 
 	InterfaceFieldDidFill () {
-		const value = this.value.trim()
-		value ? SNPCodeFormValid() : SNPCodeFormNotValid();
+		const SNPDocumentData = this.value.trim()
+		SNPDocumentData ? SNPCodeFormValid({
+			SNPDocumentData,
+		}) : SNPCodeFormNotValid();
 	},
 
 };

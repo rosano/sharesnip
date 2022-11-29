@@ -25,17 +25,22 @@ describe('SNPCodeFormNote_Misc', function () {
 		});
 
 		context('fill', function () {
+
+			const SNPDocumentData = Math.random().toString();
 			
 			before(function () {
 				browser.assert.text('#TestSNPCodeFormValid', '0');
 			});
 			
 			before(function () {
-				return browser.fill(SNPCodeFormNoteField, Math.random().toString());
+				return browser.fill(SNPCodeFormNoteField, SNPDocumentData);
 			});
 
 			it('sends SNPCodeFormValid', function () {
 				browser.assert.text('#TestSNPCodeFormValid', '1');
+				browser.assert.text('#TestSNPCodeFormValidData', JSON.stringify({
+					SNPDocumentData,
+				}));
 			});
 
 			context('empty', function () {
