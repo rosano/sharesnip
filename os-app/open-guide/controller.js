@@ -11,7 +11,7 @@ exports.OLSKControllerRoutes = function () {
 						[match[1]]: match[2],
 					});
 				}, {}), {
-					SNPPlayRoute: res.locals.OLSKCanonical('SNPPlayRoute'),
+					SNPCodeRoute: res.locals.OLSKCanonical('SNPCodeRoute'),
 				})),
 				OLSKStringReplaceTokens: require('OLSKString').OLSKStringReplaceTokens,
 			});

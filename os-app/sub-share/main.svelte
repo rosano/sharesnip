@@ -29,7 +29,7 @@ const mod = {
 	// CONTROL
 
 	ControlUpdateLink (inputData) {
-		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPPlayRoute') + '/#' + OLSKHash.OLSKHashString({
+		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCodeRoute') + '/#' + OLSKHash.OLSKHashString({
 			[SNPPlayLogic.SNPPlayInboxAnchor()]: OLSKString.OLSKStringEncode(JSON.stringify(inputData.map(function (e) {
 				return OLSKObject.OLSKObjectRemap(e, SNPPlayLogic.SNPPlayRemap(e));
 			}))),

@@ -7,7 +7,7 @@ exports.OLSKControllerRoutes = function() {
 			return res.json({
 				name: 'Joybox',
 				short_name: 'Joybox',
-				start_url: res.locals.OLSKCanonical('SNPPlayRoute'),
+				start_url: res.locals.OLSKCanonical('SNPCodeRoute'),
 				display: 'standalone',
 				background_color: 'black',
 				theme_color: 'black',

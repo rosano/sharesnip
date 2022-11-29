@@ -4,7 +4,7 @@ const mod = {
 		return [{
 			OLSKRoutePath: '/play',
 			OLSKRouteMethod: 'get',
-			OLSKRouteSignature: 'SNPPlayRoute',
+			OLSKRouteSignature: 'SNPCodeRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'ui-view.ejs'));
 			},

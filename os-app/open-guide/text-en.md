@@ -15,8 +15,8 @@ The following 'bookmarklets' can be dragged to your browser's favourites and wil
 
 |||
 :--- | ---
-| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(location.href)+'&SNPPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
-| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(location.href)+'&SNPPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
 
 # Add by pasting links or text
 
@@ -69,7 +69,7 @@ Add an inbox item to your collection by pressing the *SNPPlayDetailToolbarQueueB
 
 # API Parameters
 
-`SNP_GUIDE_BOOKMARKLET_ORIGINSNPPlayRoute/#PARAM=TEXT`
+`SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#PARAM=TEXT`
 
 <div class="OLSKDecorNotice">
 
@@ -121,7 +121,7 @@ Note: this only works with a trailing slash before `#`.
 
 This web app can be 'installed' and used as if it were a native mobile app (with an icon, working without internet access, running as a standalone app outside of the browser).
 
-1. [Open the app](SNPPlayRoute) in your browser, then follow the steps based on your operating system:
+1. [Open the app](SNPCodeRoute) in your browser, then follow the steps based on your operating system:
 
 ## iOS + Safari
 2. Tap the Share button <img height="22" valign="middle" alt="Share button icon" src="/_shared/__external/OLSKUIAssets/_OLSKSharediOSShare.svg" />
