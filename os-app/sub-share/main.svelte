@@ -1,9 +1,9 @@
 <script>
-export let SNPPlayShareItems;
+export let SNPCodeShareItems;
 
 import { OLSKLocalized } from 'OLSKInternational';
 
-import SNPPlayLogic from '../open-play/ui-logic.js';
+import SNPCodeLogic from '../open-code/ui-logic.js';
 import OLSKString from 'OLSKString';
 import OLSKHash from 'OLSKHash';
 import OLSKObject from 'OLSKObject';
@@ -30,8 +30,8 @@ const mod = {
 
 	ControlUpdateLink (inputData) {
 		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCodeRoute') + '/#' + OLSKHash.OLSKHashString({
-			[SNPPlayLogic.SNPPlayInboxAnchor()]: OLSKString.OLSKStringEncode(JSON.stringify(inputData.map(function (e) {
-				return OLSKObject.OLSKObjectRemap(e, SNPPlayLogic.SNPPlayRemap(e));
+			[SNPCodeLogic.SNPCodeInboxAnchor()]: OLSKString.OLSKStringEncode(JSON.stringify(inputData.map(function (e) {
+				return OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap(e));
 			}))),
 		});
 	},
@@ -45,7 +45,7 @@ const mod = {
 	// LIFECYCLE
 
 	LifecycleModuleDidMount () {
-		new Clipboard('.SNPPlayShareCopyButton');
+		new Clipboard('.SNPCodeShareCopyButton');
 	},
 
 };
@@ -54,36 +54,36 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleDidMount);
 
 $: {
-	mod.ReactItems(SNPPlayShareItems);
+	mod.ReactItems(SNPCodeShareItems);
 }
 
 import Clipboard from 'clipboard';
 import DragDrop from "svelte-dragdroplist";
-import SNPPlayListItem from '../sub-item/main.svelte';
+import SNPCodeListItem from '../sub-item/main.svelte';
 </script>
 
-<div class="SNPPlayShare">
+<div class="SNPCodeShare">
 
-<div class="SNPPlayShareList">
-	<DragDrop bind:data={ SNPPlayShareItems } objectKey={ 'SNPDocumentID' }>
+<div class="SNPCodeShareList">
+	<DragDrop bind:data={ SNPCodeShareItems } objectKey={ 'SNPDocumentID' }>
 		<div class="OLSKDecorTappable" slot="customView" let:item>
-			<SNPPlayListItem SNPPlayListItemObject={ item } />
+			<SNPCodeListItem SNPCodeListItemObject={ item } />
 		</div>
 	</DragDrop>
 </div>
 
-<div class="SNPPlayShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
+<div class="SNPCodeShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
 	<div class="OLSKToolbarElementGroup">
-		<input class="SNPPlayShareLinkField" placeholder={ OLSKLocalized('SNPPlayShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
+		<input class="SNPCodeShareLinkField" placeholder={ OLSKLocalized('SNPCodeShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
 
-		<button class="SNPPlayShareCopyButton" data-clipboard-target=".SNPPlayShareLinkField">{ OLSKLocalized('SNPPlayShareCopyButtonText') }</button>
+		<button class="SNPCodeShareCopyButton" data-clipboard-target=".SNPCodeShareLinkField">{ OLSKLocalized('SNPCodeShareCopyButtonText') }</button>
 	</div>
 </div>
 
 </div>
 
 <style>
-.SNPPlayShare {
+.SNPCodeShare {
 	background: var(--OLSKCommonBackground);
 	height: 100%;
 
@@ -91,36 +91,36 @@ import SNPPlayListItem from '../sub-item/main.svelte';
 	flex-direction: column;
 }
 
-.SNPPlayShare :global(.content) {
+.SNPCodeShare :global(.content) {
 	margin: unset;
 }
 
-.SNPPlayShare :global(.item) {
+.SNPCodeShare :global(.item) {
 	background: var(--OLSKCommonBackground);
 	border: unset;
 
 	border-bottom: var(--OLSKCommonEdgeBorder);
 }
 
-.SNPPlayShare :global(.item svg *) {
+.SNPCodeShare :global(.item svg *) {
 	stroke: unset;
 }
 
-.SNPPlayShare :global(.item svg > path) {
+.SNPCodeShare :global(.item svg > path) {
 	fill: var(--OLSKCommonForeground);
 }
 
-.SNPPlayShare :global(.item svg > path:first-child) {
+.SNPCodeShare :global(.item svg > path:first-child) {
 	display: none;
 }
 
-.SNPPlayShareList {
+.SNPCodeShareList {
 	padding-bottom: 65px;
 
 	flex-grow: 1;
 }
 
-.SNPPlayShareToolbar {
+.SNPCodeShareToolbar {
 	width: calc(100vw - 15px);
 	top: unset;
 	bottom: 0;
@@ -135,7 +135,7 @@ import SNPPlayListItem from '../sub-item/main.svelte';
 	justify-content: center;
 }
 
-.SNPPlayShareLinkField {
+.SNPCodeShareLinkField {
 	flex-grow: 1;
 	max-width: 400px;
 	margin-right: 10px;

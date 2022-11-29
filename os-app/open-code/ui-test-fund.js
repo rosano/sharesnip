@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Fund', function () {
+describe('SNPCode_Fund', function () {
 
 	require('OLSKFund/ui-test_template').default({
 		kDefaultRoute,
@@ -8,22 +8,22 @@ describe('SNPPlay_Fund', function () {
 		ParamProject: process.env.ROCO_SHARED_PROJECT_ID,
 		
 		ParamTriggerGate () {
-			return browser.pressButton('.SNPPlayToggleFormButton');
+			return browser.pressButton('.SNPCodeToggleFormButton');
 		},
 
 		async ParamCreateDocument () {
-			await browser.pressButton('.SNPPlayToggleFormButton');
+			await browser.pressButton('.SNPCodeToggleFormButton');
 			
-			browser.fill('.SNPPlayFormField', Math.random().toString());
+			browser.fill('.SNPCodeFormField', Math.random().toString());
 			
-			await browser.pressButton('.SNPPlayFormSubmitButton');
+			await browser.pressButton('.SNPCodeFormSubmitButton');
 		},
 
 		async ParamDeleteDocument () {
 			await browser.click('.OLSKCollectionItem');
 
 			return browser.OLSKConfirm(function () {
-				return browser.pressButton('.SNPPlayDetailToolbarDiscardButton');
+				return browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
 			});
 		},
 

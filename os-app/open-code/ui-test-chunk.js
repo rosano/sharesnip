@@ -1,21 +1,21 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Chunk', function () {
+describe('SNPCode_Chunk', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
 	before(function () {
-		return browser.pressButton(SNPPlayToggleFormButton);
+		return browser.pressButton(SNPCodeToggleFormButton);
 	});
 
 	before(function () {
-		browser.fill(SNPPlayFormField, Math.random().toString());
+		browser.fill(SNPCodeFormField, Math.random().toString());
 	});
 
 	before(function () {
-		return browser.pressButton(SNPPlayFormSubmitButton);
+		return browser.pressButton(SNPCodeFormSubmitButton);
 	});
 
 	it('binds OLSKCollectionChunkFunction', function () {

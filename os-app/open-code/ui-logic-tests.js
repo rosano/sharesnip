@@ -9,31 +9,31 @@ const uLocalized = function (inputData) {
 	return inputData + '-LOCALIZED';
 };
 
-describe('SNPPlayAccessibilitySummary', function test_SNPPlayAccessibilitySummary() {
+describe('SNPCodeAccessibilitySummary', function test_SNPCodeAccessibilitySummary() {
 
 	it('throws if not valid', function () {
 		throws(function () {
-			mod.SNPPlayAccessibilitySummary({});
+			mod.SNPCodeAccessibilitySummary({});
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns string', function() {
 		const SNPDocumentNotes = Math.random().toString();
-		deepEqual(mod.SNPPlayAccessibilitySummary(StubDocumentObjectValid({
+		deepEqual(mod.SNPCodeAccessibilitySummary(StubDocumentObjectValid({
 			SNPDocumentNotes,
 		})), SNPDocumentNotes);
 	});
 
 	it('truncates long string', function() {
 		const item = Array.from(Array(100)).map(Math.random).join(' ');
-		deepEqual(mod.SNPPlayAccessibilitySummary(StubDocumentObjectValid({
+		deepEqual(mod.SNPCodeAccessibilitySummary(StubDocumentObjectValid({
 			SNPDocumentNotes: item,
 		})), require('OLSKString').OLSKStringSnippet(item));
 	});
 
 });
 
-describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
+describe('SNPCodeSortFunction', function test_SNPCodeSortFunction() {
 
 	it('sorts by SNPDocumentCreationDate descending', function() {
 		const item1 = {
@@ -43,7 +43,7 @@ describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
 			SNPDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPCodeSortFunction), [item2, item1]);
 	});
 
 	it('sorts SNPDocumentArchiveDate below others', function() {
@@ -55,7 +55,7 @@ describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
 			SNPDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPCodeSortFunction), [item2, item1]);
 	});
 
 	it('sorts by SNPDocumentArchiveDate descending', function() {
@@ -68,7 +68,7 @@ describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
 			SNPDocumentArchiveDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPCodeSortFunction), [item2, item1]);
 	});
 
 	it('sorts $SNPDocumentIsInbox above others', function() {
@@ -80,23 +80,23 @@ describe('SNPPlaySortFunction', function test_SNPPlaySortFunction() {
 			$SNPDocumentIsInbox: true,
 		};
 
-		deepEqual([item1, item2].sort(mod.SNPPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPCodeSortFunction), [item2, item1]);
 	});
 
 });
 
-describe('SNPPlayIsMatch', function test_SNPPlayIsMatch() {
+describe('SNPCodeIsMatch', function test_SNPCodeIsMatch() {
 
 	it('throws error param2 if not string', function() {
 		throws(function() {
-			mod.SNPPlayIsMatch({}, null);
+			mod.SNPCodeIsMatch({}, null);
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns false if no match', function() {
 		const key = uRandomElement('SNPDocumentURL', 'SNPDocumentName', 'SNPDocumentNotes', 'SNPDocumentTags');
 		const haystack = 'alfa';
-		deepEqual(mod.SNPPlayIsMatch({
+		deepEqual(mod.SNPCodeIsMatch({
 			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
 		}, 'bravo'), false);
 	});
@@ -104,35 +104,35 @@ describe('SNPPlayIsMatch', function test_SNPPlayIsMatch() {
 	it('matches OLSKStringMatch', function() {
 		const key = uRandomElement('SNPDocumentURL', 'SNPDocumentName', 'SNPDocumentNotes', 'SNPDocumentTags');
 		const haystack = uRandomElement('alfa', 'álfa');
-		deepEqual(mod.SNPPlayIsMatch({
+		deepEqual(mod.SNPCodeIsMatch({
 			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
 });
 
-describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
+describe('SNPCodeChunkFunction', function test_SNPCodeChunkFunction() {
 
-	const _SNPPlayChunkFunction = function (inputData) {
-		return mod.SNPPlayChunkFunction([stub], uLocalized);
+	const _SNPCodeChunkFunction = function (inputData) {
+		return mod.SNPCodeChunkFunction([stub], uLocalized);
 	};
 
 	it('throws if not array', function () {
 		throws(function () {
-			mod.SNPPlayChunkFunction(null);
+			mod.SNPCodeChunkFunction(null);
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns object', function() {
-		deepEqual(mod.SNPPlayChunkFunction([]), {});
+		deepEqual(mod.SNPCodeChunkFunction([]), {});
 	});
 
 	it('groups if inbox', function() {
 		const item = {
 			$SNPDocumentIsInbox: true,
 		};
-		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
-			[uLocalized('SNPPlayChunkInboxText')]: [item],
+		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
+			[uLocalized('SNPCodeChunkInboxText')]: [item],
 		});
 	});
 
@@ -140,8 +140,8 @@ describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
 		const item = {
 			SNPDocumentCreationDate: OLSKMoment.OLSKMomentPerceptionDate(new Date()),
 		};
-		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
-			[uLocalized('SNPPlayChunkTodayText')]: [item],
+		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
+			[uLocalized('SNPCodeChunkTodayText')]: [item],
 		});
 	});
 
@@ -149,8 +149,8 @@ describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
 		const item = {
 			SNPDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1),
 		};
-		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
-			[uLocalized('SNPPlayChunkYesterdayText')]: [item],
+		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
+			[uLocalized('SNPCodeChunkYesterdayText')]: [item],
 		});
 	});
 
@@ -158,7 +158,7 @@ describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
 		const item = {
 			SNPDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1000 * 60 * 60 * 24 - 1),
 		};
-		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
+		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
 			[OLSKMoment.OLSKMomentPerceptionDate(item.SNPDocumentCreationDate).toLocaleDateString()]: [item],
 		});
 	});
@@ -168,35 +168,35 @@ describe('SNPPlayChunkFunction', function test_SNPPlayChunkFunction() {
 			SNPDocumentCreationDate: new Date(),
 			SNPDocumentArchiveDate: new Date(),
 		};
-		deepEqual(mod.SNPPlayChunkFunction([item], uLocalized), {
-			[uLocalized('SNPPlayChunkArchiveText')]: [item],
+		deepEqual(mod.SNPCodeChunkFunction([item], uLocalized), {
+			[uLocalized('SNPCodeChunkArchiveText')]: [item],
 		});
 	});
 
 });
 
-describe('SNPPlayChunkKeySortFunction', function test_SNPPlayChunkKeySortFunction() {
+describe('SNPCodeChunkKeySortFunction', function test_SNPCodeChunkKeySortFunction() {
 
 	it('throws if not function', function () {
 		throws(function () {
-			mod.SNPPlayChunkKeySortFunction(null);
+			mod.SNPCodeChunkKeySortFunction(null);
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns function', function () {
-		deepEqual(typeof mod.SNPPlayChunkKeySortFunction(function () {}), 'function');
+		deepEqual(typeof mod.SNPCodeChunkKeySortFunction(function () {}), 'function');
 	});
 
-	it('sorts SNPPlayChunkArchiveText below others', function() {
-		const item1 = uLocalized('SNPPlayChunkArchiveText');
+	it('sorts SNPCodeChunkArchiveText below others', function() {
+		const item1 = uLocalized('SNPCodeChunkArchiveText');
 		const item2 = Math.random().toString();
 
-		deepEqual([item1, item2].sort(mod.SNPPlayChunkKeySortFunction(uLocalized)), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.SNPCodeChunkKeySortFunction(uLocalized)), [item2, item1]);
 	});
 
 });
 
-describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
+describe('SNPCodeDocuments', function test_SNPCodeDocuments () {
 
 	const uItems = function (inputData) {
 		return Array.from(Array(Math.max(2, uRandomInt(10)))).map(inputData);
@@ -204,19 +204,19 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 
 	it('throws if not string', function () {
 		throws(function () {
-			mod.SNPPlayDocuments(null);
+			mod.SNPCodeDocuments(null);
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns array', function () {
-		deepEqual(mod.SNPPlayDocuments(''), []);
+		deepEqual(mod.SNPCodeDocuments(''), []);
 	});
 
 	it('parses strings', function () {
 		const item = uItems(function () {
 			return Math.random().toString();
 		});
-		deepEqual(mod.SNPPlayDocuments(item.join('\n\n')), item.map(function (e) {
+		deepEqual(mod.SNPCodeDocuments(item.join('\n\n')), item.map(function (e) {
 			return {
 				SNPDocumentNotes: e,
 			};
@@ -227,7 +227,7 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 		const item = uItems(function () {
 			return uRandomElement('http', 'https') + '://example.com/' + Math.random().toString();
 		});
-		deepEqual(mod.SNPPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.SNPCodeDocuments(item.join('\n')), item.map(function (e) {
 			return {
 				SNPDocumentURL: e,
 				SNPDocumentNotes: '',
@@ -244,7 +244,7 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 			return (textFirst ? [text, link] : [link, text]).join(' ');
 		});
 
-		deepEqual(mod.SNPPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.SNPCodeDocuments(item.join('\n')), item.map(function (e) {
 			const [ text, link ] = textFirst ? e.split(' ') : e.split(' ').reverse();
 			return {
 				SNPDocumentURL: link,
@@ -259,7 +259,7 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 			return uLink();
 		});
 
-		deepEqual(mod.SNPPlayDocuments([SNPDocumentNotes].concat(links).join(' ')), links.map(function (SNPDocumentURL) {
+		deepEqual(mod.SNPCodeDocuments([SNPDocumentNotes].concat(links).join(' ')), links.map(function (SNPDocumentURL) {
 			return {
 				SNPDocumentURL,
 				SNPDocumentNotes,
@@ -272,7 +272,7 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 			return [Math.random().toString(), uLink()];
 		});
 
-		deepEqual(mod.SNPPlayDocuments(items.map(function ([text, link]) {
+		deepEqual(mod.SNPCodeDocuments(items.map(function ([text, link]) {
 			return [text, link].join(' ');
 		}).join('\n')), items.map(function ([SNPDocumentNotes, SNPDocumentURL]) {
 			return {
@@ -288,7 +288,7 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 		}).join('\n');
 		const SNPDocumentURL = uLink();
 
-		deepEqual(mod.SNPPlayDocuments([SNPDocumentURL, SNPDocumentNotes].join('\n')), [{
+		deepEqual(mod.SNPCodeDocuments([SNPDocumentURL, SNPDocumentNotes].join('\n')), [{
 			SNPDocumentURL,
 			SNPDocumentNotes,
 		}]);
@@ -296,21 +296,21 @@ describe('SNPPlayDocuments', function test_SNPPlayDocuments () {
 
 });
 
-describe('SNPPlayFetch', function test_SNPPlayFetch () {
+describe('SNPCodeFetch', function test_SNPCodeFetch () {
 
 	it('rejects if not valid', async function () {
-		await rejects(mod.SNPPlayFetch({}), /SNPErrorInputNotValid/);
+		await rejects(mod.SNPCodeFetch({}), /SNPErrorInputNotValid/);
 	});
 
 	it('returns inputData', async function () {
 		const item = StubDocumentObjectValid();
-		deepEqual(await mod.SNPPlayFetch(item), item);
+		deepEqual(await mod.SNPCodeFetch(item), item);
 	});
 
 	it('calls window.fetch', function () {
 		const SNPDocumentURL = Math.random().toString();
 		deepEqual(uCapture(function (fetch) {
-			mod.SNPPlayFetch(StubDocumentObjectValid({
+			mod.SNPCodeFetch(StubDocumentObjectValid({
 				SNPDocumentURL,
 			}), {
 				window: {
@@ -322,7 +322,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 	it('sets SNPDocumentName', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+		deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 			SNPDocumentURL: Math.random().toString(),
 		}), {
 			window: {
@@ -340,7 +340,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 	it('keeps existing SNPDocumentName', async function () {
 		const SNPDocumentName = Math.random().toString();
-		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+		deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 			SNPDocumentName,
 			SNPDocumentURL: Math.random().toString(),
 		}), {
@@ -370,7 +370,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 		}).forEach(function ([key, value]) {
 
 			it('extracts ' + key, async function () {
-				deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+				deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 					SNPDocumentURL: Math.random().toString(),
 				}), {
 					window: {
@@ -401,7 +401,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 		}).forEach(function ([key, value]) {
 
 			it('extracts ' + key, async function () {
-				deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+				deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 					SNPDocumentURL: Math.random().toString(),
 				}), {
 					window: {
@@ -423,7 +423,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 	it('sets SNPDocumentDidFetch', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+		deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 			SNPDocumentURL: Math.random().toString(),
 		}), {
 			window: {
@@ -444,7 +444,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 		it('fetch embed url', function () {
 			const SNPDocumentURL = OLSKEmbed._OLSKEmbedCanonicalURL();
 			deepEqual(uCapture(function (fetch) {
-				mod.SNPPlayFetch(StubDocumentObjectValid({
+				mod.SNPCodeFetch(StubDocumentObjectValid({
 					SNPDocumentURL,
 				}), {
 					window: {
@@ -456,7 +456,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 		it('sets SNPDocumentName', async function () {
 			const title = Math.random().toString();
-			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
@@ -477,7 +477,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 		it('sets SNPDocumentImageURL', async function () {
 			const thumbnail_url = Math.random().toString();
-			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
@@ -499,7 +499,7 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 		it('sets SNPDocumentEmbedURL', async function () {
 			const url = 'https://www.youtube.com/embed/oKjXqck4AS8?feature=oembed';
 			const html = `"html":"\u003ciframe width=\u0022200\u0022 height=\u0022113\u0022 src=\u0022${ url }\u0022 frameborder=\u00220\u0022 allow=\u0022accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\u0022 allowfullscreen\u003e\u003c/iframe\u003e"}`;
-			deepEqual((await mod.SNPPlayFetch(StubDocumentObjectValid({
+			deepEqual((await mod.SNPCodeFetch(StubDocumentObjectValid({
 				SNPDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
 			}), {
 				window: {
@@ -522,42 +522,42 @@ describe('SNPPlayFetch', function test_SNPPlayFetch () {
 
 });
 
-describe('SNPPlayCaptureAnchor', function test_SNPPlayCaptureAnchor() {
+describe('SNPCodeCaptureAnchor', function test_SNPCodeCaptureAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPPlayCaptureAnchor(), 'capture');
+		deepEqual(mod.SNPCodeCaptureAnchor(), 'capture');
 	});
 
 });
 
-describe('SNPPlayNameAnchor', function test_SNPPlayNameAnchor() {
+describe('SNPCodeNameAnchor', function test_SNPCodeNameAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPPlayNameAnchor(), 'name');
+		deepEqual(mod.SNPCodeNameAnchor(), 'name');
 	});
 
 });
 
-describe('SNPPlayImageAnchor', function test_SNPPlayImageAnchor() {
+describe('SNPCodeImageAnchor', function test_SNPCodeImageAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPPlayImageAnchor(), 'image');
+		deepEqual(mod.SNPCodeImageAnchor(), 'image');
 	});
 
 });
 
-describe('SNPPlayInboxAnchor', function test_SNPPlayInboxAnchor() {
+describe('SNPCodeInboxAnchor', function test_SNPCodeInboxAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPPlayInboxAnchor(), 'inbox');
+		deepEqual(mod.SNPCodeInboxAnchor(), 'inbox');
 	});
 
 });
 
-describe('SNPPlayRemap', function test_SNPPlayRemap() {
+describe('SNPCodeRemap', function test_SNPCodeRemap() {
 
 	it('returns object', function() {
-		deepEqual(mod.SNPPlayRemap(), {
+		deepEqual(mod.SNPCodeRemap(), {
 			SNPDocumentNotes: 'description',
 			SNPDocumentURL: 'url',
 			SNPDocumentName: 'name',
@@ -569,31 +569,31 @@ describe('SNPPlayRemap', function test_SNPPlayRemap() {
 
 });
 
-describe('SNPPlayDocumentCount', function test_SNPPlayDocumentCount() {
+describe('SNPCodeDocumentCount', function test_SNPCodeDocumentCount() {
 
 	it('throws if not array', function () {
 		throws(function () {
-			mod.SNPPlayDocumentCount(null);
+			mod.SNPCodeDocumentCount(null);
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns number', function () {
-		deepEqual(mod.SNPPlayDocumentCount([]), 0);
+		deepEqual(mod.SNPCodeDocumentCount([]), 0);
 	});
 
 	it('excludes if not invalid', function () {
-		deepEqual(mod.SNPPlayDocumentCount([null]), 0);
+		deepEqual(mod.SNPCodeDocumentCount([null]), 0);
 	});
 
 	it('includes if valid', function () {
 		const item = uRandomInt();
-		deepEqual(mod.SNPPlayDocumentCount(Array.from(Array(item)).map(function () {
+		deepEqual(mod.SNPCodeDocumentCount(Array.from(Array(item)).map(function () {
 			return StubDocumentObjectValid();
 		})), item);
 	});
 
 	it('excludes if $SNPDocumentIsInbox', function () {
-		deepEqual(mod.SNPPlayDocumentCount(Array.from(Array(uRandomInt())).map(function () {
+		deepEqual(mod.SNPCodeDocumentCount(Array.from(Array(uRandomInt())).map(function () {
 			return StubDocumentObjectValid({
 				$SNPDocumentIsInbox: true,
 			});

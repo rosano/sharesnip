@@ -2,7 +2,7 @@ const mod = {
 
 	OLSKControllerRoutes () {
 		return [{
-			OLSKRoutePath: '/play',
+			OLSKRoutePath: '/code',
 			OLSKRouteMethod: 'get',
 			OLSKRouteSignature: 'SNPCodeRoute',
 			OLSKRouteFunction (req, res, next) {

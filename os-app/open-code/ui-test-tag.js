@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Tag', function () {
+describe('SNPCode_Tag', function () {
 
 	const item = Math.random().toString();
 
@@ -13,7 +13,7 @@ describe('SNPPlay_Tag', function () {
 	});
 
 	before(function () {
-		return browser.fill('.LCHLauncherFilterInput', 'OLSKPlayLauncherFakeCreateTaggedItem');
+		return browser.fill('.LCHLauncherFilterInput', 'SNPCodeLauncherFakeCreateTaggedItem');
 	});
 
 	before(function () {
@@ -29,7 +29,7 @@ describe('SNPPlay_Tag', function () {
 	context('create', function () {
 
 		before(function () {
-			return browser.pressButton(SNPPlayToggleFormButton);
+			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
 		it('binds OLSKTaxonomySuggestionItems', function () {
@@ -41,15 +41,15 @@ describe('SNPPlay_Tag', function () {
 	context('select', function () {
 
 		before(function () {
-			browser.fill(SNPPlayFormField, Math.random().toString());
+			browser.fill(SNPCodeFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(SNPPlayFormSubmitButton);
+			return browser.pressButton(SNPCodeFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(SNPPlayListItem);
+			return browser.click(SNPCodeListItem);
 		});
 
 		it('binds OLSKTaxonomySuggestionItems', function () {

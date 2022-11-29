@@ -4,10 +4,10 @@ import OLSKEmbed from 'OLSKEmbed';
 import OLSKMoment from 'OLSKMoment';
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
-const kSNPPlayCaptureAnchor = 'capture';
-const kSNPPlayNameAnchor = 'name';
-const kSNPPlayImageAnchor = 'image';
-const kSNPPlayInboxAnchor = 'inbox';
+const kSNPCodeCaptureAnchor = 'capture';
+const kSNPCodeNameAnchor = 'name';
+const kSNPCodeImageAnchor = 'image';
+const kSNPCodeInboxAnchor = 'inbox';
 
 const uAscending = function (a, b) {
   return (a < b) ? -1 : ((a > b) ? 1 : 0);
@@ -19,7 +19,7 @@ const uDescending = function (a, b) {
 
 const mod = {
 
-	SNPPlayAccessibilitySummary (inputData) {
+	SNPCodeAccessibilitySummary (inputData) {
 		if (SNPDocument.SNPDocumentErrors(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -27,7 +27,7 @@ const mod = {
 		return OLSKString.OLSKStringSnippet(inputData.SNPDocumentNotes);
 	},
 
-	SNPPlaySortFunction (a, b, log) {
+	SNPCodeSortFunction (a, b, log) {
 		if (a.$SNPDocumentIsInbox !== b.$SNPDocumentIsInbox) {
 			return uDescending(!!a.$SNPDocumentIsInbox, !!b.$SNPDocumentIsInbox);
 		}
@@ -45,7 +45,7 @@ const mod = {
 		}).shift());
 	},
 
-	SNPPlayIsMatch (param1, param2) {
+	SNPCodeIsMatch (param1, param2) {
 		if (typeof param2 !== 'string') {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -55,52 +55,52 @@ const mod = {
 		}).length;
 	},
 
-	_SNPPlayChunk (inputData, OLSKLocalized) {
+	_SNPCodeChunk (inputData, OLSKLocalized) {
 		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
 
 		if (inputData.SNPDocumentArchiveDate) {
-			return OLSKLocalized('SNPPlayChunkArchiveText');
+			return OLSKLocalized('SNPCodeChunkArchiveText');
 		}
 
 		if (inputData.$SNPDocumentIsInbox) {
-			return OLSKLocalized('SNPPlayChunkInboxText');
+			return OLSKLocalized('SNPCodeChunkInboxText');
 		}
 
 		if (inputData.SNPDocumentCreationDate >= today) {
-			return OLSKLocalized('SNPPlayChunkTodayText');
+			return OLSKLocalized('SNPCodeChunkTodayText');
 		}
 
 		if (inputData.SNPDocumentCreationDate >= (new Date(today - 1000 * 60 * 60 * 24))) {
-			return OLSKLocalized('SNPPlayChunkYesterdayText');
+			return OLSKLocalized('SNPCodeChunkYesterdayText');
 		}
 
 		return OLSKMoment.OLSKMomentPerceptionDate(inputData.SNPDocumentCreationDate).toLocaleDateString();
 	},
 
-	SNPPlayChunkFunction (inputData, OLSKLocalized) {
+	SNPCodeChunkFunction (inputData, OLSKLocalized) {
 		if (!Array.isArray(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return inputData.reduce(function (coll, item) {
-			const group = mod._SNPPlayChunk(item, OLSKLocalized);
+			const group = mod._SNPCodeChunk(item, OLSKLocalized);
 			return Object.assign(coll, {
 				[group]: (coll[group] || []).concat(item),
 			});
 		}, {});
 	},
 
-	SNPPlayChunkKeySortFunction (OLSKLocalized) {
+	SNPCodeChunkKeySortFunction (OLSKLocalized) {
 		if (typeof OLSKLocalized !== 'function') {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return function (a, b) {
-			return uAscending(a === OLSKLocalized('SNPPlayChunkArchiveText'), b === OLSKLocalized('SNPPlayChunkArchiveText'));
+			return uAscending(a === OLSKLocalized('SNPCodeChunkArchiveText'), b === OLSKLocalized('SNPCodeChunkArchiveText'));
 		};
 	},
 
-	SNPPlayDocuments (inputData) {
+	SNPCodeDocuments (inputData) {
 		if (typeof inputData !== 'string') {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -144,7 +144,7 @@ const mod = {
 		}).reduce(recurse, []);
 	},
 
-	async SNPPlayFetch (inputData, debug = {}) {
+	async SNPCodeFetch (inputData, debug = {}) {
 		if (SNPDocument.SNPDocumentErrors(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -185,23 +185,23 @@ const mod = {
 		});
 	},
 
-	SNPPlayCaptureAnchor () {
-		return kSNPPlayCaptureAnchor;
+	SNPCodeCaptureAnchor () {
+		return kSNPCodeCaptureAnchor;
 	},
 
-	SNPPlayNameAnchor () {
-		return kSNPPlayNameAnchor;
+	SNPCodeNameAnchor () {
+		return kSNPCodeNameAnchor;
 	},
 
-	SNPPlayImageAnchor () {
-		return kSNPPlayImageAnchor;
+	SNPCodeImageAnchor () {
+		return kSNPCodeImageAnchor;
 	},
 
-	SNPPlayInboxAnchor () {
-		return kSNPPlayInboxAnchor;
+	SNPCodeInboxAnchor () {
+		return kSNPCodeInboxAnchor;
 	},
 
-	SNPPlayRemap () {
+	SNPCodeRemap () {
 		return {
 			SNPDocumentNotes: 'description',
 			SNPDocumentURL: 'url',
@@ -212,7 +212,7 @@ const mod = {
 		};
 	},
 
-	SNPPlayDocumentCount (inputData) {
+	SNPCodeDocumentCount (inputData) {
 		if (!Array.isArray(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}

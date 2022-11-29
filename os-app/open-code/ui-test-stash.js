@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Stash', function () {
+describe('SNPCode_Stash', function () {
 
 	const count = Math.max(1, uRandomInt(10));
 	const items = Array.from(Array(count)).map(Math.random);
@@ -11,15 +11,15 @@ describe('SNPPlay_Stash', function () {
 	});
 
 	before(function () {
-		return browser.pressButton(SNPPlayToggleFormButton);
+		return browser.pressButton(SNPCodeToggleFormButton);
 	});
 
 	before(function () {
-		browser.fill(SNPPlayFormField, items.join('\n\n'));
+		browser.fill(SNPCodeFormField, items.join('\n\n'));
 	});
 
 	before(function () {
-		return browser.pressButton(SNPPlayFormSubmitButton);
+		return browser.pressButton(SNPCodeFormSubmitButton);
 	});
 
 	before(function () {
@@ -27,7 +27,7 @@ describe('SNPPlay_Stash', function () {
 	});
 
 	before(function () {
-		return browser.pressButton(SNPPlayStashButton);
+		return browser.pressButton(SNPCodeStashButton);
 	});
 
 	it('calls OLSKCatalogStashEnabled', function () {
@@ -48,8 +48,8 @@ describe('SNPPlay_Stash', function () {
 			return browser.click('.OLSKCatalogStashDoneButton');
 		});
 
-		it('shows SNPPlayListItem', function () {
-			browser.assert.elements(`${ SNPPlayShareModal } .SNPPlayListItem`, stash);
+		it('shows SNPCodeListItem', function () {
+			browser.assert.elements(`${ SNPCodeShareModal } .SNPCodeListItem`, stash);
 		});
 	
 	});

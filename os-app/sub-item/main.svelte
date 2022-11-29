@@ -1,22 +1,22 @@
 <script>
-export let SNPPlayListItemObject;
+export let SNPCodeListItemObject;
 </script>
 
-<div class="SNPPlayListItem">
+<div class="SNPCodeListItem">
 
-<span class="SNPPlayListItemTitle">{ SNPPlayListItemObject.SNPDocumentName }</span>
+<span class="SNPCodeListItemTitle">{ SNPCodeListItemObject.SNPDocumentName }</span>
 
 </div>
 
 <style>
-.SNPPlayListItem {
+.SNPCodeListItem {
 	min-height: 46px;
 	padding: 10px;
 
 	color: var(--OLSKCommonForeground);
 }
 
-.SNPPlayListItemTitle {
+.SNPCodeListItemTitle {
 	font-weight: bold;
 }
 </style>

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlayDetail_Misc', function () {
+describe('SNPCodeDetail_Misc', function () {
 
 	const item = StubDocumentObjectValid({
 		SNPDocumentName: Math.random().toString(),
@@ -8,142 +8,142 @@ describe('SNPPlayDetail_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPPlayDetailItem: item,
+			SNPCodeDetailItem: item,
 		});
 	});
 
-	describe('SNPPlayDetail', function test_SNPPlayDetail () {
+	describe('SNPCodeDetail', function test_SNPCodeDetail () {
 
 		it('classes ROCOStandardView', function () {
-			browser.assert.hasClass(SNPPlayDetail, 'ROCOStandardView');
+			browser.assert.hasClass(SNPCodeDetail, 'ROCOStandardView');
 		});
 
 	});
 
-	describe('SNPPlayDetailToolbar', function test_SNPPlayDetailToolbar () {
+	describe('SNPCodeDetailToolbar', function test_SNPCodeDetailToolbar () {
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(SNPCodeDetailToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(SNPCodeDetailToolbar, 'OLSKToolbarJustify');
 		});
 
 		it('classes OLSKMobileViewHeader', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbar, 'OLSKMobileViewHeader');
+			browser.assert.hasClass(SNPCodeDetailToolbar, 'OLSKMobileViewHeader');
 		});
 		
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbar, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(SNPCodeDetailToolbar, 'OLSKCommonEdgeBottom');
 		});
 		
 		it('classes ROCOStandardViewHead', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbar, 'ROCOStandardViewHead');
+			browser.assert.hasClass(SNPCodeDetailToolbar, 'ROCOStandardViewHead');
 		});
 		
 	});
 
-	describe('SNPPlayDetailToolbarBackButton', function test_SNPPlayDetailToolbarBackButton () {
+	describe('SNPCodeDetailToolbarBackButton', function test_SNPCodeDetailToolbarBackButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarBackButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeDetailToolbarBackButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarBackButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeDetailToolbarBackButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarBackButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeDetailToolbarBackButton, 'OLSKToolbarButton');
 		});
 
 		it('classes OLSKVisibilityMobile', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarBackButton, 'OLSKVisibilityMobile');
+			browser.assert.hasClass(SNPCodeDetailToolbarBackButton, 'OLSKVisibilityMobile');
 		});
 
 		it('classes OLSKVisibilityDesktopScreenreader', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarBackButton, 'OLSKVisibilityDesktopScreenreader');
+			browser.assert.hasClass(SNPCodeDetailToolbarBackButton, 'OLSKVisibilityDesktopScreenreader');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchBack', '0');
+				browser.assert.text('#TestSNPCodeDetailDispatchBack', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(SNPPlayDetailToolbarBackButton);
+				return browser.pressButton(SNPCodeDetailToolbarBackButton);
 			});
 
-			it('sends SNPPlayDetailDispatchBack', function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchBack', '1');
+			it('sends SNPCodeDetailDispatchBack', function () {
+				browser.assert.text('#TestSNPCodeDetailDispatchBack', '1');
 			});
 		
 		});
 	
 	});
 
-	describe('SNPPlayDetailToolbarBackButtonImage', function test_SNPPlayDetailToolbarBackButtonImage () {
+	describe('SNPCodeDetailToolbarBackButtonImage', function test_SNPCodeDetailToolbarBackButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPPlayDetailToolbarBackButtonImage } #_OLSKSharedBack`, 1);
+			browser.assert.elements(`${ SNPCodeDetailToolbarBackButtonImage } #_OLSKSharedBack`, 1);
 		});
 	
 	});
 
-	describe('SNPPlayDetailToolbarQueueButton', function test_SNPPlayDetailToolbarQueueButton () {
+	describe('SNPCodeDetailToolbarQueueButton', function test_SNPCodeDetailToolbarQueueButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarQueueButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarQueueButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarQueueButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeDetailToolbarQueueButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchQueue', '0');
+				browser.assert.text('#TestSNPCodeDetailDispatchQueue', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(SNPPlayDetailToolbarQueueButton);
+				return browser.pressButton(SNPCodeDetailToolbarQueueButton);
 			});
 
-			it('sends SNPPlayDetailDispatchQueue', function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchQueue', '1');
+			it('sends SNPCodeDetailDispatchQueue', function () {
+				browser.assert.text('#TestSNPCodeDetailDispatchQueue', '1');
 			});
 		
 		});
 	
 	});
 
-	describe('SNPPlayDetailToolbarQueueButtonImage', function test_SNPPlayDetailToolbarQueueButtonImage () {
+	describe('SNPCodeDetailToolbarQueueButtonImage', function test_SNPCodeDetailToolbarQueueButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPPlayDetailToolbarQueueButtonImage } #_OLSKSharedClone`, 1);
+			browser.assert.elements(`${ SNPCodeDetailToolbarQueueButtonImage } #_OLSKSharedClone`, 1);
 		});
 	
 	});
 
-	describe('SNPPlayDetailToolbarDiscardButton', function test_SNPPlayDetailToolbarDiscardButton () {
+	describe('SNPCodeDetailToolbarDiscardButton', function test_SNPCodeDetailToolbarDiscardButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarDiscardButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeDetailToolbarDiscardButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarDiscardButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeDetailToolbarDiscardButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPPlayDetailToolbarDiscardButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeDetailToolbarDiscardButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
@@ -151,11 +151,11 @@ describe('SNPPlayDetail_Misc', function () {
 			context('cancel', function () {
 				
 				before(function () {
-					browser.assert.text('#TestSNPPlayDetailDispatchDiscard', '0');
+					browser.assert.text('#TestSNPCodeDetailDispatchDiscard', '0');
 				});
 
 				return browser.OLSKConfirm(function () {
-					return browser.pressButton(SNPPlayDetailToolbarDiscardButton);
+					return browser.pressButton(SNPCodeDetailToolbarDiscardButton);
 				}, function (dialog) {
 					dialog.response = false;
 
@@ -163,7 +163,7 @@ describe('SNPPlayDetail_Misc', function () {
 				});
 
 				it('does nothing', function () {
-					browser.assert.text('#TestSNPPlayDetailDispatchDiscard', '0');
+					browser.assert.text('#TestSNPCodeDetailDispatchDiscard', '0');
 				});
 			
 			});
@@ -171,11 +171,11 @@ describe('SNPPlayDetail_Misc', function () {
 			context('confirm', function () {
 				
 				before(function () {
-					return browser.pressButton(SNPPlayDetailToolbarDiscardButton);
+					return browser.pressButton(SNPCodeDetailToolbarDiscardButton);
 				});
 
-				it('sends SNPPlayDetailDispatchDiscard', function () {
-					browser.assert.text('#TestSNPPlayDetailDispatchDiscard', '1');
+				it('sends SNPCodeDetailDispatchDiscard', function () {
+					browser.assert.text('#TestSNPCodeDetailDispatchDiscard', '1');
 				});
 			
 			});
@@ -184,48 +184,48 @@ describe('SNPPlayDetail_Misc', function () {
 	
 	});
 
-	describe('SNPPlayDetailToolbarDiscardButtonImage', function test_SNPPlayDetailToolbarDiscardButtonImage () {
+	describe('SNPCodeDetailToolbarDiscardButtonImage', function test_SNPCodeDetailToolbarDiscardButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPPlayDetailToolbarDiscardButtonImage } #_OLSKSharedDiscard`, 1);
+			browser.assert.elements(`${ SNPCodeDetailToolbarDiscardButtonImage } #_OLSKSharedDiscard`, 1);
 		});
 	
 	});
 
-	describe('SNPPlayDetailForm', function test_SNPPlayDetailForm () {
+	describe('SNPCodeDetailForm', function test_SNPCodeDetailForm () {
 
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(SNPPlayDetailForm, 'OLSKDecor');
+			browser.assert.hasClass(SNPCodeDetailForm, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(SNPPlayDetailForm, 'OLSKDecorBigForm');
+			browser.assert.hasClass(SNPCodeDetailForm, 'OLSKDecorBigForm');
 		});
 	
 	});
 
-	describe('SNPPlayDetailFormNameField', function test_SNPPlayDetailFormNameField () {
+	describe('SNPCodeDetailFormNameField', function test_SNPCodeDetailFormNameField () {
 
 		it('sets type', function () {
-			browser.assert.attribute(SNPPlayDetailFormNameField, 'type', 	'text');
+			browser.assert.attribute(SNPCodeDetailFormNameField, 'type', 	'text');
 		});
 
 		it('binds SNPDocumentName', function () {
-			browser.assert.input(SNPPlayDetailFormNameField, item.SNPDocumentName);
+			browser.assert.input(SNPCodeDetailFormNameField, item.SNPDocumentName);
 		});
 
 		context('input', function () {
 
 			before(function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchUpdate', '0');
+				browser.assert.text('#TestSNPCodeDetailDispatchUpdate', '0');
 			});
 
 			before(function () {
-				browser.fill(SNPPlayDetailFormNameField, Math.random().toString());
+				browser.fill(SNPCodeDetailFormNameField, Math.random().toString());
 			});
 
-			it('sends SNPPlayDetailDispatchUpdate', function () {
-				browser.assert.text('#TestSNPPlayDetailDispatchUpdate', '1');
+			it('sends SNPCodeDetailDispatchUpdate', function () {
+				browser.assert.text('#TestSNPCodeDetailDispatchUpdate', '1');
 			});
 		
 		});

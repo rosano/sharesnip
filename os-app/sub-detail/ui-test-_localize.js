@@ -6,40 +6,40 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('SNPPlayDetail_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPCodeDetail_Localize-' + OLSKRoutingLanguage, function () {
 
-		context('SNPPlayDetailItem', function() {
+		context('SNPCodeDetailItem', function() {
 		
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
-					SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					SNPCodeDetailItem: JSON.stringify(StubDocumentObjectValid({
 						SNPDocumentURL: Math.random().toString(),
 					})),
 				});
 			});
 
-			it('localizes SNPPlayDetailToolbarBackButton', function () {
-				browser.assert.attribute(SNPPlayDetailToolbarBackButton, 'title', uLocalized('SNPPlayDetailToolbarBackButtonText'));
+			it('localizes SNPCodeDetailToolbarBackButton', function () {
+				browser.assert.attribute(SNPCodeDetailToolbarBackButton, 'title', uLocalized('SNPCodeDetailToolbarBackButtonText'));
 			});
 
-			it('localizes SNPPlayDetailToolbarQueueButton', function () {
-				browser.assert.attribute(SNPPlayDetailToolbarQueueButton, 'title', uLocalized('SNPPlayDetailToolbarQueueButtonText'));
+			it('localizes SNPCodeDetailToolbarQueueButton', function () {
+				browser.assert.attribute(SNPCodeDetailToolbarQueueButton, 'title', uLocalized('SNPCodeDetailToolbarQueueButtonText'));
 			});
 
-			it('localizes SNPPlayDetailToolbarDiscardButton', function () {
-				browser.assert.attribute(SNPPlayDetailToolbarDiscardButton, 'title', uLocalized('SNPPlayDetailToolbarDiscardButtonText'));
+			it('localizes SNPCodeDetailToolbarDiscardButton', function () {
+				browser.assert.attribute(SNPCodeDetailToolbarDiscardButton, 'title', uLocalized('SNPCodeDetailToolbarDiscardButtonText'));
 			});
 
-			it('localizes SNPPlayDetailFormNameField', function () {
-				browser.assert.attribute(SNPPlayDetailFormNameField, 'placeholder', uLocalized('SNPPlayDetailFormNameFieldText'));
+			it('localizes SNPCodeDetailFormNameField', function () {
+				browser.assert.attribute(SNPCodeDetailFormNameField, 'placeholder', uLocalized('SNPCodeDetailFormNameFieldText'));
 			});
 
 			context('discard', function () {
 			
-				it('localizes SNPPlayDetailDiscardConfirm', function() {
+				it('localizes SNPCodeDetailDiscardConfirm', function() {
 					browser.assert.OLSKConfirmQuestion(function () {
-						return browser.pressButton(SNPPlayDetailToolbarDiscardButton);
+						return browser.pressButton(SNPCodeDetailToolbarDiscardButton);
 					}, uLocalized('OLSKWordingConfirmText'));
 				});
 		

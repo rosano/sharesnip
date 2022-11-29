@@ -1,19 +1,19 @@
 <script>
-export let SNPPlayDetailItem;
-export let SNPPlayDetailDispatchBack;
-export let SNPPlayDetailDispatchArchive;
-export let SNPPlayDetailDispatchUnarchive;
-export let SNPPlayDetailDispatchFetch;
-export let SNPPlayDetailDispatchUpdate;
-export let SNPPlayDetailDispatchDiscard;
-export let SNPPlayDetailDispatchQueue;
+export let SNPCodeDetailItem;
+export let SNPCodeDetailDispatchBack;
+export let SNPCodeDetailDispatchArchive;
+export let SNPCodeDetailDispatchUnarchive;
+export let SNPCodeDetailDispatchFetch;
+export let SNPCodeDetailDispatchUpdate;
+export let SNPCodeDetailDispatchDiscard;
+export let SNPCodeDetailDispatchQueue;
 export let OLSKTaxonomySuggestionItems = [];
 export let _DebugLauncher = false;
 
 export const modPublic = {
 
-	SNPPlayDetailRecipes () {
-		return mod.DataPlayDetailRecipes();
+	SNPCodeDetailRecipes () {
+		return mod.DataCodeDetailRecipes();
 	},
 
 };
@@ -27,33 +27,33 @@ const mod = {
 
 	// DATA
 
-	DataPlayDetailRecipes () {
+	DataCodeDetailRecipes () {
 		const outputData = [];
 
-		if (!SNPPlayDetailItem.$SNPDocumentIsInbox && !SNPPlayDetailItem.SNPDocumentArchiveDate) {
+		if (!SNPCodeDetailItem.$SNPDocumentIsInbox && !SNPCodeDetailItem.SNPDocumentArchiveDate) {
 			outputData.push({
-				LCHRecipeSignature: 'SNPPlayDetailLauncherItemArchive',
-				LCHRecipeName: OLSKLocalized('SNPPlayDetailToolbarArchiveButtonText'),
-				LCHRecipeCallback: function SNPPlayDetailLauncherItemArchive () {
-					SNPPlayDetailDispatchArchive()
+				LCHRecipeSignature: 'SNPCodeDetailLauncherItemArchive',
+				LCHRecipeName: OLSKLocalized('SNPCodeDetailToolbarArchiveButtonText'),
+				LCHRecipeCallback: function SNPCodeDetailLauncherItemArchive () {
+					SNPCodeDetailDispatchArchive()
 				},
 			})
 		}
 
-		if (!SNPPlayDetailItem.$SNPDocumentIsInbox && SNPPlayDetailItem.SNPDocumentArchiveDate) {
+		if (!SNPCodeDetailItem.$SNPDocumentIsInbox && SNPCodeDetailItem.SNPDocumentArchiveDate) {
 			outputData.push({
-				LCHRecipeSignature: 'SNPPlayDetailLauncherItemUnarchive',
-				LCHRecipeName: OLSKLocalized('SNPPlayDetailToolbarUnarchiveButtonText'),
-				LCHRecipeCallback: function SNPPlayDetailLauncherItemUnarchive () {
-					SNPPlayDetailDispatchUnarchive()
+				LCHRecipeSignature: 'SNPCodeDetailLauncherItemUnarchive',
+				LCHRecipeName: OLSKLocalized('SNPCodeDetailToolbarUnarchiveButtonText'),
+				LCHRecipeCallback: function SNPCodeDetailLauncherItemUnarchive () {
+					SNPCodeDetailDispatchUnarchive()
 				},
 			})
 		}
 
 		if (OLSK_SPEC_UI()) {
 			outputData.push({
-				LCHRecipeName: 'SNPPlayDetailLauncherFakeItemProxy',
-				LCHRecipeCallback: function SNPPlayDetailLauncherFakeItemProxy () {},
+				LCHRecipeName: 'SNPCodeDetailLauncherFakeItemProxy',
+				LCHRecipeCallback: function SNPCodeDetailLauncherFakeItemProxy () {},
 			});
 		}
 
@@ -63,9 +63,9 @@ const mod = {
 	// MESSAGE
 
 	OLSKTaxonomyDispatchUpdate (inputData) {
-		SNPPlayDetailItem.SNPDocumentTags = inputData;
+		SNPCodeDetailItem.SNPDocumentTags = inputData;
 
-		SNPPlayDetailDispatchUpdate();
+		SNPCodeDetailDispatchUpdate();
 	},
 
 	// REACT
@@ -85,7 +85,7 @@ const mod = {
 };
 
 $: {
-	mod.ReactItem(SNPPlayDetailItem.SNPDocumentID)
+	mod.ReactItem(SNPCodeDetailItem.SNPDocumentID)
 }
 
 import OLSKUIAssets from 'OLSKUIAssets';
@@ -93,42 +93,42 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 import { fade } from 'svelte/transition';
 </script>
 
-<div class="SNPPlayDetail ROCOStandardView">
+<div class="SNPCodeDetail ROCOStandardView">
 
-<header class="SNPPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
+<header class="SNPCodeDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
 	<div class="OLSKToolbarElementGroup">
-		<button class="SNPPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile OLSKVisibilityDesktopScreenreader" title={ OLSKLocalized('SNPPlayDetailToolbarBackButtonText') } on:click={ SNPPlayDetailDispatchBack }>
-			<div class="SNPPlayDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
+		<button class="SNPCodeDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile OLSKVisibilityDesktopScreenreader" title={ OLSKLocalized('SNPCodeDetailToolbarBackButtonText') } on:click={ SNPCodeDetailDispatchBack }>
+			<div class="SNPCodeDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
 		</button>
 	</div>
 
-	{#if SNPPlayDetailItem.$SNPDocumentIsInbox }
+	{#if SNPCodeDetailItem.$SNPDocumentIsInbox }
 
 	<div class="OLSKToolbarElementGroup">
-		<button class="SNPPlayDetailToolbarQueueButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayDetailToolbarQueueButtonText') } on:click={ SNPPlayDetailDispatchQueue }>
-			<div class="SNPPlayDetailToolbarQueueButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
+		<button class="SNPCodeDetailToolbarQueueButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarQueueButtonText') } on:click={ SNPCodeDetailDispatchQueue }>
+			<div class="SNPCodeDetailToolbarQueueButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
 		</button>
 	</div>
 
 	{/if}
 
-	{#if !SNPPlayDetailItem.$SNPDocumentIsInbox }
+	{#if !SNPCodeDetailItem.$SNPDocumentIsInbox }
 
 	<div class="OLSKToolbarElementGroup">
-		{#if !SNPPlayDetailItem.SNPDocumentArchiveDate }
-			<button class="SNPPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayDetailToolbarArchiveButtonText') } on:click={ SNPPlayDetailDispatchArchive }>
-				<div class="SNPPlayDetailToolbarArchiveButtonImage">{@html OLSKUIAssets._OLSKSharedArchive }</div>
+		{#if !SNPCodeDetailItem.SNPDocumentArchiveDate }
+			<button class="SNPCodeDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarArchiveButtonText') } on:click={ SNPCodeDetailDispatchArchive }>
+				<div class="SNPCodeDetailToolbarArchiveButtonImage">{@html OLSKUIAssets._OLSKSharedArchive }</div>
 			</button>
 		{/if}
 
-		{#if SNPPlayDetailItem.SNPDocumentArchiveDate }
-			<button class="SNPPlayDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayDetailToolbarUnarchiveButtonText') } on:click={ SNPPlayDetailDispatchUnarchive }>
-				<div class="SNPPlayDetailToolbarUnarchiveButtonImage">{@html OLSKUIAssets._OLSKSharedUnarchive }</div>
+		{#if SNPCodeDetailItem.SNPDocumentArchiveDate }
+			<button class="SNPCodeDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarUnarchiveButtonText') } on:click={ SNPCodeDetailDispatchUnarchive }>
+				<div class="SNPCodeDetailToolbarUnarchiveButtonImage">{@html OLSKUIAssets._OLSKSharedUnarchive }</div>
 			</button>
 		{/if}
 
-		<button class="SNPPlayDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && SNPPlayDetailDispatchDiscard() }>
-			<div class="SNPPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
+		<button class="SNPCodeDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && SNPCodeDetailDispatchDiscard() }>
+			<div class="SNPCodeDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
 	
@@ -137,25 +137,25 @@ import { fade } from 'svelte/transition';
 
 <div class="ROCOStandardViewBody">
 
-{#if SNPPlayDetailItem.SNPDocumentURL }
+{#if SNPCodeDetailItem.SNPDocumentURL }
 
-{#if SNPPlayDetailItem.SNPDocumentEmbedURL }
-	{#key SNPPlayDetailItem.SNPDocumentEmbedURL}
+{#if SNPCodeDetailItem.SNPDocumentEmbedURL }
+	{#key SNPCodeDetailItem.SNPDocumentEmbedURL}
 		<div in:fade="{{ delay: OLSK_SPEC_UI() ? 0 : 250, duration: OLSK_SPEC_UI() ? 0 : 300 }}">
-			<iframe class="SNPPlayDetailMediaPlayer" width="100%" height="280" src={ SNPPlayDetailItem.SNPDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe class="SNPCodeDetailMediaPlayer" width="100%" height="280" src={ SNPCodeDetailItem.SNPDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 	{/key}
 {/if}
 
-<div class="SNPPlayDetailMedia OLSKDecor OLSKDecorBigForm">
+<div class="SNPCodeDetailMedia OLSKDecor OLSKDecorBigForm">
 
-	<p class="SNPPlayDetailLink">
-		<input class="SNPPlayDetailMediaURLField" placeholder={ OLSKLocalized('SNPPlayDetailMediaURLFieldText') } type="text" disabled bind:value={ SNPPlayDetailItem.SNPDocumentURL } />
+	<p class="SNPCodeDetailLink">
+		<input class="SNPCodeDetailMediaURLField" placeholder={ OLSKLocalized('SNPCodeDetailMediaURLFieldText') } type="text" disabled bind:value={ SNPCodeDetailItem.SNPDocumentURL } />
 
-		<a class="SNPPlayDetailMediaOpenButton OLSKDecorPress" href={ SNPPlayDetailItem.SNPDocumentURL } target="_blank">{ OLSKLocalized('SNPPlayDetailMediaOpenButtonText') }</a>
+		<a class="SNPCodeDetailMediaOpenButton OLSKDecorPress" href={ SNPCodeDetailItem.SNPDocumentURL } target="_blank">{ OLSKLocalized('SNPCodeDetailMediaOpenButtonText') }</a>
 
-		{#if !SNPPlayDetailItem.$SNPDocumentIsInbox }
-			<button class="SNPPlayDetailMediaFetchButton" on:click={ SNPPlayDetailDispatchFetch }>{ OLSKLocalized('SNPPlayDetailMediaFetchButtonText') }</button>
+		{#if !SNPCodeDetailItem.$SNPDocumentIsInbox }
+			<button class="SNPCodeDetailMediaFetchButton" on:click={ SNPCodeDetailDispatchFetch }>{ OLSKLocalized('SNPCodeDetailMediaFetchButtonText') }</button>
 		{/if}
 	</p>
 
@@ -164,23 +164,23 @@ import { fade } from 'svelte/transition';
 </div>
 {/if}
 
-<div class="SNPPlayDetailForm OLSKDecor OLSKDecorBigForm">
+<div class="SNPCodeDetailForm OLSKDecor OLSKDecorBigForm">
 
 <p>
-	<input class="SNPPlayDetailFormNameField" placeholder={ OLSKLocalized('SNPPlayDetailFormNameFieldText') } type="text" bind:value={ SNPPlayDetailItem.SNPDocumentName } on:input={ SNPPlayDetailDispatchUpdate } disabled={ SNPPlayDetailItem.$SNPDocumentIsInbox ? true : null } />
+	<input class="SNPCodeDetailFormNameField" placeholder={ OLSKLocalized('SNPCodeDetailFormNameFieldText') } type="text" bind:value={ SNPCodeDetailItem.SNPDocumentName } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null } />
 </p>
 
 <p>
-	<textarea class="SNPPlayDetailFormNotesField" placeholder="{ OLSKLocalized('SNPPlayDetailFormNotesFieldText') }" bind:value={ SNPPlayDetailItem.SNPDocumentNotes } on:input={ SNPPlayDetailDispatchUpdate } disabled={ SNPPlayDetailItem.$SNPDocumentIsInbox ? true : null }></textarea>
+	<textarea class="SNPCodeDetailFormNotesField" placeholder="{ OLSKLocalized('SNPCodeDetailFormNotesFieldText') }" bind:value={ SNPCodeDetailItem.SNPDocumentNotes } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null }></textarea>
 </p>
 
-{#if !SNPPlayDetailItem.$SNPDocumentIsInbox }
+{#if !SNPCodeDetailItem.$SNPDocumentIsInbox }
 <hr role="presentation" />
 
 <p>
 	{#each mod.__HOTFIX_ITEM_IDS as item }
 		<OLSKTaxonomy
-			OLSKTaxonomyItems={ SNPPlayDetailItem.SNPDocumentTags || [] }
+			OLSKTaxonomyItems={ SNPCodeDetailItem.SNPDocumentTags || [] }
 			OLSKTaxonomySuggestionItems={ OLSKTaxonomySuggestionItems }
 			OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate }
 			/>
@@ -195,18 +195,18 @@ import { fade } from 'svelte/transition';
 </div>
 
 {#if _DebugLauncher && OLSK_SPEC_UI() }
-	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataPlayDetailRecipes() }) }></button>	
+	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataCodeDetailRecipes() }) }></button>	
 {/if}
 
 <style>
-.SNPPlayDetailLink {
+.SNPCodeDetailLink {
 	display: flex;
 	width: 90%;
 
 	align-items: center;
 }
 
-.SNPPlayDetailLink *:not(.SNPPlayDetailMediaURLField) {
+.SNPCodeDetailLink *:not(.SNPCodeDetailMediaURLField) {
 	margin-left: 10px;
 }
 </style>

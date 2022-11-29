@@ -1,71 +1,71 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPPlayDetail: '.SNPPlayDetail',
+	SNPCodeDetail: '.SNPCodeDetail',
 
-	SNPPlayDetailToolbar: '.SNPPlayDetailToolbar',
+	SNPCodeDetailToolbar: '.SNPCodeDetailToolbar',
 	
-	SNPPlayDetailToolbarBackButton: '.SNPPlayDetailToolbarBackButton',
-	SNPPlayDetailToolbarBackButtonImage: '.SNPPlayDetailToolbarBackButtonImage',
+	SNPCodeDetailToolbarBackButton: '.SNPCodeDetailToolbarBackButton',
+	SNPCodeDetailToolbarBackButtonImage: '.SNPCodeDetailToolbarBackButtonImage',
 
-	SNPPlayDetailToolbarQueueButton: '.SNPPlayDetailToolbarQueueButton',	
-	SNPPlayDetailToolbarQueueButtonImage: '.SNPPlayDetailToolbarQueueButtonImage',
+	SNPCodeDetailToolbarQueueButton: '.SNPCodeDetailToolbarQueueButton',	
+	SNPCodeDetailToolbarQueueButtonImage: '.SNPCodeDetailToolbarQueueButtonImage',
 	
-	SNPPlayDetailToolbarDiscardButton: '.SNPPlayDetailToolbarDiscardButton',	
-	SNPPlayDetailToolbarDiscardButtonImage: '.SNPPlayDetailToolbarDiscardButtonImage',
+	SNPCodeDetailToolbarDiscardButton: '.SNPCodeDetailToolbarDiscardButton',	
+	SNPCodeDetailToolbarDiscardButtonImage: '.SNPCodeDetailToolbarDiscardButtonImage',
 
-	SNPPlayDetailForm: '.SNPPlayDetailForm',
-	SNPPlayDetailFormNameField: '.SNPPlayDetailFormNameField',
+	SNPCodeDetailForm: '.SNPCodeDetailForm',
+	SNPCodeDetailFormNameField: '.SNPCodeDetailFormNameField',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPPlayDetail_Access', function () {
+describe('SNPCodeDetail_Access', function () {
 	
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			SNPCodeDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows SNPPlayDetail', function () {
-		browser.assert.elements(SNPPlayDetail, 1);
+	it('shows SNPCodeDetail', function () {
+		browser.assert.elements(SNPCodeDetail, 1);
 	});
 
-	it('shows SNPPlayDetailToolbar', function () {
-		browser.assert.elements(SNPPlayDetailToolbar, 1);
+	it('shows SNPCodeDetailToolbar', function () {
+		browser.assert.elements(SNPCodeDetailToolbar, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarBackButton', function () {
-		browser.assert.elements(SNPPlayDetailToolbarBackButton, 1);
+	it('shows SNPCodeDetailToolbarBackButton', function () {
+		browser.assert.elements(SNPCodeDetailToolbarBackButton, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarBackButtonImage', function () {
-		browser.assert.elements(SNPPlayDetailToolbarBackButtonImage, 1);
+	it('shows SNPCodeDetailToolbarBackButtonImage', function () {
+		browser.assert.elements(SNPCodeDetailToolbarBackButtonImage, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarQueueButton', function () {
-		browser.assert.elements(SNPPlayDetailToolbarQueueButton, 1);
+	it('shows SNPCodeDetailToolbarQueueButton', function () {
+		browser.assert.elements(SNPCodeDetailToolbarQueueButton, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarQueueButtonImage', function () {
-		browser.assert.elements(SNPPlayDetailToolbarQueueButtonImage, 1);
+	it('shows SNPCodeDetailToolbarQueueButtonImage', function () {
+		browser.assert.elements(SNPCodeDetailToolbarQueueButtonImage, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarDiscardButton', function () {
-		browser.assert.elements(SNPPlayDetailToolbarDiscardButton, 1);
+	it('shows SNPCodeDetailToolbarDiscardButton', function () {
+		browser.assert.elements(SNPCodeDetailToolbarDiscardButton, 1);
 	});
 
-	it('shows SNPPlayDetailToolbarDiscardButtonImage', function () {
-		browser.assert.elements(SNPPlayDetailToolbarDiscardButtonImage, 1);
+	it('shows SNPCodeDetailToolbarDiscardButtonImage', function () {
+		browser.assert.elements(SNPCodeDetailToolbarDiscardButtonImage, 1);
 	});
 
-	it('shows SNPPlayDetailForm', function () {
-		browser.assert.elements(SNPPlayDetailForm, 1);
+	it('shows SNPCodeDetailForm', function () {
+		browser.assert.elements(SNPCodeDetailForm, 1);
 	});
 
-	it('shows SNPPlayDetailFormNameField', function () {
-		browser.assert.elements(SNPPlayDetailFormNameField, 1);
+	it('shows SNPCodeDetailFormNameField', function () {
+		browser.assert.elements(SNPCodeDetailFormNameField, 1);
 	});
 
 });

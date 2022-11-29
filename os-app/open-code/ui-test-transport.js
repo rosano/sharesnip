@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Transport', function () {	
+describe('SNPCode_Transport', function () {	
 
 	const json = {};
 
@@ -38,7 +38,7 @@ describe('SNPPlay_Transport', function () {
 		});
 
 		it('creates note', function () {
-			browser.assert.text('.SNPPlayListItemSnippet', SNPDocumentNotes);
+			browser.assert.text('.SNPCodeListItemSnippet', SNPDocumentNotes);
 		});
 
 	});

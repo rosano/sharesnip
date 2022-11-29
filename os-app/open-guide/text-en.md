@@ -15,8 +15,8 @@ The following 'bookmarklets' can be dragged to your browser's favourites and wil
 
 |||
 :--- | ---
-| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(location.href)+'&SNPPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
-| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPPlayCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+| <a class="SNPGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(location.href)+'&SNPCodeNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&SNPCodeImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="SNPGuideBookmarklet" href="javascript:void(t=open('SNP_GUIDE_BOOKMARKLET_ORIGINSNPCodeRoute/#SNPCodeCaptureAnchor='+encodeURIComponent(window.prompt().split(/\s/).join('%20')),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
 
 # Add by pasting links or text
 
@@ -41,13 +41,13 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 </div>
 
-*SNPPlayDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *SNPPlayRevealArchiveButtonText* button was pressed.
+*SNPCodeDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *SNPCodeRevealArchiveButtonText* button was pressed.
 
-*SNPPlayDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
+*SNPCodeDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
 
-*SNPPlayDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPPlayDetailMediaFetchButtonText*.
+*SNPCodeDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCodeDetailMediaFetchButtonText*.
 
-*SNPPlayDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
+*SNPCodeDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
 
 *OLSKTaxonomyFieldText* can be used to organize items and make them easier to find.
 
@@ -55,17 +55,17 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 ## Sending a playlist
 
-1. Press the *SNPPlayStashButtonText* button.
+1. Press the *SNPCodeStashButtonText* button.
 2. Select one or more items from the list, then press OK.
-3. Re-order if necessary by dragging or pressing the arrow buttons, then press *SNPPlayShareCopyButtonText*.
+3. Re-order if necessary by dragging or pressing the arrow buttons, then press *SNPCodeShareCopyButtonText*.
 
 ## Receiving a playlist
 
-The items are grouped at the top of the list in a section called *SNPPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
+The items are grouped at the top of the list in a section called *SNPCodeChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
 
-Clear the inbox by pressing *SNPPlayClearInboxButtonText*.
+Clear the inbox by pressing *SNPCodeClearInboxButtonText*.
 
-Add an inbox item to your collection by pressing the *SNPPlayDetailToolbarQueueButtonText* button.
+Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarQueueButtonText* button.
 
 # API Parameters
 
@@ -79,9 +79,9 @@ Note: this only works with a trailing slash before `#`.
 
 | PARAM | TEXT |
 :--- | ---
-| `SNPPlayCaptureAnchor` | URL or plain text. |
-| `SNPPlayNameAnchor` | Item name. Note: if multiple URLs are present in `SNPPlayCaptureAnchor`, this will set the name for all items. |
-| `SNPPlayInboxAnchor` | URL-encoded JSON array of objects. |
+| `SNPCodeCaptureAnchor` | URL or plain text. |
+| `SNPCodeNameAnchor` | Item name. Note: if multiple URLs are present in `SNPCodeCaptureAnchor`, this will set the name for all items. |
+| `SNPCodeInboxAnchor` | URL-encoded JSON array of objects. |
 
 # Shortcuts
 

@@ -1,15 +1,15 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPPlayLogic = require('./ui-logic.js').default;
+const SNPCodeLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
-describe('SNPPlay_Hash', function () {
+describe('SNPCode_Hash', function () {
 
-	describe('SNPPlayCaptureAnchor', function test_SNPPlayCaptureAnchor () {
+	describe('SNPCodeCaptureAnchor', function test_SNPCodeCaptureAnchor () {
 		
 		const OLSKRoutingHash = {
-			[SNPPlayLogic.SNPPlayCaptureAnchor()]: uLink(Math.random().toString()),
-			[SNPPlayLogic.SNPPlayNameAnchor()]: Math.random().toString(),
+			[SNPCodeLogic.SNPCodeCaptureAnchor()]: uLink(Math.random().toString()),
+			[SNPCodeLogic.SNPCodeNameAnchor()]: Math.random().toString(),
 		};
 
 		before(function() {
@@ -19,28 +19,28 @@ describe('SNPPlay_Hash', function () {
 		});
 
 		it('adds item', function () {
-			browser.assert.elements(SNPPlayListItem, 1);
+			browser.assert.elements(SNPCodeListItem, 1);
 		});
 
 		context('select', function () {
 
 			before(function () {
-				return browser.click(SNPPlayListItem);
+				return browser.click(SNPCodeListItem);
 			});
 
 			it('binds SNPDocumentURL', function () {
-				browser.assert.input(SNPPlayDetailMediaURLField, OLSKRoutingHash[SNPPlayLogic.SNPPlayCaptureAnchor()]);
+				browser.assert.input(SNPCodeDetailMediaURLField, OLSKRoutingHash[SNPCodeLogic.SNPCodeCaptureAnchor()]);
 			});
 
 			it('binds SNPDocumentName', function () {
-				browser.assert.input(SNPPlayDetailFormNameField, OLSKRoutingHash[SNPPlayLogic.SNPPlayNameAnchor()]);
+				browser.assert.input(SNPCodeDetailFormNameField, OLSKRoutingHash[SNPCodeLogic.SNPCodeNameAnchor()]);
 			});
 		
 		});
 	
 	});
 
-	describe('SNPPlayInboxAnchor', function test_SNPPlayInboxAnchor () {
+	describe('SNPCodeInboxAnchor', function test_SNPCodeInboxAnchor () {
 		
 		const items = Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
 			return StubDocumentObjectValid({
@@ -49,8 +49,8 @@ describe('SNPPlay_Hash', function () {
 			});
 		});
 		const OLSKRoutingHash = {
-			[SNPPlayLogic.SNPPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(items.map(function (e) {
-				return OLSKObject.OLSKObjectRemap(e, SNPPlayLogic.SNPPlayRemap());
+			[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify(items.map(function (e) {
+				return OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap());
 			}))),
 		};
 		const OLSKRoutingLanguage = uRandomElement(kDefaultRoute.OLSKRouteLanguageCodes);
@@ -63,37 +63,37 @@ describe('SNPPlay_Hash', function () {
 		});
 
 		it('adds items', function () {
-			browser.assert.elements(SNPPlayListItem, items.length);
+			browser.assert.elements(SNPCodeListItem, items.length);
 		});
 
 		it('chunks', function () {
-			browser.assert.text('.OLSKCollectionChunkHeading', OLSKTestingLocalized('SNPPlayChunkInboxText', OLSKRoutingLanguage));
+			browser.assert.text('.OLSKCollectionChunkHeading', OLSKTestingLocalized('SNPCodeChunkInboxText', OLSKRoutingLanguage));
 		});
 
 		context('select', function () {
 
 			before(function () {
-				return browser.click(SNPPlayListItem);
+				return browser.click(SNPCodeListItem);
 			});
 
 			it('binds SNPDocumentURL', function () {
-				browser.assert.input('.SNPPlayDetailMediaURLField', items[0].SNPDocumentURL);
+				browser.assert.input('.SNPCodeDetailMediaURLField', items[0].SNPDocumentURL);
 			});
 
 			it('binds SNPDocumentName', function () {
-				browser.assert.input('.SNPPlayDetailFormNameField', items[0].SNPDocumentName);
+				browser.assert.input('.SNPCodeDetailFormNameField', items[0].SNPDocumentName);
 			});
 		
 		});
 
-		context('SNPPlayDetailDispatchQueue', function () {
+		context('SNPCodeDetailDispatchQueue', function () {
 			
 			before(function () {
-				return browser.pressButton('.SNPPlayDetailToolbarQueueButton');
+				return browser.pressButton('.SNPCodeDetailToolbarQueueButton');
 			});
 
 			it('adds item', function () {
-				browser.assert.elements(SNPPlayListItem, items.length + 1);
+				browser.assert.elements(SNPCodeListItem, items.length + 1);
 			});
 
 			context('select', function () {
@@ -103,21 +103,21 @@ describe('SNPPlay_Hash', function () {
 				});
 
 				it('binds SNPDocumentURL', function () {
-					browser.assert.input('.SNPPlayDetailMediaURLField', items[0].SNPDocumentURL);
+					browser.assert.input('.SNPCodeDetailMediaURLField', items[0].SNPDocumentURL);
 				});
 
 				it('binds SNPDocumentName', function () {
-					browser.assert.input('.SNPPlayDetailFormNameField', items[0].SNPDocumentName);
+					browser.assert.input('.SNPCodeDetailFormNameField', items[0].SNPDocumentName);
 				});
 			
 			});
 		
 		});
 
-		context('SNPPlayClearInboxButton', function () {
+		context('SNPCodeClearInboxButton', function () {
 			
 			before(function () {
-				return browser.pressButton(SNPPlayClearInboxButton);
+				return browser.pressButton(SNPCodeClearInboxButton);
 			});
 
 			it('clears hash', function () {

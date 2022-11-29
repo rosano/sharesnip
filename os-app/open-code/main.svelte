@@ -17,7 +17,7 @@ const uSerial2 = function (inputData) {
 import SNPDocument from '../_shared/SNPDocument/main.js';
 import SNPSetting from '../_shared/SNPSetting/main.js';
 import SNPTransport from '../_shared/SNPTransport/main.js';
-import SNPPlayLogic from './ui-logic.js';
+import SNPCodeLogic from './ui-logic.js';
 import OLSKThrottle from 'OLSKThrottle';
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 import OLSKObject from 'OLSKObject';
@@ -87,7 +87,7 @@ const mod = {
 		}, inputData));
 	},
 
-	DataPlayRecipes () {
+	DataCodeRecipes () {
 		const outputData = [];
 
 		if (OLSK_SPEC_UI()) {
@@ -137,8 +137,8 @@ const mod = {
 					},
 				},
 				{
-					LCHRecipeName: 'OLSKPlayLauncherFakeCreateTaggedItem',
-					LCHRecipeCallback: async function OLSKPlayLauncherFakeCreateTaggedItem () {
+					LCHRecipeName: 'SNPCodeLauncherFakeCreateTaggedItem',
+					LCHRecipeCallback: async function SNPCodeLauncherFakeCreateTaggedItem () {
 						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject({
 							SNPDocumentTags: [window.prompt()],
 						})));
@@ -192,15 +192,15 @@ const mod = {
 
 		outputData.push(...OLSKServiceWorker.OLSKServiceWorkerRecipes(window, mod.DataNavigator(), OLSKLocalized, OLSK_SPEC_UI()));
 
-		if (mod._SNPPlayDetail) {
-			outputData.push(...mod._SNPPlayDetail.modPublic.SNPPlayDetailRecipes());
+		if (mod._SNPCodeDetail) {
+			outputData.push(...mod._SNPCodeDetail.modPublic.SNPCodeDetailRecipes());
 		}
 
 		if (mod._ValueRevealArchiveIsVisible) {
 			outputData.push({
-				LCHRecipeSignature: 'SNPPlayLauncherItemRevealArchive',
-				LCHRecipeName: OLSKLocalized('SNPPlayRevealArchiveButtonText'),
-				LCHRecipeCallback: function SNPPlayLauncherItemRevealArchive () {
+				LCHRecipeSignature: 'SNPCodeLauncherItemRevealArchive',
+				LCHRecipeName: OLSKLocalized('SNPCodeRevealArchiveButtonText'),
+				LCHRecipeCallback: function SNPCodeLauncherItemRevealArchive () {
 					mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive();
 				},
 			});
@@ -305,7 +305,7 @@ const mod = {
 			return !!e;
 		});
 
-		return Promise.all(SNPPlayLogic.SNPPlayDocuments(inputData).reverse().map(function (e) {
+		return Promise.all(SNPCodeLogic.SNPCodeDocuments(inputData).reverse().map(function (e) {
 			return Object.assign(e, properties);
 		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.SNPDocumentURL));
@@ -332,7 +332,7 @@ const mod = {
 	
 	_ControlHotfixUpdateInPlace(inputData) {
 		mod.ControlDocumentActivate(inputData);
-		mod._SNPPlayDetail.modPublic._SNPPlayDetailTriggerUpdate();
+		mod._SNPCodeDetail.modPublic._SNPCodeDetailTriggerUpdate();
 	},
 	
 	ControlDocumentActivate(inputData) {
@@ -373,7 +373,7 @@ const mod = {
 	
 	async ControlDocumentFetch (inputData) {
 		mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
-			return SNPPlayLogic.SNPPlayFetch(inputData);
+			return SNPCodeLogic.SNPCodeFetch(inputData);
 		}));
 
 		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
@@ -412,11 +412,11 @@ const mod = {
 	},
 
 	OLSKCollectionChunkFunction (inputData) {
-		return SNPPlayLogic.SNPPlayChunkFunction(inputData, OLSKLocalized);
+		return SNPCodeLogic.SNPCodeChunkFunction(inputData, OLSKLocalized);
 	},
 
 	OLSKCollectionChunkKeySortFunction () {
-		return SNPPlayLogic.SNPPlayChunkKeySortFunction(OLSKLocalized)(...arguments);
+		return SNPCodeLogic.SNPCodeChunkKeySortFunction(OLSKLocalized)(...arguments);
 	},
 
 	OLSKCollectionDispatchClick (inputData) {
@@ -428,7 +428,7 @@ const mod = {
 	},
 
 	OLSKCatalogDispatchDetailActivate () {
-		document.querySelector('.SNPPlayDetailToolbarBackButton').focus();
+		document.querySelector('.SNPCodeDetailToolbarBackButton').focus();
 	},
 	
 	OLSKCatalogDispatchArchivedHide () {
@@ -454,9 +454,9 @@ const mod = {
 			return;
 		}
 
-		mod._SNPPlayShareItems = inputData;
+		mod._SNPCodeShareItems = inputData;
 		
-		mod._SNPPlayShareModal.modPublic.OLSKModalViewShow();
+		mod._SNPCodeShareModal.modPublic.OLSKModalViewShow();
 	},
 
 	OLSKAppToolbarDispatchApropos () {
@@ -505,36 +505,36 @@ const mod = {
 		}
 
 		window.Launchlet.LCHSingletonCreate({
-			LCHOptionRecipes: mod.DataPlayRecipes(),
+			LCHOptionRecipes: mod.DataCodeRecipes(),
 			LCHOptionLanguage: window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'),
 		});
 	},
 
-	SNPPlayDetailDispatchBack () {
+	SNPCodeDetailDispatchBack () {
 		mod._OLSKCatalog.modPublic.OLSKCatalogFocusMaster();
 	},
 
-	SNPPlayDetailDispatchArchive () {
+	SNPCodeDetailDispatchArchive () {
 		mod.ControlDocumentArchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPPlayDetailDispatchUnarchive () {
+	SNPCodeDetailDispatchUnarchive () {
 		mod.ControlDocumentUnarchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPPlayDetailDispatchFetch () {
+	SNPCodeDetailDispatchFetch () {
 		mod.ControlDocumentFetch(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPPlayDetailDispatchUpdate () {
+	SNPCodeDetailDispatchUpdate () {
 		mod.ControlDocumentSave(mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected()));
 	},
 
-	SNPPlayDetailDispatchDiscard () {
+	SNPCodeDetailDispatchDiscard () {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPPlayDetailDispatchQueue () {
+	SNPCodeDetailDispatchQueue () {
 		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
@@ -552,10 +552,10 @@ const mod = {
 	},
 
 	OLSKHashDispatchInitialize (inputData) {
-		if (inputData[SNPPlayLogic.SNPPlayCaptureAnchor()]) {
-			return mod.ControlTextAdd(inputData[SNPPlayLogic.SNPPlayCaptureAnchor()], {
-				SNPDocumentName: inputData[SNPPlayLogic.SNPPlayNameAnchor()] || undefined,
-				SNPDocumentImageURL: inputData[SNPPlayLogic.SNPPlayImageAnchor()] || undefined,
+		if (inputData[SNPCodeLogic.SNPCodeCaptureAnchor()]) {
+			return mod.ControlTextAdd(inputData[SNPCodeLogic.SNPCodeCaptureAnchor()], {
+				SNPDocumentName: inputData[SNPCodeLogic.SNPCodeNameAnchor()] || undefined,
+				SNPDocumentImageURL: inputData[SNPCodeLogic.SNPCodeImageAnchor()] || undefined,
 			}).then(function () {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
@@ -565,11 +565,11 @@ const mod = {
 			});
 		}
 
-		if (inputData[SNPPlayLogic.SNPPlayInboxAnchor()]) {
+		if (inputData[SNPCodeLogic.SNPCodeInboxAnchor()]) {
 			mod._ValueInboxIsVisible = true;
 
-			return mod.ControlInboxAdd(JSON.parse(inputData[SNPPlayLogic.SNPPlayInboxAnchor()]).reverse().map(function (e) {
-				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, SNPPlayLogic.SNPPlayRemap(), true))), {
+			return mod.ControlInboxAdd(JSON.parse(inputData[SNPCodeLogic.SNPCodeInboxAnchor()]).reverse().map(function (e) {
+				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, SNPCodeLogic.SNPCodeRemap(), true))), {
 					$SNPDocumentIsInbox: true,
 				});
 			}));
@@ -693,7 +693,7 @@ const mod = {
 	// REACT
 
 	ReactDocumentLimit () {
-		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(SNPPlayLogic.SNPPlayDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
+		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(SNPCodeLogic.SNPCodeDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
 	},
 
 	// SETUP
@@ -846,9 +846,9 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleWillMount);
 
 import OLSKCatalog from 'OLSKCatalog';
-import SNPPlayListItem from '../sub-item/main.svelte';
-import SNPPlayDetail from '../sub-detail/main.svelte';
-import SNPPlayShare from '../sub-share/main.svelte';
+import SNPCodeListItem from '../sub-item/main.svelte';
+import SNPCodeDetail from '../sub-detail/main.svelte';
+import SNPCodeShare from '../sub-share/main.svelte';
 import OLSKTaxonomy from 'OLSKTaxonomy';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
@@ -861,20 +861,20 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 <svelte:window on:keydown={ mod.InterfaceWindowDidKeydown } />
 
-<div class="SNPPlay OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
+<div class="SNPCode OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
 
 <div class="OLSKViewportContent">
 
 <OLSKCatalog
 	bind:this={ mod._OLSKCatalog }
 
-	OLSKCollectionItemAccessibilitySummaryFunction={ SNPPlayLogic.SNPPlayAccessibilitySummary }
+	OLSKCollectionItemAccessibilitySummaryFunction={ SNPCodeLogic.SNPCodeAccessibilitySummary }
 	OLSKCollectionItemClass={ 'OLSKCommonEdgeBottom' }
 
 	_OLSKCatalogArchiveField={ 'SNPDocumentArchiveDate' }
 	
-	OLSKCatalogSortFunction={ SNPPlayLogic.SNPPlaySortFunction }
-	OLSKCatalogIsMatch={ SNPPlayLogic.SNPPlayIsMatch }
+	OLSKCatalogSortFunction={ SNPCodeLogic.SNPCodeSortFunction }
+	OLSKCatalogIsMatch={ SNPCodeLogic.SNPCodeIsMatch }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
 
@@ -895,20 +895,20 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER -->
 
 	<div class="OLSKToolbarElementGroup" slot="OLSKNarrowToolbarTail">
-		<button class="SNPPlayStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
-			<div class="SNPPlayStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
+		<button class="SNPCodeStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
+			<div class="SNPCodeStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
 		</button>
-		<button class="SNPPlayToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPPlayToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
-			<div class="SNPPlayToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
+		<button class="SNPCodeToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
+			<div class="SNPCodeToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
 		</button>
 	</div>
 
 	<!-- MASTER BODY HEAD -->
 
 	{#if mod._ValueFormIsVisible }
-		<div class="SNPPlayForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
+		<div class="SNPCodeForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
 			<p>
-				<textarea class="SNPPlayFormField" placeholder={ OLSKLocalized('SNPPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
+				<textarea class="SNPCodeFormField" placeholder={ OLSKLocalized('SNPCodeFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
 			</p>
 			
 			<hr role="presentation" />
@@ -924,43 +924,43 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<hr role="presentation" />
 			
 			<p>
-				<button class="SNPPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('SNPPlayFormSubmitButtonText') }</button>
+				<button class="SNPCodeFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('SNPCodeFormSubmitButtonText') }</button>
 			</p>
 		</div>
 	{/if}
 
 	{#if mod._ValueInboxIsVisible }
-		<div class="SNPPlayClearInbox">
-			<button class="SNPPlayClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('SNPPlayClearInboxButtonText') }</button>
+		<div class="SNPCodeClearInbox">
+			<button class="SNPCodeClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('SNPCodeClearInboxButtonText') }</button>
 		</div>
 	{/if}
 
 	<!-- MASTER LIST ITEM -->
 
 	<div slot="OLSKCollectionItem">
-		<SNPPlayListItem SNPPlayListItemObject={ OLSKCollectionItem } />
+		<SNPCodeListItem SNPCodeListItemObject={ OLSKCollectionItem } />
 	</div>
 
 	<!-- MASTER BODY TAIL -->
 
-	<div class="SNPPlayRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
-		<button class="SNPPlayRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('SNPPlayRevealArchiveButtonText') }</button>
+	<div class="SNPCodeRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
+		<button class="SNPCodeRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('SNPCodeRevealArchiveButtonText') }</button>
 	{/if}</div>
 
 	<!-- DETAIL -->
 	
-	<div class="SNPPlayDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
-		<SNPPlayDetail
-			SNPPlayDetailItem={ OLSKCatalogItemSelected }
+	<div class="SNPCodeDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
+		<SNPCodeDetail
+			SNPCodeDetailItem={ OLSKCatalogItemSelected }
 			OLSKTaxonomySuggestionItems={ mod.OLSKTaxonomySuggestionItems }
-			SNPPlayDetailDispatchBack={ mod.SNPPlayDetailDispatchBack }
-			SNPPlayDetailDispatchArchive={ mod.SNPPlayDetailDispatchArchive }
-			SNPPlayDetailDispatchUnarchive={ mod.SNPPlayDetailDispatchUnarchive }
-			SNPPlayDetailDispatchFetch={ mod.SNPPlayDetailDispatchFetch }
-			SNPPlayDetailDispatchUpdate={ mod.SNPPlayDetailDispatchUpdate }
-			SNPPlayDetailDispatchDiscard={ mod.SNPPlayDetailDispatchDiscard }
-			SNPPlayDetailDispatchQueue={ mod.SNPPlayDetailDispatchQueue }
-			bind:this={ mod._SNPPlayDetail }
+			SNPCodeDetailDispatchBack={ mod.SNPCodeDetailDispatchBack }
+			SNPCodeDetailDispatchArchive={ mod.SNPCodeDetailDispatchArchive }
+			SNPCodeDetailDispatchUnarchive={ mod.SNPCodeDetailDispatchUnarchive }
+			SNPCodeDetailDispatchFetch={ mod.SNPCodeDetailDispatchFetch }
+			SNPCodeDetailDispatchUpdate={ mod.SNPCodeDetailDispatchUpdate }
+			SNPCodeDetailDispatchDiscard={ mod.SNPCodeDetailDispatchDiscard }
+			SNPCodeDetailDispatchQueue={ mod.SNPCodeDetailDispatchQueue }
+			bind:this={ mod._SNPCodeDetail }
 			/>
 	</div>
 
@@ -968,10 +968,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<footer class="SNPPlayViewportFooter OLSKMobileViewFooter">
+<footer class="SNPCodeViewportFooter OLSKMobileViewFooter">
 
 	{#if !mod._ValueCloudToolbarHidden }
-		<div class="SNPPlayCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
+		<div class="SNPCodeCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
 			<div class="OLSKToolbarElementGroup">
 			</div>
 
@@ -1023,22 +1023,22 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		/>
 </OLSKModalView>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPPlayShareModalTitleText') } bind:this={ mod._SNPPlayShareModal }>
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPCodeShareModalTitleText') } bind:this={ mod._SNPCodeShareModal }>
 	<div>
-		<SNPPlayShare SNPPlayShareItems={ mod._SNPPlayShareItems } />
+		<SNPCodeShare SNPCodeShareItems={ mod._SNPCodeShareItems } />
 	</div>
 </OLSKModalView>
 
 <style>
-.SNPPlayForm {
+.SNPCodeForm {
 	font-size: unset;
 }
 
-.SNPPlayForm p:last-child {
+.SNPCodeForm p:last-child {
 	margin-bottom: 0;
 }
 
-.SNPPlayClearInbox, .SNPPlayRevealArchive {
+.SNPCodeClearInbox, .SNPCodeRevealArchive {
 	padding: 10px;
 	
 	display: flex;

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlayListItem_Misc', function () {
+describe('SNPCodeListItem_Misc', function () {
 
 	const SNPDocumentName = Math.random().toString();
 
@@ -10,14 +10,14 @@ describe('SNPPlayListItem_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPPlayListItemObject: JSON.stringify(item),
+			SNPCodeListItemObject: JSON.stringify(item),
 		});
 	});
 
-	describe('SNPPlayListItemTitle', function test_SNPPlayListItemTitle () {
+	describe('SNPCodeListItemTitle', function test_SNPCodeListItemTitle () {
 		
 		it('binds SNPDocumentName', function () {
-			browser.assert.text(SNPPlayListItemTitle, require('OLSKString').OLSKStringSnippet(item.SNPDocumentName));
+			browser.assert.text(SNPCodeListItemTitle, require('OLSKString').OLSKStringSnippet(item.SNPDocumentName));
 		});
 	
 	});

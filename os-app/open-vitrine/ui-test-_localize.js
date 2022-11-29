@@ -69,7 +69,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			it('localizes OLSKLandingActionHref', function () {
-				browser.assert.attribute('.OLSKLandingAction', 'href', OLSKTestingCanonical(require('../open-play/controller.js').OLSKControllerRoutes().shift(), {
+				browser.assert.attribute('.OLSKLandingAction', 'href', OLSKTestingCanonical(require('../open-code/controller.js').OLSKControllerRoutes().shift(), {
 					OLSKRoutingLanguage,
 				}));
 			});

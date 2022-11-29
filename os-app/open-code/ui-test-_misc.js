@@ -1,9 +1,9 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPPlayLogic = require('./ui-logic.js').default;
+const SNPCodeLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
-describe('SNPPlay_Misc', function () {
+describe('SNPCode_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -25,90 +25,90 @@ describe('SNPPlay_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
-	describe('SNPPlay', function test_SNPPlay () {
+	describe('SNPCode', function test_SNPCode () {
 		
 		it('classes OLSKDecorFormBlend', function () {
-			browser.assert.hasClass(SNPPlay, 'OLSKDecorFormBlend');
+			browser.assert.hasClass(SNPCode, 'OLSKDecorFormBlend');
 		});
 
 	});
 
-	describe('SNPPlayStashButton', function test_SNPPlayStashButton () {
+	describe('SNPCodeStashButton', function test_SNPCodeStashButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPPlayStashButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeStashButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPPlayStashButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeStashButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPPlayStashButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeStashButton, 'OLSKToolbarButton');
 		});
 		
 	});
 
-	describe('SNPPlayStashButtonImage', function test_SNPPlayStashButtonImage () {
+	describe('SNPCodeStashButtonImage', function test_SNPCodeStashButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPPlayStashButtonImage } #_OLSKSharedStash`, 1);
+			browser.assert.elements(`${ SNPCodeStashButtonImage } #_OLSKSharedStash`, 1);
 		});
 	
 	});
 
-	describe('SNPPlayToggleFormButton', function test_SNPPlayToggleFormButton () {
+	describe('SNPCodeToggleFormButton', function test_SNPCodeToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPPlayToggleFormButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKToolbarButton');
 		});
 		
 		it('sets accesskey', function () {
-			browser.assert.attribute(SNPPlayToggleFormButton, 'accesskey', 'n');
+			browser.assert.attribute(SNPCodeToggleFormButton, 'accesskey', 'n');
 		});
 	
 	});
 
-	describe('SNPPlayToggleFormButtonImage', function test_SNPPlayToggleFormButtonImage () {
+	describe('SNPCodeToggleFormButtonImage', function test_SNPCodeToggleFormButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPPlayToggleFormButtonImage } #_OLSKSharedCreate`, 1);
+			browser.assert.elements(`${ SNPCodeToggleFormButtonImage } #_OLSKSharedCreate`, 1);
 		});
 	
 	});
 
-	describe('SNPPlayForm', function test_SNPPlayForm () {
+	describe('SNPCodeForm', function test_SNPCodeForm () {
 
 		before(function () {
-			return browser.pressButton(SNPPlayToggleFormButton);
+			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(SNPPlayForm, 'OLSKDecor');
+			browser.assert.hasClass(SNPCodeForm, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(SNPPlayForm, 'OLSKDecorBigForm');
+			browser.assert.hasClass(SNPCodeForm, 'OLSKDecorBigForm');
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(SNPPlayForm, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(SNPCodeForm, 'OLSKCommonEdgeBottom');
 		});
 	
 	});
 
-	describe('SNPPlayFormField', function test_SNPPlayFormField () {
+	describe('SNPCodeFormField', function test_SNPCodeFormField () {
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(SNPPlayFormField, 'autofocus', '');
+			browser.assert.attribute(SNPCodeFormField, 'autofocus', '');
 		});
 	
 	});
@@ -116,11 +116,11 @@ describe('SNPPlay_Misc', function () {
 	describe('OLSKCollectionItem', function test_OLSKCollectionItem () {
 
 		before(function () {
-			browser.fill(SNPPlayFormField, Math.random().toString());
+			browser.fill(SNPCodeFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(SNPPlayFormSubmitButton);
+			return browser.pressButton(SNPCodeFormSubmitButton);
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
@@ -132,23 +132,23 @@ describe('SNPPlay_Misc', function () {
 	context('select', function test_select () {
 		
 		before(function () {
-			return browser.click(SNPPlayListItem);
+			return browser.click(SNPCodeListItem);
 		});
 
-		it('sets SNPPlayListItemSelected', function () {
+		it('sets SNPCodeListItemSelected', function () {
 			browser.assert.elements('.OLSKCollectionItemLocus', 1);
 		});
 
-		it('sets SNPPlayDetailItem', function () {
-			browser.assert.elements('.SNPPlayDetail', 1);
+		it('sets SNPCodeDetailItem', function () {
+			browser.assert.elements('.SNPCodeDetail', 1);
 		});
 
 	});
 
-	describe('SNPPlayViewportFooter', function test_SNPPlayViewportFooter () {
+	describe('SNPCodeViewportFooter', function test_SNPCodeViewportFooter () {
 
 		it('classes OLSKMobileViewFooter', function () {
-			browser.assert.hasClass(SNPPlayViewportFooter, 'OLSKMobileViewFooter');
+			browser.assert.hasClass(SNPCodeViewportFooter, 'OLSKMobileViewFooter');
 		});
 
 	});
@@ -177,40 +177,40 @@ describe('SNPPlay_Misc', function () {
 
 	});
 
-	describe('SNPPlayCloudToolbar', function test_SNPPlayCloudToolbar () {
+	describe('SNPCodeCloudToolbar', function test_SNPCodeCloudToolbar () {
 
 		before(function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKToolbarJustify');
 		});
 		
 		it('classes OLSKCommonEdgeTop', function () {
-			browser.assert.hasClass(SNPPlayCloudToolbar, 'OLSKCommonEdgeTop');
+			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
 	});
 
-	context('SNPPlayClearInboxButton', function test_SNPPlayClearInboxButton () {
+	context('SNPCodeClearInboxButton', function test_SNPCodeClearInboxButton () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				OLSKRoutingHash: {
-					[SNPPlayLogic.SNPPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+					[SNPCodeLogic.SNPCodeInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
 						SNPDocumentURL: Math.random().toString(),
-					}), SNPPlayLogic.SNPPlayRemap())])),
+					}), SNPCodeLogic.SNPCodeRemap())])),
 				},
 			});
 		});
 
 		it('classes OLSKDecorPress', function () {
-			browser.assert.hasClass(SNPPlayClearInboxButton, 'OLSKDecorPress');
+			browser.assert.hasClass(SNPCodeClearInboxButton, 'OLSKDecorPress');
 		});
 
 	});

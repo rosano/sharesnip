@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPPlay_Catalog', function () {
+describe('SNPCode_Catalog', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -9,19 +9,19 @@ describe('SNPPlay_Catalog', function () {
 	context('create', function test_create () {
 		
 		before(function () {
-			return browser.pressButton(SNPPlayToggleFormButton);
+			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(SNPPlayFormField, Math.random().toString());
+			browser.fill(SNPCodeFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(SNPPlayFormSubmitButton);
+			return browser.pressButton(SNPCodeFormSubmitButton);
 		});
 
 		it('adds item', function () {
-			browser.assert.elements(SNPPlayListItem, 1);
+			browser.assert.elements(SNPCodeListItem, 1);
 		});
 	
 	});
@@ -29,15 +29,15 @@ describe('SNPPlay_Catalog', function () {
 	context('OLSKCollectionDispatchClick', function test_OLSKCollectionDispatchClick () {
 		
 		before(function () {
-			browser.assert.elements('.SNPPlayDetail', 0);
+			browser.assert.elements('.SNPCodeDetail', 0);
 		});
 
 		before(function () {
-			return browser.click(SNPPlayListItem);
+			return browser.click(SNPCodeListItem);
 		});
 
 		it('selects item', function () {
-			browser.assert.elements('.SNPPlayDetail', 1);
+			browser.assert.elements('.SNPCodeDetail', 1);
 		});
 	
 	});
@@ -45,7 +45,7 @@ describe('SNPPlay_Catalog', function () {
 	context('back', function test_back () {
 
 		before(function () {
-			return browser.pressButton('.SNPPlayDetailToolbarBackButton');
+			return browser.pressButton('.SNPCodeDetailToolbarBackButton');
 		});
 
 		it('sets focus', function () {
@@ -60,7 +60,7 @@ describe('SNPPlay_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					browser.pressButton('.SNPPlayDetailToolbarDiscardButton');
+					browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
 				}, function (dialog) {
 					dialog.response = false;
 
@@ -69,7 +69,7 @@ describe('SNPPlay_Catalog', function () {
 			});
 
 			it('does nothing', function () {
-				browser.assert.elements('.SNPPlayDetail', 1);
+				browser.assert.elements('.SNPCodeDetail', 1);
 			});
 		
 		});
@@ -78,12 +78,12 @@ describe('SNPPlay_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					return browser.pressButton('.SNPPlayDetailToolbarDiscardButton');
+					return browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
 				});
 			});
 
 			it('removes item', function () {
-				browser.assert.elements(SNPPlayListItem, 0);
+				browser.assert.elements(SNPCodeListItem, 0);
 			});
 		
 		});
@@ -93,19 +93,19 @@ describe('SNPPlay_Catalog', function () {
 	context('OLSKCollectionDispatchArrow', function test_OLSKCollectionDispatchArrow () {
 		
 		before(function () {
-			return browser.pressButton(SNPPlayToggleFormButton);
+			return browser.pressButton(SNPCodeToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(SNPPlayFormField, Math.random().toString() + '\n\n' + Math.random().toString());
+			browser.fill(SNPCodeFormField, Math.random().toString() + '\n\n' + Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(SNPPlayFormSubmitButton);
+			return browser.pressButton(SNPCodeFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(SNPPlayListItem);
+			return browser.click(SNPCodeListItem);
 		});
 
 		before(function () {

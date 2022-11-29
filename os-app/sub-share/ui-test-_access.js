@@ -1,40 +1,40 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPPlayShare: '.SNPPlayShare',
+	SNPCodeShare: '.SNPCodeShare',
 	
-	SNPPlayShareLinkField: '.SNPPlayShareLinkField',
-	SNPPlayShareCopyButton: '.SNPPlayShareCopyButton',
+	SNPCodeShareLinkField: '.SNPCodeShareLinkField',
+	SNPCodeShareCopyButton: '.SNPCodeShareCopyButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPPlayShare_Access', function () {
+describe('SNPCodeShare_Access', function () {
 
 	const count = Math.max(1, uRandomInt(10));
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPPlayShareItems: JSON.stringify(Array.from(Array(count)).map(function () {
+			SNPCodeShareItems: JSON.stringify(Array.from(Array(count)).map(function () {
 				return StubDocumentObjectValid();
 			})),
 		});
 	});
 
-	it('shows SNPPlayShare', function () {
-		browser.assert.elements(SNPPlayShare, 1);
+	it('shows SNPCodeShare', function () {
+		browser.assert.elements(SNPCodeShare, 1);
 	});
 
-	it('shows SNPPlayListItem', function () {
-		browser.assert.elements('.SNPPlayListItem', count);
+	it('shows SNPCodeListItem', function () {
+		browser.assert.elements('.SNPCodeListItem', count);
 	});
 
-	it('shows SNPPlayShareLinkField', function () {
-		browser.assert.elements(SNPPlayShareLinkField, 1);
+	it('shows SNPCodeShareLinkField', function () {
+		browser.assert.elements(SNPCodeShareLinkField, 1);
 	});
 
-	it('shows SNPPlayShareCopyButton', function () {
-		browser.assert.elements(SNPPlayShareCopyButton, 1);
+	it('shows SNPCodeShareCopyButton', function () {
+		browser.assert.elements(SNPCodeShareCopyButton, 1);
 	});
 
 });
