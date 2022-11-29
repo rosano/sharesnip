@@ -4,6 +4,14 @@ const mod = require('./main.js').default;
 
 const OLSKObject = require('OLSKObject');
 
+describe('SNPDocumentTypeString', function test_SNPDocumentTypeString() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypeString(), 'TYPE_STRING');
+	});
+
+});
+
 describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 	it('throws error if not object', function() {

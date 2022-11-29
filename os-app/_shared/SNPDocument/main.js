@@ -4,6 +4,10 @@ import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
 const mod = {
 
+	SNPDocumentTypeString () {
+		return 'TYPE_STRING';
+	},
+
 	SNPDocumentErrors (inputData, options = {}) {
 		if (typeof inputData !== 'object' || inputData === null) {
 			throw new Error('SNPErrorInputNotValid');
