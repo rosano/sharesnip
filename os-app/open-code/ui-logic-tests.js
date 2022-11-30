@@ -28,12 +28,12 @@ describe('SNPCodeAccessibilitySummary', function test_SNPCodeAccessibilitySummar
 
 describe('SNPCodeSortFunction', function test_SNPCodeSortFunction() {
 
-	it('sorts by SNPDocumentCreationDate descending', function() {
+	it('sorts by SNPDocumentModificationDate descending', function() {
 		const item1 = {
-			SNPDocumentCreationDate: new Date(0),
+			SNPDocumentModificationDate: new Date(0),
 		};
 		const item2 = {
-			SNPDocumentCreationDate: new Date(1),
+			SNPDocumentModificationDate: new Date(1),
 		};
 
 		deepEqual([item1, item2].sort(mod.SNPCodeSortFunction), [item2, item1]);

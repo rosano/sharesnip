@@ -19,7 +19,7 @@ const mod = {
 	SNPCodeSortFunction (a, b, log) {
 		return (function(e) {
 			return uDescending(a[e], b[e]);
-		})(['SNPDocumentCreationDate'].filter(function (e) {
+		})(['SNPDocumentModificationDate'].filter(function (e) {
 			return a[e] && b[e];
 		}).shift());
 	},
