@@ -16,6 +16,8 @@ Object.entries({
 
 	SNPCodeDetailForm: '.SNPCodeDetailForm',
 	SNPCodeDetailFormNameField: '.SNPCodeDetailFormNameField',
+
+	SNPCodeDetailQR: '.SNPCodeDetailQR',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -66,6 +68,10 @@ describe('SNPCodeDetail_Access', function () {
 
 	it('shows SNPCodeDetailFormNameField', function () {
 		browser.assert.elements(SNPCodeDetailFormNameField, 1);
+	});
+
+	it('shows SNPCodeDetailQR', function () {
+		browser.assert.elements(SNPCodeDetailQR, 1);
 	});
 
 });

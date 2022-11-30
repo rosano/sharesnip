@@ -16,6 +16,7 @@ export const modPublic = {
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
+import kjua from 'kjua';
 
 const mod = {
 
@@ -39,6 +40,8 @@ const mod = {
 	// REACT
 
 	ReactItem (inputData) {
+		mod.ReactCode();
+
 		if (mod.__HOTFIX_ITEM_IDS.includes(inputData)) {
 			return;
 		}
@@ -48,6 +51,30 @@ const mod = {
 		setTimeout(function () {
 			mod.__HOTFIX_ITEM_IDS = [inputData];
 		})
+	},
+
+	ReactCode () {
+		if (OLSK_SPEC_UI()) {
+			return;
+		}
+
+		if (!mod._SNPCodeDetailQR) {
+			return;
+		}
+
+		mod._SNPCodeDetailQR.childNodes.forEach(function (e) {
+			mod._SNPCodeDetailQR.removeChild(e);
+		});
+
+		mod._SNPCodeDetailQR.appendChild(kjua({
+			render: 'canvas',
+			crisp: true,
+			ecLevel: 'H',
+			size: 420,
+			rounded: 100,
+			quiet: 1,
+			text: SNPCodeDetailItem.SNPDocumentData,
+		}));
 	},
 
 };
@@ -87,6 +114,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<input class="SNPCodeDetailFormNameField" placeholder={ OLSKLocalized('SNPCodeDetailFormNameFieldText') } type="text" bind:value={ SNPCodeDetailItem.SNPDocumentName } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null } />
 </p>
 
+<div class="SNPCodeDetailQR" bind:this={ mod._SNPCodeDetailQR }></div>
+
 </div>
 
 </div>
@@ -96,3 +125,16 @@ import OLSKUIAssets from 'OLSKUIAssets';
 {#if _DebugLauncher && OLSK_SPEC_UI() }
 	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataCodeDetailRecipes() }) }></button>	
 {/if}
+
+<style type="text/css">
+@media (max-width: 450px) {
+	.SNPCodeDetailQR {
+		width: 100%;
+	}
+
+	.SNPCodeDetailQR :global(*) {
+		height: unset !important;
+		width: 100% !important;
+	}
+}
+</style>
