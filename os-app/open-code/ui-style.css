@@ -1,12 +1,10 @@
 :root {
-	--OLSKCommonBackground: #222;
-	--OLSKCommonForeground: #fee8b1;
-	--OLSKCommonBorderColor: #777;
-	--OLSKDecorForegroundLight: #444;
-	--OLSKDecorFormBlendBackground: #333;
+	--OLSKCommonBorderColor: #fd8c08;
+	--OLSKDecorForegroundLight: #fd8c08;
+	--OLSKDecorFormBlendBackground: #FFF9E5;
 	--OLSKDecorFormBlendBorderColor: var(--OLSKDecorForegroundLight);
 
-	--OLSKCollectionItemsLocusColorDefault: #555;
+	--OLSKCollectionItemsLocusColorDefault: #9e5705;
 	--OLSKCollectionItemsLocusColorActive: rgb(255, 93, 35);
 	--OLSKCollectionItemsLocusColorActiveInverse: white;
 }

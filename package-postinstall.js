@@ -1,5 +1,15 @@
 (function OLSKPostinstallHotfix() {
-	Object.entries(require('OLSKHotfix').OLSKHotfixPatches(process.env.NODE_ENV)).forEach(function ([path, patches]) {
+
+	Object.entries(require('OLSKHotfix').OLSKHotfixPatches(process.env.NODE_ENV, {
+		OLSKHotfixPatchesNotReversible: Object.fromEntries(require('glob').sync('./node_modules/OLSKUIAssets/_OLSKSharedFeature*', {
+			cwd: __dirname,
+			realpath: true,
+		}).map(function (e) {
+			return [e, {
+				'rgb(0, 0, 0)': '#FF9E00',
+			}]
+		})),
+	})).forEach(function ([path, patches]) {
 		if (!require('fs').existsSync(path)) {
 			return;
 		}

@@ -12,8 +12,6 @@ export let SNPCodeListItemObject;
 .SNPCodeListItem {
 	min-height: 46px;
 	padding: 10px;
-
-	color: var(--OLSKCommonForeground);
 }
 
 .SNPCodeListItemTitle {
