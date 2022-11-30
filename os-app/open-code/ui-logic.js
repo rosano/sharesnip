@@ -29,7 +29,7 @@ const mod = {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
-		return [param1.SNPDocumentName].filter(function (e) {
+		return [param1.SNPDocumentName, param1.SNPDocumentData].filter(function (e) {
 			return !!e && OLSKString.OLSKStringMatch(param2, e);
 		}).length;
 	},

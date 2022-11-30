@@ -50,7 +50,7 @@ describe('SNPCodeIsMatch', function test_SNPCodeIsMatch() {
 	});
 
 	it('returns false if no match', function() {
-		const key = uRandomElement('SNPDocumentName');
+		const key = uRandomElement('SNPDocumentName', 'SNPDocumentData');
 		const haystack = 'alfa';
 		deepEqual(mod.SNPCodeIsMatch({
 			[key]: haystack,
@@ -58,7 +58,7 @@ describe('SNPCodeIsMatch', function test_SNPCodeIsMatch() {
 	});
 
 	it('matches OLSKStringMatch', function() {
-		const key = uRandomElement('SNPDocumentName');
+		const key = uRandomElement('SNPDocumentName', 'SNPDocumentData');
 		const haystack = 'álfa';
 		deepEqual(mod.SNPCodeIsMatch({
 			[key]: haystack,
