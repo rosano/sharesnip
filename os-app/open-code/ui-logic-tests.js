@@ -53,7 +53,7 @@ describe('SNPCodeIsMatch', function test_SNPCodeIsMatch() {
 		const key = uRandomElement('SNPDocumentName');
 		const haystack = 'alfa';
 		deepEqual(mod.SNPCodeIsMatch({
-			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
+			[key]: haystack,
 		}, 'bravo'), false);
 	});
 
@@ -61,7 +61,7 @@ describe('SNPCodeIsMatch', function test_SNPCodeIsMatch() {
 		const key = uRandomElement('SNPDocumentName');
 		const haystack = 'álfa';
 		deepEqual(mod.SNPCodeIsMatch({
-			[key]: key === 'SNPDocumentTags' ? [haystack] : haystack,
+			[key]: haystack,
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 

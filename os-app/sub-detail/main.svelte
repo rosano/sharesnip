@@ -36,14 +36,6 @@ const mod = {
 		return outputData;
 	},
 
-	// MESSAGE
-
-	OLSKTaxonomyDispatchUpdate (inputData) {
-		SNPCodeDetailItem.SNPDocumentTags = inputData;
-
-		SNPCodeDetailDispatchUpdate();
-	},
-
 	// REACT
 
 	ReactItem (inputData) {
