@@ -1,4 +1,4 @@
-<a href="https://sharesnip.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/joybox/identity.svg" width="64" /></a>
+<a href="https://sharesnip.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/sharesnip/identity.svg" width="64" /></a>
 
 # [Sharesnip](https://sharesnip.rosano.ca)
 
