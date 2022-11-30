@@ -30,18 +30,6 @@ describe('SNPCodeShare_Misc', function () {
 		it('sets value', function () {
 			browser.assert.input(SNPCodeShareLinkField, uValue(items));
 		});
-
-		context('reorder', function () {
-			
-			before(function () {
-				return browser.pressButton('.down');
-			});
-
-			it('sets value', function () {
-				browser.assert.input(SNPCodeShareLinkField, uValue(items.reverse()));
-			});
-		
-		});
 		
 	});
 

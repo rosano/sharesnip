@@ -53,18 +53,12 @@ $: {
 }
 
 import Clipboard from 'clipboard';
-import DragDrop from "svelte-dragdroplist";
 import SNPCodeListItem from '../sub-item/main.svelte';
 </script>
 
 <div class="SNPCodeShare">
 
 <div class="SNPCodeShareList">
-	<DragDrop bind:data={ SNPCodeShareItems } objectKey={ 'SNPDocumentID' }>
-		<div class="OLSKDecorTappable" slot="customView" let:item>
-			<SNPCodeListItem SNPCodeListItemObject={ item } />
-		</div>
-	</DragDrop>
 </div>
 
 <div class="SNPCodeShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">

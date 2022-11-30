@@ -11,22 +11,20 @@ Object.entries({
 
 describe('SNPCodeShare_Access', function () {
 
-	const count = Math.max(1, uRandomInt(10));
-
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeShareItems: JSON.stringify(Array.from(Array(count)).map(function () {
+			SNPCodeShareItems: JSON.stringify(Array.from(Array(0)).map(function () {
 				return StubDocumentObjectValid();
 			})),
 		});
 	});
 
-	it('shows SNPCodeShare', function () {
+	it('shows SNPCodeShare', function () {  
 		browser.assert.elements(SNPCodeShare, 1);
 	});
 
 	it('shows SNPCodeListItem', function () {
-		browser.assert.elements('.SNPCodeListItem', count);
+		browser.assert.elements('.SNPCodeListItem', 0);
 	});
 
 	it('shows SNPCodeShareLinkField', function () {
