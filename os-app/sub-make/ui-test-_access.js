@@ -4,8 +4,8 @@ Object.entries({
 	SNPCodeMake: '.SNPCodeMake',
 	
 	SNPCodeMakeTypes: '.SNPCodeMakeTypes',
-	SNPCodeMakeTypesNoteButton: '.SNPCodeMakeTypesNoteButton',
 	SNPCodeMakeTypesLinkButton: '.SNPCodeMakeTypesLinkButton',
+	SNPCodeMakeTypesNoteButton: '.SNPCodeMakeTypesNoteButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -24,12 +24,12 @@ describe('SNPCodeMake_Access', function () {
 		browser.assert.elements(SNPCodeMakeTypes, 1);
 	});
 
-	it('shows SNPCodeMakeTypesNoteButton', function () {
-		browser.assert.elements(SNPCodeMakeTypesNoteButton, 1);
-	});
-
 	it('shows SNPCodeMakeTypesLinkButton', function () {
 		browser.assert.elements(SNPCodeMakeTypesLinkButton, 1);
+	});
+
+	it('shows SNPCodeMakeTypesNoteButton', function () {
+		browser.assert.elements(SNPCodeMakeTypesNoteButton, 1);
 	});
 
 	it('shows SNPCodeFormBase', function () {
