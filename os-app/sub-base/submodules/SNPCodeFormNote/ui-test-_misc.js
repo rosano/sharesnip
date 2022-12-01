@@ -64,15 +64,15 @@ describe('SNPCodeFormNote_Misc', function () {
 					return browser.fill(SNPCodeFormNoteField, '');
 				});
 
-				it('sends SNPCodeFormValid', function () {
-					browser.assert.text('#TestSNPCodeFormNotValid', '1');
-				});
-
 				it('sends SNPCodeFormDidFill', function () {
 					browser.assert.text('#TestSNPCodeFormDidFill', '2');
 					browser.assert.text('#TestSNPCodeFormDidFillData', JSON.stringify({
 						SNPDocumentData: '',
 					}));
+				});
+
+				it('sends SNPCodeFormNotValid', function () {
+					browser.assert.text('#TestSNPCodeFormNotValid', '1');
 				});
 			
 			});
