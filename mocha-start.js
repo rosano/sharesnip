@@ -32,7 +32,7 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 		StubDocumentObject(inputData) {
 			return Object.assign({
 				SNPDocumentData: Math.random().toString(),
-				SNPDocumentName: Math.random().toString(),
+				SNPDocumentName: '',
 				SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 			}, inputData);
 		},
