@@ -1,4 +1,5 @@
 <script>
+export let SNPCodeFormObject = {};
 export let SNPCodeFormDidFill;
 export let SNPCodeFormNotValid;
 export let SNPCodeFormValid;
@@ -24,6 +25,6 @@ const mod = {
 
 <div class="SNPCodeFormLink">
 
-<input class="SNPCodeFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill }>
+<input class="SNPCodeFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData }>
 
 </div>

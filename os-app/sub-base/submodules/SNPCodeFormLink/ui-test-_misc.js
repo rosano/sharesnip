@@ -2,8 +2,14 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 describe('SNPCodeFormLink_Misc', function () {
 
+	const SNPDocumentData = Math.random().toString();
+
 	before(function() {
-		return browser.OLSKVisit(kDefaultRoute);
+		return browser.OLSKVisit(kDefaultRoute, {
+			SNPCodeFormObject: JSON.stringify({
+				SNPDocumentData,
+			})
+		});
 	});
 
 	describe('SNPCodeFormLinkField', function test_SNPCodeFormLinkField () {
@@ -26,6 +32,10 @@ describe('SNPCodeFormLink_Misc', function () {
 
 		it('sets placeholder', function () {
 			browser.assert.attribute(SNPCodeFormLinkField, 'placeholder', 'https://example.com');
+		});
+
+		it('binds SNPDocumentData', function () {
+			browser.assert.input(SNPCodeFormLinkField, SNPDocumentData);
 		});
 
 		context('fill', function () {

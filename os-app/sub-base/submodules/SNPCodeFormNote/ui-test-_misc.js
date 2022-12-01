@@ -2,8 +2,14 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 describe('SNPCodeFormNote_Misc', function () {
 
+	const SNPDocumentData = Math.random().toString();
+
 	before(function() {
-		return browser.OLSKVisit(kDefaultRoute);
+		return browser.OLSKVisit(kDefaultRoute, {
+			SNPCodeFormObject: JSON.stringify({
+				SNPDocumentData,
+			})
+		});
 	});
 
 	describe('SNPCodeFormNoteField', function test_SNPCodeFormNoteField () {
@@ -22,6 +28,10 @@ describe('SNPCodeFormNote_Misc', function () {
 
 		it('sets autofocus', function () {
 			browser.assert.attribute(SNPCodeFormNoteField, 'autofocus', '');
+		});
+
+		it('binds SNPDocumentData', function () {
+			browser.assert.input(SNPCodeFormNoteField, SNPDocumentData);
 		});
 
 		context('fill', function () {
