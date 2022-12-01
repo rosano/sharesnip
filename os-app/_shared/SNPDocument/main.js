@@ -59,12 +59,10 @@ const mod = {
 			];
 		}
 
-		if (typeof inputData.SNPDocumentName !== 'undefined') {
-			if (typeof inputData.SNPDocumentName !== 'string') {
-				errors.SNPDocumentName = [
-					'SNPErrorNotString',
-				];
-			}
+		if (typeof inputData.SNPDocumentName !== 'string') {
+			errors.SNPDocumentName = [
+				'SNPErrorNotString',
+			];
 		}
 
 		return Object.entries(errors).length ? errors : null;

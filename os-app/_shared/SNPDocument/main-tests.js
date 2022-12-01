@@ -70,6 +70,16 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 		});
 	});
 
+	it('returns object if SNPDocumentName not string', function() {
+		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
+			SNPDocumentName: null,
+		})), {
+			SNPDocumentName: [
+				'SNPErrorNotString',
+			],
+		});
+	});
+
 	it('returns object if SNPDocumentData not string', function() {
 		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
 			SNPDocumentData: null,
@@ -102,26 +112,6 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 	it('returns null', function() {
 		deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid()), null);
-	});
-
-	context('SNPDocumentName', function() {
-
-		it('returns object if not string', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentName: null,
-			})), {
-				SNPDocumentName: [
-					'SNPErrorNotString',
-				],
-			});
-		});
-
-		it('returns null', function() {
-			deepEqual(mod.SNPDocumentErrors(StubDocumentObjectValid({
-				SNPDocumentName: Math.random().toString(),
-			})), null);
-		});
-
 	});
 
 });
