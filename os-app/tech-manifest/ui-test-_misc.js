@@ -6,7 +6,7 @@ describe('SNPManifest_Misc', function () {
 		browser.assert.deepEqual(await (await browser.fetch('http://localhost' + kDefaultRoute.OLSKRoutePath)).json(), {
 			name: 'Sharesnip',
 			short_name: 'Sharesnip',
-			start_url: require('../open-code/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,
+			start_url: require('../open-collect/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,
 			display: 'standalone',
 			background_color: 'black',
 			theme_color: 'black',

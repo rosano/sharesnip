@@ -3,7 +3,7 @@ export let SNPCodeShareItems;
 
 import { OLSKLocalized } from 'OLSKInternational';
 
-import SNPCodeLogic from '../open-code/ui-logic.js';
+import SNPCodeLogic from '../open-collect/ui-logic.js';
 import OLSKString from 'OLSKString';
 import OLSKObject from 'OLSKObject';
 
