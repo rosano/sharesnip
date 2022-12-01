@@ -1,6 +1,6 @@
 <script>
-export let SNPCodeFormValid;
 export let SNPCodeFormNotValid;
+export let SNPCodeFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
 

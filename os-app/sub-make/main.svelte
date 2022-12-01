@@ -23,7 +23,7 @@ const mod = {
 
 };
 
-import SNPCodeFormBase from '../sub-form/main.svelte';
+import SNPCodeFormBase from '../sub-base/main.svelte';
 </script>
 
 <div class="SNPCodeMake">
