@@ -25,6 +25,6 @@ const mod = {
 
 <div class="SNPCodeFormLink">
 
-<input class="SNPCodeFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData }>
+<input class="SNPCodeFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData || ''}>
 
 </div>
