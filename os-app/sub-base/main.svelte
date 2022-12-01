@@ -11,8 +11,6 @@ import SNPCodeFormBaseLogic from './ui-logic.js';
 
 const mod = {
 
-	_ValueChildClass: SNPCodeFormBaseLogic.SNPCodeFormBaseChildClass(SNPCodeFormBaseObject.SNPDocumentType),
-
 	// INTERFACE
 
 	InterfaceSaveButtonDidClick () {
@@ -35,15 +33,30 @@ const mod = {
 		mod.SNPCodeFormBaseSaveButton.disabled = null;
 	},
 
+	// REACT
+
+	ReactType (inputData) {
+		mod._ValueChildClass = SNPCodeFormBaseLogic.SNPCodeFormBaseChildClass(inputData);
+	},
+
 };
 
+$: {
+	mod.ReactType(SNPCodeFormBaseObject.SNPDocumentType);
+}
+
 import SNPCodeFormNote from './submodules/SNPCodeFormNote/main.svelte';
+import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
 </script>
 
 <div class="SNPCodeFormBase">
 
 {#if mod._ValueChildClass === 'SNPCodeFormNote' }
 	<SNPCodeFormNote SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
+{/if}
+
+{#if mod._ValueChildClass === 'SNPCodeFormLink' }
+	<SNPCodeFormLink SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
 {/if}
 
 <button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>

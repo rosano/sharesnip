@@ -22,18 +22,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPCodeMakeTypesLinkButton, uLocalized('SNPCodeMakeTypesLinkButtonText'));
 		});
 
-		context('option', function () {
-			
-			before(function () {
-				return browser.pressButton(SNPCodeMakeTypesNoteButton);
-			});
-
-			it('localizes SNPCodeMakeChangeButton', function () {
-				browser.assert.text(SNPCodeMakeChangeButton, uLocalized('SNPCodeMakeChangeButtonText'));
-			});
-
-		});
-
 	});
 
 });

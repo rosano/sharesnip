@@ -55,6 +55,7 @@ describe('SNPCodeFormBase_Misc', function () {
 			it('sends SNPCodeFormDidSubmit', function () {
 				browser.assert.text('#TestSNPCodeFormDidSubmit', '1');
 				browser.assert.text('#TestSNPCodeFormDidSubmitData', JSON.stringify({
+					SNPDocumentName: '',
 					SNPDocumentType: 'TYPE_NOTE',
 					SNPDocumentData,
 				}));

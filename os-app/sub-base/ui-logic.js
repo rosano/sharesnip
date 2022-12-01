@@ -9,6 +9,7 @@ const mod = {
 
 		return {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPCodeFormNote',
+			[SNPDocument.SNPDocumentTypeLink()]: 'SNPCodeFormLink',
 		}[inputData];
 	},
 

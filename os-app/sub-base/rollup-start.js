@@ -5,6 +5,7 @@ const SNPCodeFormBase = new RollupStart({
 	target: document.body,
 	props: Object.assign({
 		SNPCodeFormBaseObject: {
+			SNPDocumentName: '',
 			SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 		},
 		SNPCodeFormDidSubmit: (function  (inputData) {

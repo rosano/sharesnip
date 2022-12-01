@@ -15,10 +15,7 @@ const mod = {
 	},
 
 	InterfaceLinkButtonDidClick () {
-	},
-
-	InterfaceChangeButtonDidClick () {
-		SNPCodeMakeObject.SNPDocumentType = null;
+		SNPCodeMakeObject.SNPDocumentType = SNPDocument.SNPDocumentTypeLink();
 	},
 
 };
@@ -28,7 +25,6 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 
 <div class="SNPCodeMake">
 
-{#if !SNPCodeMakeObject.SNPDocumentType }
 <div class="SNPCodeMakeTypes">
 		
 <button class="SNPCodeMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPCodeMakeTypesNoteButtonText') }</button>
@@ -36,14 +32,7 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 <button class="SNPCodeMakeTypesLinkButton" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPCodeMakeTypesLinkButtonText') }</button>
 
 </div>
-{/if}
-
-{#if SNPCodeMakeObject.SNPDocumentType }
-	
-<button class="SNPCodeMakeChangeButton" on:click={ mod.InterfaceChangeButtonDidClick }>{ OLSKLocalized('SNPCodeMakeChangeButtonText') }</button>
 
 <SNPCodeFormBase SNPCodeFormBaseObject={ SNPCodeMakeObject } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
-
-{/if}
 
 </div>
