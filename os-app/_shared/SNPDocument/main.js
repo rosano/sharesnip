@@ -8,9 +8,14 @@ const mod = {
 		return 'TYPE_NOTE';
 	},
 
+	SNPDocumentTypeLink () {
+		return 'TYPE_LINK';
+	},
+
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeNote(),
+			mod.SNPDocumentTypeLink(),
 		];
 	},
 

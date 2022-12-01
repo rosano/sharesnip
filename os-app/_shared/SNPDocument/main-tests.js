@@ -12,11 +12,20 @@ describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
 
 });
 
+describe('SNPDocumentTypeLink', function test_SNPDocumentTypeLink() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypeLink(), 'TYPE_LINK');
+	});
+
+});
+
 describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypes(), [
 			mod.SNPDocumentTypeNote(),
+			mod.SNPDocumentTypeLink(),
 			]);
 	});
 
