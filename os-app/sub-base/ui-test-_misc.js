@@ -52,6 +52,13 @@ describe('SNPCodeFormBase_Misc', function () {
 				return browser.pressButton(SNPCodeFormBaseSaveButton);
 			});
 
+			it('sends SNPCodeFormDidFill', function () {
+				browser.assert.text('#TestSNPCodeFormDidFill', '3');
+				browser.assert.text('#TestSNPCodeFormDidFillData', JSON.stringify({
+					SNPDocumentData,
+				}));
+			});
+
 			it('sends SNPCodeFormDidSubmit', function () {
 				browser.assert.text('#TestSNPCodeFormDidSubmit', '1');
 				browser.assert.text('#TestSNPCodeFormDidSubmitData', JSON.stringify({

@@ -8,17 +8,58 @@ import SNPDocument from '../_shared/SNPDocument/main.js';
 
 const mod = {
 
+	// VALUE
+
+	_ValueDocumentsMap: {},
+
+	// DATA
+
+	DataDocumentTemplate (SNPDocumentType) {
+		return {
+			SNPDocumentType,
+			SNPDocumentData: '',
+		};
+	},
+
 	// INTERFACE
 
 	InterfaceTextButtonDidClick () {
-		SNPCodeMakeObject.SNPDocumentType = SNPDocument.SNPDocumentTypeNote();
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
 	},
 
 	InterfaceLinkButtonDidClick () {
-		SNPCodeMakeObject.SNPDocumentType = SNPDocument.SNPDocumentTypeLink();
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
 	},
 
+	// COMMAND
+
+	CommandSetType (inputData) {
+		mod._ValueObject = mod._ValueDocumentsMap[inputData] || mod.DataDocumentTemplate(inputData);
+	},
+
+	// MESSAGE
+
+	SNPCodeFormDidFill (inputData) {
+		mod._ValueDocumentsMap[mod._ValueObject.SNPDocumentType] = Object.assign(inputData, {
+			SNPDocumentType: mod._ValueObject.SNPDocumentType,
+		});
+	},
+
+	// SETUP
+
+	SetupEverything() {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
+	},
+
+	// LIFECYCLE
+
+	LifecycleModuleDidLoad() {
+		mod.SetupEverything();
+	},
+	
 };
+	
+mod.LifecycleModuleDidLoad();
 
 import SNPCodeFormBase from '../sub-base/main.svelte';
 </script>
@@ -33,6 +74,6 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 
 </div>
 
-<SNPCodeFormBase SNPCodeFormBaseObject={ SNPCodeMakeObject } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
+<SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
 
 </div>

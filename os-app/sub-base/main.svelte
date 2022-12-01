@@ -1,5 +1,6 @@
 <script>
 export let SNPCodeFormBaseObject;
+export let SNPCodeFormDidFill;
 export let SNPCodeFormDidSubmit;
 
 export const modPublic = {
@@ -18,8 +19,6 @@ const mod = {
 	},
 
 	// MESSAGE
-
-	SNPCodeFormDidFill () {},
 
 	SNPCodeFormNotValid () {
 		delete mod._ValueChildObject;
@@ -52,11 +51,11 @@ import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
 <div class="SNPCodeFormBase">
 
 {#if mod._ValueChildClass === 'SNPCodeFormNote' }
-	<SNPCodeFormNote SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
+	<SNPCodeFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPCodeFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPCodeFormLink' }
-	<SNPCodeFormLink SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
+	<SNPCodeFormLink SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPCodeFormBaseObject } />
 {/if}
 
 <button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>
