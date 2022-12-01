@@ -18,6 +18,7 @@
 
     "OLSKPithApp": "olsk/OLSKPithApp",
     "OLSKCatalog": "olsk/OLSKCatalog",
+    "OLSKLink": "olsk/OLSKLink",
 
     "clipboard": "latest",
     "kjua": "lrsjng/kjua",
