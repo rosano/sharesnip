@@ -21,6 +21,8 @@ const mod = {
 
 	// MESSAGE
 
+	SNPCodeFormDidFill () {},
+
 	SNPCodeFormNotValid () {
 		delete mod._ValueChildObject;
 
@@ -41,7 +43,7 @@ import SNPCodeFormNote from './submodules/SNPCodeFormNote/main.svelte';
 <div class="SNPCodeFormBase">
 
 {#if mod._ValueChildClass === 'SNPCodeFormNote' }
-	<SNPCodeFormNote SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
+	<SNPCodeFormNote SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } />
 {/if}
 
 <button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>

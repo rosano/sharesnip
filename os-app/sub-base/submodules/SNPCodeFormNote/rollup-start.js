@@ -3,6 +3,10 @@ import RollupStart from './main.svelte';
 const SNPCodeFormNote = new RollupStart({
 	target: document.body,
 	props: Object.assign({
+		SNPCodeFormDidFill: (function  (inputData) {
+			window.TestSNPCodeFormDidFill.innerHTML = parseInt(window.TestSNPCodeFormDidFill.innerHTML) + 1;
+			window.TestSNPCodeFormDidFillData.innerHTML = JSON.stringify(inputData);
+		}),
 		SNPCodeFormNotValid: (function  () {
 			window.TestSNPCodeFormNotValid.innerHTML = parseInt(window.TestSNPCodeFormNotValid.innerHTML) + 1;
 		}),

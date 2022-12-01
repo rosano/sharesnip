@@ -29,11 +29,22 @@ describe('SNPCodeFormNote_Misc', function () {
 			const SNPDocumentData = Math.random().toString();
 			
 			before(function () {
+				browser.assert.text('#TestSNPCodeFormDidFill', '0');
+			});
+			
+			before(function () {
 				browser.assert.text('#TestSNPCodeFormValid', '0');
 			});
 			
 			before(function () {
 				return browser.fill(SNPCodeFormNoteField, SNPDocumentData);
+			});
+
+			it('sends SNPCodeFormDidFill', function () {
+				browser.assert.text('#TestSNPCodeFormDidFill', '1');
+				browser.assert.text('#TestSNPCodeFormDidFillData', JSON.stringify({
+					SNPDocumentData,
+				}));
 			});
 
 			it('sends SNPCodeFormValid', function () {
@@ -55,6 +66,13 @@ describe('SNPCodeFormNote_Misc', function () {
 
 				it('sends SNPCodeFormValid', function () {
 					browser.assert.text('#TestSNPCodeFormNotValid', '1');
+				});
+
+				it('sends SNPCodeFormDidFill', function () {
+					browser.assert.text('#TestSNPCodeFormDidFill', '2');
+					browser.assert.text('#TestSNPCodeFormDidFillData', JSON.stringify({
+						SNPDocumentData: '',
+					}));
 				});
 			
 			});

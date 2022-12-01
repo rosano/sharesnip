@@ -1,4 +1,5 @@
 <script>
+export let SNPCodeFormDidFill;
 export let SNPCodeFormNotValid;
 export let SNPCodeFormValid;
 
@@ -9,10 +10,11 @@ const mod = {
 	// INTERFACE
 
 	InterfaceFieldDidFill () {
-		const SNPDocumentData = this.value.trim()
-		SNPDocumentData ? SNPCodeFormValid({
-			SNPDocumentData,
-		}) : SNPCodeFormNotValid();
+		const item = {
+			SNPDocumentData: this.value.trim(),
+		};
+		SNPCodeFormDidFill(item);
+		item.SNPDocumentData ? SNPCodeFormValid(item) : SNPCodeFormNotValid();
 	},
 
 };
