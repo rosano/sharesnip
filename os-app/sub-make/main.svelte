@@ -1,4 +1,6 @@
 <script>
+export let SNPFormNotValid = null;
+export let SNPFormValid = null;
 export let SNPFormDidSubmit;
 
 import { OLSKLocalized } from 'OLSKInternational';
@@ -53,6 +55,8 @@ const mod = {
 
 	SNPFormNotValid () {
 		mod._ValueStateMap[mod._ValueType].SNPMakeStateValid = false;
+		
+		SNPFormNotValid && SNPFormNotValid();
 	},
 
 	SNPFormValid (inputData) {
@@ -61,6 +65,8 @@ const mod = {
 		setTimeout(function () {
 			mod.ReactItem(inputData);
 		}, mod._SNPMakeCodeValid ? 0 : 50);
+
+		SNPFormValid && SNPFormValid(inputData);
 	},
 
 	SNPFormDidFill (inputData) {

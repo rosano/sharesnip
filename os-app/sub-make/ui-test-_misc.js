@@ -29,6 +29,14 @@ describe('SNPMake_Misc', function () {
 		it.skip('creates canvas', function () {
 			browser.assert.elements(`${ SNPMakeCodeValid } canvas`, 1);
 		});
+
+		it('sends SNPFormValid', function () {
+			browser.assert.text('#TestSNPFormValid', '1');
+			browser.assert.text('#TestSNPFormValidData', JSON.stringify({
+				SNPDocumentData,
+				SNPDocumentType: 'TYPE_NOTE',
+			}));
+		});
 	
 	});
 
