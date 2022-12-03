@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('SNPCodeFormNote_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPFormNote_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -14,8 +14,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
-		it('localizes SNPCodeFormNoteField', function () {
-			browser.assert.attribute(SNPCodeFormNoteField, 'placeholder', uLocalized('SNPCodeFormNoteFieldText'));
+		it('localizes SNPFormNoteField', function () {
+			browser.assert.attribute(SNPFormNoteField, 'placeholder', uLocalized('SNPFormNoteFieldText'));
 		});
 
 	});

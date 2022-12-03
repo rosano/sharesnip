@@ -61,8 +61,8 @@ describe('SNPMake_Access', function () {
 			browser.assert.elements('.SNPCodeFormLink', 0);
 		});
 
-		it('shows SNPCodeFormNote', function () {
-			browser.assert.elements('.SNPCodeFormNote', 1);
+		it('shows SNPFormNote', function () {
+			browser.assert.elements('.SNPFormNote', 1);
 		});
 	
 	});
@@ -70,7 +70,7 @@ describe('SNPMake_Access', function () {
 	context('valid', function () {
 
 		before(function () {
-			return browser.fill('.SNPCodeFormNoteField', Math.random().toString());
+			return browser.fill('.SNPFormNoteField', Math.random().toString());
 		});
 
 		it('hides SNPMakeCodeNotValid', function () {
@@ -86,7 +86,7 @@ describe('SNPMake_Access', function () {
 	context('not valid', function () {
 
 		before(function () {
-			return browser.fill('.SNPCodeFormNoteField', '');
+			return browser.fill('.SNPFormNoteField', '');
 		});
 
 		it('shows SNPMakeCodeNotValid', function () {

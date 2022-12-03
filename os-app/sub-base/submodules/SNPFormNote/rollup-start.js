@@ -1,6 +1,6 @@
 import RollupStart from './main.svelte';
 
-const SNPCodeFormNote = new RollupStart({
+const SNPFormNote = new RollupStart({
 	target: document.body,
 	props: Object.assign({
 		SNPCodeFormDidFill: (function  (inputData) {
@@ -23,4 +23,4 @@ const SNPCodeFormNote = new RollupStart({
 	}))),
 });
 
-export default SNPCodeFormNote;
+export default SNPFormNote;

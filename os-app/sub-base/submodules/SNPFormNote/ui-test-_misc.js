@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCodeFormNote_Misc', function () {
+describe('SNPFormNote_Misc', function () {
 
 	const SNPDocumentData = Math.random().toString();
 
@@ -12,26 +12,26 @@ describe('SNPCodeFormNote_Misc', function () {
 		});
 	});
 
-	describe('SNPCodeFormNoteField', function test_SNPCodeFormNoteField () {
+	describe('SNPFormNoteField', function test_SNPFormNoteField () {
 
 		it('classes SNPCodeFormDataField', function () {
-			browser.assert.hasClass(SNPCodeFormNoteField, 'SNPCodeFormDataField');
+			browser.assert.hasClass(SNPFormNoteField, 'SNPCodeFormDataField');
 		});
 
 		it('sets type', function () {
-			browser.assert.attribute(SNPCodeFormNoteField, 'type', 'text');
+			browser.assert.attribute(SNPFormNoteField, 'type', 'text');
 		});
 
 		it('sets required', function () {
-			browser.assert.attribute(SNPCodeFormNoteField, 'required', '');
+			browser.assert.attribute(SNPFormNoteField, 'required', '');
 		});
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(SNPCodeFormNoteField, 'autofocus', '');
+			browser.assert.attribute(SNPFormNoteField, 'autofocus', '');
 		});
 
 		it('binds SNPDocumentData', function () {
-			browser.assert.input(SNPCodeFormNoteField, SNPDocumentData);
+			browser.assert.input(SNPFormNoteField, SNPDocumentData);
 		});
 
 		context('fill', function () {
@@ -47,7 +47,7 @@ describe('SNPCodeFormNote_Misc', function () {
 			});
 			
 			before(function () {
-				return browser.fill(SNPCodeFormNoteField, SNPDocumentData);
+				return browser.fill(SNPFormNoteField, SNPDocumentData);
 			});
 
 			it('sends SNPCodeFormDidFill', function () {
@@ -71,7 +71,7 @@ describe('SNPCodeFormNote_Misc', function () {
 				});
 				
 				before(function () {
-					return browser.fill(SNPCodeFormNoteField, '');
+					return browser.fill(SNPFormNoteField, '');
 				});
 
 				it('sends SNPCodeFormDidFill', function () {

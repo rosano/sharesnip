@@ -50,14 +50,14 @@ $: {
 	mod.ReactType(SNPFormBaseObject.SNPDocumentType);
 }
 
-import SNPCodeFormNote from './submodules/SNPCodeFormNote/main.svelte';
+import SNPFormNote from './submodules/SNPFormNote/main.svelte';
 import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
 </script>
 
 <div class="SNPFormBase">
 
-{#if mod._ValueChildClass === 'SNPCodeFormNote' }
-	<SNPCodeFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
+{#if mod._ValueChildClass === 'SNPFormNote' }
+	<SNPFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPCodeFormLink' }
