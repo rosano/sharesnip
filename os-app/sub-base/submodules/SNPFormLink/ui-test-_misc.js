@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCodeFormLink_Misc', function () {
+describe('SNPFormLink_Misc', function () {
 
 	const SNPDocumentData = Math.random().toString();
 
@@ -12,30 +12,30 @@ describe('SNPCodeFormLink_Misc', function () {
 		});
 	});
 
-	describe('SNPCodeFormLinkField', function test_SNPCodeFormLinkField () {
+	describe('SNPFormLinkField', function test_SNPFormLinkField () {
 
 		it('classes SNPCodeFormDataField', function () {
-			browser.assert.hasClass(SNPCodeFormLinkField, 'SNPCodeFormDataField');
+			browser.assert.hasClass(SNPFormLinkField, 'SNPCodeFormDataField');
 		});
 
 		it('sets type', function () {
-			browser.assert.attribute(SNPCodeFormLinkField, 'type', 'url');
+			browser.assert.attribute(SNPFormLinkField, 'type', 'url');
 		});
 
 		it('sets required', function () {
-			browser.assert.attribute(SNPCodeFormLinkField, 'required', '');
+			browser.assert.attribute(SNPFormLinkField, 'required', '');
 		});
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(SNPCodeFormLinkField, 'autofocus', '');
+			browser.assert.attribute(SNPFormLinkField, 'autofocus', '');
 		});
 
 		it('sets placeholder', function () {
-			browser.assert.attribute(SNPCodeFormLinkField, 'placeholder', 'https://example.com');
+			browser.assert.attribute(SNPFormLinkField, 'placeholder', 'https://example.com');
 		});
 
 		it('binds SNPDocumentData', function () {
-			browser.assert.input(SNPCodeFormLinkField, SNPDocumentData);
+			browser.assert.input(SNPFormLinkField, SNPDocumentData);
 		});
 
 		context('fill', function () {
@@ -51,7 +51,7 @@ describe('SNPCodeFormLink_Misc', function () {
 			});
 			
 			before(function () {
-				return browser.fill(SNPCodeFormLinkField, SNPDocumentData);
+				return browser.fill(SNPFormLinkField, SNPDocumentData);
 			});
 
 			it('sends SNPCodeFormDidFill', function () {
@@ -74,7 +74,7 @@ describe('SNPCodeFormLink_Misc', function () {
 				});
 				
 				before(function () {
-					return browser.fill(SNPCodeFormLinkField, SNPDocumentData);
+					return browser.fill(SNPFormLinkField, SNPDocumentData);
 				});
 
 				it('sends SNPCodeFormDidFill', function () {

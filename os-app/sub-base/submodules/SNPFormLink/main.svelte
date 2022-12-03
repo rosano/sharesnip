@@ -23,8 +23,8 @@ const mod = {
 };
 </script>
 
-<div class="SNPCodeFormLink">
+<div class="SNPFormLink">
 
-<input class="SNPCodeFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData || ''}>
+<input class="SNPFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData || ''}>
 
 </div>

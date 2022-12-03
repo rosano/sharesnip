@@ -16,7 +16,7 @@ describe('SNPFormBaseChildClass', function test_SNPFormBaseChildClass() {
 		const item = uRandomElement(SNPDocument.SNPDocumentTypes());
 		deepEqual(mod.SNPFormBaseChildClass(item), {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
-			[SNPDocument.SNPDocumentTypeLink()]: 'SNPCodeFormLink',
+			[SNPDocument.SNPDocumentTypeLink()]: 'SNPFormLink',
 		}[item]);
 	});
 

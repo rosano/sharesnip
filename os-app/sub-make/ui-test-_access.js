@@ -39,8 +39,8 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements('.SNPFormBase', 1);
 	});
 
-	it('shows SNPCodeFormLink', function () {
-		browser.assert.elements('.SNPCodeFormLink', 1);
+	it('shows SNPFormLink', function () {
+		browser.assert.elements('.SNPFormLink', 1);
 	});
 
 	it('shows SNPMakeCodeNotValid', function () {
@@ -57,8 +57,8 @@ describe('SNPMake_Access', function () {
 			return browser.pressButton(SNPMakeTypesNoteButton);
 		});
 
-		it('hides SNPCodeFormLink', function () {
-			browser.assert.elements('.SNPCodeFormLink', 0);
+		it('hides SNPFormLink', function () {
+			browser.assert.elements('.SNPFormLink', 0);
 		});
 
 		it('shows SNPFormNote', function () {

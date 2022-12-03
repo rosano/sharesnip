@@ -51,7 +51,7 @@ $: {
 }
 
 import SNPFormNote from './submodules/SNPFormNote/main.svelte';
-import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
+import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 </script>
 
 <div class="SNPFormBase">
@@ -60,8 +60,8 @@ import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
 	<SNPFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
 {/if}
 
-{#if mod._ValueChildClass === 'SNPCodeFormLink' }
-	<SNPCodeFormLink SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
+{#if mod._ValueChildClass === 'SNPFormLink' }
+	<SNPFormLink SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
 {/if}
 
 <button class="SNPFormBaseSaveButton" disabled bind:this={ mod.SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>

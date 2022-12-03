@@ -1,8 +1,8 @@
 exports.OLSKControllerRoutes = function() {
 	return [{
-		OLSKRoutePath: '/stub/SNPCodeFormLink',
+		OLSKRoutePath: '/stub/SNPFormLink',
 		OLSKRouteMethod: 'get',
-		OLSKRouteSignature: 'SNPCodeFormLinkStubRoute',
+		OLSKRouteSignature: 'SNPFormLinkStubRoute',
 		OLSKRouteFunction (req, res, next) {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'stub-view'));
 		},
