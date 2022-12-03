@@ -35,8 +35,8 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements(SNPMakeTypesNoteButton, 1);
 	});
 
-	it('shows SNPCodeFormBase', function () {
-		browser.assert.elements('.SNPCodeFormBase', 1);
+	it('shows SNPFormBase', function () {
+		browser.assert.elements('.SNPFormBase', 1);
 	});
 
 	it('shows SNPCodeFormLink', function () {

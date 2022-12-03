@@ -1,5 +1,5 @@
 <script>
-export let SNPCodeFormBaseObject;
+export let SNPFormBaseObject;
 export let SNPCodeFormNotValid;
 export let SNPCodeFormValid;
 export let SNPCodeFormDidFill;
@@ -10,14 +10,14 @@ export const modPublic = {
 
 import { OLSKLocalized } from 'OLSKInternational';
 
-import SNPCodeFormBaseLogic from './ui-logic.js';
+import SNPFormBaseLogic from './ui-logic.js';
 
 const mod = {
 
 	// INTERFACE
 
 	InterfaceSaveButtonDidClick () {
-		SNPCodeFormDidSubmit(Object.assign(SNPCodeFormBaseObject, mod._ValueChildObject))
+		SNPCodeFormDidSubmit(Object.assign(SNPFormBaseObject, mod._ValueChildObject))
 	},
 
 	// MESSAGE
@@ -25,7 +25,7 @@ const mod = {
 	SNPCodeFormNotValid () {
 		delete mod._ValueChildObject;
 
-		mod.SNPCodeFormBaseSaveButton.disabled = true;
+		mod.SNPFormBaseSaveButton.disabled = true;
 
 		SNPCodeFormNotValid();
 	},
@@ -33,7 +33,7 @@ const mod = {
 	SNPCodeFormValid (inputData) {
 		mod._ValueChildObject = inputData;
 
-		mod.SNPCodeFormBaseSaveButton.disabled = null;
+		mod.SNPFormBaseSaveButton.disabled = null;
 
 		SNPCodeFormValid(inputData);
 	},
@@ -41,29 +41,29 @@ const mod = {
 	// REACT
 
 	ReactType (inputData) {
-		mod._ValueChildClass = SNPCodeFormBaseLogic.SNPCodeFormBaseChildClass(inputData);
+		mod._ValueChildClass = SNPFormBaseLogic.SNPFormBaseChildClass(inputData);
 	},
 
 };
 
 $: {
-	mod.ReactType(SNPCodeFormBaseObject.SNPDocumentType);
+	mod.ReactType(SNPFormBaseObject.SNPDocumentType);
 }
 
 import SNPCodeFormNote from './submodules/SNPCodeFormNote/main.svelte';
 import SNPCodeFormLink from './submodules/SNPCodeFormLink/main.svelte';
 </script>
 
-<div class="SNPCodeFormBase">
+<div class="SNPFormBase">
 
 {#if mod._ValueChildClass === 'SNPCodeFormNote' }
-	<SNPCodeFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPCodeFormBaseObject } />
+	<SNPCodeFormNote SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPCodeFormLink' }
-	<SNPCodeFormLink SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPCodeFormBaseObject } />
+	<SNPCodeFormLink SNPCodeFormDidFill={ SNPCodeFormDidFill } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormObject={ SNPFormBaseObject } />
 {/if}
 
-<button class="SNPCodeFormBaseSaveButton" disabled bind:this={ mod.SNPCodeFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPCodeFormBaseSaveButtonText') }</button>
+<button class="SNPFormBaseSaveButton" disabled bind:this={ mod.SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
 
 </div>

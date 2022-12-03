@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('SNPCodeFormBase_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPFormBase_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -14,8 +14,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
-		it('localizes SNPCodeFormBaseSaveButton', function () {
-			browser.assert.text(SNPCodeFormBaseSaveButton, uLocalized('SNPCodeFormBaseSaveButtonText'));
+		it('localizes SNPFormBaseSaveButton', function () {
+			browser.assert.text(SNPFormBaseSaveButton, uLocalized('SNPFormBaseSaveButtonText'));
 		});
 
 	});

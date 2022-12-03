@@ -187,7 +187,7 @@ describe('SNPCode_Access', function () {
 			});
 
 			before(function () {
-				return browser.pressButton(SNPCodeFormBaseSaveButton);
+				return browser.pressButton(SNPFormBaseSaveButton);
 			});
 
 			it('hides SNPMakeModal', function () {

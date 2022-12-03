@@ -4,17 +4,17 @@ const mod = require('./ui-logic.js').default;
 
 const SNPDocument = require('../_shared/SNPDocument/main.js').default;
 
-describe('SNPCodeFormBaseChildClass', function test_SNPCodeFormBaseChildClass() {
+describe('SNPFormBaseChildClass', function test_SNPFormBaseChildClass() {
 
 	it('throws if not valid', function () {
 		throws(function () {
-			mod.SNPCodeFormBaseChildClass(Math.random().toString());
+			mod.SNPFormBaseChildClass(Math.random().toString());
 		}, /SNPErrorInputNotValid/);
 	});
 
 	it('returns string', function() {
 		const item = uRandomElement(SNPDocument.SNPDocumentTypes());
-		deepEqual(mod.SNPCodeFormBaseChildClass(item), {
+		deepEqual(mod.SNPFormBaseChildClass(item), {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPCodeFormNote',
 			[SNPDocument.SNPDocumentTypeLink()]: 'SNPCodeFormLink',
 		}[item]);

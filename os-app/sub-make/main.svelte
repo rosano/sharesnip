@@ -101,7 +101,7 @@ const mod = {
 	
 mod.LifecycleModuleDidLoad();
 
-import SNPCodeFormBase from '../sub-base/main.svelte';
+import SNPFormBase from '../sub-base/main.svelte';
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
@@ -115,7 +115,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
+<SNPFormBase SNPFormBaseObject={ mod._ValueObject } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
 
 {#if !mod._ValueIsValid }
 

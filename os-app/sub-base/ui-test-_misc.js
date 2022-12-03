@@ -1,15 +1,15 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCodeFormBase_Misc', function () {
+describe('SNPFormBase_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	describe('SNPCodeFormBaseSaveButton', function test_SNPCodeFormBaseSaveButton () {
+	describe('SNPFormBaseSaveButton', function test_SNPFormBaseSaveButton () {
 
 		it('sets disabled', function () {
-			browser.assert.attribute(SNPCodeFormBaseSaveButton, 'disabled', '');
+			browser.assert.attribute(SNPFormBaseSaveButton, 'disabled', '');
 		});
 
 		context('valid', function () {
@@ -25,7 +25,7 @@ describe('SNPCodeFormBase_Misc', function () {
 			});
 
 			it('sets disabled', function () {
-				browser.assert.attribute(SNPCodeFormBaseSaveButton, 'disabled', null);
+				browser.assert.attribute(SNPFormBaseSaveButton, 'disabled', null);
 			});
 
 			it('sends SNPCodeFormValid', function () {
@@ -48,7 +48,7 @@ describe('SNPCodeFormBase_Misc', function () {
 			});
 
 			it('sets disabled', function () {
-				browser.assert.attribute(SNPCodeFormBaseSaveButton, 'disabled', '');
+				browser.assert.attribute(SNPFormBaseSaveButton, 'disabled', '');
 			});
 
 			it('sends SNPCodeFormNotValid', function () {
@@ -70,7 +70,7 @@ describe('SNPCodeFormBase_Misc', function () {
 			});
 
 			before(function () {
-				return browser.pressButton(SNPCodeFormBaseSaveButton);
+				return browser.pressButton(SNPFormBaseSaveButton);
 			});
 
 			it('sends SNPCodeFormDidFill', function () {

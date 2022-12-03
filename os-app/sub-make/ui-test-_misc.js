@@ -39,7 +39,7 @@ describe('SNPMake_Misc', function () {
 		});
 
 		before(function () {
-			return browser.pressButton('.SNPCodeFormBaseSaveButton');
+			return browser.pressButton('.SNPFormBaseSaveButton');
 		});
 
 		it('sends SNPCodeFormDidSubmit', function () {

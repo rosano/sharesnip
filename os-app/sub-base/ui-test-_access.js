@@ -1,38 +1,38 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const SNPDocument = require('../_shared/SNPDocument/main.js').default;
-const SNPCodeFormBaseLogic = require('./ui-logic.js').default;
+const SNPFormBaseLogic = require('./ui-logic.js').default;
 
 Object.entries({
-	SNPCodeFormBase: '.SNPCodeFormBase',
+	SNPFormBase: '.SNPFormBase',
 	
-	SNPCodeFormBaseSaveButton: '.SNPCodeFormBaseSaveButton',
+	SNPFormBaseSaveButton: '.SNPFormBaseSaveButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCodeFormBase_Access', function () {
+describe('SNPFormBase_Access', function () {
 
 	const SNPDocumentType = uRandomElement(SNPDocument.SNPDocumentTypes());
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeFormBaseObject: JSON.stringify({
+			SNPFormBaseObject: JSON.stringify({
 				SNPDocumentType,
 			}),
 		});
 	});
 
-	it('shows SNPCodeFormBase', function () {
-		browser.assert.elements(SNPCodeFormBase, 1);
+	it('shows SNPFormBase', function () {
+		browser.assert.elements(SNPFormBase, 1);
 	});
 
 	it('shows child class', function () {
-		browser.assert.elements('.' + SNPCodeFormBaseLogic.SNPCodeFormBaseChildClass(SNPDocumentType), 1);
+		browser.assert.elements('.' + SNPFormBaseLogic.SNPFormBaseChildClass(SNPDocumentType), 1);
 	});
 
-	it('shows SNPCodeFormBaseSaveButton', function () {
-		browser.assert.elements(SNPCodeFormBaseSaveButton, 1);
+	it('shows SNPFormBaseSaveButton', function () {
+		browser.assert.elements(SNPFormBaseSaveButton, 1);
 	});	
 
 });
