@@ -3,6 +3,8 @@ export let SNPCodeMakeObject;
 export let SNPCodeFormDidSubmit;
 
 import { OLSKLocalized } from 'OLSKInternational';
+import { OLSK_SPEC_UI } from 'OLSKSpec';
+import kjua from 'kjua';
 
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
@@ -11,6 +13,7 @@ const mod = {
 	// VALUE
 
 	_ValueDocumentsMap: {},
+	_ValueIsValid: false,
 
 	// DATA
 
@@ -40,9 +43,15 @@ const mod = {
 	// MESSAGE
 
 	SNPCodeFormNotValid () {
+		mod._ValueIsValid = false;
 	},
 
 	SNPCodeFormValid (inputData) {
+		mod._ValueIsValid = true;
+
+		setTimeout(function () {
+			mod.ReactItem(inputData);
+		}, mod._SNPCodeMakeCodeValid ? 0 : 50);
 	},
 
 	SNPCodeFormDidFill (inputData) {
@@ -57,6 +66,33 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
 	},
 
+	// REACT
+
+	ReactItem (inputData) {
+		if (OLSK_SPEC_UI()) {
+			return;
+		}
+
+		if (!mod._SNPCodeMakeCodeValid) {
+			return;
+		}
+
+		mod._SNPCodeMakeCodeValid.childNodes.forEach(function (e) {
+			mod._SNPCodeMakeCodeValid.removeChild(e);
+		});
+
+		mod._SNPCodeMakeCodeValid.appendChild(kjua({
+			render: 'canvas',
+			crisp: true,
+			ecLevel: 'H',
+			size: 100,
+			rounded: 100,
+			fill: 'rgb(255, 128, 0)',
+			back: '#FFF9E5',
+			text: inputData.SNPDocumentData,
+		}));
+	},
+
 	// LIFECYCLE
 
 	LifecycleModuleDidLoad() {
@@ -68,6 +104,7 @@ const mod = {
 mod.LifecycleModuleDidLoad();
 
 import SNPCodeFormBase from '../sub-base/main.svelte';
+import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
 <div class="SNPCodeMake">
@@ -81,5 +118,17 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 </div>
 
 <SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
+
+{#if !mod._ValueIsValid }
+
+<div class="SNPCodeMakeCodeNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
+	
+{/if}
+
+{#if mod._ValueIsValid }
+
+<div class="SNPCodeMakeCodeValid" bind:this={ mod._SNPCodeMakeCodeValid }></div>
+	
+{/if}
 
 </div>
