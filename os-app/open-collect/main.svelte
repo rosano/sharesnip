@@ -743,9 +743,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPCodeMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPCodeMakeModal }>
 	<div>
-		<SNPCodeMake SNPCodeMakeObject={ Object.assign(mod.DataStubDocumentObject(), {
-			SNPDocumentType: null,
-			SNPDocumentData: null,
-		}) } SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
+		<SNPCodeMake SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
 	</div>
 </OLSKModalView>

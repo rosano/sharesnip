@@ -1,5 +1,4 @@
 <script>
-export let SNPCodeMakeObject;
 export let SNPCodeFormDidSubmit;
 
 import { OLSKLocalized } from 'OLSKInternational';
