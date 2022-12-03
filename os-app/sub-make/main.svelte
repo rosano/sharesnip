@@ -11,8 +11,7 @@ const mod = {
 
 	// VALUE
 
-	_ValueDocumentsMap: {},
-	_ValueIsValid: false,
+	_ValueStateMap: {},
 
 	// DATA
 
@@ -36,17 +35,28 @@ const mod = {
 	// COMMAND
 
 	CommandSetType (inputData) {
-		mod._ValueObject = mod._ValueDocumentsMap[inputData] || mod.DataDocumentTemplate(inputData);
+		mod._ValueType = inputData;
+
+		if (!mod._ValueStateMap[inputData]) {
+			mod._ValueStateMap[inputData] = {
+				SNPMakeStateDocument: mod.DataDocumentTemplate(inputData),
+				SNPMakeStateValid: false,
+			};
+		}
+
+		setTimeout(function () {
+			mod.ReactItem(mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument);
+		}, mod._SNPMakeCodeValid ? 0 : 50);
 	},
 
 	// MESSAGE
 
 	SNPFormNotValid () {
-		mod._ValueIsValid = false;
+		mod._ValueStateMap[mod._ValueType].SNPMakeStateValid = false;
 	},
 
 	SNPFormValid (inputData) {
-		mod._ValueIsValid = true;
+		mod._ValueStateMap[mod._ValueType].SNPMakeStateValid = true;
 
 		setTimeout(function () {
 			mod.ReactItem(inputData);
@@ -54,8 +64,8 @@ const mod = {
 	},
 
 	SNPFormDidFill (inputData) {
-		mod._ValueDocumentsMap[mod._ValueObject.SNPDocumentType] = Object.assign(inputData, {
-			SNPDocumentType: mod._ValueObject.SNPDocumentType,
+		mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument = Object.assign(inputData, {
+			SNPDocumentType: mod._ValueType,
 		});
 	},
 
@@ -115,15 +125,15 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<SNPFormBase SNPFormBaseObject={ mod._ValueObject } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } />
+<SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } />
 
-{#if !mod._ValueIsValid }
+{#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
 <div class="SNPMakeCodeNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
 	
 {/if}
 
-{#if mod._ValueIsValid }
+{#if mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
 <div class="SNPMakeCodeValid" bind:this={ mod._SNPMakeCodeValid }></div>
 	
