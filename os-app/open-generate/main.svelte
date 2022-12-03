@@ -7,6 +7,10 @@ import OLSKServiceWorker from 'OLSKServiceWorker';
 
 const mod = {
 
+	// VALUE
+
+	_ValueIsValid: false,
+
 	// DATA
 
 	DataGenerateRecipes () {
@@ -28,6 +32,14 @@ const mod = {
 	},
 
 	// MESSAGE
+
+	SNPFormNotValid () {
+		mod._ValueIsValid = false;
+	},
+
+	SNPFormValid () {
+		mod._ValueIsValid = true;
+	},
 
 	SNPFormDidSubmit () {},
 
@@ -81,6 +93,7 @@ const mod = {
 };
 
 import SNPMake from '../sub-make/main.svelte';
+import SNPDownload from '../sub-download/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -91,7 +104,13 @@ import OLSKString from 'OLSKString';
 
 <div class="SNPGenerate">
 
-<SNPMake SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
+<SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
+
+{#if mod._ValueIsValid }
+
+<SNPDownload />
+	
+{/if}
 
 <footer class="SNPGenerateViewportFooter OLSKMobileViewFooter">
 

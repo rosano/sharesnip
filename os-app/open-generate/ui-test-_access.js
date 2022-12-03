@@ -18,6 +18,10 @@ describe('SNPGenerate_Access', function () {
 		browser.assert.elements(SNPGenerate, 1);
 	});
 
+	it('hides SNPDownload', function () {
+		browser.assert.elements('.SNPDownload', 0);
+	});
+
 	it('shows SNPGenerateViewportFooter', function () {
 		browser.assert.elements(SNPGenerateViewportFooter, 1);
 	});
@@ -44,6 +48,22 @@ describe('SNPGenerate_Access', function () {
 
 	it('shows OLSKServiceWorkerLauncherFakeItemProxy', function () {
 		return browser.assert.OLSKLauncherItems('OLSKServiceWorkerLauncherFakeItemProxy', 1);
+	});
+
+	context('valid', function () {
+
+		before(function () {
+			return browser.pressButton('.SNPMakeTypesNoteButton');
+		});
+
+		before(function () {
+			return browser.fill('.SNPFormNoteField', Math.random().toString());
+		});
+
+		it('shows SNPDownload', function () {
+			browser.assert.elements('.SNPDownload', 1);
+		});
+	
 	});
 
 	describe('tongue', function test_tongue() {
