@@ -68,7 +68,6 @@ const mod = {
 
 		mod._SNPCodeDetailQR.appendChild(kjua({
 			render: 'canvas',
-			crisp: true,
 			ecLevel: 'H',
 			size: 420,
 			rounded: 100,

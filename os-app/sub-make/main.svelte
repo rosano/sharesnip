@@ -83,7 +83,6 @@ const mod = {
 
 		mod._SNPCodeMakeCodeValid.appendChild(kjua({
 			render: 'canvas',
-			crisp: true,
 			ecLevel: 'H',
 			size: 100,
 			rounded: 100,
