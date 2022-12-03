@@ -23,6 +23,6 @@ const mod = {
 
 <div class="SNPFormNote">
 
-<input class="SNPFormNoteField SNPCollectFormDataField" type="text" required autofocus placeholder="{ OLSKLocalized('SNPFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill } value={ SNPCollectFormObject.SNPDocumentData || ''}>
+<textarea class="SNPFormNoteField SNPCollectFormDataField" type="text" required autofocus placeholder="{ OLSKLocalized('SNPFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill }>{ SNPCollectFormObject.SNPDocumentData || ''}</textarea>
 
 </div>
