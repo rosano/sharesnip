@@ -1,77 +1,77 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPCodeDetail: '.SNPCodeDetail',
+	SNPCollectDetail: '.SNPCollectDetail',
 
-	SNPCodeDetailToolbar: '.SNPCodeDetailToolbar',
+	SNPCollectDetailToolbar: '.SNPCollectDetailToolbar',
 	
-	SNPCodeDetailToolbarBackButton: '.SNPCodeDetailToolbarBackButton',
-	SNPCodeDetailToolbarBackButtonImage: '.SNPCodeDetailToolbarBackButtonImage',
+	SNPCollectDetailToolbarBackButton: '.SNPCollectDetailToolbarBackButton',
+	SNPCollectDetailToolbarBackButtonImage: '.SNPCollectDetailToolbarBackButtonImage',
 
-	SNPCodeDetailToolbarCloneButton: '.SNPCodeDetailToolbarCloneButton',	
-	SNPCodeDetailToolbarCloneButtonImage: '.SNPCodeDetailToolbarCloneButtonImage',
+	SNPCollectDetailToolbarCloneButton: '.SNPCollectDetailToolbarCloneButton',	
+	SNPCollectDetailToolbarCloneButtonImage: '.SNPCollectDetailToolbarCloneButtonImage',
 	
-	SNPCodeDetailToolbarDiscardButton: '.SNPCodeDetailToolbarDiscardButton',	
-	SNPCodeDetailToolbarDiscardButtonImage: '.SNPCodeDetailToolbarDiscardButtonImage',
+	SNPCollectDetailToolbarDiscardButton: '.SNPCollectDetailToolbarDiscardButton',	
+	SNPCollectDetailToolbarDiscardButtonImage: '.SNPCollectDetailToolbarDiscardButtonImage',
 
-	SNPCodeDetailForm: '.SNPCodeDetailForm',
-	SNPCodeDetailFormNameField: '.SNPCodeDetailFormNameField',
+	SNPCollectDetailForm: '.SNPCollectDetailForm',
+	SNPCollectDetailFormNameField: '.SNPCollectDetailFormNameField',
 
-	SNPCodeDetailQR: '.SNPCodeDetailQR',
+	SNPCollectDetailQR: '.SNPCollectDetailQR',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCodeDetail_Access', function () {
+describe('SNPCollectDetail_Access', function () {
 	
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			SNPCollectDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows SNPCodeDetail', function () {
-		browser.assert.elements(SNPCodeDetail, 1);
+	it('shows SNPCollectDetail', function () {
+		browser.assert.elements(SNPCollectDetail, 1);
 	});
 
-	it('shows SNPCodeDetailToolbar', function () {
-		browser.assert.elements(SNPCodeDetailToolbar, 1);
+	it('shows SNPCollectDetailToolbar', function () {
+		browser.assert.elements(SNPCollectDetailToolbar, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarBackButton', function () {
-		browser.assert.elements(SNPCodeDetailToolbarBackButton, 1);
+	it('shows SNPCollectDetailToolbarBackButton', function () {
+		browser.assert.elements(SNPCollectDetailToolbarBackButton, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarBackButtonImage', function () {
-		browser.assert.elements(SNPCodeDetailToolbarBackButtonImage, 1);
+	it('shows SNPCollectDetailToolbarBackButtonImage', function () {
+		browser.assert.elements(SNPCollectDetailToolbarBackButtonImage, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarCloneButton', function () {
-		browser.assert.elements(SNPCodeDetailToolbarCloneButton, 1);
+	it('shows SNPCollectDetailToolbarCloneButton', function () {
+		browser.assert.elements(SNPCollectDetailToolbarCloneButton, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarCloneButtonImage', function () {
-		browser.assert.elements(SNPCodeDetailToolbarCloneButtonImage, 1);
+	it('shows SNPCollectDetailToolbarCloneButtonImage', function () {
+		browser.assert.elements(SNPCollectDetailToolbarCloneButtonImage, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarDiscardButton', function () {
-		browser.assert.elements(SNPCodeDetailToolbarDiscardButton, 1);
+	it('shows SNPCollectDetailToolbarDiscardButton', function () {
+		browser.assert.elements(SNPCollectDetailToolbarDiscardButton, 1);
 	});
 
-	it('shows SNPCodeDetailToolbarDiscardButtonImage', function () {
-		browser.assert.elements(SNPCodeDetailToolbarDiscardButtonImage, 1);
+	it('shows SNPCollectDetailToolbarDiscardButtonImage', function () {
+		browser.assert.elements(SNPCollectDetailToolbarDiscardButtonImage, 1);
 	});
 
-	it('shows SNPCodeDetailForm', function () {
-		browser.assert.elements(SNPCodeDetailForm, 1);
+	it('shows SNPCollectDetailForm', function () {
+		browser.assert.elements(SNPCollectDetailForm, 1);
 	});
 
-	it('shows SNPCodeDetailFormNameField', function () {
-		browser.assert.elements(SNPCodeDetailFormNameField, 1);
+	it('shows SNPCollectDetailFormNameField', function () {
+		browser.assert.elements(SNPCollectDetailFormNameField, 1);
 	});
 
-	it('shows SNPCodeDetailQR', function () {
-		browser.assert.elements(SNPCodeDetailQR, 1);
+	it('shows SNPCollectDetailQR', function () {
+		browser.assert.elements(SNPCollectDetailQR, 1);
 	});
 
 });

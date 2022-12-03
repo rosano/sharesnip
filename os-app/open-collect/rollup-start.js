@@ -1,7 +1,7 @@
 import RollupStart from './main.svelte';
 
-const SNPCode = new RollupStart({
+const SNPCollect = new RollupStart({
 	target: document.body,
 });
 
-export default SNPCode;
+export default SNPCollect;

@@ -1,38 +1,38 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPCodeShare: '.SNPCodeShare',
+	SNPCollectShare: '.SNPCollectShare',
 	
-	SNPCodeShareLinkField: '.SNPCodeShareLinkField',
-	SNPCodeShareCopyButton: '.SNPCodeShareCopyButton',
+	SNPCollectShareLinkField: '.SNPCollectShareLinkField',
+	SNPCollectShareCopyButton: '.SNPCollectShareCopyButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCodeShare_Access', function () {
+describe('SNPCollectShare_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeShareItems: JSON.stringify(Array.from(Array(0)).map(function () {
+			SNPCollectShareItems: JSON.stringify(Array.from(Array(0)).map(function () {
 				return StubDocumentObjectValid();
 			})),
 		});
 	});
 
-	it('shows SNPCodeShare', function () {  
-		browser.assert.elements(SNPCodeShare, 1);
+	it('shows SNPCollectShare', function () {  
+		browser.assert.elements(SNPCollectShare, 1);
 	});
 
-	it('shows SNPCodeListItem', function () {
-		browser.assert.elements('.SNPCodeListItem', 0);
+	it('shows SNPCollectListItem', function () {
+		browser.assert.elements('.SNPCollectListItem', 0);
 	});
 
-	it('shows SNPCodeShareLinkField', function () {
-		browser.assert.elements(SNPCodeShareLinkField, 1);
+	it('shows SNPCollectShareLinkField', function () {
+		browser.assert.elements(SNPCollectShareLinkField, 1);
 	});
 
-	it('shows SNPCodeShareCopyButton', function () {
-		browser.assert.elements(SNPCodeShareCopyButton, 1);
+	it('shows SNPCollectShareCopyButton', function () {
+		browser.assert.elements(SNPCollectShareCopyButton, 1);
 	});
 
 });

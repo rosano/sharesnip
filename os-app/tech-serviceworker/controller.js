@@ -10,7 +10,7 @@ exports.OLSKControllerRoutes = function() {
 			OLSKRouteFunction (req, res, next) {
 				return res.type('js').send(OLSKServiceWorker.OLSKServiceWorkerView({
 					VERSION_ID_TOKEN: kSNPServiceWorkerVersionID,
-					ORIGIN_PAGE_PATH_TOKEN: res.locals.OLSKCanonical('SNPCodeRoute'),
+					ORIGIN_PAGE_PATH_TOKEN: res.locals.OLSKCanonical('SNPCollectRoute'),
 				}));
 			},
 		},

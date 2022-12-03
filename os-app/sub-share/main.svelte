@@ -1,9 +1,9 @@
 <script>
-export let SNPCodeShareItems;
+export let SNPCollectShareItems;
 
 import { OLSKLocalized } from 'OLSKInternational';
 
-import SNPCodeLogic from '../open-collect/ui-logic.js';
+import SNPCollectLogic from '../open-collect/ui-logic.js';
 import OLSKString from 'OLSKString';
 import OLSKObject from 'OLSKObject';
 
@@ -28,7 +28,7 @@ const mod = {
 	// CONTROL
 
 	ControlUpdateLink (inputData) {
-		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCodeRoute') + '/#';
+		mod._ValueLink = window.location.origin + window.OLSKCanonical('SNPCollectRoute') + '/#';
 	},
 
 	// REACT
@@ -40,7 +40,7 @@ const mod = {
 	// LIFECYCLE
 
 	LifecycleModuleDidMount () {
-		new Clipboard('.SNPCodeShareCopyButton');
+		new Clipboard('.SNPCollectShareCopyButton');
 	},
 
 };
@@ -49,30 +49,30 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleDidMount);
 
 $: {
-	mod.ReactItems(SNPCodeShareItems);
+	mod.ReactItems(SNPCollectShareItems);
 }
 
 import Clipboard from 'clipboard';
-import SNPCodeListItem from '../sub-item/main.svelte';
+import SNPCollectListItem from '../sub-item/main.svelte';
 </script>
 
-<div class="SNPCodeShare">
+<div class="SNPCollectShare">
 
-<div class="SNPCodeShareList">
+<div class="SNPCollectShareList">
 </div>
 
-<div class="SNPCodeShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
+<div class="SNPCollectShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
 	<div class="OLSKToolbarElementGroup">
-		<input class="SNPCodeShareLinkField" placeholder={ OLSKLocalized('SNPCodeShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
+		<input class="SNPCollectShareLinkField" placeholder={ OLSKLocalized('SNPCollectShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
 
-		<button class="SNPCodeShareCopyButton" data-clipboard-target=".SNPCodeShareLinkField">{ OLSKLocalized('SNPCodeShareCopyButtonText') }</button>
+		<button class="SNPCollectShareCopyButton" data-clipboard-target=".SNPCollectShareLinkField">{ OLSKLocalized('SNPCollectShareCopyButtonText') }</button>
 	</div>
 </div>
 
 </div>
 
 <style>
-.SNPCodeShare {
+.SNPCollectShare {
 	background: var(--OLSKCommonBackground);
 	height: 100%;
 
@@ -80,36 +80,36 @@ import SNPCodeListItem from '../sub-item/main.svelte';
 	flex-direction: column;
 }
 
-.SNPCodeShare :global(.content) {
+.SNPCollectShare :global(.content) {
 	margin: unset;
 }
 
-.SNPCodeShare :global(.item) {
+.SNPCollectShare :global(.item) {
 	background: var(--OLSKCommonBackground);
 	border: unset;
 
 	border-bottom: var(--OLSKCommonEdgeBorder);
 }
 
-.SNPCodeShare :global(.item svg *) {
+.SNPCollectShare :global(.item svg *) {
 	stroke: unset;
 }
 
-.SNPCodeShare :global(.item svg > path) {
+.SNPCollectShare :global(.item svg > path) {
 	fill: var(--OLSKCommonForeground);
 }
 
-.SNPCodeShare :global(.item svg > path:first-child) {
+.SNPCollectShare :global(.item svg > path:first-child) {
 	display: none;
 }
 
-.SNPCodeShareList {
+.SNPCollectShareList {
 	padding-bottom: 65px;
 
 	flex-grow: 1;
 }
 
-.SNPCodeShareToolbar {
+.SNPCollectShareToolbar {
 	width: calc(100vw - 15px);
 	top: unset;
 	bottom: 0;
@@ -124,7 +124,7 @@ import SNPCodeListItem from '../sub-item/main.svelte';
 	justify-content: center;
 }
 
-.SNPCodeShareLinkField {
+.SNPCollectShareLinkField {
 	flex-grow: 1;
 	max-width: 400px;
 	margin-right: 10px;

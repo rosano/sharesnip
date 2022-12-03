@@ -23,7 +23,7 @@ describe('SNPMake_Misc', function () {
 		});
 		
 		before(function () {
-			return browser.fill('.SNPCodeFormDataField', SNPDocumentData);
+			return browser.fill('.SNPCollectFormDataField', SNPDocumentData);
 		});
 
 		it.skip('creates canvas', function () {
@@ -35,16 +35,16 @@ describe('SNPMake_Misc', function () {
 	context('submit', function () {
 		
 		before(function () {
-			return browser.assert.text('#TestSNPCodeFormDidSubmit', '0');
+			return browser.assert.text('#TestSNPCollectFormDidSubmit', '0');
 		});
 
 		before(function () {
 			return browser.pressButton('.SNPFormBaseSaveButton');
 		});
 
-		it('sends SNPCodeFormDidSubmit', function () {
-			browser.assert.text('#TestSNPCodeFormDidSubmit', '1');
-			browser.assert.text('#TestSNPCodeFormDidSubmitData', JSON.stringify({
+		it('sends SNPCollectFormDidSubmit', function () {
+			browser.assert.text('#TestSNPCollectFormDidSubmit', '1');
+			browser.assert.text('#TestSNPCollectFormDidSubmitData', JSON.stringify({
 				SNPDocumentType: 'TYPE_NOTE',
 				SNPDocumentData,
 			}));
@@ -61,7 +61,7 @@ describe('SNPMake_Misc', function () {
 		});
 		
 		before(function () {
-			return browser.fill('.SNPCodeFormDataField', SNPDocumentData2);
+			return browser.fill('.SNPCollectFormDataField', SNPDocumentData2);
 		});
 
 		before(function () {
@@ -69,7 +69,7 @@ describe('SNPMake_Misc', function () {
 		});
 
 		it('saves first input', function () {
-			return browser.assert.input('.SNPCodeFormDataField', SNPDocumentData);
+			return browser.assert.input('.SNPCollectFormDataField', SNPDocumentData);
 		});
 
 		describe('change type 2', function () {
@@ -79,7 +79,7 @@ describe('SNPMake_Misc', function () {
 			});
 			
 			it('saves second input', function () {
-				return browser.assert.input('.SNPCodeFormDataField', SNPDocumentData2);
+				return browser.assert.input('.SNPCollectFormDataField', SNPDocumentData2);
 			});
 			
 		});

@@ -19,9 +19,9 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 </div>
 
-Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarCloneButtonText* button.
+Add an inbox item to your collection by pressing the *SNPCollectDetailToolbarCloneButtonText* button.
 
-*SNPCodeDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCodeDetailMediaFetchButtonText*.
+*SNPCollectDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *SNPCollectDetailMediaFetchButtonText*.
 
 # Shortcuts
 
@@ -60,7 +60,7 @@ Add an inbox item to your collection by pressing the *SNPCodeDetailToolbarCloneB
 
 This web app can be 'installed' and used as if it were a native mobile app (with an icon, working without internet access, running as a standalone app outside of the browser).
 
-1. [Open the app](SNPCodeRoute) in your browser, then follow the steps based on your operating system:
+1. [Open the app](SNPCollectRoute) in your browser, then follow the steps based on your operating system:
 
 ## iOS + Safari
 2. Tap the Share button <img height="22" valign="middle" alt="Share button icon" src="/_shared/__external/OLSKUIAssets/_OLSKSharediOSShare.svg" />

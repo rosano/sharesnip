@@ -1,5 +1,5 @@
 <script>
-export let SNPCodeFormDidSubmit;
+export let SNPCollectFormDidSubmit;
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
@@ -41,11 +41,11 @@ const mod = {
 
 	// MESSAGE
 
-	SNPCodeFormNotValid () {
+	SNPCollectFormNotValid () {
 		mod._ValueIsValid = false;
 	},
 
-	SNPCodeFormValid (inputData) {
+	SNPCollectFormValid (inputData) {
 		mod._ValueIsValid = true;
 
 		setTimeout(function () {
@@ -53,7 +53,7 @@ const mod = {
 		}, mod._SNPMakeCodeValid ? 0 : 50);
 	},
 
-	SNPCodeFormDidFill (inputData) {
+	SNPCollectFormDidFill (inputData) {
 		mod._ValueDocumentsMap[mod._ValueObject.SNPDocumentType] = Object.assign(inputData, {
 			SNPDocumentType: mod._ValueObject.SNPDocumentType,
 		});
@@ -115,7 +115,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<SNPFormBase SNPFormBaseObject={ mod._ValueObject } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
+<SNPFormBase SNPFormBaseObject={ mod._ValueObject } SNPCollectFormNotValid={ mod.SNPCollectFormNotValid } SNPCollectFormValid={ mod.SNPCollectFormValid } SNPCollectFormDidFill={ mod.SNPCollectFormDidFill } SNPCollectFormDidSubmit={ SNPCollectFormDidSubmit } />
 
 {#if !mod._ValueIsValid }
 

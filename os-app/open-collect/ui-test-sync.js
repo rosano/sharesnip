@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCode_Sync', function () {	
+describe('SNPCollect_Sync', function () {	
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -9,7 +9,7 @@ describe('SNPCode_Sync', function () {
 	describe('ZDRSchemaDispatchSyncCreateDocument', function test_ZDRSchemaDispatchSyncCreateDocument () {
 
 		before(function () {
-			browser.assert.elements('.SNPCodeListItem', 0);
+			browser.assert.elements('.SNPCollectListItem', 0);
 		});
 
 		before(function () {
@@ -17,7 +17,7 @@ describe('SNPCode_Sync', function () {
 		});
 
 		it('adds item', function () {
-			browser.assert.elements('.SNPCodeListItem', 1);
+			browser.assert.elements('.SNPCollectListItem', 1);
 		});
 
 	});
@@ -25,7 +25,7 @@ describe('SNPCode_Sync', function () {
 	describe('ZDRSchemaDispatchSyncUpdateDocument', function test_ZDRSchemaDispatchSyncUpdateDocument () {
 
 		before(function () {
-			browser.assert.text('.SNPCodeListItem', 'FakeZDRSchemaDispatchSyncCreateDocument');
+			browser.assert.text('.SNPCollectListItem', 'FakeZDRSchemaDispatchSyncCreateDocument');
 		});
 
 		before(function () {
@@ -33,17 +33,17 @@ describe('SNPCode_Sync', function () {
 		});
 
 		it('updates item', function () {
-			browser.assert.text('.SNPCodeListItem', 'FakeZDRSchemaDispatchSyncUpdateDocument');
+			browser.assert.text('.SNPCollectListItem', 'FakeZDRSchemaDispatchSyncUpdateDocument');
 		});
 
 		context('selected same', function () {
 			
 			before(function () {
-				return browser.click('.SNPCodeListItem');
+				return browser.click('.SNPCollectListItem');
 			});
 
 			before(function () {
-				return browser.fill('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncCreateDocument');
+				return browser.fill('.SNPCollectDetailFormNameField', 'FakeZDRSchemaDispatchSyncCreateDocument');
 			});
 
 			before(function () {
@@ -51,7 +51,7 @@ describe('SNPCode_Sync', function () {
 			});
 
 			it('updates detail', function () {
-				browser.assert.input('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
+				browser.assert.input('.SNPCollectDetailFormNameField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
 			});
 
 		});
@@ -65,7 +65,7 @@ describe('SNPCode_Sync', function () {
 		});
 
 		it('removes item', function () {
-			browser.assert.elements('.SNPCodeListItem', 0);
+			browser.assert.elements('.SNPCollectListItem', 0);
 		});
 
 		context('selected same', function () {
@@ -75,7 +75,7 @@ describe('SNPCode_Sync', function () {
 			});
 
 			before(function () {
-				return browser.click('.SNPCodeListItem');
+				return browser.click('.SNPCollectListItem');
 			});
 
 			before(function () {
@@ -83,7 +83,7 @@ describe('SNPCode_Sync', function () {
 			});
 
 			it('clears detail', function () {
-				browser.assert.elements('.SNPCodeDetail', 0);
+				browser.assert.elements('.SNPCollectDetail', 0);
 			});
 		
 		});
@@ -97,11 +97,11 @@ describe('SNPCode_Sync', function () {
 		});
 
 		before(function () {
-			return browser.click('.SNPCodeListItem');
+			return browser.click('.SNPCollectListItem');
 		});
 
 		before(function () {
-			return browser.fill('.SNPCodeDetailFormNameField', 'FakeZDRSchemaDispatchSyncConflictDocument');
+			return browser.fill('.SNPCollectDetailFormNameField', 'FakeZDRSchemaDispatchSyncConflictDocument');
 		});
 
 		before(function () {
@@ -109,7 +109,7 @@ describe('SNPCode_Sync', function () {
 		});
 
 		it('selects local', function () {
-			browser.assert.text('.SNPCodeListItem', 'FakeZDRSchemaDispatchSyncConflictDocument-local');
+			browser.assert.text('.SNPCollectListItem', 'FakeZDRSchemaDispatchSyncConflictDocument-local');
 		});
 
 	});

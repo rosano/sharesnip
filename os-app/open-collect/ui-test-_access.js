@@ -1,55 +1,55 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPCodeLogic = require('./ui-logic.js').default;
+const SNPCollectLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
 Object.entries({
-	SNPCode: '.SNPCode',
+	SNPCollect: '.SNPCollect',
 	
-	SNPCodeToggleFormButton: '.SNPCodeToggleFormButton',
-	SNPCodeToggleFormButtonImage: '.SNPCodeToggleFormButtonImage',
+	SNPCollectToggleFormButton: '.SNPCollectToggleFormButton',
+	SNPCollectToggleFormButtonImage: '.SNPCollectToggleFormButtonImage',
 
-	SNPCodeListItem: '.SNPCodeListItem',
+	SNPCollectListItem: '.SNPCollectListItem',
 
-	SNPCodeViewportFooter: '.SNPCodeViewportFooter',
+	SNPCollectViewportFooter: '.SNPCollectViewportFooter',
 	
-	SNPCodeCloudToolbar: '.SNPCodeCloudToolbar',
+	SNPCollectCloudToolbar: '.SNPCollectCloudToolbar',
 	
 	SNPMakeModal: '.OLSKModalView .SNPMake',
 	
-	SNPCodeShareModal: '.OLSKModalView .SNPCodeShare',
+	SNPCollectShareModal: '.OLSKModalView .SNPCollectShare',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCode_Access', function () {
+describe('SNPCollect_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	it('shows SNPCode', function () {
-		browser.assert.elements(SNPCode, 1);
+	it('shows SNPCollect', function () {
+		browser.assert.elements(SNPCollect, 1);
 	});
 
 	it('shows OLSKCatalog', function () {
 		browser.assert.elements('.OLSKCatalog', 1);
 	});
 
-	it('shows SNPCodeToggleFormButton', function () {
-		browser.assert.elements(SNPCodeToggleFormButton, 1);
+	it('shows SNPCollectToggleFormButton', function () {
+		browser.assert.elements(SNPCollectToggleFormButton, 1);
 	});
 
-	it('shows SNPCodeToggleFormButtonImage', function () {
-		browser.assert.elements(SNPCodeToggleFormButtonImage, 1);
+	it('shows SNPCollectToggleFormButtonImage', function () {
+		browser.assert.elements(SNPCollectToggleFormButtonImage, 1);
 	});
 
-	it('shows SNPCodeViewportFooter', function () {
-		browser.assert.elements(SNPCodeViewportFooter, 1);
+	it('shows SNPCollectViewportFooter', function () {
+		browser.assert.elements(SNPCollectViewportFooter, 1);
 	});
 
-	it('hides SNPCodeCloudToolbar', function () {
-		browser.assert.elements(SNPCodeCloudToolbar, 0);
+	it('hides SNPCollectCloudToolbar', function () {
+		browser.assert.elements(SNPCollectCloudToolbar, 0);
 	});
 
 	it('shows OLSKAppToolbar', function () {
@@ -80,12 +80,12 @@ describe('SNPCode_Access', function () {
 		browser.assert.elements(SNPMakeModal, 0);
 	});
 
-	it('hides SNPCodeShareModal', function () {
-		browser.assert.elements(SNPCodeShareModal, 0);
+	it('hides SNPCollectShareModal', function () {
+		browser.assert.elements(SNPCollectShareModal, 0);
 	});
 
-	it('hides SNPCodeDetailLauncherFakeItemProxy', function () {
-		return browser.assert.OLSKLauncherItems('SNPCodeDetailLauncherFakeItemProxy', 0);
+	it('hides SNPCollectDetailLauncherFakeItemProxy', function () {
+		return browser.assert.OLSKLauncherItems('SNPCollectDetailLauncherFakeItemProxy', 0);
 	});
 
 	it('shows ZDRLauncherFakeItemProxy', function () {
@@ -130,8 +130,8 @@ describe('SNPCode_Access', function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
-		it('shows SNPCodeCloudToolbar', function () {
-			browser.assert.elements(SNPCodeCloudToolbar, 1);
+		it('shows SNPCollectCloudToolbar', function () {
+			browser.assert.elements(SNPCollectCloudToolbar, 1);
 		});
 
 		it('shows OLSKCloud', function () {
@@ -169,7 +169,7 @@ describe('SNPCode_Access', function () {
 	context('create', function test_create() {
 
 		before(function () {
-			return browser.pressButton('.SNPCodeToggleFormButton');
+			return browser.pressButton('.SNPCollectToggleFormButton');
 		});
 
 		it('shows SNPMakeModal', function () {
@@ -183,7 +183,7 @@ describe('SNPCode_Access', function () {
 			});
 			
 			before(function () {
-				return browser.fill('.SNPCodeFormDataField', Math.random().toString());
+				return browser.fill('.SNPCollectFormDataField', Math.random().toString());
 			});
 
 			before(function () {
@@ -201,11 +201,11 @@ describe('SNPCode_Access', function () {
 	context('select', function test_select() {
 
 		before(function () {
-			return browser.click(SNPCodeListItem);
+			return browser.click(SNPCollectListItem);
 		});
 
-		it('shows SNPCodeDetailLauncherFakeItemProxy', function () {
-			return browser.assert.OLSKLauncherItems('SNPCodeDetailLauncherFakeItemProxy', 1);
+		it('shows SNPCollectDetailLauncherFakeItemProxy', function () {
+			return browser.assert.OLSKLauncherItems('SNPCollectDetailLauncherFakeItemProxy', 1);
 		});
 	
 	});

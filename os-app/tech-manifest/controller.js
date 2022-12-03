@@ -7,7 +7,7 @@ exports.OLSKControllerRoutes = function() {
 			return res.json({
 				name: 'Sharesnip',
 				short_name: 'Sharesnip',
-				start_url: res.locals.OLSKCanonical('SNPCodeRoute'),
+				start_url: res.locals.OLSKCanonical('SNPCollectRoute'),
 				display: 'standalone',
 				background_color: 'black',
 				theme_color: 'black',

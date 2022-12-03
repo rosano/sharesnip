@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCode_Catalog', function () {
+describe('SNPCollect_Catalog', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -13,7 +13,7 @@ describe('SNPCode_Catalog', function () {
 		});
 
 		it('adds item', function () {
-			browser.assert.elements(SNPCodeListItem, 1);
+			browser.assert.elements(SNPCollectListItem, 1);
 		});
 	
 	});
@@ -25,15 +25,15 @@ describe('SNPCode_Catalog', function () {
 		});
 
 		before(function () {
-			browser.assert.elements('.SNPCodeDetail', 0);
+			browser.assert.elements('.SNPCollectDetail', 0);
 		});
 
 		before(function () {
-			return browser.click(SNPCodeListItem);
+			return browser.click(SNPCollectListItem);
 		});
 
 		it('selects item', function () {
-			browser.assert.elements('.SNPCodeDetail', 1);
+			browser.assert.elements('.SNPCollectDetail', 1);
 		});
 	
 	});
@@ -41,7 +41,7 @@ describe('SNPCode_Catalog', function () {
 	context('back', function test_back () {
 
 		before(function () {
-			return browser.pressButton('.SNPCodeDetailToolbarBackButton');
+			return browser.pressButton('.SNPCollectDetailToolbarBackButton');
 		});
 
 		it('sets focus', function () {
@@ -56,7 +56,7 @@ describe('SNPCode_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
+					browser.pressButton('.SNPCollectDetailToolbarDiscardButton');
 				}, function (dialog) {
 					dialog.response = false;
 
@@ -65,7 +65,7 @@ describe('SNPCode_Catalog', function () {
 			});
 
 			it('does nothing', function () {
-				browser.assert.elements('.SNPCodeDetail', 1);
+				browser.assert.elements('.SNPCollectDetail', 1);
 			});
 		
 		});
@@ -74,12 +74,12 @@ describe('SNPCode_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					return browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
+					return browser.pressButton('.SNPCollectDetailToolbarDiscardButton');
 				});
 			});
 
 			it('removes item', function () {
-				browser.assert.elements(SNPCodeListItem, 0);
+				browser.assert.elements(SNPCollectListItem, 0);
 			});
 		
 		});
@@ -97,7 +97,7 @@ describe('SNPCode_Catalog', function () {
 		});
 
 		before(function () {
-			return browser.click(SNPCodeListItem);
+			return browser.click(SNPCollectListItem);
 		});
 
 		before(function () {

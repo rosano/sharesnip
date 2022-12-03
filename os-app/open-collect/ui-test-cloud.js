@@ -4,7 +4,7 @@ const uLocalized = function (inputData) {
 	return OLSKTestingLocalized(inputData, 'en');
 };
 
-describe('SNPCode_Cloud', function () {
+describe('SNPCollect_Cloud', function () {
 
 	describe('OLSKAppToolbar', function test_OLSKAppToolbar() {
 

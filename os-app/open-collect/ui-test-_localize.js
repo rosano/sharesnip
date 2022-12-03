@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPCodeLogic = require('./ui-logic.js').default;
+const SNPCollectLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
 kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
@@ -9,7 +9,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('SNPCode_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPCollect_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -18,11 +18,11 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		});
 
 		it('localizes title', function() {
-			browser.assert.text('title', uLocalized('SNPCodeTitle'));
+			browser.assert.text('title', uLocalized('SNPCollectTitle'));
 		});
 
-		it('localizes SNPCodeToggleFormButton', function () {
-			browser.assert.attribute(SNPCodeToggleFormButton, 'title', uLocalized('SNPCodeToggleFormButtonText'));
+		it('localizes SNPCollectToggleFormButton', function () {
+			browser.assert.attribute(SNPCollectToggleFormButton, 'title', uLocalized('SNPCollectToggleFormButtonText'));
 		});
 
 		describe('OLSKAppToolbarLauncherButton', function test_OLSKAppToolbarLauncherButton () {
@@ -110,7 +110,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			before(function () {
-				return browser.pressButton('.SNPCodeToggleFormButton');
+				return browser.pressButton('.SNPCollectToggleFormButton');
 			});
 
 			it('sets OLSKModalViewTitleText', function () {
@@ -123,7 +123,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe.skip('SNPCodeShareModal', function test_SNPCodeShareModal() {
+		describe.skip('SNPCollectShareModal', function test_SNPCollectShareModal() {
 
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
@@ -144,7 +144,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			it('sets OLSKModalViewTitleText', function () {
-				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPCodeShareModalTitleText'));
+				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPCollectShareModalTitleText'));
 			});
 
 		});

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCode_Transport', function () {	
+describe('SNPCollect_Transport', function () {	
 
 	const json = {};
 
@@ -38,7 +38,7 @@ describe('SNPCode_Transport', function () {
 		});
 
 		it('creates item', function () {
-			browser.assert.text('.SNPCodeListItemTitle', SNPDocumentName);
+			browser.assert.text('.SNPCollectListItemTitle', SNPDocumentName);
 		});
 
 	});

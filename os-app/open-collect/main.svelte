@@ -17,7 +17,7 @@ const uSerial2 = function (inputData) {
 import SNPDocument from '../_shared/SNPDocument/main.js';
 import SNPSetting from '../_shared/SNPSetting/main.js';
 import SNPTransport from '../_shared/SNPTransport/main.js';
-import SNPCodeLogic from './ui-logic.js';
+import SNPCollectLogic from './ui-logic.js';
 import OLSKThrottle from 'OLSKThrottle';
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 import OLSKObject from 'OLSKObject';
@@ -171,8 +171,8 @@ const mod = {
 
 		outputData.push(...OLSKServiceWorker.OLSKServiceWorkerRecipes(window, mod.DataNavigator(), OLSKLocalized, OLSK_SPEC_UI()));
 
-		if (mod._SNPCodeDetail) {
-			outputData.push(...mod._SNPCodeDetail.modPublic.SNPCodeDetailRecipes());
+		if (mod._SNPCollectDetail) {
+			outputData.push(...mod._SNPCollectDetail.modPublic.SNPCollectDetailRecipes());
 		}
 
 		return outputData;
@@ -221,7 +221,7 @@ const mod = {
 	
 	_ControlHotfixUpdateInPlace(inputData) {
 		mod.ControlDocumentActivate(inputData);
-		mod._SNPCodeDetail.modPublic._SNPCodeDetailTriggerUpdate();
+		mod._SNPCollectDetail.modPublic._SNPCollectDetailTriggerUpdate();
 	},
 	
 	ControlDocumentActivate(inputData) {
@@ -241,7 +241,7 @@ const mod = {
 	},
 
 	ControlDocumentClone (inputData) {
-		mod.ControlDocumentAdd(SNPCodeLogic.SNPCodeCloned(inputData));
+		mod.ControlDocumentAdd(SNPCollectLogic.SNPCollectCloned(inputData));
 	},
 	
 	ControlDocumentDiscard (inputData) {
@@ -265,7 +265,7 @@ const mod = {
 	},
 
 	OLSKCatalogDispatchDetailActivate () {
-		document.querySelector('.SNPCodeDetailToolbarBackButton').focus();
+		document.querySelector('.SNPCollectDetailToolbarBackButton').focus();
 	},
 	
 	OLSKCatalogDispatchQuantity (inputData) {
@@ -323,25 +323,25 @@ const mod = {
 		});
 	},
 
-	SNPCodeFormDidSubmit (inputData) {
+	SNPCollectFormDidSubmit (inputData) {
 		mod._SNPMakeModal.modPublic.OLSKModalViewClose();
 
 		mod.ControlDocumentAdd(inputData);
 	},
 
-	SNPCodeDetailDispatchBack () {
+	SNPCollectDetailDispatchBack () {
 		mod._OLSKCatalog.modPublic.OLSKCatalogFocusMaster();
 	},
 
-	SNPCodeDetailDispatchUpdate () {
+	SNPCollectDetailDispatchUpdate () {
 		mod.ControlDocumentSave(mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected()));
 	},
 
-	SNPCodeDetailDispatchClone () {
+	SNPCollectDetailDispatchClone () {
 		mod.ControlDocumentClone(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPCodeDetailDispatchDiscard () {
+	SNPCollectDetailDispatchDiscard () {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
@@ -473,7 +473,7 @@ const mod = {
 	// REACT
 
 	ReactDocumentLimit () {
-		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(SNPCodeLogic.SNPCodeDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
+		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(SNPCollectLogic.SNPCollectDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
 	},
 
 	// SETUP
@@ -618,8 +618,8 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleWillMount);
 
 import OLSKCatalog from 'OLSKCatalog';
-import SNPCodeListItem from '../sub-item/main.svelte';
-import SNPCodeDetail from '../sub-detail/main.svelte';
+import SNPCollectListItem from '../sub-item/main.svelte';
+import SNPCollectDetail from '../sub-detail/main.svelte';
 import SNPMake from '../sub-make/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
@@ -632,18 +632,18 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 <svelte:window on:keydown={ mod.InterfaceWindowDidKeydown } />
 
-<div class="SNPCode OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
+<div class="SNPCollect OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
 
 <div class="OLSKViewportContent">
 
 <OLSKCatalog
 	bind:this={ mod._OLSKCatalog }
 
-	OLSKCollectionItemAccessibilitySummaryFunction={ SNPCodeLogic.SNPCodeAccessibilitySummary }
+	OLSKCollectionItemAccessibilitySummaryFunction={ SNPCollectLogic.SNPCollectAccessibilitySummary }
 	OLSKCollectionItemClass={ 'OLSKCommonEdgeBottom' }
 
-	OLSKCatalogSortFunction={ SNPCodeLogic.SNPCodeSortFunction }
-	OLSKCatalogIsMatch={ SNPCodeLogic.SNPCodeIsMatch }
+	OLSKCatalogSortFunction={ SNPCollectLogic.SNPCollectSortFunction }
+	OLSKCatalogIsMatch={ SNPCollectLogic.SNPCollectIsMatch }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
 
@@ -658,27 +658,27 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER -->
 
 	<div class="OLSKToolbarElementGroup" slot="OLSKNarrowToolbarTail">
-		<button class="SNPCodeToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
-			<div class="SNPCodeToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
+		<button class="SNPCollectToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCollectToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
+			<div class="SNPCollectToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
 		</button>
 	</div>
 
 	<!-- MASTER LIST ITEM -->
 
 	<div slot="OLSKCollectionItem">
-		<SNPCodeListItem SNPCodeListItemObject={ OLSKCollectionItem } />
+		<SNPCollectListItem SNPCollectListItemObject={ OLSKCollectionItem } />
 	</div>
 
 	<!-- DETAIL -->
 	
-	<div class="SNPCodeDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
-		<SNPCodeDetail
-			SNPCodeDetailItem={ OLSKCatalogItemSelected }
-			SNPCodeDetailDispatchBack={ mod.SNPCodeDetailDispatchBack }
-			SNPCodeDetailDispatchUpdate={ mod.SNPCodeDetailDispatchUpdate }
-			SNPCodeDetailDispatchClone={ mod.SNPCodeDetailDispatchClone }
-			SNPCodeDetailDispatchDiscard={ mod.SNPCodeDetailDispatchDiscard }
-			bind:this={ mod._SNPCodeDetail }
+	<div class="SNPCollectDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
+		<SNPCollectDetail
+			SNPCollectDetailItem={ OLSKCatalogItemSelected }
+			SNPCollectDetailDispatchBack={ mod.SNPCollectDetailDispatchBack }
+			SNPCollectDetailDispatchUpdate={ mod.SNPCollectDetailDispatchUpdate }
+			SNPCollectDetailDispatchClone={ mod.SNPCollectDetailDispatchClone }
+			SNPCollectDetailDispatchDiscard={ mod.SNPCollectDetailDispatchDiscard }
+			bind:this={ mod._SNPCollectDetail }
 			/>
 	</div>
 
@@ -686,10 +686,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-<footer class="SNPCodeViewportFooter OLSKMobileViewFooter">
+<footer class="SNPCollectViewportFooter OLSKMobileViewFooter">
 
 	{#if !mod._ValueCloudToolbarHidden }
-		<div class="SNPCodeCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
+		<div class="SNPCollectCloudToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop">
 			<div class="OLSKToolbarElementGroup">
 			</div>
 
@@ -743,6 +743,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPMakeModal }>
 	<div>
-		<SNPMake SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
+		<SNPMake SNPCollectFormDidSubmit={ mod.SNPCollectFormDidSubmit } />
 	</div>
 </OLSKModalView>

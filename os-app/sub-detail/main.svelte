@@ -1,14 +1,14 @@
 <script>
-export let SNPCodeDetailItem;
-export let SNPCodeDetailDispatchBack;
-export let SNPCodeDetailDispatchUpdate;
-export let SNPCodeDetailDispatchClone;
-export let SNPCodeDetailDispatchDiscard;
+export let SNPCollectDetailItem;
+export let SNPCollectDetailDispatchBack;
+export let SNPCollectDetailDispatchUpdate;
+export let SNPCollectDetailDispatchClone;
+export let SNPCollectDetailDispatchDiscard;
 export let _DebugLauncher = false;
 
 export const modPublic = {
 
-	SNPCodeDetailRecipes () {
+	SNPCollectDetailRecipes () {
 		return mod.DataCodeDetailRecipes();
 	},
 
@@ -29,8 +29,8 @@ const mod = {
 
 		if (OLSK_SPEC_UI()) {
 			outputData.push({
-				LCHRecipeName: 'SNPCodeDetailLauncherFakeItemProxy',
-				LCHRecipeCallback: function SNPCodeDetailLauncherFakeItemProxy () {},
+				LCHRecipeName: 'SNPCollectDetailLauncherFakeItemProxy',
+				LCHRecipeCallback: function SNPCollectDetailLauncherFakeItemProxy () {},
 			});
 		}
 
@@ -58,63 +58,63 @@ const mod = {
 			return;
 		}
 
-		if (!mod._SNPCodeDetailQR) {
+		if (!mod._SNPCollectDetailQR) {
 			return;
 		}
 
-		mod._SNPCodeDetailQR.childNodes.forEach(function (e) {
-			mod._SNPCodeDetailQR.removeChild(e);
+		mod._SNPCollectDetailQR.childNodes.forEach(function (e) {
+			mod._SNPCollectDetailQR.removeChild(e);
 		});
 
-		mod._SNPCodeDetailQR.appendChild(kjua({
+		mod._SNPCollectDetailQR.appendChild(kjua({
 			render: 'canvas',
 			ecLevel: 'H',
 			size: 420,
 			rounded: 100,
 			fill: 'rgb(255, 128, 0)',
 			back: '#FFF9E5',
-			text: SNPCodeDetailItem.SNPDocumentData,
+			text: SNPCollectDetailItem.SNPDocumentData,
 		}));
 	},
 
 };
 
 $: {
-	mod.ReactItem(SNPCodeDetailItem.SNPDocumentID)
+	mod.ReactItem(SNPCollectDetailItem.SNPDocumentID)
 }
 
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
-<div class="SNPCodeDetail ROCOStandardView">
+<div class="SNPCollectDetail ROCOStandardView">
 
-<header class="SNPCodeDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
+<header class="SNPCollectDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
 	<div class="OLSKToolbarElementGroup">
-		<button class="SNPCodeDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile OLSKVisibilityDesktopScreenreader" title={ OLSKLocalized('SNPCodeDetailToolbarBackButtonText') } on:click={ SNPCodeDetailDispatchBack }>
-			<div class="SNPCodeDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
+		<button class="SNPCollectDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile OLSKVisibilityDesktopScreenreader" title={ OLSKLocalized('SNPCollectDetailToolbarBackButtonText') } on:click={ SNPCollectDetailDispatchBack }>
+			<div class="SNPCollectDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
 		</button>
 	</div>
 
 	<div class="OLSKToolbarElementGroup">
-		<button class="SNPCodeDetailToolbarCloneButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarCloneButtonText') } on:click={ SNPCodeDetailDispatchClone }>
-			<div class="SNPCodeDetailToolbarCloneButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
+		<button class="SNPCollectDetailToolbarCloneButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCollectDetailToolbarCloneButtonText') } on:click={ SNPCollectDetailDispatchClone }>
+			<div class="SNPCollectDetailToolbarCloneButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
 		</button>
 
-		<button class="SNPCodeDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCodeDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && SNPCodeDetailDispatchDiscard() }>
-			<div class="SNPCodeDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
+		<button class="SNPCollectDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('SNPCollectDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && SNPCollectDetailDispatchDiscard() }>
+			<div class="SNPCollectDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
 </header>
 
 <div class="ROCOStandardViewBody">
 
-<div class="SNPCodeDetailForm OLSKDecor OLSKDecorBigForm">
+<div class="SNPCollectDetailForm OLSKDecor OLSKDecorBigForm">
 
 <p>
-	<input class="SNPCodeDetailFormNameField" placeholder={ OLSKLocalized('SNPCodeDetailFormNameFieldText') } type="text" bind:value={ SNPCodeDetailItem.SNPDocumentName } on:input={ SNPCodeDetailDispatchUpdate } disabled={ SNPCodeDetailItem.$SNPDocumentIsInbox ? true : null } />
+	<input class="SNPCollectDetailFormNameField" placeholder={ OLSKLocalized('SNPCollectDetailFormNameFieldText') } type="text" bind:value={ SNPCollectDetailItem.SNPDocumentName } on:input={ SNPCollectDetailDispatchUpdate } disabled={ SNPCollectDetailItem.$SNPDocumentIsInbox ? true : null } />
 </p>
 
-<div class="SNPCodeDetailQR" bind:this={ mod._SNPCodeDetailQR }></div>
+<div class="SNPCollectDetailQR" bind:this={ mod._SNPCollectDetailQR }></div>
 
 </div>
 
@@ -128,11 +128,11 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <style type="text/css">
 @media (max-width: 450px) {
-	.SNPCodeDetailQR {
+	.SNPCollectDetailQR {
 		width: 100%;
 	}
 
-	.SNPCodeDetailQR :global(*) {
+	.SNPCollectDetailQR :global(*) {
 		height: unset !important;
 		width: 100% !important;
 	}

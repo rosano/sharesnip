@@ -1,8 +1,8 @@
 <script>
-export let SNPCodeFormObject = {};
-export let SNPCodeFormDidFill;
-export let SNPCodeFormNotValid;
-export let SNPCodeFormValid;
+export let SNPCollectFormObject = {};
+export let SNPCollectFormDidFill;
+export let SNPCollectFormNotValid;
+export let SNPCollectFormValid;
 
 import OLSKLink from 'OLSKLink';
 import { OLSKLocalized } from 'OLSKInternational';
@@ -15,9 +15,9 @@ const mod = {
 		const item = {
 			SNPDocumentData: this.value.trim(),
 		};
-		SNPCodeFormDidFill(item);
+		SNPCollectFormDidFill(item);
 
-		OLSKLink.OLSKLinkValid(item.SNPDocumentData) ? SNPCodeFormValid(item) : SNPCodeFormNotValid();
+		OLSKLink.OLSKLinkValid(item.SNPDocumentData) ? SNPCollectFormValid(item) : SNPCollectFormNotValid();
 	},
 
 };
@@ -25,6 +25,6 @@ const mod = {
 
 <div class="SNPFormLink">
 
-<input class="SNPFormLinkField SNPCodeFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCodeFormObject.SNPDocumentData || ''}>
+<input class="SNPFormLinkField SNPCollectFormDataField" type="url" required autofocus placeholder="https://example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPCollectFormObject.SNPDocumentData || ''}>
 
 </div>

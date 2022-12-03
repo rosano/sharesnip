@@ -1,20 +1,20 @@
 <script>
-export let SNPCodeListItemObject;
+export let SNPCollectListItemObject;
 </script>
 
-<div class="SNPCodeListItem">
+<div class="SNPCollectListItem">
 
-<span class="SNPCodeListItemTitle">{ SNPCodeListItemObject.SNPDocumentName }</span>
+<span class="SNPCollectListItemTitle">{ SNPCollectListItemObject.SNPDocumentName }</span>
 
 </div>
 
 <style>
-.SNPCodeListItem {
+.SNPCollectListItem {
 	min-height: 46px;
 	padding: 10px;
 }
 
-.SNPCodeListItemTitle {
+.SNPCollectListItemTitle {
 	font-weight: bold;
 }
 </style>

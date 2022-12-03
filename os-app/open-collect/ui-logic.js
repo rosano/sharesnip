@@ -8,7 +8,7 @@ const uDescending = function (a, b) {
 
 const mod = {
 
-	SNPCodeAccessibilitySummary (inputData) {
+	SNPCollectAccessibilitySummary (inputData) {
 		if (SNPDocument.SNPDocumentErrors(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -16,7 +16,7 @@ const mod = {
 		return OLSKString.OLSKStringSnippet(inputData.SNPDocumentName);
 	},
 
-	SNPCodeSortFunction (a, b, log) {
+	SNPCollectSortFunction (a, b, log) {
 		return (function(e) {
 			return uDescending(a[e], b[e]);
 		})(['SNPDocumentModificationDate'].filter(function (e) {
@@ -24,7 +24,7 @@ const mod = {
 		}).shift());
 	},
 
-	SNPCodeIsMatch (param1, param2) {
+	SNPCollectIsMatch (param1, param2) {
 		if (typeof param2 !== 'string') {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -34,7 +34,7 @@ const mod = {
 		}).length;
 	},
 
-	SNPCodeDocumentCount (inputData) {
+	SNPCollectDocumentCount (inputData) {
 		if (!Array.isArray(inputData)) {
 			throw new Error('SNPErrorInputNotValid');
 		}
@@ -48,7 +48,7 @@ const mod = {
 		}, 0);
 	},
 
-	SNPCodeCloned (inputData) {
+	SNPCollectCloned (inputData) {
 		if (typeof inputData !== 'object' || inputData === null) {
 			throw new Error('SNPErrorInputNotValid');
 		}

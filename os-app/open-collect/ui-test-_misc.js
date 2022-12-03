@@ -1,9 +1,9 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPCodeLogic = require('./ui-logic.js').default;
+const SNPCollectLogic = require('./ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
-describe('SNPCode_Misc', function () {
+describe('SNPCollect_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -25,38 +25,38 @@ describe('SNPCode_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
-	describe('SNPCode', function test_SNPCode () {
+	describe('SNPCollect', function test_SNPCollect () {
 		
 		it('classes OLSKDecorFormBlend', function () {
-			browser.assert.hasClass(SNPCode, 'OLSKDecorFormBlend');
+			browser.assert.hasClass(SNPCollect, 'OLSKDecorFormBlend');
 		});
 
 	});
 
-	describe('SNPCodeToggleFormButton', function test_SNPCodeToggleFormButton () {
+	describe('SNPCollectToggleFormButton', function test_SNPCollectToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPCollectToggleFormButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPCollectToggleFormButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(SNPCodeToggleFormButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(SNPCollectToggleFormButton, 'OLSKToolbarButton');
 		});
 		
 		it('sets accesskey', function () {
-			browser.assert.attribute(SNPCodeToggleFormButton, 'accesskey', 'n');
+			browser.assert.attribute(SNPCollectToggleFormButton, 'accesskey', 'n');
 		});
 	
 	});
 
-	describe('SNPCodeToggleFormButtonImage', function test_SNPCodeToggleFormButtonImage () {
+	describe('SNPCollectToggleFormButtonImage', function test_SNPCollectToggleFormButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPCodeToggleFormButtonImage } #_OLSKSharedCreate`, 1);
+			browser.assert.elements(`${ SNPCollectToggleFormButtonImage } #_OLSKSharedCreate`, 1);
 		});
 	
 	});
@@ -76,15 +76,15 @@ describe('SNPCode_Misc', function () {
 	context('select', function test_select () {
 		
 		before(function () {
-			return browser.click(SNPCodeListItem);
+			return browser.click(SNPCollectListItem);
 		});
 
-		it('sets SNPCodeListItemSelected', function () {
+		it('sets SNPCollectListItemSelected', function () {
 			browser.assert.elements('.OLSKCollectionItemLocus', 1);
 		});
 
-		it('sets SNPCodeDetailItem', function () {
-			browser.assert.elements('.SNPCodeDetail', 1);
+		it('sets SNPCollectDetailItem', function () {
+			browser.assert.elements('.SNPCollectDetail', 1);
 		});
 
 	});
@@ -92,27 +92,27 @@ describe('SNPCode_Misc', function () {
 	context('clone', function test_clone () {
 
 		before(function () {
-			return browser.fill(SNPCodeDetailFormNameField, 'alfa');
+			return browser.fill(SNPCollectDetailFormNameField, 'alfa');
 		});
 
 		before(function () {
-			return browser.pressButton('.SNPCodeDetailToolbarCloneButton');
+			return browser.pressButton('.SNPCollectDetailToolbarCloneButton');
 		});
 
 		it('creates item', function () {
-			browser.assert.elements('.SNPCodeListItem', 2);
+			browser.assert.elements('.SNPCollectListItem', 2);
 		});
 
 		it('copies properties from previous item', function () {
-			browser.assert.text('.SNPCodeListItem', 'alfaalfa');
+			browser.assert.text('.SNPCollectListItem', 'alfaalfa');
 		});
 
 	});
 
-	describe('SNPCodeViewportFooter', function test_SNPCodeViewportFooter () {
+	describe('SNPCollectViewportFooter', function test_SNPCollectViewportFooter () {
 
 		it('classes OLSKMobileViewFooter', function () {
-			browser.assert.hasClass(SNPCodeViewportFooter, 'OLSKMobileViewFooter');
+			browser.assert.hasClass(SNPCollectViewportFooter, 'OLSKMobileViewFooter');
 		});
 
 	});
@@ -141,22 +141,22 @@ describe('SNPCode_Misc', function () {
 
 	});
 
-	describe('SNPCodeCloudToolbar', function test_SNPCodeCloudToolbar () {
+	describe('SNPCollectCloudToolbar', function test_SNPCollectCloudToolbar () {
 
 		before(function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(SNPCollectCloudToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(SNPCollectCloudToolbar, 'OLSKToolbarJustify');
 		});
 		
 		it('classes OLSKCommonEdgeTop', function () {
-			browser.assert.hasClass(SNPCodeCloudToolbar, 'OLSKCommonEdgeTop');
+			browser.assert.hasClass(SNPCollectCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
 	});

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe.skip('SNPCode_Fund', function () {
+describe.skip('SNPCollect_Fund', function () {
 
 	require('OLSKFund/ui-test_template').default({
 		kDefaultRoute,
@@ -15,7 +15,7 @@ describe.skip('SNPCode_Fund', function () {
 			await browser.click('.OLSKCollectionItem');
 
 			return browser.OLSKConfirm(function () {
-				return browser.pressButton('.SNPCodeDetailToolbarDiscardButton');
+				return browser.pressButton('.SNPCollectDetailToolbarDiscardButton');
 			});
 		},
 

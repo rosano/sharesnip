@@ -1,27 +1,27 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPCodeListItem: '.SNPCodeListItem',
+	SNPCollectListItem: '.SNPCollectListItem',
 
-	SNPCodeListItemTitle: '.SNPCodeListItemTitle',
+	SNPCollectListItemTitle: '.SNPCollectListItemTitle',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCodeListItem_Access', function () {
+describe('SNPCollectListItem_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeListItemObject: JSON.stringify(StubDocumentObjectValid()),
+			SNPCollectListItemObject: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows SNPCodeListItem', function () {
-		browser.assert.elements(SNPCodeListItem, 1);
+	it('shows SNPCollectListItem', function () {
+		browser.assert.elements(SNPCollectListItem, 1);
 	});
 
-	it('shows SNPCodeListItemTitle', function () {
-		browser.assert.elements(SNPCodeListItemTitle, 1);
+	it('shows SNPCollectListItemTitle', function () {
+		browser.assert.elements(SNPCollectListItemTitle, 1);
 	});
 
 });

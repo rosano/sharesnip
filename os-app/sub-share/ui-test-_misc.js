@@ -1,9 +1,9 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const SNPCodeLogic = require('../open-collect/ui-logic.js').default;
+const SNPCollectLogic = require('../open-collect/ui-logic.js').default;
 const OLSKObject = require('OLSKObject');
 
-describe('SNPCodeShare_Misc', function () {
+describe('SNPCollectShare_Misc', function () {
 
 	const items = [StubDocumentObjectValid(), StubDocumentObjectValid()];
 
@@ -13,30 +13,30 @@ describe('SNPCodeShare_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCodeShareItems: JSON.stringify(items),
+			SNPCollectShareItems: JSON.stringify(items),
 		});
 	});
 
-	describe('SNPCodeShareLinkField', function test_SNPCodeShareLinkField () {
+	describe('SNPCollectShareLinkField', function test_SNPCollectShareLinkField () {
 
 		it('sets type', function () {
-			browser.assert.attribute(SNPCodeShareLinkField, 'type', 'text');
+			browser.assert.attribute(SNPCollectShareLinkField, 'type', 'text');
 		});
 		
 		it('sets onClick', function () {
-			browser.assert.attribute(SNPCodeShareLinkField, 'onClick', 'this.select()');
+			browser.assert.attribute(SNPCollectShareLinkField, 'onClick', 'this.select()');
 		});
 
 		it('sets value', function () {
-			browser.assert.input(SNPCodeShareLinkField, uValue(items));
+			browser.assert.input(SNPCollectShareLinkField, uValue(items));
 		});
 		
 	});
 
-	describe('SNPCodeShareCopyButton', function test_SNPCodeShareCopyButton () {
+	describe('SNPCollectShareCopyButton', function test_SNPCollectShareCopyButton () {
 
 		it('sets data-clipboard-target', function () {
-			browser.assert.attribute(SNPCodeShareCopyButton, 'data-clipboard-target', '.SNPCodeShareLinkField');
+			browser.assert.attribute(SNPCollectShareCopyButton, 'data-clipboard-target', '.SNPCollectShareLinkField');
 		});
 		
 	});

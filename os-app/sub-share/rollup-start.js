@@ -1,11 +1,11 @@
 import RollupStart from './main.svelte';
 
-const SNPCodeShare = new RollupStart({
+const SNPCollectShare = new RollupStart({
 	target: document.body,
 	props: Object.assign({
-		SNPCodeShareItems: [],
+		SNPCollectShareItems: [],
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
-		if (['SNPCodeShareItems'].includes(e[0])) {
+		if (['SNPCollectShareItems'].includes(e[0])) {
 			e[1] = JSON.parse(e[1]);
 		}
 
@@ -13,4 +13,4 @@ const SNPCodeShare = new RollupStart({
 	}))),
 });
 
-export default SNPCodeShare;
+export default SNPCollectShare;
