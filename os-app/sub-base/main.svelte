@@ -1,5 +1,7 @@
 <script>
 export let SNPCodeFormBaseObject;
+export let SNPCodeFormNotValid;
+export let SNPCodeFormValid;
 export let SNPCodeFormDidFill;
 export let SNPCodeFormDidSubmit;
 
@@ -24,12 +26,16 @@ const mod = {
 		delete mod._ValueChildObject;
 
 		mod.SNPCodeFormBaseSaveButton.disabled = true;
+
+		SNPCodeFormNotValid();
 	},
 
 	SNPCodeFormValid (inputData) {
 		mod._ValueChildObject = inputData;
 
 		mod.SNPCodeFormBaseSaveButton.disabled = null;
+
+		SNPCodeFormValid(inputData);
 	},
 
 	// REACT

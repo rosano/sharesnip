@@ -39,6 +39,12 @@ const mod = {
 
 	// MESSAGE
 
+	SNPCodeFormNotValid () {
+	},
+
+	SNPCodeFormValid (inputData) {
+	},
+
 	SNPCodeFormDidFill (inputData) {
 		mod._ValueDocumentsMap[mod._ValueObject.SNPDocumentType] = Object.assign(inputData, {
 			SNPDocumentType: mod._ValueObject.SNPDocumentType,
@@ -74,6 +80,6 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 
 </div>
 
-<SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
+<SNPCodeFormBase SNPCodeFormBaseObject={ mod._ValueObject } SNPCodeFormNotValid={ mod.SNPCodeFormNotValid } SNPCodeFormValid={ mod.SNPCodeFormValid } SNPCodeFormDidFill={ mod.SNPCodeFormDidFill } SNPCodeFormDidSubmit={ SNPCodeFormDidSubmit } />
 
 </div>

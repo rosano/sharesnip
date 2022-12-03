@@ -13,25 +13,46 @@ describe('SNPCodeFormBase_Misc', function () {
 		});
 
 		context('valid', function () {
+
+			const SNPDocumentData = Math.random().toString();
 			
 			before(function () {
-				return browser.fill('.SNPCodeFormDataField', Math.random().toString());
+				return browser.assert.text('#TestSNPCodeFormValid', '0');
+			});
+
+			before(function () {
+				return browser.fill('.SNPCodeFormDataField', SNPDocumentData);
 			});
 
 			it('sets disabled', function () {
 				browser.assert.attribute(SNPCodeFormBaseSaveButton, 'disabled', null);
 			});
+
+			it('sends SNPCodeFormValid', function () {
+				browser.assert.text('#TestSNPCodeFormValid', '1');
+				browser.assert.text('#TestSNPCodeFormValidData', JSON.stringify({
+					SNPDocumentData,
+				}));
+			});
 		
 		});
 
-		context('valid', function () {
+		context('not valid', function () {
 			
+			before(function () {
+				return browser.assert.text('#TestSNPCodeFormNotValid', '0');
+			});
+
 			before(function () {
 				return browser.fill('.SNPCodeFormDataField', '');
 			});
 
 			it('sets disabled', function () {
 				browser.assert.attribute(SNPCodeFormBaseSaveButton, 'disabled', '');
+			});
+
+			it('sends SNPCodeFormNotValid', function () {
+				browser.assert.text('#TestSNPCodeFormNotValid', '1');
 			});
 		
 		});

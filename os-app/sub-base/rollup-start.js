@@ -8,6 +8,13 @@ const SNPCodeFormBase = new RollupStart({
 			SNPDocumentName: '',
 			SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 		},
+		SNPCodeFormNotValid: (function  () {
+			window.TestSNPCodeFormNotValid.innerHTML = parseInt(window.TestSNPCodeFormNotValid.innerHTML) + 1;
+		}),
+		SNPCodeFormValid: (function  (inputData) {
+			window.TestSNPCodeFormValid.innerHTML = parseInt(window.TestSNPCodeFormValid.innerHTML) + 1;
+			window.TestSNPCodeFormValidData.innerHTML = JSON.stringify(inputData);
+		}),
 		SNPCodeFormDidFill: (function  (inputData) {
 			window.TestSNPCodeFormDidFill.innerHTML = parseInt(window.TestSNPCodeFormDidFill.innerHTML) + 1;
 			window.TestSNPCodeFormDidFillData.innerHTML = JSON.stringify(inputData);
