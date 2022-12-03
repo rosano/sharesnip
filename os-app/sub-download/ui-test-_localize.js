@@ -18,6 +18,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPDownloadHeading, uLocalized('SNPDownloadHeadingText'));
 		});
 
+		it('localizes SNPDownloadButton', function () {
+			browser.assert.text(SNPDownloadButton, uLocalized('OLSKWordingDownloadText'));
+		});
+
 	});
 
 });

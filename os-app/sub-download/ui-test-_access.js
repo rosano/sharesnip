@@ -4,6 +4,8 @@ Object.entries({
 	SNPDownload: '.SNPDownload',
 	
 	SNPDownloadHeading: '.SNPDownloadHeading',
+	
+	SNPDownloadButton: '.SNPDownloadButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -20,6 +22,10 @@ describe('SNPDownload_Access', function () {
 
 	it('shows SNPDownloadHeading', function () {
 		browser.assert.elements(SNPDownloadHeading, 1);
+	});
+
+	it('shows SNPDownloadButton', function () {
+		browser.assert.elements(SNPDownloadButton, 1);
 	});
 
 });
