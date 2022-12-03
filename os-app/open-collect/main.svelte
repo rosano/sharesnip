@@ -197,7 +197,7 @@ const mod = {
 			return mod.OLSKFundDocumentGate();
 		}
 		
-		mod._SNPCodeMakeModal.modPublic.OLSKModalViewShow();
+		mod._SNPMakeModal.modPublic.OLSKModalViewShow();
 	},
 
 	// CONTROL
@@ -324,7 +324,7 @@ const mod = {
 	},
 
 	SNPCodeFormDidSubmit (inputData) {
-		mod._SNPCodeMakeModal.modPublic.OLSKModalViewClose();
+		mod._SNPMakeModal.modPublic.OLSKModalViewClose();
 
 		mod.ControlDocumentAdd(inputData);
 	},
@@ -620,7 +620,7 @@ onMount(mod.LifecycleModuleWillMount);
 import OLSKCatalog from 'OLSKCatalog';
 import SNPCodeListItem from '../sub-item/main.svelte';
 import SNPCodeDetail from '../sub-detail/main.svelte';
-import SNPCodeMake from '../sub-make/main.svelte';
+import SNPMake from '../sub-make/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -741,8 +741,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		/>
 </OLSKModalView>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPCodeMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPCodeMakeModal }>
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPMakeModal }>
 	<div>
-		<SNPCodeMake SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
+		<SNPMake SNPCodeFormDidSubmit={ mod.SNPCodeFormDidSubmit } />
 	</div>
 </OLSKModalView>

@@ -101,7 +101,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('SNPCodeMakeModal', function test_SNPCodeMakeModal() {
+		describe('SNPMakeModal', function test_SNPMakeModal() {
 
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
@@ -114,7 +114,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			it('sets OLSKModalViewTitleText', function () {
-				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPCodeMakeHeadingText'));
+				browser.assert.text('.OLSKModalViewTitle', uLocalized('SNPMakeHeadingText'));
 			});
 
 			it('sets OLSKModalViewCloseText', function () {

@@ -1,38 +1,38 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	SNPCodeMake: '.SNPCodeMake',
+	SNPMake: '.SNPMake',
 	
-	SNPCodeMakeTypes: '.SNPCodeMakeTypes',
-	SNPCodeMakeTypesLinkButton: '.SNPCodeMakeTypesLinkButton',
-	SNPCodeMakeTypesNoteButton: '.SNPCodeMakeTypesNoteButton',
+	SNPMakeTypes: '.SNPMakeTypes',
+	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
+	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
 	
-	SNPCodeMakeCodeNotValid: '.SNPCodeMakeCodeNotValid',
-	SNPCodeMakeCodeValid: '.SNPCodeMakeCodeValid',
+	SNPMakeCodeNotValid: '.SNPMakeCodeNotValid',
+	SNPMakeCodeValid: '.SNPMakeCodeValid',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('SNPCodeMake_Access', function () {
+describe('SNPMake_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	it('shows SNPCodeMake', function () {
-		browser.assert.elements(SNPCodeMake, 1);
+	it('shows SNPMake', function () {
+		browser.assert.elements(SNPMake, 1);
 	});
 
-	it('shows SNPCodeMakeTypes', function () {
-		browser.assert.elements(SNPCodeMakeTypes, 1);
+	it('shows SNPMakeTypes', function () {
+		browser.assert.elements(SNPMakeTypes, 1);
 	});
 
-	it('shows SNPCodeMakeTypesLinkButton', function () {
-		browser.assert.elements(SNPCodeMakeTypesLinkButton, 1);
+	it('shows SNPMakeTypesLinkButton', function () {
+		browser.assert.elements(SNPMakeTypesLinkButton, 1);
 	});
 
-	it('shows SNPCodeMakeTypesNoteButton', function () {
-		browser.assert.elements(SNPCodeMakeTypesNoteButton, 1);
+	it('shows SNPMakeTypesNoteButton', function () {
+		browser.assert.elements(SNPMakeTypesNoteButton, 1);
 	});
 
 	it('shows SNPCodeFormBase', function () {
@@ -43,18 +43,18 @@ describe('SNPCodeMake_Access', function () {
 		browser.assert.elements('.SNPCodeFormLink', 1);
 	});
 
-	it('shows SNPCodeMakeCodeNotValid', function () {
-		browser.assert.elements(SNPCodeMakeCodeNotValid, 1);
+	it('shows SNPMakeCodeNotValid', function () {
+		browser.assert.elements(SNPMakeCodeNotValid, 1);
 	});
 
-	it('hides SNPCodeMakeCodeValid', function () {
-		browser.assert.elements(SNPCodeMakeCodeValid, 0);
+	it('hides SNPMakeCodeValid', function () {
+		browser.assert.elements(SNPMakeCodeValid, 0);
 	});
 
-	context('SNPCodeMakeTypesNoteButton', function () {
+	context('SNPMakeTypesNoteButton', function () {
 		
 		before(function () {
-			return browser.pressButton(SNPCodeMakeTypesNoteButton);
+			return browser.pressButton(SNPMakeTypesNoteButton);
 		});
 
 		it('hides SNPCodeFormLink', function () {
@@ -73,12 +73,12 @@ describe('SNPCodeMake_Access', function () {
 			return browser.fill('.SNPCodeFormNoteField', Math.random().toString());
 		});
 
-		it('hides SNPCodeMakeCodeNotValid', function () {
-			browser.assert.elements(SNPCodeMakeCodeNotValid, 0);
+		it('hides SNPMakeCodeNotValid', function () {
+			browser.assert.elements(SNPMakeCodeNotValid, 0);
 		});
 		
-		it('shows SNPCodeMakeCodeValid', function () {
-			browser.assert.elements(SNPCodeMakeCodeValid, 1);
+		it('shows SNPMakeCodeValid', function () {
+			browser.assert.elements(SNPMakeCodeValid, 1);
 		});
 	
 	});
@@ -89,12 +89,12 @@ describe('SNPCodeMake_Access', function () {
 			return browser.fill('.SNPCodeFormNoteField', '');
 		});
 
-		it('shows SNPCodeMakeCodeNotValid', function () {
-			browser.assert.elements(SNPCodeMakeCodeNotValid, 1);
+		it('shows SNPMakeCodeNotValid', function () {
+			browser.assert.elements(SNPMakeCodeNotValid, 1);
 		});
 
-		it('hides SNPCodeMakeCodeValid', function () {
-			browser.assert.elements(SNPCodeMakeCodeValid, 0);
+		it('hides SNPMakeCodeValid', function () {
+			browser.assert.elements(SNPMakeCodeValid, 0);
 		});
 	
 	});

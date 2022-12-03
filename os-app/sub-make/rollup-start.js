@@ -1,7 +1,7 @@
 import RollupStart from './main.svelte';
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
-const SNPCodeMake = new RollupStart({
+const SNPMake = new RollupStart({
 	target: document.body,
 	props: Object.assign({
 		SNPCodeFormDidSubmit: (function  (inputData) {
@@ -13,4 +13,4 @@ const SNPCodeMake = new RollupStart({
 	}))),
 });
 
-export default SNPCodeMake;
+export default SNPMake;

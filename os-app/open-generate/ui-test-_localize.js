@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('SNPMake_Localize-' + OLSKRoutingLanguage, function () {
+	describe('SNPGenerate_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -14,12 +14,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
-		it('localizes SNPMakeTypesLinkButton', function () {
-			browser.assert.text(SNPMakeTypesLinkButton, uLocalized('SNPMakeTypesLinkButtonText'));
-		});
-
-		it('localizes SNPMakeTypesNoteButton', function () {
-			browser.assert.text(SNPMakeTypesNoteButton, uLocalized('SNPMakeTypesNoteButtonText'));
+		it('localizes title', function() {
+			browser.assert.text('title', uLocalized('SNPGenerateTitle'));
 		});
 
 	});

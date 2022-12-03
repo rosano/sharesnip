@@ -1,0 +1,33 @@
+<%
+locals.OLSKPageTitle = OLSKLocalized('SNPGenerateTitle');
+locals.OLSKPageAssets = [
+	'/_shared/__external/normalize.css/normalize.css',
+	'/_shared/__external/OLSKDecor/ui-style.css',
+	
+	'/_shared/__external/launchlet/__compiled/launchlet.css',
+	'/_shared/__external/launchlet/__compiled/launchlet.js',
+	
+	'/_shared/common/ui-style.css',
+	
+	'__compiled/ui-style.css',
+	'ui-style.css',	
+];
+locals.OLSKPagePublicRouteKeys = [
+	OLSKSharedActiveRouteConstant,
+	'SNPServiceWorkerRoute',
+];
+
+locals.OLSKPagePublicConstants = {
+	OLSKSharedActiveRouteConstant,
+	OLSKSharedPageLanguagesAvailable,
+	OLSKSharedPageCurrentLanguage,
+};
+locals.OLSKPageMetaViewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+locals.OLSKPageMetaTags = {
+	'mobile-web-app-capable': 'yes',
+	'apple-mobile-web-app-capable': 'yes',
+};
+locals.OLSKPageManifest = OLSKCanonical('SNPGenerateManifestRoute');
+%>
+
+<script src="/<%= OLSKSharedPageControllerSlug %>/__compiled/ui-behaviour.js"></script>

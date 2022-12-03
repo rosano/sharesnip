@@ -50,7 +50,7 @@ const mod = {
 
 		setTimeout(function () {
 			mod.ReactItem(inputData);
-		}, mod._SNPCodeMakeCodeValid ? 0 : 50);
+		}, mod._SNPMakeCodeValid ? 0 : 50);
 	},
 
 	SNPCodeFormDidFill (inputData) {
@@ -72,15 +72,15 @@ const mod = {
 			return;
 		}
 
-		if (!mod._SNPCodeMakeCodeValid) {
+		if (!mod._SNPMakeCodeValid) {
 			return;
 		}
 
-		mod._SNPCodeMakeCodeValid.childNodes.forEach(function (e) {
-			mod._SNPCodeMakeCodeValid.removeChild(e);
+		mod._SNPMakeCodeValid.childNodes.forEach(function (e) {
+			mod._SNPMakeCodeValid.removeChild(e);
 		});
 
-		mod._SNPCodeMakeCodeValid.appendChild(kjua({
+		mod._SNPMakeCodeValid.appendChild(kjua({
 			render: 'canvas',
 			ecLevel: 'H',
 			size: 100,
@@ -105,13 +105,13 @@ import SNPCodeFormBase from '../sub-base/main.svelte';
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
-<div class="SNPCodeMake">
+<div class="SNPMake">
 
-<div class="SNPCodeMakeTypes">
+<div class="SNPMakeTypes">
 		
-<button class="SNPCodeMakeTypesLinkButton" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPCodeMakeTypesLinkButtonText') }</button>
+<button class="SNPMakeTypesLinkButton" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
 
-<button class="SNPCodeMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPCodeMakeTypesNoteButtonText') }</button>
+<button class="SNPMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
 
 </div>
 
@@ -119,13 +119,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if !mod._ValueIsValid }
 
-<div class="SNPCodeMakeCodeNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
+<div class="SNPMakeCodeNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
 	
 {/if}
 
 {#if mod._ValueIsValid }
 
-<div class="SNPCodeMakeCodeValid" bind:this={ mod._SNPCodeMakeCodeValid }></div>
+<div class="SNPMakeCodeValid" bind:this={ mod._SNPMakeCodeValid }></div>
 	
 {/if}
 

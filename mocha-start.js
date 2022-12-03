@@ -54,7 +54,7 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 
 		async uCreateDocument () {
 			await browser.pressButton('.SNPCodeToggleFormButton');
-			await browser.pressButton('.SNPCodeMakeTypesNoteButton');			
+			await browser.pressButton('.SNPMakeTypesNoteButton');			
 			await browser.fill('.SNPCodeFormDataField', Math.random().toString());
 			return browser.pressButton(SNPCodeFormBaseSaveButton);
 		},

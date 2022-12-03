@@ -15,7 +15,7 @@ Object.entries({
 	
 	SNPCodeCloudToolbar: '.SNPCodeCloudToolbar',
 	
-	SNPCodeMakeModal: '.OLSKModalView .SNPCodeMake',
+	SNPMakeModal: '.OLSKModalView .SNPMake',
 	
 	SNPCodeShareModal: '.OLSKModalView .SNPCodeShare',
 }).map(function (e) {
@@ -76,8 +76,8 @@ describe('SNPCode_Access', function () {
 		browser.assert.elements('.OLSKInstall', 1);
 	});
 
-	it('hides SNPCodeMakeModal', function () {
-		browser.assert.elements(SNPCodeMakeModal, 0);
+	it('hides SNPMakeModal', function () {
+		browser.assert.elements(SNPMakeModal, 0);
 	});
 
 	it('hides SNPCodeShareModal', function () {
@@ -172,14 +172,14 @@ describe('SNPCode_Access', function () {
 			return browser.pressButton('.SNPCodeToggleFormButton');
 		});
 
-		it('shows SNPCodeMakeModal', function () {
-			browser.assert.elements(SNPCodeMakeModal, 1);
+		it('shows SNPMakeModal', function () {
+			browser.assert.elements(SNPMakeModal, 1);
 		});
 
 		context('submit', function () {
 
 			before(function () {
-				return browser.pressButton(SNPCodeMakeTypesNoteButton);
+				return browser.pressButton(SNPMakeTypesNoteButton);
 			});
 			
 			before(function () {
@@ -190,8 +190,8 @@ describe('SNPCode_Access', function () {
 				return browser.pressButton(SNPCodeFormBaseSaveButton);
 			});
 
-			it('hides SNPCodeMakeModal', function () {
-				browser.assert.elements(SNPCodeMakeModal, 0);
+			it('hides SNPMakeModal', function () {
+				browser.assert.elements(SNPMakeModal, 0);
 			});
 		
 		});

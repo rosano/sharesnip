@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPCodeMake_Misc', function () {
+describe('SNPMake_Misc', function () {
 
 	const SNPDocumentData = Math.random().toString();
 
@@ -8,18 +8,18 @@ describe('SNPCodeMake_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	describe('SNPCodeMakeCodeNotValid', function test_SNPCodeMakeCodeNotValid () {
+	describe('SNPMakeCodeNotValid', function test_SNPMakeCodeNotValid () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPCodeMakeCodeNotValid } #_OLSKSharedIconPlaceholder`, 1);
+			browser.assert.elements(`${ SNPMakeCodeNotValid } #_OLSKSharedIconPlaceholder`, 1);
 		});
 	
 	});
 
-	describe('SNPCodeMakeCodeValid', function test_SNPCodeMakeCodeValid () {
+	describe('SNPMakeCodeValid', function test_SNPMakeCodeValid () {
 
 		before(function () {
-			return browser.pressButton('.SNPCodeMakeTypesNoteButton');
+			return browser.pressButton('.SNPMakeTypesNoteButton');
 		});
 		
 		before(function () {
@@ -27,7 +27,7 @@ describe('SNPCodeMake_Misc', function () {
 		});
 
 		it.skip('creates canvas', function () {
-			browser.assert.elements(`${ SNPCodeMakeCodeValid } canvas`, 1);
+			browser.assert.elements(`${ SNPMakeCodeValid } canvas`, 1);
 		});
 	
 	});
@@ -57,7 +57,7 @@ describe('SNPCodeMake_Misc', function () {
 		const SNPDocumentData2 = Math.random().toString();
 
 		before(function () {
-			return browser.pressButton(SNPCodeMakeTypesLinkButton);
+			return browser.pressButton(SNPMakeTypesLinkButton);
 		});
 		
 		before(function () {
@@ -65,7 +65,7 @@ describe('SNPCodeMake_Misc', function () {
 		});
 
 		before(function () {
-			return browser.pressButton(SNPCodeMakeTypesNoteButton);
+			return browser.pressButton(SNPMakeTypesNoteButton);
 		});
 
 		it('saves first input', function () {
@@ -75,7 +75,7 @@ describe('SNPCodeMake_Misc', function () {
 		describe('change type 2', function () {
 
 			before(function () {
-				return browser.pressButton(SNPCodeMakeTypesLinkButton);
+				return browser.pressButton(SNPMakeTypesLinkButton);
 			});
 			
 			it('saves second input', function () {
