@@ -45,8 +45,8 @@ describe('SNPMake_Misc', function () {
 		it('sends SNPFormDidSubmit', function () {
 			browser.assert.text('#TestSNPFormDidSubmit', '1');
 			browser.assert.text('#TestSNPFormDidSubmitData', JSON.stringify({
-				SNPDocumentType: 'TYPE_NOTE',
 				SNPDocumentData,
+				SNPDocumentType: 'TYPE_NOTE',
 			}));
 		});
 	
