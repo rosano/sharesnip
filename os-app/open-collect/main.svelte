@@ -216,7 +216,7 @@ const mod = {
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod.ControlDocumentActivate(mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(inputData)));
+		mod.ControlDocumentActivate(mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentCreate(mod.DataStubDocumentObject(inputData))));
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
