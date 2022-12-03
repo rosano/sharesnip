@@ -6,7 +6,7 @@
 			realpath: true,
 		}).map(function (e) {
 			return [e, {
-				'rgb(0, 0, 0)': '#FF9E00',
+				'rgb(0, 0, 0)': 'rgb(255, 128, 0)',
 			}]
 		})),
 	})).forEach(function ([path, patches]) {

@@ -73,7 +73,7 @@ const mod = {
 			size: 420,
 			rounded: 100,
 			quiet: 1,
-			fill: '#FF9E00',
+			fill: 'rgb(255, 128, 0)',
 			back: '#FFF9E5',
 			text: SNPCodeDetailItem.SNPDocumentData,
 		}));

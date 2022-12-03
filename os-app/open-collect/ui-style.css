@@ -1,6 +1,6 @@
 :root {
-	--OLSKCommonBorderColor: #fd8c08;
-	--OLSKDecorForegroundLight: #fd8c08;
+	--OLSKCommonBorderColor: rgb(255, 128, 0);
+	--OLSKDecorForegroundLight: rgb(255, 128, 0);
 	--OLSKDecorFormBlendBackground: #FFF9E5;
 	--OLSKDecorFormBlendBorderColor: var(--OLSKDecorForegroundLight);
 
