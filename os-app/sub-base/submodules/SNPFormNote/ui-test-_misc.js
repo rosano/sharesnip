@@ -6,7 +6,7 @@ describe('SNPFormNote_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPCollectFormObject: JSON.stringify({
+			SNPFormObject: JSON.stringify({
 				SNPDocumentData,
 			})
 		});
@@ -14,8 +14,8 @@ describe('SNPFormNote_Misc', function () {
 
 	describe('SNPFormNoteField', function test_SNPFormNoteField () {
 
-		it('classes SNPCollectFormDataField', function () {
-			browser.assert.hasClass(SNPFormNoteField, 'SNPCollectFormDataField');
+		it('classes SNPFormDataField', function () {
+			browser.assert.hasClass(SNPFormNoteField, 'SNPFormDataField');
 		});
 
 		it('sets type', function () {
@@ -39,27 +39,27 @@ describe('SNPFormNote_Misc', function () {
 			const SNPDocumentData = Math.random().toString();
 			
 			before(function () {
-				browser.assert.text('#TestSNPCollectFormDidFill', '0');
+				browser.assert.text('#TestSNPFormDidFill', '0');
 			});
 			
 			before(function () {
-				browser.assert.text('#TestSNPCollectFormValid', '0');
+				browser.assert.text('#TestSNPFormValid', '0');
 			});
 			
 			before(function () {
 				return browser.fill(SNPFormNoteField, SNPDocumentData);
 			});
 
-			it('sends SNPCollectFormDidFill', function () {
-				browser.assert.text('#TestSNPCollectFormDidFill', '1');
-				browser.assert.text('#TestSNPCollectFormDidFillData', JSON.stringify({
+			it('sends SNPFormDidFill', function () {
+				browser.assert.text('#TestSNPFormDidFill', '1');
+				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify({
 					SNPDocumentData,
 				}));
 			});
 
-			it('sends SNPCollectFormValid', function () {
-				browser.assert.text('#TestSNPCollectFormValid', '1');
-				browser.assert.text('#TestSNPCollectFormValidData', JSON.stringify({
+			it('sends SNPFormValid', function () {
+				browser.assert.text('#TestSNPFormValid', '1');
+				browser.assert.text('#TestSNPFormValidData', JSON.stringify({
 					SNPDocumentData,
 				}));
 			});
@@ -67,22 +67,22 @@ describe('SNPFormNote_Misc', function () {
 			context('empty', function () {
 				
 				before(function () {
-					browser.assert.text('#TestSNPCollectFormNotValid', '0');
+					browser.assert.text('#TestSNPFormNotValid', '0');
 				});
 				
 				before(function () {
 					return browser.fill(SNPFormNoteField, '');
 				});
 
-				it('sends SNPCollectFormDidFill', function () {
-					browser.assert.text('#TestSNPCollectFormDidFill', '2');
-					browser.assert.text('#TestSNPCollectFormDidFillData', JSON.stringify({
+				it('sends SNPFormDidFill', function () {
+					browser.assert.text('#TestSNPFormDidFill', '2');
+					browser.assert.text('#TestSNPFormDidFillData', JSON.stringify({
 						SNPDocumentData: '',
 					}));
 				});
 
-				it('sends SNPCollectFormNotValid', function () {
-					browser.assert.text('#TestSNPCollectFormNotValid', '1');
+				it('sends SNPFormNotValid', function () {
+					browser.assert.text('#TestSNPFormNotValid', '1');
 				});
 			
 			});

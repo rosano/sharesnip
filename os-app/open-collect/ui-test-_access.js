@@ -183,7 +183,7 @@ describe('SNPCollect_Access', function () {
 			});
 			
 			before(function () {
-				return browser.fill('.SNPCollectFormDataField', Math.random().toString());
+				return browser.fill('.SNPFormDataField', Math.random().toString());
 			});
 
 			before(function () {

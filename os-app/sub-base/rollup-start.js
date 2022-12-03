@@ -8,20 +8,20 @@ const SNPFormBase = new RollupStart({
 			SNPDocumentName: '',
 			SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
 		},
-		SNPCollectFormNotValid: (function  () {
-			window.TestSNPCollectFormNotValid.innerHTML = parseInt(window.TestSNPCollectFormNotValid.innerHTML) + 1;
+		SNPFormNotValid: (function  () {
+			window.TestSNPFormNotValid.innerHTML = parseInt(window.TestSNPFormNotValid.innerHTML) + 1;
 		}),
-		SNPCollectFormValid: (function  (inputData) {
-			window.TestSNPCollectFormValid.innerHTML = parseInt(window.TestSNPCollectFormValid.innerHTML) + 1;
-			window.TestSNPCollectFormValidData.innerHTML = JSON.stringify(inputData);
+		SNPFormValid: (function  (inputData) {
+			window.TestSNPFormValid.innerHTML = parseInt(window.TestSNPFormValid.innerHTML) + 1;
+			window.TestSNPFormValidData.innerHTML = JSON.stringify(inputData);
 		}),
-		SNPCollectFormDidFill: (function  (inputData) {
-			window.TestSNPCollectFormDidFill.innerHTML = parseInt(window.TestSNPCollectFormDidFill.innerHTML) + 1;
-			window.TestSNPCollectFormDidFillData.innerHTML = JSON.stringify(inputData);
+		SNPFormDidFill: (function  (inputData) {
+			window.TestSNPFormDidFill.innerHTML = parseInt(window.TestSNPFormDidFill.innerHTML) + 1;
+			window.TestSNPFormDidFillData.innerHTML = JSON.stringify(inputData);
 		}),
-		SNPCollectFormDidSubmit: (function  (inputData) {
-			window.TestSNPCollectFormDidSubmit.innerHTML = parseInt(window.TestSNPCollectFormDidSubmit.innerHTML) + 1;
-			window.TestSNPCollectFormDidSubmitData.innerHTML = JSON.stringify(inputData);
+		SNPFormDidSubmit: (function  (inputData) {
+			window.TestSNPFormDidSubmit.innerHTML = parseInt(window.TestSNPFormDidSubmit.innerHTML) + 1;
+			window.TestSNPFormDidSubmitData.innerHTML = JSON.stringify(inputData);
 		}),
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
 		if (['SNPFormBaseObject'].includes(e[0])) {

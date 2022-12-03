@@ -1,9 +1,9 @@
 <script>
 export let SNPFormBaseObject;
-export let SNPCollectFormNotValid;
-export let SNPCollectFormValid;
-export let SNPCollectFormDidFill;
-export let SNPCollectFormDidSubmit;
+export let SNPFormNotValid;
+export let SNPFormValid;
+export let SNPFormDidFill;
+export let SNPFormDidSubmit;
 
 export const modPublic = {
 };
@@ -17,25 +17,25 @@ const mod = {
 	// INTERFACE
 
 	InterfaceSaveButtonDidClick () {
-		SNPCollectFormDidSubmit(Object.assign(SNPFormBaseObject, mod._ValueChildObject))
+		SNPFormDidSubmit(Object.assign(SNPFormBaseObject, mod._ValueChildObject))
 	},
 
 	// MESSAGE
 
-	SNPCollectFormNotValid () {
+	SNPFormNotValid () {
 		delete mod._ValueChildObject;
 
 		mod.SNPFormBaseSaveButton.disabled = true;
 
-		SNPCollectFormNotValid();
+		SNPFormNotValid();
 	},
 
-	SNPCollectFormValid (inputData) {
+	SNPFormValid (inputData) {
 		mod._ValueChildObject = inputData;
 
 		mod.SNPFormBaseSaveButton.disabled = null;
 
-		SNPCollectFormValid(inputData);
+		SNPFormValid(inputData);
 	},
 
 	// REACT
@@ -57,11 +57,11 @@ import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 <div class="SNPFormBase">
 
 {#if mod._ValueChildClass === 'SNPFormNote' }
-	<SNPFormNote SNPCollectFormDidFill={ SNPCollectFormDidFill } SNPCollectFormNotValid={ mod.SNPCollectFormNotValid } SNPCollectFormValid={ mod.SNPCollectFormValid } SNPCollectFormObject={ SNPFormBaseObject } />
+	<SNPFormNote SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPFormLink' }
-	<SNPFormLink SNPCollectFormDidFill={ SNPCollectFormDidFill } SNPCollectFormNotValid={ mod.SNPCollectFormNotValid } SNPCollectFormValid={ mod.SNPCollectFormValid } SNPCollectFormObject={ SNPFormBaseObject } />
+	<SNPFormLink SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
 <button class="SNPFormBaseSaveButton" disabled bind:this={ mod.SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>

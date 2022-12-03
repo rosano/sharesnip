@@ -29,7 +29,7 @@ const mod = {
 
 	// MESSAGE
 
-	SNPCollectFormDidSubmit () {},
+	SNPFormDidSubmit () {},
 
 	OLSKAppToolbarDispatchApropos () {
 		mod._OLSKModalView.modPublic.OLSKModalViewShow();
@@ -91,7 +91,7 @@ import OLSKString from 'OLSKString';
 
 <div class="SNPGenerate">
 
-<SNPMake SNPCollectFormDidSubmit={ mod.SNPCollectFormDidSubmit } />
+<SNPMake SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
 
 <footer class="SNPGenerateViewportFooter OLSKMobileViewFooter">
 

@@ -323,7 +323,7 @@ const mod = {
 		});
 	},
 
-	SNPCollectFormDidSubmit (inputData) {
+	SNPFormDidSubmit (inputData) {
 		mod._SNPMakeModal.modPublic.OLSKModalViewClose();
 
 		mod.ControlDocumentAdd(inputData);
@@ -743,6 +743,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('SNPMakeHeadingText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPMakeModal }>
 	<div>
-		<SNPMake SNPCollectFormDidSubmit={ mod.SNPCollectFormDidSubmit } />
+		<SNPMake SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
 	</div>
 </OLSKModalView>

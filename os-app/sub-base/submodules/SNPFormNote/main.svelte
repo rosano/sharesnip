@@ -1,8 +1,8 @@
 <script>
-export let SNPCollectFormObject = {};
-export let SNPCollectFormDidFill;
-export let SNPCollectFormNotValid;
-export let SNPCollectFormValid;
+export let SNPFormObject = {};
+export let SNPFormDidFill;
+export let SNPFormNotValid;
+export let SNPFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
 
@@ -14,8 +14,8 @@ const mod = {
 		const item = {
 			SNPDocumentData: this.value.trim(),
 		};
-		SNPCollectFormDidFill(item);
-		item.SNPDocumentData ? SNPCollectFormValid(item) : SNPCollectFormNotValid();
+		SNPFormDidFill(item);
+		item.SNPDocumentData ? SNPFormValid(item) : SNPFormNotValid();
 	},
 
 };
@@ -23,6 +23,6 @@ const mod = {
 
 <div class="SNPFormNote">
 
-<textarea class="SNPFormNoteField SNPCollectFormDataField" type="text" required autofocus placeholder="{ OLSKLocalized('SNPFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill }>{ SNPCollectFormObject.SNPDocumentData || ''}</textarea>
+<textarea class="SNPFormNoteField SNPFormDataField" type="text" required autofocus placeholder="{ OLSKLocalized('SNPFormNoteFieldText') }" on:input={ mod.InterfaceFieldDidFill }>{ SNPFormObject.SNPDocumentData || ''}</textarea>
 
 </div>
