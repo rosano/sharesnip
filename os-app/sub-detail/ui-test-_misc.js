@@ -4,6 +4,7 @@ describe('SNPCodeDetail_Misc', function () {
 
 	const item = StubDocumentObjectValid({
 		SNPDocumentName: Math.random().toString(),
+		SNPDocumentData: Math.random().toString(),
 	});
 
 	before(function() {
@@ -228,6 +229,14 @@ describe('SNPCodeDetail_Misc', function () {
 				browser.assert.text('#TestSNPCodeDetailDispatchUpdate', '1');
 			});
 		
+		});
+	
+	});
+
+	describe.skip('SNPCodeDetailQR', function test_SNPCodeDetailQR () {
+
+		it('creates canvas', function () {
+			browser.assert.elements(`${ SNPCodeDetailQR } canvas`, 1);
 		});
 	
 	});
