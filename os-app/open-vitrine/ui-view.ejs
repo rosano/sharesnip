@@ -27,6 +27,8 @@ locals.OLSKPagePublicConstants = {
 	OLSKLandingActionHref: OLSKCanonical('SNPGenerateRoute'),
 }) %>
 
+<a style="display: none;" href="<%= OLSKCanonical('SNPCollectRoute') %>"></a>
+
 <div class="OLSKCommonVideoList">
 	<p class="SNPVitrineVideo OLSKCommonVideoListItem">
 		<iframe src="<%= process.env.SNP_VITRINE_VIDEO_URL %>" allowfullscreen></iframe>
