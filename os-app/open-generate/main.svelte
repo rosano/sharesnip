@@ -123,7 +123,7 @@ import OLSKString from 'OLSKString';
 <OLSKInstall />
 
 {#if !OLSK_SPEC_UI()}
-	<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('SNPServiceWorkerRoute') } />
+	<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('SNPGenerateServiceWorkerRoute') } />
 {/if}
 
 </footer>
