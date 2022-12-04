@@ -34,6 +34,14 @@ describe('SNPVitrine_Misc', function () {
 	
 	});
 
+	describe('OLSKLanding', function test_OLSKLanding () {
+
+		it('localizes OLSKLandingActionHref', function () {
+			browser.assert.attribute('.OLSKLandingAction', 'href', OLSKTestingCanonical(require('../open-generate/controller.js').OLSKControllerRoutes().shift()));
+		});
+	
+	});
+
 	describe('SNPVitrineVideo', function () {
 
 		it('sets src', function () {
