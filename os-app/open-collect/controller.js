@@ -2,7 +2,7 @@ const mod = {
 
 	OLSKControllerRoutes () {
 		return [{
-			OLSKRoutePath: '/code',
+			OLSKRoutePath: '/collect',
 			OLSKRouteMethod: 'get',
 			OLSKRouteSignature: 'SNPCollectRoute',
 			OLSKRouteFunction (req, res, next) {
