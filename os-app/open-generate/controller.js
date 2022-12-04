@@ -41,8 +41,8 @@ const mod = {
 			OLSKRouteSignature: 'SNPGenerateManifestRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.json({
-					name: 'Sharesnip',
-					short_name: 'Sharesnip',
+					name: 'QR Generator',
+					short_name: 'QR Generator',
 					start_url: res.locals.OLSKCanonical('SNPGenerateRoute'),
 					display: 'standalone',
 					background_color: 'black',
