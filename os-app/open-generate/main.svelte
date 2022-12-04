@@ -37,8 +37,10 @@ const mod = {
 		mod._ValueIsValid = false;
 	},
 
-	SNPFormValid () {
+	SNPFormValid (inputData) {
 		mod._ValueIsValid = true;
+
+		mod._ValueData = inputData.SNPDocumentData;
 	},
 
 	SNPFormDidSubmit () {},
@@ -108,7 +110,7 @@ import OLSKString from 'OLSKString';
 
 {#if mod._ValueIsValid }
 
-<SNPDownload />
+<SNPDownload SNPDownloadData={ mod._ValueData } />
 	
 {/if}
 
