@@ -17,7 +17,7 @@ const mod = {
 			OLSKRouteLanguageCodes: ['en', 'fr', 'es', 'pt'],
 		}, {
 			OLSKRouteSignature: 'SNPGenerateServiceWorkerRoute',
-			OLSKRoutePath: '/qr-code-generator/sw.js',
+			OLSKRoutePath: kSNPGenerateRoute + '/sw.js',
 			OLSKRouteMethod: 'get',
 			OLSKRouteFunction (req, res, next) {
 				return res.type('js').send(OLSKServiceWorker.OLSKServiceWorkerView({
@@ -36,7 +36,7 @@ const mod = {
 			OLSKRouteSignature: 'SNPGenerateShortcutRoute2',
 			OLSKRouteRedirect: kSNPGenerateRoute,
 		}, {
-			OLSKRoutePath: '/generate/manifest.json',
+			OLSKRoutePath: kSNPGenerateRoute + '/manifest.json',
 			OLSKRouteMethod: 'get',
 			OLSKRouteSignature: 'SNPGenerateManifestRoute',
 			OLSKRouteFunction (req, res, next) {
