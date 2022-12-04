@@ -69,7 +69,7 @@ const mod = {
 		mod._SNPCollectDetailQR.appendChild(kjua({
 			render: 'canvas',
 			ecLevel: 'H',
-			size: 420,
+			size: 200,
 			rounded: 100,
 			quiet: 0,
 			fill: 'rgb(255, 128, 0)',
