@@ -43,8 +43,6 @@ const mod = {
 		mod._ValueData = inputData.SNPDocumentData;
 	},
 
-	SNPFormDidSubmit () {},
-
 	OLSKAppToolbarDispatchApropos () {
 		mod._OLSKModalView.modPublic.OLSKModalViewShow();
 	},
@@ -106,7 +104,7 @@ import OLSKString from 'OLSKString';
 
 <div class="SNPGenerate">
 
-<SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
+<SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } />
 
 {#if mod._ValueIsValid }
 
