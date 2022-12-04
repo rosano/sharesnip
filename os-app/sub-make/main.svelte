@@ -1,7 +1,7 @@
 <script>
 export let SNPFormNotValid = null;
 export let SNPFormValid = null;
-export let SNPFormDidSubmit;
+export let SNPFormDidSubmit = null;
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
