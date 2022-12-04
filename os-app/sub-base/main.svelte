@@ -3,7 +3,7 @@ export let SNPFormBaseObject;
 export let SNPFormNotValid;
 export let SNPFormValid;
 export let SNPFormDidFill;
-export let SNPFormDidSubmit;
+export let SNPFormDidSubmit = null;
 
 export const modPublic = {
 };
@@ -64,6 +64,10 @@ import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 	<SNPFormLink SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
+{#if SNPFormDidSubmit }
+	
 <button class="SNPFormBaseSaveButton" disabled bind:this={ mod.SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+
+{/if}
 
 </div>

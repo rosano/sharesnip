@@ -24,7 +24,7 @@ const SNPFormBase = new RollupStart({
 			window.TestSNPFormDidSubmitData.innerHTML = JSON.stringify(inputData);
 		}),
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
-		if (['SNPFormBaseObject'].includes(e[0])) {
+		if (['SNPFormBaseObject', 'SNPFormDidSubmit'].includes(e[0]) && e[1].trim()) {
 			e[1] = JSON.parse(e[1]);
 		}
 

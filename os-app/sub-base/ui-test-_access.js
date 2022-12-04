@@ -33,6 +33,20 @@ describe('SNPFormBase_Access', function () {
 
 	it('shows SNPFormBaseSaveButton', function () {
 		browser.assert.elements(SNPFormBaseSaveButton, 1);
-	});	
+	});
+
+	context('SNPFormDidSubmit', function () {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				SNPFormDidSubmit: null,
+			});
+		});
+
+		it('hides SNPFormBaseSaveButton', function () {
+			browser.assert.elements(SNPFormBaseSaveButton, 0);
+		});
+	
+	});
 
 });
