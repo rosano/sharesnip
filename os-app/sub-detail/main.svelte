@@ -9,7 +9,7 @@ export let _DebugLauncher = false;
 export const modPublic = {
 
 	SNPCollectDetailRecipes () {
-		return mod.DataCodeDetailRecipes();
+		return mod.DataCollectDetailRecipes();
 	},
 
 };
@@ -24,7 +24,7 @@ const mod = {
 
 	// DATA
 
-	DataCodeDetailRecipes () {
+	DataCollectDetailRecipes () {
 		const outputData = [];
 
 		if (OLSK_SPEC_UI()) {
@@ -124,7 +124,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </div>
 
 {#if _DebugLauncher && OLSK_SPEC_UI() }
-	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataCodeDetailRecipes() }) }></button>	
+	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataCollectDetailRecipes() }) }></button>	
 {/if}
 
 <style type="text/css">

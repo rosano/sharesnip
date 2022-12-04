@@ -73,7 +73,7 @@ const mod = {
 		}, inputData));
 	},
 
-	DataCodeRecipes () {
+	DataCollectRecipes () {
 		const outputData = [];
 
 		if (OLSK_SPEC_UI()) {
@@ -318,7 +318,7 @@ const mod = {
 		}
 
 		window.Launchlet.LCHSingletonCreate({
-			LCHOptionRecipes: mod.DataCodeRecipes(),
+			LCHOptionRecipes: mod.DataCollectRecipes(),
 			LCHOptionLanguage: window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'),
 		});
 	},
