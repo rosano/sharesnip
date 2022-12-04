@@ -9,10 +9,14 @@ import kjua from 'kjua';
 
 const mod = {
 
+	// VALUE
+
+	_ValueFormat: 'PNG',
+
 	// DATA
 
 	DataExtension () {
-		return 'png';
+		return mod._ValueFormat.toLowerCase();
 	},
 
 	DataFilename () {
@@ -35,15 +39,19 @@ const mod = {
 			return window.alert(JSON.stringify(inputData));
 		}
 
+		const isCanvas = mod._ValueFormat === 'PNG';
+
+		const element = kjua({
+			render: isCanvas ? 'canvas' : 'svg',
+			ecLevel: 'H',
+			size: 1000,
+			rounded: 100,
+			text: SNPDownloadData,
+		});
+
 		const temporaryLink = Object.assign(document.createElement( 'a' ), {
 			download: inputData.SNPDownloadFilename,
-			href: kjua({
-				render: 'canvas',
-				ecLevel: 'H',
-				size: 1000,
-				rounded: 100,
-				text: SNPDownloadData,
-			}).toDataURL(),  
+			href: isCanvas ? element.toDataURL() : URL.createObjectURL(new Blob([element.outerHTML], {type: 'image/svg+xml'})),
 		});
 		
 		document.body.appendChild(temporaryLink);
@@ -59,6 +67,11 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <div class="SNPDownload">
 
 <h2 class="SNPDownloadHeading">{ OLSKLocalized('SNPDownloadHeadingText') }</h2>
+
+<input id="SNPDownloadPNGButton" type="radio" value="PNG" bind:group={ mod._ValueFormat } />
+<label class="SNPDownloadPNGButton" for="SNPDownloadPNGButton">PNG</label>
+<input id="SNPDownloadSVGButton" type="radio" value="SVG" bind:group={ mod._ValueFormat } />
+<label class="SNPDownloadSVGButton" for="SNPDownloadSVGButton">SVG</label>
 
 <button class="SNPDownloadButton" on:click={ mod.InterfaceButtonDidClick }>{ OLSKLocalized('OLSKWordingDownloadText') }</button>
 

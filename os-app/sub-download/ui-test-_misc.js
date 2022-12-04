@@ -12,10 +12,28 @@ describe('SNPDownload_Misc', function () {
 		});
 	});
 
+	describe('SNPDownloadPNGButton', function test_SNPDownloadPNGButton () {
+
+		it('sets text', function () {
+			browser.assert.text(SNPDownloadPNGButton, 'PNG');
+		});
+	
+	});
+
+	describe('SNPDownloadSVGButton', function test_SNPDownloadSVGButton () {
+
+		it('sets text', function () {
+			browser.assert.text(SNPDownloadSVGButton, 'SVG');
+		});
+	
+	});
+
 	describe('SNPDownloadButton', function test_SNPDownloadButton () {
 
+		const button = uRandomElement(SNPDownloadPNGButton, SNPDownloadSVGButton);
+
 		before(function () {
-			return browser.pressButton(SNPDownloadButton);
+			return browser.click(button);
 		});
 		
 		it('binds SNPDocumentName', function () {
@@ -23,7 +41,7 @@ describe('SNPDownload_Misc', function () {
 				return browser.pressButton(SNPDownloadButton);
 			}, JSON.stringify({
 				SNPDownloadData,
-				SNPDownloadFilename: `${ SNPDownloadBasename }.png`,
+				SNPDownloadFilename: `${ SNPDownloadBasename }.${ button.match(/(PNG|SVG)/).pop().toLowerCase() }`,
 			}));
 		});
 	
