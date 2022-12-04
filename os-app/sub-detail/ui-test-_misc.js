@@ -276,4 +276,26 @@ describe('SNPCollectDetail_Misc', function () {
 	
 	});
 
+	describe.skip('SNPCollectDetailEditButton', function test_SNPCollectDetailEditButton () {
+
+		const SNPDocumentData = Math.random().toString();
+
+		before(function () {
+			return browser.pressButton(SNPCollectDetailEditButton);
+		});
+
+		before(function () {
+			return browser.fill('.SNPFormDataField', SNPDocumentData);
+		});
+
+		before(function () {
+			return browser.pressButton('.SNPFormBaseSaveButton');
+		});
+
+		it('updates object', function () {
+			browser.assert.input(SNPCollectDetailDataField, SNPDocumentData);
+		});
+
+	});
+
 });

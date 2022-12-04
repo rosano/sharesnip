@@ -23,6 +23,8 @@ Object.entries({
 	SNPCollectDetailDataOpenButton: '.SNPCollectDetailDataOpenButton',
 
 	SNPCollectDetailQR: '.SNPCollectDetailQR',
+	
+	SNPCollectDetailEditButton: '.SNPCollectDetailEditButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -85,6 +87,42 @@ describe('SNPCollectDetail_Access', function () {
 
 	it('shows SNPCollectDetailQR', function () {
 		browser.assert.elements(SNPCollectDetailQR, 1);
+	});
+
+	it('shows SNPCollectDetailEditButton', function () {
+		browser.assert.elements(SNPCollectDetailEditButton, 1);
+	});
+
+	it('hides SNPFormBase', function () {
+		browser.assert.elements('.OLSKModalView .SNPFormBase', 0);
+	});
+
+	context('edit', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPCollectDetailEditButton);
+		});
+
+		it('shows SNPFormBase', function () {
+			browser.assert.elements('.OLSKModalView .SNPFormBase', 1);
+		});
+	
+	});
+
+	context('save', function () {
+		
+		before(function () {
+			return browser.fill('.SNPFormDataField', Math.random().toString());
+		});
+
+		before(function () {
+			return browser.pressButton('.SNPFormBaseSaveButton');
+		});
+
+		it('hides SNPFormBase', function () {
+			browser.assert.elements('.OLSKModalView .SNPFormBase', 0);
+		});
+	
 	});
 
 	context('SNPDocumentTypeLink', function () {

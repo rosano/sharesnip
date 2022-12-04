@@ -44,6 +44,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPCollectDetailDataOpenButton, uLocalized('SNPCollectDetailDataOpenButtonText'));
 		});
 
+		it('localizes SNPCollectDetailEditButton', function () {
+			browser.assert.text(SNPCollectDetailEditButton, uLocalized('OLSKWordingEditText'));
+		});
+
 		context('discard', function () {
 		
 			it('localizes SNPCollectDetailDiscardConfirm', function() {

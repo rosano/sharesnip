@@ -37,6 +37,26 @@ const mod = {
 		return outputData;
 	},
 
+	// INTERFACE
+
+	InterfaceEditButtonDidClick () {
+		mod._SNPFormBaseModal.modPublic.OLSKModalViewShow();
+	},
+
+	// MESSAGE
+
+	SNPFormNotValid () {},
+
+	SNPFormValid () {},
+
+	SNPFormDidFill () {},
+
+	SNPFormDidSubmit (inputData) {
+		mod._SNPFormBaseModal.modPublic.OLSKModalViewClose();
+
+		SNPCollectDetailDispatchUpdate(inputData);
+	},
+
 	// REACT
 
 	ReactItem (inputData) {
@@ -85,6 +105,8 @@ $: {
 }
 
 import OLSKUIAssets from 'OLSKUIAssets';
+import OLSKModalView from 'OLSKModalView';
+import SNPFormBase from '../sub-base/main.svelte';
 </script>
 
 <div class="SNPCollectDetail ROCOStandardView">
@@ -124,6 +146,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </p>
 
 <div class="SNPCollectDetailQR" bind:this={ mod._SNPCollectDetailQR }></div>
+
+<button class="SNPCollectDetailEditButton" on:click={ mod.InterfaceEditButtonDidClick }>{ OLSKLocalized('OLSKWordingEditText') }</button>
+
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKWordingEditText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPFormBaseModal }>
+	<SNPFormBase SNPFormBaseObject={ SNPCollectDetailItem } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
+</OLSKModalView>
 
 </div>
 
