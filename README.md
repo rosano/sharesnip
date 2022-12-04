@@ -2,7 +2,7 @@
 
 # [Sharesnip](https://sharesnip.rosano.ca)
 
-_A pinboard for audiovisual media_
+_Quickly create and share QR Codes._
 
 <a href="https://sharesnip.rosano.ca">Sharesnip</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://sharesnip.rosano.ca/guide">guide</a> for more details.
 
