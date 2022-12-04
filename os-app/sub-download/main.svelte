@@ -70,9 +70,9 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <h2 class="SNPDownloadHeading">{ OLSKLocalized('SNPDownloadHeadingText') }</h2>
 
 <input id="SNPDownloadPNGButton" type="radio" value="PNG" bind:group={ mod._ValueFormat } />
-<label class="SNPDownloadPNGButton" for="SNPDownloadPNGButton">PNG</label>
+<label class="SNPDownloadPNGButton OLSKDecorTappable" for="SNPDownloadPNGButton">PNG</label>
 <input id="SNPDownloadSVGButton" type="radio" value="SVG" bind:group={ mod._ValueFormat } />
-<label class="SNPDownloadSVGButton" for="SNPDownloadSVGButton">SVG</label>
+<label class="SNPDownloadSVGButton OLSKDecorTappable" for="SNPDownloadSVGButton">SVG</label>
 
 <button class="SNPDownloadButton" on:click={ mod.InterfaceButtonDidClick }>{ OLSKLocalized('OLSKWordingDownloadText') }</button>
 

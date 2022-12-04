@@ -14,6 +14,10 @@ describe('SNPDownload_Misc', function () {
 
 	describe('SNPDownloadPNGButton', function test_SNPDownloadPNGButton () {
 
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPDownloadPNGButton, 'OLSKDecorTappable');
+		});
+
 		it('sets text', function () {
 			browser.assert.text(SNPDownloadPNGButton, 'PNG');
 		});
@@ -21,6 +25,10 @@ describe('SNPDownload_Misc', function () {
 	});
 
 	describe('SNPDownloadSVGButton', function test_SNPDownloadSVGButton () {
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPDownloadSVGButton, 'OLSKDecorTappable');
+		});
 
 		it('sets text', function () {
 			browser.assert.text(SNPDownloadSVGButton, 'SVG');
