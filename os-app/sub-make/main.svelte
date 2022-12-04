@@ -48,7 +48,7 @@ const mod = {
 
 		setTimeout(function () {
 			mod.ReactItem(mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument);
-		}, mod._SNPMakeCodeValid ? 0 : 50);
+		}, mod._SNPMakeDataValid ? 0 : 50);
 	},
 
 	// MESSAGE
@@ -64,7 +64,7 @@ const mod = {
 
 		setTimeout(function () {
 			mod.ReactItem(inputData);
-		}, mod._SNPMakeCodeValid ? 0 : 50);
+		}, mod._SNPMakeDataValid ? 0 : 50);
 
 		SNPFormValid && SNPFormValid(inputData);
 	},
@@ -88,15 +88,15 @@ const mod = {
 			return;
 		}
 
-		if (!mod._SNPMakeCodeValid) {
+		if (!mod._SNPMakeDataValid) {
 			return;
 		}
 
-		mod._SNPMakeCodeValid.childNodes.forEach(function (e) {
-			mod._SNPMakeCodeValid.removeChild(e);
+		mod._SNPMakeDataValid.childNodes.forEach(function (e) {
+			mod._SNPMakeDataValid.removeChild(e);
 		});
 
-		mod._SNPMakeCodeValid.appendChild(kjua({
+		mod._SNPMakeDataValid.appendChild(kjua({
 			render: 'canvas',
 			ecLevel: 'H',
 			size: 100,
@@ -136,13 +136,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<div class="SNPMakeCodeNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
+<div class="SNPMakeDataNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
 	
 {/if}
 
 {#if mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<div class="SNPMakeCodeValid" bind:this={ mod._SNPMakeCodeValid }></div>
+<div class="SNPMakeDataValid" bind:this={ mod._SNPMakeDataValid }></div>
 	
 {/if}
 

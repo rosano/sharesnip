@@ -7,8 +7,8 @@ Object.entries({
 	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
 	
-	SNPMakeCodeNotValid: '.SNPMakeCodeNotValid',
-	SNPMakeCodeValid: '.SNPMakeCodeValid',
+	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
+	SNPMakeDataValid: '.SNPMakeDataValid',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -43,12 +43,12 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements('.SNPFormLink', 1);
 	});
 
-	it('shows SNPMakeCodeNotValid', function () {
-		browser.assert.elements(SNPMakeCodeNotValid, 1);
+	it('shows SNPMakeDataNotValid', function () {
+		browser.assert.elements(SNPMakeDataNotValid, 1);
 	});
 
-	it('hides SNPMakeCodeValid', function () {
-		browser.assert.elements(SNPMakeCodeValid, 0);
+	it('hides SNPMakeDataValid', function () {
+		browser.assert.elements(SNPMakeDataValid, 0);
 	});
 
 	context('SNPMakeTypesNoteButton', function () {
@@ -73,12 +73,12 @@ describe('SNPMake_Access', function () {
 			return browser.fill('.SNPFormNoteField', Math.random().toString());
 		});
 
-		it('hides SNPMakeCodeNotValid', function () {
-			browser.assert.elements(SNPMakeCodeNotValid, 0);
+		it('hides SNPMakeDataNotValid', function () {
+			browser.assert.elements(SNPMakeDataNotValid, 0);
 		});
 		
-		it('shows SNPMakeCodeValid', function () {
-			browser.assert.elements(SNPMakeCodeValid, 1);
+		it('shows SNPMakeDataValid', function () {
+			browser.assert.elements(SNPMakeDataValid, 1);
 		});
 	
 	});
@@ -89,12 +89,12 @@ describe('SNPMake_Access', function () {
 			return browser.fill('.SNPFormNoteField', '');
 		});
 
-		it('shows SNPMakeCodeNotValid', function () {
-			browser.assert.elements(SNPMakeCodeNotValid, 1);
+		it('shows SNPMakeDataNotValid', function () {
+			browser.assert.elements(SNPMakeDataNotValid, 1);
 		});
 
-		it('hides SNPMakeCodeValid', function () {
-			browser.assert.elements(SNPMakeCodeValid, 0);
+		it('hides SNPMakeDataValid', function () {
+			browser.assert.elements(SNPMakeDataValid, 0);
 		});
 	
 	});

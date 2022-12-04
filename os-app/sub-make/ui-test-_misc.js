@@ -8,15 +8,15 @@ describe('SNPMake_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	describe('SNPMakeCodeNotValid', function test_SNPMakeCodeNotValid () {
+	describe('SNPMakeDataNotValid', function test_SNPMakeDataNotValid () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ SNPMakeCodeNotValid } #_OLSKSharedIconPlaceholder`, 1);
+			browser.assert.elements(`${ SNPMakeDataNotValid } #_OLSKSharedIconPlaceholder`, 1);
 		});
 	
 	});
 
-	describe('SNPMakeCodeValid', function test_SNPMakeCodeValid () {
+	describe('SNPMakeDataValid', function test_SNPMakeDataValid () {
 
 		before(function () {
 			return browser.pressButton('.SNPMakeTypesNoteButton');
@@ -27,7 +27,7 @@ describe('SNPMake_Misc', function () {
 		});
 
 		it.skip('creates canvas', function () {
-			browser.assert.elements(`${ SNPMakeCodeValid } canvas`, 1);
+			browser.assert.elements(`${ SNPMakeDataValid } canvas`, 1);
 		});
 
 		it('sends SNPFormValid', function () {
