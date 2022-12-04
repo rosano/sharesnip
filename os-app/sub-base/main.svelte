@@ -71,7 +71,6 @@ import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 {#if SNPFormDidSubmit }
 	
 <button class="SNPFormBaseSaveButton" disabled bind:this={ mod._SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
-}mod.
 
 {/if}
 
