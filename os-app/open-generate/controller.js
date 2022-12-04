@@ -2,11 +2,13 @@ const kSNPGenerateServiceWorkerVersionID = Date.now().toString();
 
 const OLSKServiceWorker = require('../../node_modules/OLSKServiceWorker/main.js');
 
+const kSNPGenerateRoute = '/qr-code-generator';
+
 const mod = {
 
 	OLSKControllerRoutes () {
 		return [{
-			OLSKRoutePath: '/qr-code-generator',
+			OLSKRoutePath: kSNPGenerateRoute,
 			OLSKRouteMethod: 'get',
 			OLSKRouteSignature: 'SNPGenerateRoute',
 			OLSKRouteFunction (req, res, next) {
@@ -23,6 +25,16 @@ const mod = {
 					ORIGIN_PAGE_PATH_TOKEN: res.locals.OLSKCanonical('SNPGenerateRoute'),
 				}));
 			},
+		}, {
+			OLSKRoutePath: '/generate',
+			OLSKRouteMethod: 'get',
+			OLSKRouteSignature: 'SNPGenerateShortcutRoute1',
+			OLSKRouteRedirect: kSNPGenerateRoute,
+		}, {
+			OLSKRoutePath: '/gen',
+			OLSKRouteMethod: 'get',
+			OLSKRouteSignature: 'SNPGenerateShortcutRoute2',
+			OLSKRouteRedirect: kSNPGenerateRoute,
 		}, {
 			OLSKRoutePath: '/generate/manifest.json',
 			OLSKRouteMethod: 'get',
