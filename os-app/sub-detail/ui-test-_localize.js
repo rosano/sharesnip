@@ -35,6 +35,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.attribute(SNPCollectDetailFormNameField, 'placeholder', uLocalized('SNPCollectDetailFormNameFieldText'));
 			});
 
+			it('localizes SNPCollectDetailDataField', function () {
+				browser.assert.attribute(SNPCollectDetailDataField, 'placeholder', uLocalized('SNPCollectDetailDataFieldText'));
+			});
+
 			context('discard', function () {
 			
 				it('localizes SNPCollectDetailDiscardConfirm', function() {

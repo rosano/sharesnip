@@ -115,6 +115,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<input class="SNPCollectDetailFormNameField" placeholder={ OLSKLocalized('SNPCollectDetailFormNameFieldText') } type="text" bind:value={ SNPCollectDetailItem.SNPDocumentName } on:input={ SNPCollectDetailDispatchUpdate } disabled={ SNPCollectDetailItem.$SNPDocumentIsInbox ? true : null } />
 </p>
 
+<p class="SNPCollectDetailData">
+	<input class="SNPCollectDetailDataField" placeholder={ OLSKLocalized('SNPCollectDetailDataFieldText') } type="text" disabled bind:value={ SNPCollectDetailItem.SNPDocumentData } />
+</p>
+
 <div class="SNPCollectDetailQR" bind:this={ mod._SNPCollectDetailQR }></div>
 
 </div>

@@ -233,6 +233,22 @@ describe('SNPCollectDetail_Misc', function () {
 	
 	});
 
+	describe('SNPCollectDetailDataField', function test_SNPCollectDetailDataField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(SNPCollectDetailDataField, 'type', 'text');
+		});
+
+		it('sets disabled', function () {
+			browser.assert.attribute(SNPCollectDetailDataField, 'disabled', '');
+		});
+
+		it('binds SNPDocumentData', function () {
+			browser.assert.input(SNPCollectDetailDataField, item.SNPDocumentData);
+		});
+	
+	});
+
 	describe.skip('SNPCollectDetailQR', function test_SNPCollectDetailQR () {
 
 		it('creates canvas', function () {

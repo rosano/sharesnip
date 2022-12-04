@@ -17,6 +17,8 @@ Object.entries({
 	SNPCollectDetailForm: '.SNPCollectDetailForm',
 	SNPCollectDetailFormNameField: '.SNPCollectDetailFormNameField',
 
+	SNPCollectDetailDataField: '.SNPCollectDetailDataField',
+
 	SNPCollectDetailQR: '.SNPCollectDetailQR',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
@@ -68,6 +70,10 @@ describe('SNPCollectDetail_Access', function () {
 
 	it('shows SNPCollectDetailFormNameField', function () {
 		browser.assert.elements(SNPCollectDetailFormNameField, 1);
+	});
+
+	it('shows SNPCollectDetailDataField', function () {
+		browser.assert.elements(SNPCollectDetailDataField, 1);
 	});
 
 	it('shows SNPCollectDetailQR', function () {
