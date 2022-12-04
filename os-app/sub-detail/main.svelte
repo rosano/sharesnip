@@ -71,6 +71,7 @@ const mod = {
 			ecLevel: 'H',
 			size: 420,
 			rounded: 100,
+			quiet: 0,
 			fill: 'rgb(255, 128, 0)',
 			back: '#FFF9E5',
 			text: SNPCollectDetailItem.SNPDocumentData,
