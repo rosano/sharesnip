@@ -101,8 +101,8 @@ const mod = {
 			ecLevel: 'H',
 			size: 100,
 			rounded: 100,
-			fill: 'rgb(255, 128, 0)',
-			back: '#FFF9E5',
+			// fill: 'rgb(255, 128, 0)',
+			// back: '#FFF9E5',
 			text: inputData.SNPDocumentData,
 		}));
 	},
