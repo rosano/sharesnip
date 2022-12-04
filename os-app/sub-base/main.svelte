@@ -25,7 +25,9 @@ const mod = {
 	SNPFormNotValid () {
 		delete mod._ValueChildObject;
 
-		mod.SNPFormBaseSaveButton.disabled = true;
+		if (mod._SNPFormBaseSaveButton) {
+			mod._SNPFormBaseSaveButton.disabled = true;
+		}
 
 		SNPFormNotValid();
 	},
@@ -33,7 +35,9 @@ const mod = {
 	SNPFormValid (inputData) {
 		mod._ValueChildObject = inputData;
 
-		mod.SNPFormBaseSaveButton.disabled = null;
+		if (mod._SNPFormBaseSaveButton) {
+			mod._SNPFormBaseSaveButton.disabled = null;
+		}
 
 		SNPFormValid(inputData);
 	},
@@ -66,7 +70,8 @@ import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 
 {#if SNPFormDidSubmit }
 	
-<button class="SNPFormBaseSaveButton" disabled bind:this={ mod.SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+<button class="SNPFormBaseSaveButton" disabled bind:this={ mod._SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+}mod.
 
 {/if}
 
