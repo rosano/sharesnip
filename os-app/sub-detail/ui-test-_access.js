@@ -1,5 +1,7 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const SNPDocument = require('../_shared/SNPDocument/main.js').default;
+
 Object.entries({
 	SNPCollectDetail: '.SNPCollectDetail',
 
@@ -18,6 +20,7 @@ Object.entries({
 	SNPCollectDetailFormNameField: '.SNPCollectDetailFormNameField',
 
 	SNPCollectDetailDataField: '.SNPCollectDetailDataField',
+	SNPCollectDetailDataOpenButton: '.SNPCollectDetailDataOpenButton',
 
 	SNPCollectDetailQR: '.SNPCollectDetailQR',
 }).map(function (e) {
@@ -76,8 +79,28 @@ describe('SNPCollectDetail_Access', function () {
 		browser.assert.elements(SNPCollectDetailDataField, 1);
 	});
 
+	it('hides SNPCollectDetailDataOpenButton', function () {
+		browser.assert.elements(SNPCollectDetailDataOpenButton, 0);
+	});
+
 	it('shows SNPCollectDetailQR', function () {
 		browser.assert.elements(SNPCollectDetailQR, 1);
+	});
+
+	context('SNPDocumentTypeLink', function () {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				SNPCollectDetailItem: JSON.stringify(StubDocumentObjectValid({
+					SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
+				})),
+			});
+		});
+
+		it('shows SNPCollectDetailDataOpenButton', function () {
+			browser.assert.elements(SNPCollectDetailDataOpenButton, 1);
+		});
+	
 	});
 
 });

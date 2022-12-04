@@ -1,10 +1,13 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const SNPDocument = require('../_shared/SNPDocument/main.js').default;
+
 describe('SNPCollectDetail_Misc', function () {
 
 	const item = StubDocumentObjectValid({
 		SNPDocumentName: Math.random().toString(),
 		SNPDocumentData: Math.random().toString(),
+		SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
 	});
 
 	before(function() {
@@ -245,6 +248,22 @@ describe('SNPCollectDetail_Misc', function () {
 
 		it('binds SNPDocumentData', function () {
 			browser.assert.input(SNPCollectDetailDataField, item.SNPDocumentData);
+		});
+	
+	});
+
+	describe('SNPCollectDetailDataOpenButton', function test_SNPCollectDetailDataOpenButton () {
+
+		it('classes OLSKDecorPress', function () {
+			browser.assert.hasClass(SNPCollectDetailDataOpenButton, 'OLSKDecorPress');
+		});
+
+		it('sets target', function () {
+			browser.assert.attribute(SNPCollectDetailDataOpenButton, 'target', '_blank');
+		});
+
+		it('binds SNPDocumentData', function () {
+			browser.assert.attribute(SNPCollectDetailDataOpenButton, 'href', item.SNPDocumentData);
 		});
 	
 	});

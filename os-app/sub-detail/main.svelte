@@ -117,6 +117,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <p class="SNPCollectDetailData">
 	<input class="SNPCollectDetailDataField" placeholder={ OLSKLocalized('SNPCollectDetailDataFieldText') } type="text" disabled bind:value={ SNPCollectDetailItem.SNPDocumentData } />
+
+	{#if SNPCollectDetailItem.SNPDocumentType.match(/link/i) }
+		<a class="SNPCollectDetailDataOpenButton OLSKDecorPress" href={ SNPCollectDetailItem.SNPDocumentData } target="_blank">{ OLSKLocalized('SNPCollectDetailDataOpenButtonText') }</a>
+	{/if}
 </p>
 
 <div class="SNPCollectDetailQR" bind:this={ mod._SNPCollectDetailQR }></div>
