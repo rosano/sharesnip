@@ -6,6 +6,7 @@ Object.entries({
 	SNPMakeTypes: '.SNPMakeTypes',
 	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
+	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	
 	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
 	SNPMakeDataValid: '.SNPMakeDataValid',
@@ -33,6 +34,10 @@ describe('SNPMake_Access', function () {
 
 	it('shows SNPMakeTypesNoteButton', function () {
 		browser.assert.elements(SNPMakeTypesNoteButton, 1);
+	});
+
+	it('shows SNPMakeTypesPhoneButton', function () {
+		browser.assert.elements(SNPMakeTypesPhoneButton, 1);
 	});
 
 	it('shows SNPFormBase', function () {
@@ -67,7 +72,27 @@ describe('SNPMake_Access', function () {
 	
 	});
 
+	context('SNPMakeTypesPhoneButton', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeTypesPhoneButton);
+		});
+
+		it('hides SNPFormNote', function () {
+			browser.assert.elements('.SNPFormNote', 0);
+		});
+
+		it('shows SNPFormPhone', function () {
+			browser.assert.elements('.SNPFormPhone', 1);
+		});
+	
+	});
+
 	context('valid', function () {
+
+		before(function () {
+			return browser.pressButton(SNPMakeTypesNoteButton);
+		});
 
 		before(function () {
 			return browser.fill('.SNPFormNoteField', Math.random().toString());

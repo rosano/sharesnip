@@ -56,6 +56,7 @@ $: {
 
 import SNPFormNote from './submodules/SNPFormNote/main.svelte';
 import SNPFormLink from './submodules/SNPFormLink/main.svelte';
+import SNPFormPhone from './submodules/SNPFormPhone/main.svelte';
 </script>
 
 <div class="SNPFormBase">
@@ -66,6 +67,10 @@ import SNPFormLink from './submodules/SNPFormLink/main.svelte';
 
 {#if mod._ValueChildClass === 'SNPFormLink' }
 	<SNPFormLink SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
+{/if}
+
+{#if mod._ValueChildClass === 'SNPFormPhone' }
+	<SNPFormPhone SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if SNPFormDidSubmit }

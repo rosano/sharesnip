@@ -34,6 +34,10 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
 	},
 
+	InterfacePhoneButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypePhone());
+	},
+
 	// COMMAND
 
 	CommandSetType (inputData) {
@@ -129,6 +133,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <button class="SNPMakeTypesLinkButton" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
 
 <button class="SNPMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
+
+<button class="SNPMakeTypesPhoneButton" on:click={ mod.InterfacePhoneButtonDidClick }>{ OLSKLocalized('SNPMakeTypesPhoneButtonText') }</button>
 
 </div>
 
