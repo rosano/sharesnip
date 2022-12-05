@@ -1,14 +1,16 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const OLSKFormPhoneLogic = require('./ui-logic.js').default;
+
 describe('SNPFormPhone_Misc', function () {
 
-	const SNPDocumentData = Math.random().toString();
+	const SNPDocumentPhone = Math.random().toString();
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPFormObject: JSON.stringify({
-				SNPDocumentData,
-			})
+			SNPFormObject: JSON.stringify(OLSKFormPhoneLogic.SNPFormPhoneDocument({
+				SNPDocumentPhone,
+			})),
 		});
 	});
 
@@ -34,13 +36,13 @@ describe('SNPFormPhone_Misc', function () {
 			browser.assert.attribute(SNPFormPhoneField, 'placeholder', '+1-234-567-890');
 		});
 
-		it('binds SNPDocumentData', function () {
-			browser.assert.input(SNPFormPhoneField, SNPDocumentData);
+		it('binds SNPDocumentPhone', function () {
+			browser.assert.input(SNPFormPhoneField, SNPDocumentPhone);
 		});
 
 		context('valid', function () {
 
-			const SNPDocumentData = '+123-abc';
+			const SNPDocumentPhone = '+123-abc';
 
 			before(function () {
 				browser.assert.text('#TestSNPFormDidFill', '0');
@@ -51,40 +53,40 @@ describe('SNPFormPhone_Misc', function () {
 			});
 			
 			before(function () {
-				return browser.fill(SNPFormPhoneField, SNPDocumentData);
+				return browser.fill(SNPFormPhoneField, SNPDocumentPhone);
 			});
 
 			it('sends SNPFormDidFill', function () {
 				browser.assert.text('#TestSNPFormDidFill', '1');
-				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify({
-					SNPDocumentData,
-				}));
+				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormPhoneLogic.SNPFormPhoneDocument({
+					SNPDocumentPhone,
+				})));
 			});
 
 			it('sends SNPFormValid', function () {
 				browser.assert.text('#TestSNPFormValid', '1');
-				browser.assert.text('#TestSNPFormValidData', JSON.stringify({
-					SNPDocumentData,
-				}));
+				browser.assert.text('#TestSNPFormValidData', JSON.stringify(OLSKFormPhoneLogic.SNPFormPhoneDocument({
+					SNPDocumentPhone,
+				})));
 			});
 
 			context('not valid', function () {
 
-				const SNPDocumentData = '';
+				const SNPDocumentPhone = '';
 				
 				before(function () {
 					browser.assert.text('#TestSNPFormNotValid', '0');
 				});
 				
 				before(function () {
-					return browser.fill(SNPFormPhoneField, SNPDocumentData);
+					return browser.fill(SNPFormPhoneField, SNPDocumentPhone);
 				});
 
 				it('sends SNPFormDidFill', function () {
 					browser.assert.text('#TestSNPFormDidFill', '2');
-					browser.assert.text('#TestSNPFormDidFillData', JSON.stringify({
-						SNPDocumentData,
-					}));
+					browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormPhoneLogic.SNPFormPhoneDocument({
+						SNPDocumentPhone,
+					})));
 				});
 
 				it('sends SNPFormNotValid', function () {

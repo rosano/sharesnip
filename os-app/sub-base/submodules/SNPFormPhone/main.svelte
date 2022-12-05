@@ -5,18 +5,20 @@ export let SNPFormNotValid;
 export let SNPFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
+import OLSKFormPhoneLogic from './ui-logic.js';
 
 const mod = {
 
 	// INTERFACE
 
 	InterfaceFieldDidFill () {
-		const item = {
-			SNPDocumentData: this.value.trim(),
-		};
+		const SNPDocumentPhone = this.value.trim();
+		const item = OLSKFormPhoneLogic.SNPFormPhoneDocument({
+			SNPDocumentPhone,
+		});
 		SNPFormDidFill(item);
 
-		item.SNPDocumentData.length ? SNPFormValid(item) : SNPFormNotValid();
+		item.SNPDocumentPhone.length ? SNPFormValid(item) : SNPFormNotValid();
 	},
 
 };
@@ -24,6 +26,6 @@ const mod = {
 
 <div class="SNPFormPhone">
 
-<input class="SNPFormPhoneField SNPFormDataField" type="tel" required autofocus placeholder="+1-234-567-890" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentData || ''}>
+<input class="SNPFormPhoneField SNPFormDataField" type="tel" required autofocus placeholder="+1-234-567-890" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentPhone || ''}>
 
 </div>
