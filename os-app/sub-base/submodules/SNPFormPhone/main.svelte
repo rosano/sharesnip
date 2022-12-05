@@ -4,7 +4,6 @@ export let SNPFormDidFill;
 export let SNPFormNotValid;
 export let SNPFormValid;
 
-import OLSKLink from 'OLSKLink';
 import { OLSKLocalized } from 'OLSKInternational';
 
 const mod = {
@@ -17,7 +16,7 @@ const mod = {
 		};
 		SNPFormDidFill(item);
 
-		OLSKLink.OLSKLinkValid(item.SNPDocumentData) ? SNPFormValid(item) : SNPFormNotValid();
+		item.SNPDocumentData.length ? SNPFormValid(item) : SNPFormNotValid();
 	},
 
 };

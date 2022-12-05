@@ -67,7 +67,7 @@ describe('SNPFormPhone_Misc', function () {
 
 			context('valid', function () {
 
-				const SNPDocumentData = 'https://example.com';
+				const SNPDocumentData = '+123-abc';
 				
 				before(function () {
 					browser.assert.text('#TestSNPFormValid', '0');
