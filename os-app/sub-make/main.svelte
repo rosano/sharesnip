@@ -15,6 +15,8 @@ const mod = {
 
 	_ValueStateMap: {},
 	_ValueScan: false,
+	
+	SNPFormBaseSaveButtonDisabled: true,
 
 	// DATA
 
@@ -98,7 +100,7 @@ const mod = {
 		mod.CommandSetType(SNPMakeStateDocument.SNPDocumentType);
 		mod.SNPFormValid(SNPMakeStateDocument);
 
-		mod.SNPFormBaseOverwriteValid = true;
+		mod.SNPFormBaseSaveButtonDisabled = null;
 	},
 
 	// SETUP
@@ -173,7 +175,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if !mod._ValueScan }
 
-<SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } SNPFormBaseOverwriteValid={ mod.SNPFormBaseOverwriteValid } />
+<SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } SNPFormBaseSaveButtonDisabled={ mod.SNPFormBaseSaveButtonDisabled } />
 	
 {/if}
 

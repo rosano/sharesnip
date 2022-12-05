@@ -4,7 +4,7 @@ export let SNPFormNotValid;
 export let SNPFormValid;
 export let SNPFormDidFill;
 export let SNPFormDidSubmit = null;
-export let SNPFormBaseOverwriteValid = null;
+export let SNPFormBaseSaveButtonDisabled = true;
 
 export const modPublic = {
 };
@@ -14,6 +14,8 @@ import { OLSKLocalized } from 'OLSKInternational';
 import SNPFormBaseLogic from './ui-logic.js';
 
 const mod = {
+
+	SNPFormBaseSaveButtonDisabled: SNPFormBaseSaveButtonDisabled,
 
 	// INTERFACE
 
@@ -26,9 +28,7 @@ const mod = {
 	SNPFormNotValid () {
 		delete mod._ValueChildObject;
 
-		if (mod._SNPFormBaseSaveButton) {
-			mod._SNPFormBaseSaveButton.disabled = true;
-		}
+		mod.SNPFormBaseSaveButtonDisabled = true;
 
 		SNPFormNotValid();
 	},
@@ -36,9 +36,7 @@ const mod = {
 	SNPFormValid (inputData) {
 		mod._ValueChildObject = inputData;
 
-		if (mod._SNPFormBaseSaveButton) {
-			mod._SNPFormBaseSaveButton.disabled = null;
-		}
+		mod.SNPFormBaseSaveButtonDisabled = false;
 
 		SNPFormValid(inputData);
 	},
@@ -81,7 +79,7 @@ import SNPFormEmail from './submodules/SNPFormEmail/main.svelte';
 
 {#if SNPFormDidSubmit }
 	
-<button class="SNPFormBaseSaveButton" disabled={ SNPFormBaseOverwriteValid ? '' : null } bind:this={ mod._SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+<button class="SNPFormBaseSaveButton" disabled={ mod.SNPFormBaseSaveButtonDisabled } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
 
 {/if}
 
