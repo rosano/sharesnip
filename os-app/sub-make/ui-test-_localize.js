@@ -26,6 +26,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPMakeTypesPhoneButton, uLocalized('SNPMakeTypesPhoneButtonText'));
 		});
 
+		it('localizes SNPMakeTypesEmailButton', function () {
+			browser.assert.text(SNPMakeTypesEmailButton, uLocalized('SNPMakeTypesEmailButtonText'));
+		});
+
 	});
 
 });
