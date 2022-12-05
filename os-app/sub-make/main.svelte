@@ -14,6 +14,7 @@ const mod = {
 	// VALUE
 
 	_ValueStateMap: {},
+	_ValueScan: false,
 
 	// DATA
 
@@ -25,6 +26,10 @@ const mod = {
 	},
 
 	// INTERFACE
+
+	InterfaceScanButtonDidClick () {
+		mod._ValueScan = true;
+	},
 
 	InterfaceLinkButtonDidClick () {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
@@ -45,6 +50,8 @@ const mod = {
 	// COMMAND
 
 	CommandSetType (inputData) {
+		mod._ValueScan = false;
+
 		mod._ValueType = inputData;
 
 		if (!mod._ValueStateMap[inputData]) {
@@ -81,6 +88,15 @@ const mod = {
 		mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument = Object.assign(inputData, {
 			SNPDocumentType: mod._ValueType,
 		});
+	},
+
+	SNPScanDidSucceed (SNPMakeStateDocument) {
+		mod._ValueStateMap[SNPMakeStateDocument.SNPDocumentType] = {
+			SNPMakeStateDocument,
+		};
+
+		mod.CommandSetType(SNPMakeStateDocument.SNPDocumentType);
+		mod.SNPFormValid(SNPMakeStateDocument);
 	},
 
 	// SETUP
@@ -126,6 +142,7 @@ const mod = {
 	
 mod.LifecycleModuleDidLoad();
 
+import SNPScan from '../sub-scan/main.svelte';
 import SNPFormBase from '../sub-base/main.svelte';
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
@@ -134,6 +151,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <div class="SNPMakeTypes">
 		
+<button class="SNPMakeScanButton" on:click={ mod.InterfaceScanButtonDidClick }>{ OLSKLocalized('SNPMakeScanButtonText') }</button>
+
 <button class="SNPMakeTypesLinkButton" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
 
 <button class="SNPMakeTypesNoteButton" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
@@ -144,7 +163,17 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
+{#if mod._ValueScan }
+
+<SNPScan SNPScanDidSucceed={ mod.SNPScanDidSucceed } />
+	
+{/if}
+
+{#if !mod._ValueScan }
+
 <SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } />
+	
+{/if}
 
 {#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 

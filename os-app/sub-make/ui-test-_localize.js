@@ -14,6 +14,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 		});
 
+		it('localizes SNPMakeScanButton', function () {
+			browser.assert.text(SNPMakeScanButton, uLocalized('SNPMakeScanButtonText'));
+		});
+
 		it('localizes SNPMakeTypesLinkButton', function () {
 			browser.assert.text(SNPMakeTypesLinkButton, uLocalized('SNPMakeTypesLinkButtonText'));
 		});

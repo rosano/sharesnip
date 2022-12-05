@@ -126,7 +126,7 @@ onMount(mod.LifecycleModuleDidLoad);
 {#if OLSK_SPEC_UI() }
 
 <button id="TestMessageReadErrorButton" on:click={ () => mod.MessageReadError(new Error(DebugFakeReadErrorMessage || Math.random().toString())) }></button>
-<button id="TestMessageReadDidParseButton" on:click={ () => mod.MessageReadDidParse(DebugFakeParseContent) }></button>
+<button id="TestMessageReadDidParseButton" on:click={ () => mod.MessageReadDidParse(DebugFakeParseContent || Math.random().toString()) }></button>
 <button id="TestMessageParseErrorButton" on:click={ () => mod.MessageParseError(new Error(DebugFakeParseErrorMessage || Math.random().toString())) }></button>
 	
 {/if}

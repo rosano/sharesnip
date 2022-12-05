@@ -3,6 +3,8 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 Object.entries({
 	SNPMake: '.SNPMake',
 	
+	SNPMakeScanButton: '.SNPMakeScanButton',
+	
 	SNPMakeTypes: '.SNPMakeTypes',
 	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
@@ -23,6 +25,10 @@ describe('SNPMake_Access', function () {
 
 	it('shows SNPMake', function () {
 		browser.assert.elements(SNPMake, 1);
+	});
+
+	it('shows SNPMakeScanButton', function () {
+		browser.assert.elements(SNPMakeScanButton, 1);
 	});
 
 	it('shows SNPMakeTypes', function () {
@@ -59,6 +65,10 @@ describe('SNPMake_Access', function () {
 
 	it('hides SNPMakeDataValid', function () {
 		browser.assert.elements(SNPMakeDataValid, 0);
+	});
+
+	it('hides SNPScan', function () {
+		browser.assert.elements('.SNPScan', 0);
 	});
 
 	context('SNPMakeTypesNoteButton', function () {
@@ -141,6 +151,62 @@ describe('SNPMake_Access', function () {
 
 		it('hides SNPMakeDataValid', function () {
 			browser.assert.elements(SNPMakeDataValid, 0);
+		});
+	
+	});
+
+	context('SNPMakeScanButton', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeScanButton);
+		});
+
+		it('hides SNPFormBase', function () {
+			browser.assert.elements('.SNPFormBase', 0);
+		});
+
+		it('shows SNPScan', function () {
+			browser.assert.elements('.SNPScan', 1);
+		});
+
+		describe('change type', function () {
+
+			before(function () {
+				return browser.pressButton(SNPMakeTypesLinkButton);
+			});
+			
+			it('shows SNPFormBase', function () {
+				browser.assert.elements('.SNPFormBase', 1);
+			});
+
+			it('hides SNPScan', function () {
+				browser.assert.elements('.SNPScan', 0);
+			});
+			
+		});
+
+		context('Parse', function () {
+			
+			before(function () {
+				return browser.pressButton(SNPMakeScanButton);
+			});
+
+			before(function () {
+				return browser.pressButton('#TestMessageReadDidParseButton');
+			});
+			
+			it('shows SNPFormBase', function () {
+				browser.assert.elements('.SNPFormBase', 1);
+			});
+
+			it('hides SNPScan', function () {
+				browser.assert.elements('.SNPScan', 0);
+			});
+
+			it('shows SNPFormNote', function () {
+				browser.assert.elements('.SNPFormNote', 1);
+			});
+		
 		});
 	
 	});

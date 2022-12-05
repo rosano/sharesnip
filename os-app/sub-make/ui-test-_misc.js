@@ -94,4 +94,56 @@ describe('SNPMake_Misc', function () {
 		
 	});
 
+	context('scan', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeScanButton);
+		});
+
+		it('hides SNPFormBase', function () {
+			browser.assert.elements('.SNPFormBase', 0);
+		});
+
+		it('shows SNPScan', function () {
+			browser.assert.elements('.SNPScan', 1);
+		});
+
+		describe('change type', function () {
+
+			before(function () {
+				return browser.pressButton(SNPMakeTypesLinkButton);
+			});
+			
+			it('shows SNPFormBase', function () {
+				browser.assert.elements('.SNPFormBase', 1);
+			});
+
+			it('hides SNPScan', function () {
+				browser.assert.elements('.SNPScan', 0);
+			});
+			
+		});
+
+		context('Parse', function () {
+			
+			before(function () {
+				return browser.pressButton(SNPMakeScanButton);
+			});
+
+			before(function () {
+				browser.assert.text('#TestSNPFormValid', '1');
+			});
+
+			before(function () {
+				return browser.pressButton('#TestMessageReadDidParseButton');
+			});
+
+			it('sends SNPFormValid', function () {
+				browser.assert.text('#TestSNPFormValid', '2');
+			});
+		
+		});
+	
+	});
+
 });
