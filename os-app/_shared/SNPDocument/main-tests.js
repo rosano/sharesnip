@@ -4,18 +4,18 @@ const mod = require('./main.js').default;
 
 const OLSKObject = require('OLSKObject');
 
-describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
-
-	it('returns string', function() {
-		deepEqual(mod.SNPDocumentTypeNote(), 'TYPE_NOTE');
-	});
-
-});
-
 describe('SNPDocumentTypeLink', function test_SNPDocumentTypeLink() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypeLink(), 'TYPE_LINK');
+	});
+
+});
+
+describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypeNote(), 'TYPE_NOTE');
 	});
 
 });
@@ -32,8 +32,8 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypes(), [
-			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypePhone(),
 			]);
 	});

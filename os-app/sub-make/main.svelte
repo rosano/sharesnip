@@ -26,12 +26,12 @@ const mod = {
 
 	// INTERFACE
 
-	InterfaceTextButtonDidClick () {
-		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
-	},
-
 	InterfaceLinkButtonDidClick () {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
+	},
+
+	InterfaceTextButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
 	},
 
 	InterfacePhoneButtonDidClick () {

@@ -4,12 +4,12 @@ import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
 const mod = {
 
-	SNPDocumentTypeNote () {
-		return 'TYPE_NOTE';
-	},
-
 	SNPDocumentTypeLink () {
 		return 'TYPE_LINK';
+	},
+
+	SNPDocumentTypeNote () {
+		return 'TYPE_NOTE';
 	},
 
 	SNPDocumentTypePhone () {
@@ -18,8 +18,8 @@ const mod = {
 
 	SNPDocumentTypes () {
 		return [
-			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypePhone(),
 		];
 	},
