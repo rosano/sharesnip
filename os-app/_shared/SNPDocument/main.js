@@ -20,12 +20,17 @@ const mod = {
 		return 'TYPE_EMAIL';
 	},
 
+	SNPDocumentTypeWifi () {
+		return 'TYPE_WIFI';
+	},
+
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeEmail(),
+			mod.SNPDocumentTypeWifi(),
 		];
 	},
 
