@@ -38,16 +38,16 @@ describe('SNPFormPhone_Misc', function () {
 			browser.assert.input(SNPFormPhoneField, SNPDocumentData);
 		});
 
-		context('fill', function () {
+		context('valid', function () {
 
-			const SNPDocumentData = Math.random().toString();
-			
+			const SNPDocumentData = '+123-abc';
+
 			before(function () {
 				browser.assert.text('#TestSNPFormDidFill', '0');
 			});
 			
 			before(function () {
-				browser.assert.text('#TestSNPFormNotValid', '0');
+				browser.assert.text('#TestSNPFormValid', '0');
 			});
 			
 			before(function () {
@@ -61,16 +61,19 @@ describe('SNPFormPhone_Misc', function () {
 				}));
 			});
 
-			it('sends SNPFormNotValid', function () {
-				browser.assert.text('#TestSNPFormNotValid', '1');
+			it('sends SNPFormValid', function () {
+				browser.assert.text('#TestSNPFormValid', '1');
+				browser.assert.text('#TestSNPFormValidData', JSON.stringify({
+					SNPDocumentData,
+				}));
 			});
 
-			context('valid', function () {
+			context('not valid', function () {
 
-				const SNPDocumentData = '+123-abc';
+				const SNPDocumentData = '';
 				
 				before(function () {
-					browser.assert.text('#TestSNPFormValid', '0');
+					browser.assert.text('#TestSNPFormNotValid', '0');
 				});
 				
 				before(function () {
@@ -84,11 +87,8 @@ describe('SNPFormPhone_Misc', function () {
 					}));
 				});
 
-				it('sends SNPFormValid', function () {
-					browser.assert.text('#TestSNPFormValid', '1');
-					browser.assert.text('#TestSNPFormValidData', JSON.stringify({
-						SNPDocumentData,
-					}));
+				it('sends SNPFormNotValid', function () {
+					browser.assert.text('#TestSNPFormNotValid', '1');
 				});
 			
 			});
