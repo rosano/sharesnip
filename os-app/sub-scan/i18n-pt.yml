@@ -1,0 +1,4 @@
+SNPScanStartButtonText: Comecar escanear
+SNPScanReadErrorTextFormat: 'Erro de escanear: %@'
+SNPScanStopButtonText: Parar escanear
+SNPScanParseErrorTextFormat: 'Erro de parsear: %@'

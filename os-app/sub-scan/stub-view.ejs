@@ -1,0 +1,16 @@
+<%
+locals.OLSKPageAssets = [
+	OLSK_SPEC_UI() ? '' : '/_shared/__external/html5-qrcode/html5-qrcode.min.js',
+];
+locals.OLSKPagePublicConstants = {
+	OLSKSharedPageCurrentLanguage,
+};
+%>
+
+<script src="/<%= OLSKSharedPageControllerSlug %>/__compiled/ui-behaviour.js"></script>
+
+<p>
+	<strong>SNPScanDidSucceed</strong>
+	<span id="TestSNPScanDidSucceed">0</span>
+	<span id="TestSNPScanDidSucceedData"></span>
+</p>
