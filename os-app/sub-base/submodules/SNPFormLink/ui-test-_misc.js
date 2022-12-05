@@ -61,7 +61,7 @@ describe('SNPFormLink_Misc', function () {
 				}));
 			});
 
-			it('sends SNPFormValid', function () {
+			it('sends SNPFormNotValid', function () {
 				browser.assert.text('#TestSNPFormNotValid', '1');
 			});
 
