@@ -22,8 +22,8 @@ describe('SNPScan_Misc', function () {
 			browser.assert.attribute(SNPScanReader, 'id', 'SNPScanReader');
 		});
 
-		it('sets width', function () {
-			browser.assert.attribute(SNPScanReader, 'width', '300px');
+		it('sets style', function () {
+			browser.assert.attribute(SNPScanReader, 'style', 'width: 300px;');
 		});
 
 		context('Parse', function () {
