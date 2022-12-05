@@ -4,6 +4,7 @@ export let SNPFormNotValid;
 export let SNPFormValid;
 export let SNPFormDidFill;
 export let SNPFormDidSubmit = null;
+export let SNPFormBaseOverwriteValid = null;
 
 export const modPublic = {
 };
@@ -80,7 +81,7 @@ import SNPFormEmail from './submodules/SNPFormEmail/main.svelte';
 
 {#if SNPFormDidSubmit }
 	
-<button class="SNPFormBaseSaveButton" disabled bind:this={ mod._SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+<button class="SNPFormBaseSaveButton" disabled={ SNPFormBaseOverwriteValid ? '' : null } bind:this={ mod._SNPFormBaseSaveButton } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
 
 {/if}
 

@@ -141,6 +141,14 @@ describe('SNPMake_Misc', function () {
 			it('sends SNPFormValid', function () {
 				browser.assert.text('#TestSNPFormValid', '2');
 			});
+
+			context('SNPFormBaseSaveButton', function () {
+				
+				it('sets disabled', function () {
+					browser.assert.attribute('.SNPFormBaseSaveButton', 'disabled', null);
+				});
+			
+			});
 		
 		});
 	

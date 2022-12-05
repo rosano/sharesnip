@@ -97,6 +97,8 @@ const mod = {
 
 		mod.CommandSetType(SNPMakeStateDocument.SNPDocumentType);
 		mod.SNPFormValid(SNPMakeStateDocument);
+
+		mod.SNPFormBaseOverwriteValid = true;
 	},
 
 	// SETUP
@@ -171,7 +173,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if !mod._ValueScan }
 
-<SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } />
+<SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } SNPFormBaseOverwriteValid={ mod.SNPFormBaseOverwriteValid } />
 	
 {/if}
 
