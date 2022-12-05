@@ -16,11 +16,16 @@ const mod = {
 		return 'TYPE_PHONE';
 	},
 
+	SNPDocumentTypeEmail () {
+		return 'TYPE_EMAIL';
+	},
+
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypePhone(),
+			mod.SNPDocumentTypeEmail(),
 		];
 	},
 

@@ -28,6 +28,14 @@ describe('SNPDocumentTypePhone', function test_SNPDocumentTypePhone() {
 
 });
 
+describe('SNPDocumentTypeEmail', function test_SNPDocumentTypeEmail() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypeEmail(), 'TYPE_EMAIL');
+	});
+
+});
+
 describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
@@ -35,6 +43,7 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypePhone(),
+			mod.SNPDocumentTypeEmail(),
 			]);
 	});
 
