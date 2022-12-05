@@ -17,6 +17,7 @@ describe('SNPFormBaseChildClass', function test_SNPFormBaseChildClass() {
 		deepEqual(mod.SNPFormBaseChildClass(item), {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
 			[SNPDocument.SNPDocumentTypeLink()]: 'SNPFormLink',
+			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
 		}[item]);
 	});
 

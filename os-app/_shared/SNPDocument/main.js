@@ -12,10 +12,15 @@ const mod = {
 		return 'TYPE_LINK';
 	},
 
+	SNPDocumentTypePhone () {
+		return 'TYPE_PHONE';
+	},
+
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypePhone(),
 		];
 	},
 

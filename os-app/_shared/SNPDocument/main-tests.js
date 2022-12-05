@@ -20,12 +20,21 @@ describe('SNPDocumentTypeLink', function test_SNPDocumentTypeLink() {
 
 });
 
+describe('SNPDocumentTypePhone', function test_SNPDocumentTypePhone() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypePhone(), 'TYPE_PHONE');
+	});
+
+});
+
 describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypes(), [
 			mod.SNPDocumentTypeNote(),
 			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypePhone(),
 			]);
 	});
 
