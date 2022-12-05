@@ -44,6 +44,14 @@ describe('SNPDocumentTypeWifi', function test_SNPDocumentTypeWifi() {
 
 });
 
+describe('SNPDocumentTypeContact', function test_SNPDocumentTypeContact() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypeContact(), 'TYPE_CONTACT');
+	});
+
+});
+
 describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 
 	it('returns string', function() {
@@ -53,6 +61,7 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeEmail(),
 			mod.SNPDocumentTypeWifi(),
+			mod.SNPDocumentTypeContact(),
 			]);
 	});
 

@@ -24,6 +24,10 @@ const mod = {
 		return 'TYPE_WIFI';
 	},
 
+	SNPDocumentTypeContact () {
+		return 'TYPE_CONTACT';
+	},
+
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeLink(),
@@ -31,6 +35,7 @@ const mod = {
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeEmail(),
 			mod.SNPDocumentTypeWifi(),
+			mod.SNPDocumentTypeContact(),
 		];
 	},
 
