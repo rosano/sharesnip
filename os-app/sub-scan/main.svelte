@@ -113,7 +113,7 @@ onMount(mod.LifecycleModuleDidLoad);
 
 <div class="SNPScan">
 
-<div class="SNPScanReader" id="SNPScanReader" width="300px"></div>
+<div class="SNPScanReader" id="SNPScanReader" style="width: 300px"></div>
 
 {#if !mod._ValueScanning }
 	<button class="SNPScanStartButton" on:click={ mod.InterfaceScanStartButtonDidClick }>{ OLSKLocalized('SNPScanStartButtonText') }</button>
