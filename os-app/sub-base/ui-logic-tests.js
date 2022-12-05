@@ -18,6 +18,7 @@ describe('SNPFormBaseChildClass', function test_SNPFormBaseChildClass() {
 			[SNPDocument.SNPDocumentTypeLink()]: 'SNPFormLink',
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
 			[SNPDocument.SNPDocumentTypePhone()]: 'SNPFormPhone',
+			[SNPDocument.SNPDocumentTypeEmail()]: 'SNPFormEmail',
 		}[item]);
 	});
 
