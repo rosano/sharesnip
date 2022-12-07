@@ -108,13 +108,13 @@ import OLSKString from 'OLSKString';
 	
 <SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } />
 
-</div>
-
 {#if mod._ValueIsValid }
 
 <SNPDownload SNPDownloadData={ mod._ValueData } />
 	
 {/if}
+
+</div>
 
 <footer class="SNPGenerateViewportFooter OLSKMobileViewFooter">
 
