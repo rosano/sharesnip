@@ -263,6 +263,37 @@ describe('SNPDocumentExplodeEmail', function test_SNPDocumentExplodeEmail() {
 
 });
 
+describe('SNPDocumentExplodeWifi', function test_SNPDocumentExplodeWifi() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplodeWifi(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentWifiSecurity = uRandomElement('WPA', 'WEP', 'nopass');
+		const SNPDocumentWifiNetwork = Math.random().toString();
+		const SNPDocumentWifiPassword = Math.random().toString();
+		const SNPDocumentWifiHidden = uRandomElement(false, true)
+		const SNPDocumentData = uDataWifi({
+			SNPDocumentWifiSecurity,
+			SNPDocumentWifiNetwork,
+			SNPDocumentWifiPassword,
+			SNPDocumentWifiHidden,
+		});
+		deepEqual(mod.SNPDocumentExplodeWifi(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeWifi(),
+			SNPDocumentWifiSecurity,
+			SNPDocumentWifiNetwork,
+			SNPDocumentWifiPassword,
+			SNPDocumentWifiHidden,
+		});
+	});
+
+});
+
 describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 
 	it('throws if not string', function () {

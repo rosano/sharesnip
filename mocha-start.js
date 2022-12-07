@@ -67,8 +67,8 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return 'mailto:' + uEmail(inputData);
 		},
 
-		uDataWifi (inputData) {
-			return `WIFI:T:WPA;S:${ inputData };P:${ inputData };H:;;`
+		uDataWifi (inputData = '') {
+			return `WIFI:T:${ inputData.SNPDocumentWifiSecurity || 'WPA' };S:${ inputData.SNPDocumentWifiNetwork || inputData || Math.random().toString() };P:${ inputData.SNPDocumentWifiPassword || inputData || Math.random().toString() };H:${ inputData.SNPDocumentWifiHidden || '' };;`
 		},
 
 	}).map(function (e) {

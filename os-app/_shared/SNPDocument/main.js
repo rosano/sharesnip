@@ -150,6 +150,26 @@ const mod = {
 		};
 	},
 
+	SNPDocumentExplodeWifi (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		const SNPDocumentWifiSecurity = SNPDocumentData.match(/WIFI:T:(\w*);S/).pop();
+		const SNPDocumentWifiNetwork = SNPDocumentData.match(/;S:(.*);P/).pop();
+		const SNPDocumentWifiPassword = SNPDocumentData.match(/;P:(.*);H/).pop();
+		const SNPDocumentWifiHidden = !!(SNPDocumentData.match(/;H:(.*);;/) || []).pop();
+
+		return {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeWifi(),
+			SNPDocumentWifiSecurity,
+			SNPDocumentWifiNetwork,
+			SNPDocumentWifiPassword,
+			SNPDocumentWifiHidden,
+		};
+	},
+
 	SNPDocumentValidateLink: OLSKLink.OLSKLinkValid,
 
 	SNPDocumentExplode (SNPDocumentData) {
