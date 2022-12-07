@@ -45,7 +45,7 @@ const mod = {
 
 		Html5Qrcode.getCameras().then(function (devices) {
 		  if (!devices || !devices.length) {
-		  	return;
+		  	return mod.MessageReadError(OLSKLocalized('SNPGenerateReadErrorNoCamerasText'));
 		  }
 
       mod._ValueScanReader.start(devices[0].id, {}, mod.MessageReadDidParse).catch(mod.MessageParseError);
