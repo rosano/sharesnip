@@ -122,7 +122,23 @@ const mod = {
 		return {
 			SNPDocumentData,
 			SNPDocumentType: mod.SNPDocumentTypePhone(),
-			SNPDocumentPhone: SNPDocumentData.slice(4),
+			SNPDocumentPhone: SNPDocumentData.split(/^tel:/).filter(function (e) {
+				return e.length;
+			}).shift(),
+		};
+	},
+
+	SNPDocumentExplodeEmail (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeEmail(),
+			SNPDocumentEmail: SNPDocumentData.split(/^mailto:/).filter(function (e) {
+				return e.length;
+			}).shift(),
 		};
 	},
 

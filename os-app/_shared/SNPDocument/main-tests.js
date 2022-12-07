@@ -213,13 +213,28 @@ describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
 	});
 
 	it('returns string', function() {
-		const item = 'mailto:' + uEmail();
+		const item = uRandomElement('mailto:', '') + uEmail();
 		deepEqual(mod.SNPDocumentValidateEmail(item), true);
 	});
 
-	it('parses pure email', function() {
-		const item = uEmail();
-		deepEqual(mod.SNPDocumentValidateEmail(item), true);
+});
+
+describe('SNPDocumentExplodeEmail', function test_SNPDocumentExplodeEmail() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplodeEmail(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentEmail = uEmail();
+		const SNPDocumentData = uRandomElement('mailto:', '') + SNPDocumentEmail;
+		deepEqual(mod.SNPDocumentExplodeEmail(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeEmail(),
+			SNPDocumentEmail,
+		});
 	});
 
 });
