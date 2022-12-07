@@ -24,4 +24,12 @@ describe('SNPGenerate_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', kManifestRoute.OLSKRoutePath);
 	});
 
+	describe('SNPGenerate', function test_SNPGenerate () {
+		
+		it('classes OLSKViewport', function () {
+			browser.assert.hasClass(SNPGenerate, 'OLSKViewport');
+		});
+
+	});
+
 });

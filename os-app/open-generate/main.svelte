@@ -102,9 +102,13 @@ import OLSKApropos from 'OLSKApropos';
 import OLSKString from 'OLSKString';
 </script>
 
-<div class="SNPGenerate">
+<div class="SNPGenerate OLSKViewport">
 
+<div class="OLSKViewportContent">
+	
 <SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } />
+
+</div>
 
 {#if mod._ValueIsValid }
 
