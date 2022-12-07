@@ -2,7 +2,7 @@ const kSNPGenerateServiceWorkerVersionID = Date.now().toString();
 
 const OLSKServiceWorker = require('../../node_modules/OLSKServiceWorker/main.js');
 
-const kSNPGenerateRoute = '/qr-code-generator';
+const kSNPGenerateRoute = '/generate';
 
 const mod = {
 
