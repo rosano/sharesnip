@@ -10,6 +10,7 @@ Object.entries({
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
 	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	SNPMakeTypesEmailButton: '.SNPMakeTypesEmailButton',
+	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
 	
 	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
 	SNPMakeDataValid: '.SNPMakeDataValid',
@@ -49,6 +50,10 @@ describe('SNPMake_Access', function () {
 
 	it('shows SNPMakeTypesEmailButton', function () {
 		browser.assert.elements(SNPMakeTypesEmailButton, 1);
+	});
+
+	it('shows SNPMakeTypesWifiButton', function () {
+		browser.assert.elements(SNPMakeTypesWifiButton, 1);
 	});
 
 	it('shows SNPFormBase', function () {
@@ -115,6 +120,22 @@ describe('SNPMake_Access', function () {
 
 		it('shows SNPFormEmail', function () {
 			browser.assert.elements('.SNPFormEmail', 1);
+		});
+	
+	});
+
+	context('SNPMakeTypesWifiButton', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeTypesWifiButton);
+		});
+
+		it('hides SNPFormEmail', function () {
+			browser.assert.elements('.SNPFormEmail', 0);
+		});
+
+		it('shows SNPFormWifi', function () {
+			browser.assert.elements('.SNPFormWifi', 1);
 		});
 	
 	});

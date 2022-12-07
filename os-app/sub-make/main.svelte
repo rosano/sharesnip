@@ -49,6 +49,10 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeEmail());
 	},
 
+	InterfaceWifiButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeWifi());
+	},
+
 	// COMMAND
 
 	CommandSetType (inputData) {
@@ -164,6 +168,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <button class="SNPMakeTypesPhoneButton" on:click={ mod.InterfacePhoneButtonDidClick }>{ OLSKLocalized('SNPMakeTypesPhoneButtonText') }</button>
 
 <button class="SNPMakeTypesEmailButton" on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
+
+<button class="SNPMakeTypesWifiButton" on:click={ mod.InterfaceWifiButtonDidClick }>Wi-Fi</button>
 
 </div>
 

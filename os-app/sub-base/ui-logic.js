@@ -12,6 +12,7 @@ const mod = {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
 			[SNPDocument.SNPDocumentTypePhone()]: 'SNPFormPhone',
 			[SNPDocument.SNPDocumentTypeEmail()]: 'SNPFormEmail',
+			[SNPDocument.SNPDocumentTypeWifi()]: 'SNPFormWifi',
 		}[inputData];
 	},
 
