@@ -114,6 +114,14 @@ const mod = {
 		return !!OLSKLink.OLSKEmailValid(inputData);
 	},
 
+	SNPDocumentValidateWifi (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return !!inputData.match(/^WIFI:/);
+	},
+
 	SNPDocumentExplodePhone (SNPDocumentData) {
 		if (typeof SNPDocumentData !== 'string') {
 			throw new Error('SNPErrorInputNotValid');

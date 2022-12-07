@@ -67,6 +67,10 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return 'mailto:' + uEmail(inputData);
 		},
 
+		uDataWifi (inputData) {
+			return `WIFI:T:WPA;S:${ inputData };P:${ inputData };H:;;`
+		},
+
 	}).map(function (e) {
 		return global[e.shift()] = e.pop();
 	});

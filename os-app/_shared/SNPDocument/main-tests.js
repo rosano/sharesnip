@@ -205,6 +205,24 @@ describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
 
 });
 
+describe('SNPDocumentValidateWifi', function test_SNPDocumentValidateWifi() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentValidateWifi(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns false if without prefix', function() {
+		deepEqual(mod.SNPDocumentValidateWifi(Math.random().toString()), false);
+	});
+
+	it('returns true', function() {
+		deepEqual(mod.SNPDocumentValidateWifi(uDataWifi()), true);
+	});
+
+});
+
 describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
 
 	it('throws if not string', function () {
