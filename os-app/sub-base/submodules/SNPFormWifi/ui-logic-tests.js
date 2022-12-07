@@ -33,7 +33,7 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
 				SNPDocumentWifiSecurity,
-				SNPDocumentWifiHidden,
+				SNPDocumentWifiHidden: SNPDocumentWifiHidden || '',
 			}),
 			SNPDocumentWifiNetwork,
 			SNPDocumentWifiPassword,
