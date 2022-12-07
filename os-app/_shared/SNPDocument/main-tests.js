@@ -161,6 +161,41 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 });
 
+describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentValidatePhone(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns string', function() {
+		const item = 'tel:' + Math.random().toString();
+		deepEqual(mod.SNPDocumentValidatePhone(item), true);
+	});
+
+});
+
+describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplodePhone(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentPhone = Math.random().toString();
+		const SNPDocumentData = 'tel:' + SNPDocumentPhone;
+		deepEqual(mod.SNPDocumentExplodePhone(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypePhone(),
+			SNPDocumentPhone,
+		});
+	});
+
+});
+
 describe('SNPDocumentDirectory', function test_SNPDocumentDirectory() {
 
 	it('returns string', function() {

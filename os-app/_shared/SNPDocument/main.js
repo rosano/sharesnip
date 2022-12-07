@@ -92,6 +92,26 @@ const mod = {
 
 		return Object.entries(errors).length ? errors : null;
 	},
+
+	SNPDocumentValidatePhone (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return !!inputData.match(/^tel:/);
+	},
+
+	SNPDocumentExplodePhone (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypePhone(),
+			SNPDocumentPhone: SNPDocumentData.slice(4),
+		};
+	},
 	
 	SNPDocumentDirectory () {
 		return 'snp_documents';
