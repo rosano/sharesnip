@@ -116,6 +116,27 @@ const mod = {
 
 	SNPDocumentValidateLink: OLSKLink.OLSKLinkValid,
 
+	SNPDocumentExplode (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		if (mod.SNPDocumentValidatePhone(SNPDocumentData)) {
+			return mod.SNPDocumentExplodePhone(SNPDocumentData);
+		}
+
+		return {
+			SNPDocumentData,
+			SNPDocumentType: (function(inputData) {
+				if (mod.SNPDocumentValidateLink(inputData)) {
+					return mod.SNPDocumentTypeLink();
+				}
+				
+				
+				return mod.SNPDocumentTypeNote();
+			})(SNPDocumentData),
+		};
+	},
 	
 	SNPDocumentDirectory () {
 		return 'snp_documents';

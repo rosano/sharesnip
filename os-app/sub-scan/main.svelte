@@ -8,7 +8,7 @@ import { OLSKLocalized } from 'OLSKInternational';
 import { OLSKFormatted } from 'OLSKString';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
 
-import SNPScanLogic from './ui-logic.js';
+import SNPDocument from '../_shared/SNPDocument/main.js';
 
 const mod = {
 
@@ -78,7 +78,7 @@ const mod = {
 	},
 
 	MessageReadDidParse (decodedText, decodedResult) {
-		SNPScanDidSucceed(SNPScanLogic.SNPScanDocument(decodedText));
+		SNPScanDidSucceed(SNPDocument.SNPDocumentExplode(decodedText));
 
 		if (OLSK_SPEC_UI()) {
 			return;

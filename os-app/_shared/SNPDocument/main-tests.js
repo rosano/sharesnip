@@ -204,6 +204,45 @@ describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
 
 });
 
+describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplode(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentData = Math.random().toString();
+		deepEqual(mod.SNPDocumentExplode(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeNote(),
+		});
+	});
+
+	context('SNPDocumentTypeLink', function () {
+
+		it('returns object', function() {
+			const SNPDocumentData = uRandomElement('http', 'https') + '://example.com';
+			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), {
+				SNPDocumentType: mod.SNPDocumentTypeLink(),
+				SNPDocumentData,
+			});
+		});
+	
+	});
+
+	context('SNPDocumentTypePhone', function () {
+
+		it('returns object', function() {
+			const SNPDocumentData = 'tel:' + Math.random().toString();
+			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), mod.SNPDocumentExplodePhone(SNPDocumentData));
+		});
+	
+	});
+
+});
+
 describe('SNPDocumentDirectory', function test_SNPDocumentDirectory() {
 
 	it('returns string', function() {
