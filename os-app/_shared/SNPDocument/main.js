@@ -102,6 +102,18 @@ const mod = {
 		return !!inputData.match(/^tel:/);
 	},
 
+	SNPDocumentValidateEmail (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		if (!!inputData.match(/^mailto:/)) {
+			return true;
+		}
+
+		return !!OLSKLink.OLSKEmailValid(inputData);
+	},
+
 	SNPDocumentExplodePhone (SNPDocumentData) {
 		if (typeof SNPDocumentData !== 'string') {
 			throw new Error('SNPErrorInputNotValid');

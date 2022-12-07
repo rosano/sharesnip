@@ -204,6 +204,26 @@ describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
 
 });
 
+describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentValidateEmail(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns string', function() {
+		const item = 'mailto:' + uEmail();
+		deepEqual(mod.SNPDocumentValidateEmail(item), true);
+	});
+
+	it('parses pure email', function() {
+		const item = uEmail();
+		deepEqual(mod.SNPDocumentValidateEmail(item), true);
+	});
+
+});
+
 describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 
 	it('throws if not string', function () {
