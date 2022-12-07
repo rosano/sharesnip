@@ -178,7 +178,7 @@ describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
 	});
 
 	it('returns string', function() {
-		const item = 'tel:' + Math.random().toString();
+		const item = uDataPhone();
 		deepEqual(mod.SNPDocumentValidatePhone(item), true);
 	});
 
@@ -194,7 +194,7 @@ describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
 
 	it('returns object', function() {
 		const SNPDocumentPhone = Math.random().toString();
-		const SNPDocumentData = 'tel:' + SNPDocumentPhone;
+		const SNPDocumentData = uDataPhone(SNPDocumentPhone);
 		deepEqual(mod.SNPDocumentExplodePhone(SNPDocumentData), {
 			SNPDocumentData,
 			SNPDocumentType: mod.SNPDocumentTypePhone(),
@@ -270,7 +270,7 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 	context('SNPDocumentTypePhone', function () {
 
 		it('returns object', function() {
-			const SNPDocumentData = 'tel:' + Math.random().toString();
+			const SNPDocumentData = uDataPhone();
 			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), mod.SNPDocumentExplodePhone(SNPDocumentData));
 		});
 	

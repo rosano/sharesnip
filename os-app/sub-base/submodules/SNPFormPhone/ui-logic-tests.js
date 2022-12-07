@@ -24,7 +24,7 @@ describe('SNPFormPhoneDocument', function test_SNPFormPhoneDocument() {
 			SNPDocumentPhone,
 		}), {
 			SNPDocumentPhone,
-			SNPDocumentData: 'tel:' + SNPDocumentPhone,
+			SNPDocumentData: uDataPhone(SNPDocumentPhone),
 		});
 	});
 

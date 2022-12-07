@@ -59,6 +59,10 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return browser.pressButton(SNPFormBaseSaveButton);
 		},
 
+		uDataPhone (inputData) {
+			return 'tel:' + (inputData || Math.random().toString());
+		},
+
 	}).map(function (e) {
 		return global[e.shift()] = e.pop();
 	});
