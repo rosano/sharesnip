@@ -163,7 +163,7 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 describe('SNPDocumentValidateLink', function test_SNPDocumentValidateLink() {
 
-	it('returns function', function() {
+	it('binds function', function() {
 		deepEqual(mod.SNPDocumentValidateLink, require('OLSKLink').OLSKLinkValid);
 	});
 
@@ -177,9 +177,30 @@ describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
 		}, /SNPErrorInputNotValid/);
 	});
 
-	it('returns string', function() {
-		const item = uDataPhone();
-		deepEqual(mod.SNPDocumentValidatePhone(item), true);
+	it('returns false if without prefix', function() {
+		deepEqual(mod.SNPDocumentValidatePhone(Math.random().toString()), false);
+	});
+
+	it('returns true', function() {
+		deepEqual(mod.SNPDocumentValidatePhone(uDataPhone()), true);
+	});
+
+});
+
+describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentValidateEmail(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns false if not valid', function() {
+		deepEqual(mod.SNPDocumentValidateEmail(Math.random().toString()), false);
+	});
+
+	it('returns true', function() {
+		deepEqual(mod.SNPDocumentValidateEmail(uRandomElement('mailto:', '') + uEmail()), true);
 	});
 
 });
@@ -200,21 +221,6 @@ describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
 			SNPDocumentType: mod.SNPDocumentTypePhone(),
 			SNPDocumentPhone,
 		});
-	});
-
-});
-
-describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
-
-	it('throws if not string', function () {
-		throws(function () {
-			mod.SNPDocumentValidateEmail(null);
-		}, /SNPErrorInputNotValid/);
-	});
-
-	it('returns string', function() {
-		const item = uRandomElement('mailto:', '') + uEmail();
-		deepEqual(mod.SNPDocumentValidateEmail(item), true);
 	});
 
 });
