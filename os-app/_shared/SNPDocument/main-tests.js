@@ -161,6 +161,14 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 });
 
+describe('SNPDocumentValidateLink', function test_SNPDocumentValidateLink() {
+
+	it('returns function', function() {
+		deepEqual(mod.SNPDocumentValidateLink, require('OLSKLink').OLSKLinkValid);
+	});
+
+});
+
 describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
 
 	it('throws if not string', function () {

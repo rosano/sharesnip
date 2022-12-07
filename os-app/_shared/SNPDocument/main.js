@@ -1,6 +1,7 @@
 import { factory } from 'ulid';
 const uniqueID = factory();
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
+import OLSKLink from 'OLSKLink';
 
 const mod = {
 
@@ -112,6 +113,9 @@ const mod = {
 			SNPDocumentPhone: SNPDocumentData.slice(4),
 		};
 	},
+
+	SNPDocumentValidateLink: OLSKLink.OLSKLinkValid,
+
 	
 	SNPDocumentDirectory () {
 		return 'snp_documents';
