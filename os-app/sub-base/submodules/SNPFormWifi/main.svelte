@@ -37,8 +37,12 @@ const mod = {
 
 <div class="SNPFormWifi">
 
-<input class="SNPFormWifiNetworkField SNPFormDataField" type="text" required autofocus placeholder={ OLSKLocalized('SNPFormWifiNetworkFieldText') } on:input={ mod.InterfaceNetworkFieldDidFill } value={ SNPFormObject.SNPDocumentWifiNetwork || ''}>
+<p>
+	<input class="SNPFormWifiNetworkField SNPFormDataField" type="text" required autofocus placeholder={ OLSKLocalized('SNPFormWifiNetworkFieldText') } on:input={ mod.InterfaceNetworkFieldDidFill } value={ SNPFormObject.SNPDocumentWifiNetwork || ''}>
+</p>
 
-<input class="SNPFormWifiPasswordField" type="text" placeholder={ OLSKLocalized('SNPFormWifiPasswordFieldText') } on:input={ mod.InterfacePasswordFieldDidFill } value={ SNPFormObject.SNPDocumentWifiPassword || ''}>
+<p>
+	<input class="SNPFormWifiPasswordField" type="text" placeholder={ OLSKLocalized('SNPFormWifiPasswordFieldText') } on:input={ mod.InterfacePasswordFieldDidFill } value={ SNPFormObject.SNPDocumentWifiPassword || ''}>
+</p>
 
 </div>

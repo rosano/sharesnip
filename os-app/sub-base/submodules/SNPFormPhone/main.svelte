@@ -26,6 +26,8 @@ const mod = {
 
 <div class="SNPFormPhone">
 
-<input class="SNPFormPhoneField SNPFormDataField" type="tel" required autofocus placeholder="+1-234-567-890" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentPhone || ''}>
+<p>
+	<input class="SNPFormPhoneField SNPFormDataField" type="tel" required autofocus placeholder="+1-234-567-890" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentPhone || ''}>
+</p>
 
 </div>

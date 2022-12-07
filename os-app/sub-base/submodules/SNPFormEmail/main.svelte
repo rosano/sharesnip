@@ -27,6 +27,8 @@ const mod = {
 
 <div class="SNPFormEmail">
 
-<input class="SNPFormEmailField SNPFormDataField" type="email" required autofocus placeholder="hello@example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentEmail || ''}>
+<p>
+	<input class="SNPFormEmailField SNPFormDataField" type="email" required autofocus placeholder="hello@example.com" on:input={ mod.InterfaceFieldDidFill } value={ SNPFormObject.SNPDocumentEmail || ''}>
+</p>
 
 </div>
