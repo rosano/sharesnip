@@ -8,6 +8,39 @@ describe('SNPMake_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
+
+	describe('SNPMakeTypesNoteButton', function test_SNPMakeTypesNoteButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesNoteButton, 'OLSKDecorButtonNoStyle');
+		});
+	
+	});
+	
+	describe('SNPMakeTypesPhoneButton', function test_SNPMakeTypesPhoneButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesPhoneButton, 'OLSKDecorButtonNoStyle');
+		});
+	
+	});
+	
+	describe('SNPMakeTypesEmailButton', function test_SNPMakeTypesEmailButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesEmailButton, 'OLSKDecorButtonNoStyle');
+		});
+	
+	});
+	
+	describe('SNPMakeTypesWifiButton', function test_SNPMakeTypesWifiButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesWifiButton, 'OLSKDecorButtonNoStyle');
+		});
+	
+	});
+
 	describe('SNPMakeDataNotValid', function test_SNPMakeDataNotValid () {
 
 		it('sets src', function () {
