@@ -1,4 +1,5 @@
 import SNPDocument from '../_shared/SNPDocument/main.js';
+import OLSKLink from 'OLSKLink';
 
 const mod = {
 
@@ -9,7 +10,13 @@ const mod = {
 
 		return {
 			SNPDocumentData,
-			SNPDocumentType: SNPDocument.SNPDocumentTypeNote(),
+			SNPDocumentType: (function(inputData) {
+				if (OLSKLink.OLSKLinkValid(inputData)) {
+					return SNPDocument.SNPDocumentTypeLink();
+				}
+				
+				return SNPDocument.SNPDocumentTypeNote();
+			})(SNPDocumentData),
 		};
 	},
 

@@ -20,4 +20,16 @@ describe('SNPScanDocument', function test_SNPScanDocument() {
 		});
 	});
 
+	context('SNPDocumentTypeLink', function () {
+
+		it('returns object', function() {
+			const SNPDocumentData = uRandomElement('http', 'https') + '://example.com';
+			deepEqual(mod.SNPScanDocument(SNPDocumentData), {
+				SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
+				SNPDocumentData,
+			});
+		});
+	
+	});
+
 });
