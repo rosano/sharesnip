@@ -1,6 +1,6 @@
 :root {
 	--OLSKCommonBackground: #FFF9E5;
-	--OLSKDecorBackgroundDeep: var(--OLSKCommonBackground);
+	--OLSKDecorBackgroundDeep: #fff4c5;
 	--OLSKCommonForeground: rgb(255, 128, 0);
 
 	--OLSKCodeForeground: #7c7b5b;
