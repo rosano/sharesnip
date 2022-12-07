@@ -276,6 +276,15 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 	
 	});
 
+	context('SNPDocumentTypeEmail', function () {
+
+		it('returns object', function() {
+			const SNPDocumentData = uDataEmail();
+			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), mod.SNPDocumentExplodeEmail(SNPDocumentData));
+		});
+	
+	});
+
 });
 
 describe('SNPDocumentDirectory', function test_SNPDocumentDirectory() {

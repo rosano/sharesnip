@@ -63,6 +63,10 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return 'tel:' + (inputData || Math.random().toString());
 		},
 
+		uDataEmail (inputData) {
+			return 'mailto:' + uEmail(inputData);
+		},
+
 	}).map(function (e) {
 		return global[e.shift()] = e.pop();
 	});

@@ -153,6 +153,10 @@ const mod = {
 			return mod.SNPDocumentExplodePhone(SNPDocumentData);
 		}
 
+		if (mod.SNPDocumentValidateEmail(SNPDocumentData)) {
+			return mod.SNPDocumentExplodeEmail(SNPDocumentData);
+		}
+
 		return {
 			SNPDocumentData,
 			SNPDocumentType: (function(inputData) {
