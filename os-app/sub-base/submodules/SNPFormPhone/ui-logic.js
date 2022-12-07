@@ -10,7 +10,7 @@ const mod = {
 		}
 
 		return Object.assign(inputData, {
-			SNPDocumentData: uDataPhone(inputData.SNPDocumentPhone),
+			SNPDocumentData: 'tel:' + inputData.SNPDocumentPhone,
 		});
 	},
 
