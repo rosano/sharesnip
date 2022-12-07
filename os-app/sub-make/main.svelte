@@ -30,6 +30,8 @@ const mod = {
 	// INTERFACE
 
 	InterfaceScanButtonDidClick () {
+		mod.CommandSetType('SCAN');
+
 		mod._ValueScan = true;
 	},
 
@@ -65,6 +67,8 @@ const mod = {
 				SNPMakeStateDocument: mod.DataDocumentTemplate(inputData),
 				SNPMakeStateValid: false,
 			};
+
+			SNPFormNotValid();
 		}
 
 		setTimeout(function () {

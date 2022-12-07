@@ -9,14 +9,30 @@ describe('SNPMake_Misc', function () {
 	});
 
 
-	describe('SNPMakeTypesScanButton', function test_SNPMakeTypesScanButton () {
+	describe('SNPMakeScanButton', function test_SNPMakeScanButton () {
 
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPMakeTypesScanButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPMakeScanButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPMakeTypesScanButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPMakeScanButton, 'OLSKDecorTappable');
+		});
+
+		context('click', function () {
+			
+			before(function () {
+				browser.assert.text('#TestSNPFormNotValid', '0');
+			});
+
+			before(function () {
+				return browser.pressButton(SNPMakeScanButton);
+			});
+
+			it('sends SNPFormNotValid', function () {
+				browser.assert.text('#TestSNPFormNotValid', '1');
+			});
+		
 		});
 	
 	});
