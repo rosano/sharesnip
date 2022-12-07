@@ -48,7 +48,9 @@ const mod = {
 		  	return mod.MessageReadError(OLSKLocalized('SNPGenerateReadErrorNoCamerasText'));
 		  }
 
-      mod._ValueScanReader.start(devices[0].id, {}, mod.MessageReadDidParse).catch(mod.MessageParseError);
+		  return mod._ValueScanReader.start({
+		  	facingMode: 'environment',
+		  }, {}, mod.MessageReadDidParse).catch(mod.MessageParseError);
 		}).catch(mod.MessageReadError);
 	},
 
