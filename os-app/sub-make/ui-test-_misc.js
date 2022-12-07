@@ -9,10 +9,38 @@ describe('SNPMake_Misc', function () {
 	});
 
 
+	describe('SNPMakeTypesScanButton', function test_SNPMakeTypesScanButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesScanButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesScanButton, 'OLSKDecorTappable');
+		});
+	
+	});
+	
+	describe('SNPMakeTypesLinkButton', function test_SNPMakeTypesLinkButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorTappable');
+		});
+	
+	});
+	
 	describe('SNPMakeTypesNoteButton', function test_SNPMakeTypesNoteButton () {
 
 		it('classes OLSKDecorButtonNoStyle', function () {
 			browser.assert.hasClass(SNPMakeTypesNoteButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesNoteButton, 'OLSKDecorTappable');
 		});
 	
 	});
@@ -22,6 +50,10 @@ describe('SNPMake_Misc', function () {
 		it('classes OLSKDecorButtonNoStyle', function () {
 			browser.assert.hasClass(SNPMakeTypesPhoneButton, 'OLSKDecorButtonNoStyle');
 		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesPhoneButton, 'OLSKDecorTappable');
+		});
 	
 	});
 	
@@ -30,6 +62,10 @@ describe('SNPMake_Misc', function () {
 		it('classes OLSKDecorButtonNoStyle', function () {
 			browser.assert.hasClass(SNPMakeTypesEmailButton, 'OLSKDecorButtonNoStyle');
 		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesEmailButton, 'OLSKDecorTappable');
+		});
 	
 	});
 	
@@ -37,6 +73,10 @@ describe('SNPMake_Misc', function () {
 
 		it('classes OLSKDecorButtonNoStyle', function () {
 			browser.assert.hasClass(SNPMakeTypesWifiButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesWifiButton, 'OLSKDecorTappable');
 		});
 	
 	});

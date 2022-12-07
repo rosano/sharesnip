@@ -159,17 +159,17 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <div class="SNPMakeTypes">
 		
-<button class="SNPMakeScanButton OLSKDecorButtonNoStyle" on:click={ mod.InterfaceScanButtonDidClick }>{ OLSKLocalized('SNPMakeScanButtonText') }</button>
+<button class="SNPMakeScanButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ mod._ValueScan } on:click={ mod.InterfaceScanButtonDidClick }>{ OLSKLocalized('SNPMakeScanButtonText') }</button>
 
-<button class="SNPMakeTypesLinkButton OLSKDecorButtonNoStyle" on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
+<button class="SNPMakeTypesLinkButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeLink() } on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
 
-<button class="SNPMakeTypesNoteButton OLSKDecorButtonNoStyle" on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
+<button class="SNPMakeTypesNoteButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeNote() } on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
 
-<button class="SNPMakeTypesPhoneButton OLSKDecorButtonNoStyle" on:click={ mod.InterfacePhoneButtonDidClick }>{ OLSKLocalized('SNPMakeTypesPhoneButtonText') }</button>
+<button class="SNPMakeTypesPhoneButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypePhone() } on:click={ mod.InterfacePhoneButtonDidClick }>{ OLSKLocalized('SNPMakeTypesPhoneButtonText') }</button>
 
-<button class="SNPMakeTypesEmailButton OLSKDecorButtonNoStyle" on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
+<button class="SNPMakeTypesEmailButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeEmail() } on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
 
-<button class="SNPMakeTypesWifiButton OLSKDecorButtonNoStyle" on:click={ mod.InterfaceWifiButtonDidClick }>Wi-Fi</button>
+<button class="SNPMakeTypesWifiButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeWifi() } on:click={ mod.InterfaceWifiButtonDidClick }>Wi-Fi</button>
 
 </div>
 
@@ -198,3 +198,22 @@ import OLSKUIAssets from 'OLSKUIAssets';
 {/if}
 
 </div>
+
+<style>
+.SNPMake {
+	width: 100%;
+}
+
+.SNPMakeTypes button {
+	font-size: 90%;
+	opacity: 90%;
+}
+
+.SNPMakeButtonActive {
+	font-weight: bold;
+}
+
+.SNPMakeTypes {
+	margin-bottom: 10px;
+}
+</style>

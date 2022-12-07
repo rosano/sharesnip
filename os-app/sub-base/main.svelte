@@ -60,7 +60,7 @@ import SNPFormEmail from './submodules/SNPFormEmail/main.svelte';
 import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 </script>
 
-<div class="SNPFormBase">
+<div class="SNPFormBase OLSKDecor OLSKDecorBigForm">
 
 {#if mod._ValueChildClass === 'SNPFormLink' }
 	<SNPFormLink SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
@@ -89,3 +89,9 @@ import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 {/if}
 
 </div>
+
+<style>
+.SNPFormBase {
+	padding: 0;
+}
+</style>

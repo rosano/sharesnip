@@ -6,6 +6,18 @@ describe('SNPFormBase_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
+	describe('SNPFormBase', function test_SNPFormBase () {
+
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(SNPFormBase, 'OLSKDecor');
+		});
+
+		it('classes OLSKDecorBigForm', function () {
+			browser.assert.hasClass(SNPFormBase, 'OLSKDecorBigForm');
+		});
+		
+	});
+
 	describe('SNPFormBaseSaveButton', function test_SNPFormBaseSaveButton () {
 
 		it('sets disabled', function () {
