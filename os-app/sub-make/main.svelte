@@ -70,6 +70,10 @@ const mod = {
 		if (!mod._ValueStateMap[inputData].SNPMakeStateValid) {
 			SNPFormNotValid && SNPFormNotValid();
 		}
+
+		if (mod._ValueStateMap[inputData].SNPMakeStateValid) {
+			SNPFormValid && SNPFormValid();
+		}
 	},
 
 	// MESSAGE
