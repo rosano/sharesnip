@@ -8,6 +8,10 @@ describe('SNPFormBase_Misc', function () {
 
 	describe('SNPFormBase', function test_SNPFormBase () {
 
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(SNPFormBase, 'OLSKDecor');
+		});
+
 		it('classes OLSKDecorBigForm', function () {
 			browser.assert.hasClass(SNPFormBase, 'OLSKDecorBigForm');
 		});

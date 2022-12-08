@@ -185,6 +185,10 @@ import SNPCode from '../sub-code/main.svelte';
 	margin-bottom: 10px;
 }
 
+.SNPMake :global(.SNPFormBase) {
+	padding: 0;
+}
+
 .SNPMakeDataNotValid {
 	display: block;
 	width: 100px;
