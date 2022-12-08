@@ -53,3 +53,10 @@ onMount(mod.LifecycleModuleDidMount);
 <div bind:this={ mod._ValueContainer }></div>
 
 </div>
+
+<style>
+.SNPCode div :global(*) {
+	padding: 6px;
+	background: white;
+}
+</style>
