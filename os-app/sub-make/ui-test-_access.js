@@ -6,8 +6,8 @@ Object.entries({
 	SNPMakeScanButton: '.SNPMakeScanButton',
 	
 	SNPMakeTypes: '.SNPMakeTypes',
-	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
+	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesEmailButton: '.SNPMakeTypesEmailButton',
 	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
@@ -35,12 +35,12 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements(SNPMakeTypes, 1);
 	});
 
-	it('shows SNPMakeTypesLinkButton', function () {
-		browser.assert.elements(SNPMakeTypesLinkButton, 1);
-	});
-
 	it('shows SNPMakeTypesNoteButton', function () {
 		browser.assert.elements(SNPMakeTypesNoteButton, 1);
+	});
+
+	it('shows SNPMakeTypesLinkButton', function () {
+		browser.assert.elements(SNPMakeTypesLinkButton, 1);
 	});
 
 	it('shows SNPMakeTypesEmailButton', function () {
@@ -59,8 +59,8 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements('.SNPFormBase', 1);
 	});
 
-	it('shows SNPFormLink', function () {
-		browser.assert.elements('.SNPFormLink', 1);
+	it('shows SNPFormNote', function () {
+		browser.assert.elements('.SNPFormNote', 1);
 	});
 
 	it('shows SNPMakeDataNotValid', function () {
@@ -75,18 +75,18 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements('.SNPScan', 0);
 	});
 
-	context('SNPMakeTypesNoteButton', function () {
+	context('SNPMakeTypesLinkButton', function () {
 		
 		before(function () {
-			return browser.pressButton(SNPMakeTypesNoteButton);
+			return browser.pressButton(SNPMakeTypesLinkButton);
 		});
 
-		it('hides SNPFormLink', function () {
-			browser.assert.elements('.SNPFormLink', 0);
+		it('hides SNPFormNote', function () {
+			browser.assert.elements('.SNPFormNote', 0);
 		});
 
-		it('shows SNPFormNote', function () {
-			browser.assert.elements('.SNPFormNote', 1);
+		it('shows SNPFormLink', function () {
+			browser.assert.elements('.SNPFormLink', 1);
 		});
 	
 	});
@@ -97,8 +97,8 @@ describe('SNPMake_Access', function () {
 			return browser.pressButton(SNPMakeTypesEmailButton);
 		});
 
-		it('hides SNPFormNote', function () {
-			browser.assert.elements('.SNPFormNote', 0);
+		it('hides SNPFormLink', function () {
+			browser.assert.elements('.SNPFormLink', 0);
 		});
 
 		it('shows SNPFormEmail', function () {

@@ -5,12 +5,12 @@ import OLSKLink from 'OLSKLink';
 
 const mod = {
 
-	SNPDocumentTypeLink () {
-		return 'TYPE_LINK';
-	},
-
 	SNPDocumentTypeNote () {
 		return 'TYPE_NOTE';
+	},
+
+	SNPDocumentTypeLink () {
+		return 'TYPE_LINK';
 	},
 
 	SNPDocumentTypeEmail () {
@@ -31,8 +31,8 @@ const mod = {
 
 	SNPDocumentTypes () {
 		return [
-			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
+			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeEmail(),
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeWifi(),

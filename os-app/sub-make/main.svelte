@@ -33,12 +33,12 @@ const mod = {
 		mod._ValueScan = true;
 	},
 
-	InterfaceLinkButtonDidClick () {
-		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
-	},
-
 	InterfaceTextButtonDidClick () {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
+	},
+
+	InterfaceLinkButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
 	},
 
 	InterfaceEmailButtonDidClick () {
@@ -106,7 +106,7 @@ const mod = {
 	// SETUP
 
 	SetupEverything() {
-		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
 	},
 
 	// LIFECYCLE
@@ -130,9 +130,9 @@ import SNPCode from '../sub-code/main.svelte';
 		
 <button class="SNPMakeScanButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ mod._ValueScan } on:click={ mod.InterfaceScanButtonDidClick }>{ OLSKLocalized('SNPMakeScanButtonText') }</button>
 
-<button class="SNPMakeTypesLinkButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeLink() } on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
-
 <button class="SNPMakeTypesNoteButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeNote() } on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
+
+<button class="SNPMakeTypesLinkButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeLink() } on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
 
 <button class="SNPMakeTypesEmailButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeEmail() } on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
 

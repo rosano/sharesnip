@@ -44,18 +44,6 @@ describe('SNPMake_Misc', function () {
 	
 	});
 	
-	describe('SNPMakeTypesLinkButton', function test_SNPMakeTypesLinkButton () {
-
-		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorButtonNoStyle');
-		});
-
-		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorTappable');
-		});
-	
-	});
-	
 	describe('SNPMakeTypesNoteButton', function test_SNPMakeTypesNoteButton () {
 
 		it('classes OLSKDecorButtonNoStyle', function () {
@@ -64,6 +52,18 @@ describe('SNPMake_Misc', function () {
 
 		it('classes OLSKDecorTappable', function () {
 			browser.assert.hasClass(SNPMakeTypesNoteButton, 'OLSKDecorTappable');
+		});
+	
+	});
+	
+	describe('SNPMakeTypesLinkButton', function test_SNPMakeTypesLinkButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorTappable');
 		});
 	
 	});
