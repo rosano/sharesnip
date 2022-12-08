@@ -13,7 +13,6 @@ Object.entries({
 	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
 	
 	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
-	SNPMakeDataValid: '.SNPMakeDataValid',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -68,8 +67,8 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements(SNPMakeDataNotValid, 1);
 	});
 
-	it('hides SNPMakeDataValid', function () {
-		browser.assert.elements(SNPMakeDataValid, 0);
+	it('hides SNPCode', function () {
+		browser.assert.elements('.SNPCode', 0);
 	});
 
 	it('hides SNPScan', function () {
@@ -154,8 +153,8 @@ describe('SNPMake_Access', function () {
 			browser.assert.elements(SNPMakeDataNotValid, 0);
 		});
 		
-		it('shows SNPMakeDataValid', function () {
-			browser.assert.elements(SNPMakeDataValid, 1);
+		it('shows SNPCode', function () {
+			browser.assert.elements('.SNPCode', 1);
 		});
 	
 	});
@@ -170,8 +169,8 @@ describe('SNPMake_Access', function () {
 			browser.assert.elements(SNPMakeDataNotValid, 1);
 		});
 
-		it('hides SNPMakeDataValid', function () {
-			browser.assert.elements(SNPMakeDataValid, 0);
+		it('hides SNPCode', function () {
+			browser.assert.elements('.SNPCode', 0);
 		});
 	
 	});

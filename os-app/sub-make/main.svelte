@@ -4,8 +4,6 @@ export let SNPFormValid = null;
 export let SNPFormDidSubmit = null;
 
 import { OLSKLocalized } from 'OLSKInternational';
-import { OLSK_SPEC_UI } from 'OLSKSpec';
-import kjua from 'kjua';
 
 import SNPDocument from '../_shared/SNPDocument/main.js';
 
@@ -70,10 +68,6 @@ const mod = {
 
 			SNPFormNotValid && SNPFormNotValid();
 		}
-
-		setTimeout(function () {
-			mod.ReactItem(mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument);
-		}, mod._SNPMakeDataValid ? 0 : 50);
 	},
 
 	// MESSAGE
@@ -86,10 +80,6 @@ const mod = {
 
 	SNPFormValid (inputData) {
 		mod._ValueStateMap[mod._ValueType].SNPMakeStateValid = true;
-
-		setTimeout(function () {
-			mod.ReactItem(inputData);
-		}, mod._SNPMakeDataValid ? 0 : 50);
 
 		SNPFormValid && SNPFormValid(inputData);
 	},
@@ -117,33 +107,6 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
 	},
 
-	// REACT
-
-	ReactItem (inputData) {
-		if (OLSK_SPEC_UI()) {
-			return;
-		}
-
-		if (!mod._SNPMakeDataValid) {
-			return;
-		}
-
-		mod._SNPMakeDataValid.childNodes.forEach(function (e) {
-			mod._SNPMakeDataValid.removeChild(e);
-		});
-
-		mod._SNPMakeDataValid.appendChild(kjua({
-			render: 'canvas',
-			ecLevel: 'H',
-			size: 100,
-			rounded: 100,
-			quiet: 0,
-			// fill: 'rgb(255, 128, 0)',
-			// back: '#FFF9E5',
-			text: inputData.SNPDocumentData,
-		}));
-	},
-
 	// LIFECYCLE
 
 	LifecycleModuleDidLoad() {
@@ -156,6 +119,7 @@ mod.LifecycleModuleDidLoad();
 
 import SNPScan from '../sub-scan/main.svelte';
 import SNPFormBase from '../sub-base/main.svelte';
+import SNPCode from '../sub-code/main.svelte';
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
@@ -197,7 +161,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<div class="SNPMakeDataValid" bind:this={ mod._SNPMakeDataValid }></div>
+<SNPCode SNPCodeObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } />
 	
 {/if}
 

@@ -22,8 +22,6 @@ Object.entries({
 	SNPCollectDetailDataField: '.SNPCollectDetailDataField',
 	SNPCollectDetailDataOpenButton: '.SNPCollectDetailDataOpenButton',
 
-	SNPCollectDetailQR: '.SNPCollectDetailQR',
-	
 	SNPCollectDetailEditButton: '.SNPCollectDetailEditButton',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
@@ -85,8 +83,8 @@ describe('SNPCollectDetail_Access', function () {
 		browser.assert.elements(SNPCollectDetailDataOpenButton, 0);
 	});
 
-	it('shows SNPCollectDetailQR', function () {
-		browser.assert.elements(SNPCollectDetailQR, 1);
+	it('shows SNPCode', function () {
+		browser.assert.elements('.SNPCode', 1);
 	});
 
 	it('shows SNPCollectDetailEditButton', function () {

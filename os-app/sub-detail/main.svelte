@@ -16,7 +16,6 @@ export const modPublic = {
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
-import kjua from 'kjua';
 
 const mod = {
 
@@ -60,8 +59,6 @@ const mod = {
 	// REACT
 
 	ReactItem (inputData) {
-		mod.ReactCode();
-
 		if (mod.__HOTFIX_ITEM_IDS.includes(inputData)) {
 			return;
 		}
@@ -73,31 +70,6 @@ const mod = {
 		})
 	},
 
-	ReactCode () {
-		if (OLSK_SPEC_UI()) {
-			return;
-		}
-
-		if (!mod._SNPCollectDetailQR) {
-			return;
-		}
-
-		mod._SNPCollectDetailQR.childNodes.forEach(function (e) {
-			mod._SNPCollectDetailQR.removeChild(e);
-		});
-
-		mod._SNPCollectDetailQR.appendChild(kjua({
-			render: 'canvas',
-			ecLevel: 'H',
-			size: 200,
-			rounded: 100,
-			quiet: 0,
-			fill: 'rgb(255, 128, 0)',
-			back: '#FFF9E5',
-			text: SNPCollectDetailItem.SNPDocumentData,
-		}));
-	},
-
 };
 
 $: {
@@ -107,6 +79,7 @@ $: {
 import OLSKUIAssets from 'OLSKUIAssets';
 import OLSKModalView from 'OLSKModalView';
 import SNPFormBase from '../sub-base/main.svelte';
+import SNPCode from '../sub-code/main.svelte';
 </script>
 
 <div class="SNPCollectDetail ROCOStandardView">
@@ -145,7 +118,7 @@ import SNPFormBase from '../sub-base/main.svelte';
 	{/if}
 </p>
 
-<div class="SNPCollectDetailQR" bind:this={ mod._SNPCollectDetailQR }></div>
+<SNPCode SNPCodeObject={ SNPCollectDetailItem } />
 
 <button class="SNPCollectDetailEditButton" on:click={ mod.InterfaceEditButtonDidClick }>{ OLSKLocalized('OLSKWordingEditText') }</button>
 
@@ -162,16 +135,3 @@ import SNPFormBase from '../sub-base/main.svelte';
 {#if _DebugLauncher && OLSK_SPEC_UI() }
 	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataCollectDetailRecipes() }) }></button>	
 {/if}
-
-<style type="text/css">
-@media (max-width: 450px) {
-	.SNPCollectDetailQR {
-		width: 100%;
-	}
-
-	.SNPCollectDetailQR :global(*) {
-		height: unset !important;
-		width: 100% !important;
-	}
-}
-</style>

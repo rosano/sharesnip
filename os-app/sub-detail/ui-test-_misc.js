@@ -268,14 +268,6 @@ describe('SNPCollectDetail_Misc', function () {
 	
 	});
 
-	describe.skip('SNPCollectDetailQR', function test_SNPCollectDetailQR () {
-
-		it('creates canvas', function () {
-			browser.assert.elements(`${ SNPCollectDetailQR } canvas`, 1);
-		});
-	
-	});
-
 	describe.skip('SNPCollectDetailEditButton', function test_SNPCollectDetailEditButton () {
 
 		const SNPDocumentData = Math.random().toString();

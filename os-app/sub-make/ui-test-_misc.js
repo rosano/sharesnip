@@ -22,7 +22,7 @@ describe('SNPMake_Misc', function () {
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestSNPFormNotValid', '0');
+				browser.assert.text('#TestSNPFormNotValid', '1');
 			});
 
 			before(function () {
@@ -30,7 +30,7 @@ describe('SNPMake_Misc', function () {
 			});
 
 			it('sends SNPFormNotValid', function () {
-				browser.assert.text('#TestSNPFormNotValid', '1');
+				browser.assert.text('#TestSNPFormNotValid', '2');
 			});
 		
 		});
@@ -105,18 +105,14 @@ describe('SNPMake_Misc', function () {
 	
 	});
 
-	describe('SNPMakeDataValid', function test_SNPMakeDataValid () {
-
+	context('valid', function () {
+		
 		before(function () {
 			return browser.pressButton('.SNPMakeTypesNoteButton');
 		});
 		
 		before(function () {
 			return browser.fill('.SNPFormDataField', SNPDocumentData);
-		});
-
-		it.skip('creates canvas', function () {
-			browser.assert.elements(`${ SNPMakeDataValid } canvas`, 1);
 		});
 
 		it('sends SNPFormValid', function () {
