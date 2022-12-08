@@ -28,3 +28,9 @@ const mod = {
 </p>
 
 </div>
+
+<style>
+.SNPFormNoteField {
+	min-height: 100px !important;
+}
+</style>

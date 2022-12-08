@@ -8,10 +8,6 @@
 	border-radius: 5px;
 }
 
-.SNPGenerate textarea {
-	min-height: 100px !important;
-}
-
 @media (min-width: 450px) {
 
 	.OLSKViewport {
