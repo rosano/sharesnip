@@ -125,6 +125,7 @@ onMount(mod.LifecycleModuleDidLoad);
 
 {#if !mod._ValueScanning }
 	<button class="SNPScanStartButton" on:click={ mod.InterfaceScanStartButtonDidClick }>{ OLSKLocalized('SNPScanStartButtonText') }</button>
+	<input class="SNPScanFileInput" type="file" accept="image/*" on:change={ mod.InterfaceFileInputDidChange } />
 {/if}
 
 {#if mod._ValueScanning }
@@ -149,10 +150,6 @@ onMount(mod.LifecycleModuleDidLoad);
 
 <div class="SNPScanParseError">{ OLSKFormatted(OLSKLocalized('SNPScanParseErrorTextFormat'), mod._ValueParseError) }</div>
 	
-{/if}
-
-{#if !mod._ValueScanning }
-	<input class="SNPScanFileInput" type="file" accept="image/*" on:change={ mod.InterfaceFileInputDidChange } />
 {/if}
 
 </div>

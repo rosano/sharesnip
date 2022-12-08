@@ -185,6 +185,14 @@ describe('SNPMake_Access', function () {
 			browser.assert.elements('.SNPFormBase', 0);
 		});
 
+		it('hides SNPMakeDataNotValid', function () {
+			browser.assert.elements(SNPMakeDataNotValid, 0);
+		});
+
+		it('hides SNPCode', function () {
+			browser.assert.elements('.SNPCode', 0);
+		});
+
 		it('shows SNPScan', function () {
 			browser.assert.elements('.SNPScan', 1);
 		});
@@ -197,6 +205,10 @@ describe('SNPMake_Access', function () {
 			
 			it('shows SNPFormBase', function () {
 				browser.assert.elements('.SNPFormBase', 1);
+			});
+
+			it('shows SNPMakeDataNotValid', function () {
+				browser.assert.elements(SNPMakeDataNotValid, 1);
 			});
 
 			it('hides SNPScan', function () {
@@ -225,6 +237,10 @@ describe('SNPMake_Access', function () {
 
 			it('shows SNPFormNote', function () {
 				browser.assert.elements('.SNPFormNote', 1);
+			});
+
+			it('shows SNPCode', function () {
+				browser.assert.elements('.SNPCode', 1);
 			});
 		
 		});

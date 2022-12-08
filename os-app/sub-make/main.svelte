@@ -149,18 +149,18 @@ import SNPCode from '../sub-code/main.svelte';
 {#if !mod._ValueScan }
 
 <SNPFormBase SNPFormBaseObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ SNPFormDidSubmit } SNPFormBaseSaveButtonDisabled={ mod.SNPFormBaseSaveButtonDisabled } />
-	
-{/if}
 
-{#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
+	{#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<div class="SNPMakeDataNotValid"></div>
-	
-{/if}
+	<div class="SNPMakeDataNotValid"></div>
+		
+	{/if}
 
-{#if mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
+	{#if mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<SNPCode SNPCodeObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } />
+	<SNPCode SNPCodeObject={ mod._ValueStateMap[mod._ValueType].SNPMakeStateDocument } />
+		
+	{/if}
 	
 {/if}
 

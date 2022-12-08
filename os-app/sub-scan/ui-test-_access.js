@@ -4,11 +4,11 @@ Object.entries({
 	SNPScan: '.SNPScan',
 	
 	SNPScanStartButton: '.SNPScanStartButton',
+	SNPScanFileInput: '.SNPScanFileInput',
 	SNPScanStopButton: '.SNPScanStopButton',
 	SNPScanReader: '.SNPScanReader',
 	SNPScanReadError: '.SNPScanReadError',
 	SNPScanParseError: '.SNPScanParseError',
-	SNPScanFileInput: '.SNPScanFileInput',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -27,6 +27,10 @@ describe('SNPScan_Access', function () {
 		browser.assert.elements(SNPScanStartButton, 1);
 	});
 
+	it('shows SNPScanFileInput', function () {
+		browser.assert.elements(SNPScanFileInput, 1);
+	});
+
 	it('hides SNPScanStopButton', function () {
 		browser.assert.elements(SNPScanStopButton, 0);
 	});
@@ -43,10 +47,6 @@ describe('SNPScan_Access', function () {
 		browser.assert.elements(SNPScanParseError, 0);
 	});
 
-	it('shows SNPScanFileInput', function () {
-		browser.assert.elements(SNPScanFileInput, 1);
-	});
-
 	context('ScanStart', function () {
 
 		before(function () {
@@ -57,12 +57,12 @@ describe('SNPScan_Access', function () {
 			browser.assert.elements(SNPScanStartButton, 0);
 		});
 
-		it('shows SNPScanStopButton', function () {
-			browser.assert.elements(SNPScanStopButton, 1);
-		});
-
 		it('hides SNPScanFileInput', function () {
 			browser.assert.elements(SNPScanFileInput, 0);
+		});
+
+		it('shows SNPScanStopButton', function () {
+			browser.assert.elements(SNPScanStopButton, 1);
 		});
 	
 	});
