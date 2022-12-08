@@ -123,7 +123,7 @@ import SNPCode from '../sub-code/main.svelte';
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
-<div class="SNPMake">
+<div class="SNPMake OLSKDecor">
 
 <div class="SNPMakeTypes">
 		

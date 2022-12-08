@@ -38,3 +38,19 @@ body {
 .OLSKBanner {
 	display: none;
 }
+
+@media (min-width: 450px) {
+	.OLSKModalViewOverlay {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.OLSKModalViewContainer {
+		min-width: 40%;
+		max-height: 80%;
+		overflow: clip;
+		border-radius: 3px;
+	}
+}
+</style>

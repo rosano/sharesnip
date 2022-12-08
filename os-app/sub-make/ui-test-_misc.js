@@ -8,6 +8,13 @@ describe('SNPMake_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
+	describe('SNPMake', function test_SNPMake () {
+
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(SNPMake, 'OLSKDecor');
+		});
+	
+	});
 
 	describe('SNPMakeScanButton', function test_SNPMakeScanButton () {
 
