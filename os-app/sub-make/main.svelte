@@ -68,7 +68,7 @@ const mod = {
 				SNPMakeStateValid: false,
 			};
 
-			SNPFormNotValid();
+			SNPFormNotValid && SNPFormNotValid();
 		}
 
 		setTimeout(function () {
