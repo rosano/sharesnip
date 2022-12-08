@@ -27,6 +27,7 @@ const mod = {
 			size: 100,
 			rounded: 100,
 			quiet: 0,
+			crisp: false,
 			text: SNPCodeObject.SNPDocumentData,
 		}));
 	},
