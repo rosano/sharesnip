@@ -89,6 +89,12 @@ const mod = {
 
 	MessageParseError (error) {
 		mod._ValueParseError = error.message;
+
+		if (OLSK_SPEC_UI()) {
+			return;
+		}
+
+		mod._ValueScanReader.clear();
 	},
 
 	// SETUP
