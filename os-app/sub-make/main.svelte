@@ -65,7 +65,9 @@ const mod = {
 				SNPMakeStateDocument: mod.DataDocumentTemplate(inputData),
 				SNPMakeStateValid: false,
 			};
+		}
 
+		if (!mod._ValueStateMap[inputData].SNPMakeStateValid) {
 			SNPFormNotValid && SNPFormNotValid();
 		}
 	},
