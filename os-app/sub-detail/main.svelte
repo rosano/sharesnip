@@ -120,7 +120,9 @@ import SNPCode from '../sub-code/main.svelte';
 
 <SNPCode SNPCodeObject={ SNPCollectDetailItem } />
 
-<button class="SNPCollectDetailEditButton" on:click={ mod.InterfaceEditButtonDidClick }>{ OLSKLocalized('OLSKWordingEditText') }</button>
+<p>
+	<button class="SNPCollectDetailEditButton" on:click={ mod.InterfaceEditButtonDidClick }>{ OLSKLocalized('OLSKWordingEditText') }</button>
+</p>
 
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKWordingEditText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPFormBaseModal }>
 	<SNPFormBase SNPFormBaseObject={ SNPCollectDetailItem } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
