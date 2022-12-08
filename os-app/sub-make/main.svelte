@@ -120,7 +120,6 @@ mod.LifecycleModuleDidLoad();
 import SNPScan from '../sub-scan/main.svelte';
 import SNPFormBase from '../sub-base/main.svelte';
 import SNPCode from '../sub-code/main.svelte';
-import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
 <div class="SNPMake OLSKDecor">
@@ -155,7 +154,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 {#if !mod._ValueStateMap[mod._ValueType].SNPMakeStateValid }
 
-<div class="SNPMakeDataNotValid">{@html OLSKUIAssets._OLSKSharedIconPlaceholder }</div>
+<div class="SNPMakeDataNotValid"></div>
 	
 {/if}
 
@@ -182,5 +181,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 .SNPMakeTypes {
 	margin-bottom: 10px;
+}
+
+.SNPMakeDataNotValid {
+	display: block;
+	width: 100px;
+	height: 100px;
+	border: 3px solid black;
+	border-style: dotted;
 }
 </style>

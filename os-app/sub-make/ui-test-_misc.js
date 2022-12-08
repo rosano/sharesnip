@@ -104,14 +104,6 @@ describe('SNPMake_Misc', function () {
 	
 	});
 
-	describe('SNPMakeDataNotValid', function test_SNPMakeDataNotValid () {
-
-		it('sets src', function () {
-			browser.assert.elements(`${ SNPMakeDataNotValid } #_OLSKSharedIconPlaceholder`, 1);
-		});
-	
-	});
-
 	context('valid', function () {
 		
 		before(function () {
