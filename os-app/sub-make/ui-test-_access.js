@@ -8,8 +8,8 @@ Object.entries({
 	SNPMakeTypes: '.SNPMakeTypes',
 	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
-	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	SNPMakeTypesEmailButton: '.SNPMakeTypesEmailButton',
+	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
 	
 	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
@@ -43,12 +43,12 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements(SNPMakeTypesNoteButton, 1);
 	});
 
-	it('shows SNPMakeTypesPhoneButton', function () {
-		browser.assert.elements(SNPMakeTypesPhoneButton, 1);
-	});
-
 	it('shows SNPMakeTypesEmailButton', function () {
 		browser.assert.elements(SNPMakeTypesEmailButton, 1);
+	});
+
+	it('shows SNPMakeTypesPhoneButton', function () {
+		browser.assert.elements(SNPMakeTypesPhoneButton, 1);
 	});
 
 	it('shows SNPMakeTypesWifiButton', function () {
@@ -91,34 +91,34 @@ describe('SNPMake_Access', function () {
 	
 	});
 
-	context('SNPMakeTypesPhoneButton', function () {
-		
-		before(function () {
-			return browser.pressButton(SNPMakeTypesPhoneButton);
-		});
-
-		it('hides SNPFormNote', function () {
-			browser.assert.elements('.SNPFormNote', 0);
-		});
-
-		it('shows SNPFormPhone', function () {
-			browser.assert.elements('.SNPFormPhone', 1);
-		});
-	
-	});
-
 	context('SNPMakeTypesEmailButton', function () {
 		
 		before(function () {
 			return browser.pressButton(SNPMakeTypesEmailButton);
 		});
 
-		it('hides SNPFormPhone', function () {
-			browser.assert.elements('.SNPFormPhone', 0);
+		it('hides SNPFormNote', function () {
+			browser.assert.elements('.SNPFormNote', 0);
 		});
 
 		it('shows SNPFormEmail', function () {
 			browser.assert.elements('.SNPFormEmail', 1);
+		});
+	
+	});
+
+	context('SNPMakeTypesPhoneButton', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeTypesPhoneButton);
+		});
+
+		it('hides SNPFormEmail', function () {
+			browser.assert.elements('.SNPFormEmail', 0);
+		});
+
+		it('shows SNPFormPhone', function () {
+			browser.assert.elements('.SNPFormPhone', 1);
 		});
 	
 	});
@@ -129,8 +129,8 @@ describe('SNPMake_Access', function () {
 			return browser.pressButton(SNPMakeTypesWifiButton);
 		});
 
-		it('hides SNPFormEmail', function () {
-			browser.assert.elements('.SNPFormEmail', 0);
+		it('hides SNPFormPhone', function () {
+			browser.assert.elements('.SNPFormPhone', 0);
 		});
 
 		it('shows SNPFormWifi', function () {

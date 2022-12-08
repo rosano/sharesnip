@@ -20,18 +20,18 @@ describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
 
 });
 
-describe('SNPDocumentTypePhone', function test_SNPDocumentTypePhone() {
-
-	it('returns string', function() {
-		deepEqual(mod.SNPDocumentTypePhone(), 'TYPE_PHONE');
-	});
-
-});
-
 describe('SNPDocumentTypeEmail', function test_SNPDocumentTypeEmail() {
 
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypeEmail(), 'TYPE_EMAIL');
+	});
+
+});
+
+describe('SNPDocumentTypePhone', function test_SNPDocumentTypePhone() {
+
+	it('returns string', function() {
+		deepEqual(mod.SNPDocumentTypePhone(), 'TYPE_PHONE');
 	});
 
 });
@@ -58,8 +58,8 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 		deepEqual(mod.SNPDocumentTypes(), [
 			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
-			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeEmail(),
+			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeWifi(),
 			mod.SNPDocumentTypeContact(),
 			]);
@@ -169,24 +169,6 @@ describe('SNPDocumentValidateLink', function test_SNPDocumentValidateLink() {
 
 });
 
-describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
-
-	it('throws if not string', function () {
-		throws(function () {
-			mod.SNPDocumentValidatePhone(null);
-		}, /SNPErrorInputNotValid/);
-	});
-
-	it('returns false if without prefix', function() {
-		deepEqual(mod.SNPDocumentValidatePhone(Math.random().toString()), false);
-	});
-
-	it('returns true', function() {
-		deepEqual(mod.SNPDocumentValidatePhone(uDataPhone()), true);
-	});
-
-});
-
 describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
 
 	it('throws if not string', function () {
@@ -201,6 +183,24 @@ describe('SNPDocumentValidateEmail', function test_SNPDocumentValidateEmail() {
 
 	it('returns true', function() {
 		deepEqual(mod.SNPDocumentValidateEmail(uRandomElement('mailto:', '') + uEmail()), true);
+	});
+
+});
+
+describe('SNPDocumentValidatePhone', function test_SNPDocumentValidatePhone() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentValidatePhone(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns false if without prefix', function() {
+		deepEqual(mod.SNPDocumentValidatePhone(Math.random().toString()), false);
+	});
+
+	it('returns true', function() {
+		deepEqual(mod.SNPDocumentValidatePhone(uDataPhone()), true);
 	});
 
 });
@@ -223,26 +223,6 @@ describe('SNPDocumentValidateWifi', function test_SNPDocumentValidateWifi() {
 
 });
 
-describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
-
-	it('throws if not string', function () {
-		throws(function () {
-			mod.SNPDocumentExplodePhone(null);
-		}, /SNPErrorInputNotValid/);
-	});
-
-	it('returns object', function() {
-		const SNPDocumentPhone = Math.random().toString();
-		const SNPDocumentData = uDataPhone(SNPDocumentPhone);
-		deepEqual(mod.SNPDocumentExplodePhone(SNPDocumentData), {
-			SNPDocumentData,
-			SNPDocumentType: mod.SNPDocumentTypePhone(),
-			SNPDocumentPhone,
-		});
-	});
-
-});
-
 describe('SNPDocumentExplodeEmail', function test_SNPDocumentExplodeEmail() {
 
 	it('throws if not string', function () {
@@ -258,6 +238,26 @@ describe('SNPDocumentExplodeEmail', function test_SNPDocumentExplodeEmail() {
 			SNPDocumentData,
 			SNPDocumentType: mod.SNPDocumentTypeEmail(),
 			SNPDocumentEmail,
+		});
+	});
+
+});
+
+describe('SNPDocumentExplodePhone', function test_SNPDocumentExplodePhone() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplodePhone(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentPhone = Math.random().toString();
+		const SNPDocumentData = uDataPhone(SNPDocumentPhone);
+		deepEqual(mod.SNPDocumentExplodePhone(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypePhone(),
+			SNPDocumentPhone,
 		});
 	});
 

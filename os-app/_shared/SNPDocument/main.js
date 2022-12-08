@@ -13,12 +13,12 @@ const mod = {
 		return 'TYPE_NOTE';
 	},
 
-	SNPDocumentTypePhone () {
-		return 'TYPE_PHONE';
-	},
-
 	SNPDocumentTypeEmail () {
 		return 'TYPE_EMAIL';
+	},
+
+	SNPDocumentTypePhone () {
+		return 'TYPE_PHONE';
 	},
 
 	SNPDocumentTypeWifi () {
@@ -33,8 +33,8 @@ const mod = {
 		return [
 			mod.SNPDocumentTypeLink(),
 			mod.SNPDocumentTypeNote(),
-			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeEmail(),
+			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeWifi(),
 			mod.SNPDocumentTypeContact(),
 		];
@@ -94,14 +94,6 @@ const mod = {
 		return Object.entries(errors).length ? errors : null;
 	},
 
-	SNPDocumentValidatePhone (inputData) {
-		if (typeof inputData !== 'string') {
-			throw new Error('SNPErrorInputNotValid');
-		}
-
-		return !!inputData.match(/^tel:/);
-	},
-
 	SNPDocumentValidateEmail (inputData) {
 		if (typeof inputData !== 'string') {
 			throw new Error('SNPErrorInputNotValid');
@@ -114,26 +106,20 @@ const mod = {
 		return !!OLSKLink.OLSKEmailValid(inputData);
 	},
 
+	SNPDocumentValidatePhone (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return !!inputData.match(/^tel:/);
+	},
+
 	SNPDocumentValidateWifi (inputData) {
 		if (typeof inputData !== 'string') {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
 		return !!inputData.match(/^WIFI:/);
-	},
-
-	SNPDocumentExplodePhone (SNPDocumentData) {
-		if (typeof SNPDocumentData !== 'string') {
-			throw new Error('SNPErrorInputNotValid');
-		}
-
-		return {
-			SNPDocumentData,
-			SNPDocumentType: mod.SNPDocumentTypePhone(),
-			SNPDocumentPhone: SNPDocumentData.split(/^tel:/).filter(function (e) {
-				return e.length;
-			}).shift(),
-		};
 	},
 
 	SNPDocumentExplodeEmail (SNPDocumentData) {
@@ -145,6 +131,20 @@ const mod = {
 			SNPDocumentData,
 			SNPDocumentType: mod.SNPDocumentTypeEmail(),
 			SNPDocumentEmail: SNPDocumentData.split(/^mailto:/).filter(function (e) {
+				return e.length;
+			}).shift(),
+		};
+	},
+
+	SNPDocumentExplodePhone (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		return {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypePhone(),
+			SNPDocumentPhone: SNPDocumentData.split(/^tel:/).filter(function (e) {
 				return e.length;
 			}).shift(),
 		};
@@ -177,12 +177,12 @@ const mod = {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
-		if (mod.SNPDocumentValidatePhone(SNPDocumentData)) {
-			return mod.SNPDocumentExplodePhone(SNPDocumentData);
-		}
-
 		if (mod.SNPDocumentValidateEmail(SNPDocumentData)) {
 			return mod.SNPDocumentExplodeEmail(SNPDocumentData);
+		}
+
+		if (mod.SNPDocumentValidatePhone(SNPDocumentData)) {
+			return mod.SNPDocumentExplodePhone(SNPDocumentData);
 		}
 
 		return {

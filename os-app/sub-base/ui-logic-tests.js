@@ -17,8 +17,8 @@ describe('SNPFormBaseChildClass', function test_SNPFormBaseChildClass() {
 		deepEqual(mod.SNPFormBaseChildClass(item), {
 			[SNPDocument.SNPDocumentTypeLink()]: 'SNPFormLink',
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
-			[SNPDocument.SNPDocumentTypePhone()]: 'SNPFormPhone',
 			[SNPDocument.SNPDocumentTypeEmail()]: 'SNPFormEmail',
+			[SNPDocument.SNPDocumentTypePhone()]: 'SNPFormPhone',
 			[SNPDocument.SNPDocumentTypeWifi()]: 'SNPFormWifi',
 		}[item]);
 	});

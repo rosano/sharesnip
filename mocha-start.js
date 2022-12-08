@@ -59,12 +59,12 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return browser.pressButton(SNPFormBaseSaveButton);
 		},
 
-		uDataPhone (inputData) {
-			return 'tel:' + (inputData || Math.random().toString());
-		},
-
 		uDataEmail (inputData) {
 			return 'mailto:' + uEmail(inputData);
+		},
+
+		uDataPhone (inputData) {
+			return 'tel:' + (inputData || Math.random().toString());
 		},
 
 		uDataWifi (inputData = '') {
