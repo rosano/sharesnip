@@ -210,10 +210,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 .SNPMakeTypes button {
 	opacity: 90%;
+	text-decoration: underline;
 }
 
 .SNPMakeButtonActive {
 	font-weight: bold;
+	text-decoration: none !important;
 }
 
 .SNPMakeTypes {
