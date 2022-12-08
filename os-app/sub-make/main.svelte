@@ -169,10 +169,6 @@ import SNPCode from '../sub-code/main.svelte';
 </div>
 
 <style>
-.SNPMake {
-	width: 100%;
-}
-
 .SNPMakeTypes button {
 	opacity: 90%;
 }
