@@ -83,9 +83,9 @@ import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 {/if}
 
 {#if SNPFormDidSubmit }
-	
-<button class="SNPFormBaseSaveButton" disabled={ mod.SNPFormBaseSaveButtonDisabled } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
-
+<p>
+	<button class="SNPFormBaseSaveButton" disabled={ mod.SNPFormBaseSaveButtonDisabled } on:click={ mod.InterfaceSaveButtonDidClick }>{ OLSKLocalized('SNPFormBaseSaveButtonText') }</button>
+</p>
 {/if}
 
 </div>
