@@ -56,14 +56,14 @@ describe('SNPMake_Misc', function () {
 	
 	});
 	
-	describe('SNPMakeTypesLinkButton', function test_SNPMakeTypesLinkButton () {
+	describe('SNPMakeTypesSiteButton', function test_SNPMakeTypesSiteButton () {
 
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(SNPMakeTypesSiteButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(SNPMakeTypesLinkButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(SNPMakeTypesSiteButton, 'OLSKDecorTappable');
 		});
 	
 	});
@@ -149,7 +149,7 @@ describe('SNPMake_Misc', function () {
 		const SNPDocumentData2 = Math.random().toString();
 
 		before(function () {
-			return browser.pressButton(SNPMakeTypesLinkButton);
+			return browser.pressButton(SNPMakeTypesSiteButton);
 		});
 		
 		before(function () {
@@ -167,7 +167,7 @@ describe('SNPMake_Misc', function () {
 		describe('change type 2', function () {
 
 			before(function () {
-				return browser.pressButton(SNPMakeTypesLinkButton);
+				return browser.pressButton(SNPMakeTypesSiteButton);
 			});
 			
 			it('saves second input', function () {
@@ -195,7 +195,7 @@ describe('SNPMake_Misc', function () {
 		describe('change type', function () {
 
 			before(function () {
-				return browser.pressButton(SNPMakeTypesLinkButton);
+				return browser.pressButton(SNPMakeTypesSiteButton);
 			});
 			
 			it('shows SNPFormBase', function () {

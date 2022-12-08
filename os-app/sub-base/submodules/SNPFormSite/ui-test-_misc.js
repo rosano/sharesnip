@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('SNPFormLink_Misc', function () {
+describe('SNPFormSite_Misc', function () {
 
 	const SNPDocumentData = Math.random().toString();
 
@@ -12,30 +12,30 @@ describe('SNPFormLink_Misc', function () {
 		});
 	});
 
-	describe('SNPFormLinkField', function test_SNPFormLinkField () {
+	describe('SNPFormSiteField', function test_SNPFormSiteField () {
 
 		it('classes SNPFormDataField', function () {
-			browser.assert.hasClass(SNPFormLinkField, 'SNPFormDataField');
+			browser.assert.hasClass(SNPFormSiteField, 'SNPFormDataField');
 		});
 
 		it('sets type', function () {
-			browser.assert.attribute(SNPFormLinkField, 'type', 'url');
+			browser.assert.attribute(SNPFormSiteField, 'type', 'url');
 		});
 
 		it('sets required', function () {
-			browser.assert.attribute(SNPFormLinkField, 'required', '');
+			browser.assert.attribute(SNPFormSiteField, 'required', '');
 		});
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(SNPFormLinkField, 'autofocus', '');
+			browser.assert.attribute(SNPFormSiteField, 'autofocus', '');
 		});
 
 		it('sets placeholder', function () {
-			browser.assert.attribute(SNPFormLinkField, 'placeholder', 'https://example.com');
+			browser.assert.attribute(SNPFormSiteField, 'placeholder', 'https://example.com');
 		});
 
 		it('binds SNPDocumentData', function () {
-			browser.assert.input(SNPFormLinkField, SNPDocumentData);
+			browser.assert.input(SNPFormSiteField, SNPDocumentData);
 		});
 
 		context('fill', function () {
@@ -51,7 +51,7 @@ describe('SNPFormLink_Misc', function () {
 			});
 			
 			before(function () {
-				return browser.fill(SNPFormLinkField, SNPDocumentData);
+				return browser.fill(SNPFormSiteField, SNPDocumentData);
 			});
 
 			it('sends SNPFormDidFill', function () {
@@ -74,7 +74,7 @@ describe('SNPFormLink_Misc', function () {
 				});
 				
 				before(function () {
-					return browser.fill(SNPFormLinkField, SNPDocumentData);
+					return browser.fill(SNPFormSiteField, SNPDocumentData);
 				});
 
 				it('sends SNPFormDidFill', function () {

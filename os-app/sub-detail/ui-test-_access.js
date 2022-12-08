@@ -123,12 +123,12 @@ describe('SNPCollectDetail_Access', function () {
 	
 	});
 
-	context('SNPDocumentTypeLink', function () {
+	context('SNPDocumentTypeSite', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				SNPCollectDetailItem: JSON.stringify(StubDocumentObjectValid({
-					SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
+					SNPDocumentType: SNPDocument.SNPDocumentTypeSite(),
 				})),
 			});
 		});

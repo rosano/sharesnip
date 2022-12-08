@@ -37,8 +37,8 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
 	},
 
-	InterfaceLinkButtonDidClick () {
-		mod.CommandSetType(SNPDocument.SNPDocumentTypeLink());
+	InterfaceSiteButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeSite());
 	},
 
 	InterfaceEmailButtonDidClick () {
@@ -132,7 +132,7 @@ import SNPCode from '../sub-code/main.svelte';
 
 <button class="SNPMakeTypesNoteButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeNote() } on:click={ mod.InterfaceTextButtonDidClick }>{ OLSKLocalized('SNPMakeTypesNoteButtonText') }</button>
 
-<button class="SNPMakeTypesLinkButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeLink() } on:click={ mod.InterfaceLinkButtonDidClick }>{ OLSKLocalized('SNPMakeTypesLinkButtonText') }</button>
+<button class="SNPMakeTypesSiteButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeSite() } on:click={ mod.InterfaceSiteButtonDidClick }>{ OLSKLocalized('SNPMakeTypesSiteButtonText') }</button>
 
 <button class="SNPMakeTypesEmailButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeEmail() } on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
 

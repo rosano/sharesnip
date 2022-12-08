@@ -12,10 +12,10 @@ describe('SNPDocumentTypeNote', function test_SNPDocumentTypeNote() {
 
 });
 
-describe('SNPDocumentTypeLink', function test_SNPDocumentTypeLink() {
+describe('SNPDocumentTypeSite', function test_SNPDocumentTypeSite() {
 
 	it('returns string', function() {
-		deepEqual(mod.SNPDocumentTypeLink(), 'TYPE_LINK');
+		deepEqual(mod.SNPDocumentTypeSite(), 'TYPE_SITE');
 	});
 
 });
@@ -57,7 +57,7 @@ describe('SNPDocumentTypes', function test_SNPDocumentTypes() {
 	it('returns string', function() {
 		deepEqual(mod.SNPDocumentTypes(), [
 			mod.SNPDocumentTypeNote(),
-			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypeSite(),
 			mod.SNPDocumentTypeEmail(),
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeWifi(),
@@ -161,10 +161,10 @@ describe('SNPDocumentErrors', function test_SNPDocumentErrors() {
 
 });
 
-describe('SNPDocumentValidateLink', function test_SNPDocumentValidateLink() {
+describe('SNPDocumentValidateSite', function test_SNPDocumentValidateSite() {
 
 	it('binds function', function() {
-		deepEqual(mod.SNPDocumentValidateLink, require('OLSKLink').OLSKLinkValid);
+		deepEqual(mod.SNPDocumentValidateSite, require('OLSKLink').OLSKLinkValid);
 	});
 
 });
@@ -310,12 +310,12 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 		});
 	});
 
-	context('SNPDocumentTypeLink', function () {
+	context('SNPDocumentTypeSite', function () {
 
 		it('returns object', function() {
 			const SNPDocumentData = uRandomElement('http', 'https') + '://example.com';
 			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), {
-				SNPDocumentType: mod.SNPDocumentTypeLink(),
+				SNPDocumentType: mod.SNPDocumentTypeSite(),
 				SNPDocumentData,
 			});
 		});

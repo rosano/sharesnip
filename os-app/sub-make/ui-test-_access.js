@@ -7,7 +7,7 @@ Object.entries({
 	
 	SNPMakeTypes: '.SNPMakeTypes',
 	SNPMakeTypesNoteButton: '.SNPMakeTypesNoteButton',
-	SNPMakeTypesLinkButton: '.SNPMakeTypesLinkButton',
+	SNPMakeTypesSiteButton: '.SNPMakeTypesSiteButton',
 	SNPMakeTypesEmailButton: '.SNPMakeTypesEmailButton',
 	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
 	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
@@ -39,8 +39,8 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements(SNPMakeTypesNoteButton, 1);
 	});
 
-	it('shows SNPMakeTypesLinkButton', function () {
-		browser.assert.elements(SNPMakeTypesLinkButton, 1);
+	it('shows SNPMakeTypesSiteButton', function () {
+		browser.assert.elements(SNPMakeTypesSiteButton, 1);
 	});
 
 	it('shows SNPMakeTypesEmailButton', function () {
@@ -75,18 +75,18 @@ describe('SNPMake_Access', function () {
 		browser.assert.elements('.SNPScan', 0);
 	});
 
-	context('SNPMakeTypesLinkButton', function () {
+	context('SNPMakeTypesSiteButton', function () {
 		
 		before(function () {
-			return browser.pressButton(SNPMakeTypesLinkButton);
+			return browser.pressButton(SNPMakeTypesSiteButton);
 		});
 
 		it('hides SNPFormNote', function () {
 			browser.assert.elements('.SNPFormNote', 0);
 		});
 
-		it('shows SNPFormLink', function () {
-			browser.assert.elements('.SNPFormLink', 1);
+		it('shows SNPFormSite', function () {
+			browser.assert.elements('.SNPFormSite', 1);
 		});
 	
 	});
@@ -97,8 +97,8 @@ describe('SNPMake_Access', function () {
 			return browser.pressButton(SNPMakeTypesEmailButton);
 		});
 
-		it('hides SNPFormLink', function () {
-			browser.assert.elements('.SNPFormLink', 0);
+		it('hides SNPFormSite', function () {
+			browser.assert.elements('.SNPFormSite', 0);
 		});
 
 		it('shows SNPFormEmail', function () {
@@ -200,7 +200,7 @@ describe('SNPMake_Access', function () {
 		describe('change type', function () {
 
 			before(function () {
-				return browser.pressButton(SNPMakeTypesLinkButton);
+				return browser.pressButton(SNPMakeTypesSiteButton);
 			});
 			
 			it('shows SNPFormBase', function () {

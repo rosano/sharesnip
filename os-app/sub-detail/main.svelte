@@ -113,7 +113,7 @@ import SNPCode from '../sub-code/main.svelte';
 <p class="SNPCollectDetailData">
 	<input class="SNPCollectDetailDataField" placeholder={ OLSKLocalized('SNPCollectDetailDataFieldText') } type="text" disabled bind:value={ SNPCollectDetailItem.SNPDocumentData } />
 
-	{#if SNPCollectDetailItem.SNPDocumentType.match(/link/i) }
+	{#if SNPCollectDetailItem.SNPDocumentType === 'TYPE_SITE' }
 		<a class="SNPCollectDetailDataOpenButton OLSKDecorPress" href={ SNPCollectDetailItem.SNPDocumentData } target="_blank">{ OLSKLocalized('SNPCollectDetailDataOpenButtonText') }</a>
 	{/if}
 </p>

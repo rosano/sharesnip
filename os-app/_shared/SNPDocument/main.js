@@ -9,8 +9,8 @@ const mod = {
 		return 'TYPE_NOTE';
 	},
 
-	SNPDocumentTypeLink () {
-		return 'TYPE_LINK';
+	SNPDocumentTypeSite () {
+		return 'TYPE_SITE';
 	},
 
 	SNPDocumentTypeEmail () {
@@ -32,7 +32,7 @@ const mod = {
 	SNPDocumentTypes () {
 		return [
 			mod.SNPDocumentTypeNote(),
-			mod.SNPDocumentTypeLink(),
+			mod.SNPDocumentTypeSite(),
 			mod.SNPDocumentTypeEmail(),
 			mod.SNPDocumentTypePhone(),
 			mod.SNPDocumentTypeWifi(),
@@ -170,7 +170,7 @@ const mod = {
 		};
 	},
 
-	SNPDocumentValidateLink: OLSKLink.OLSKLinkValid,
+	SNPDocumentValidateSite: OLSKLink.OLSKLinkValid,
 
 	SNPDocumentExplode (SNPDocumentData) {
 		if (typeof SNPDocumentData !== 'string') {
@@ -188,8 +188,8 @@ const mod = {
 		return {
 			SNPDocumentData,
 			SNPDocumentType: (function(inputData) {
-				if (mod.SNPDocumentValidateLink(inputData)) {
-					return mod.SNPDocumentTypeLink();
+				if (mod.SNPDocumentValidateSite(inputData)) {
+					return mod.SNPDocumentTypeSite();
 				}
 				
 				

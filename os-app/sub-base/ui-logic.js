@@ -9,7 +9,7 @@ const mod = {
 
 		return {
 			[SNPDocument.SNPDocumentTypeNote()]: 'SNPFormNote',
-			[SNPDocument.SNPDocumentTypeLink()]: 'SNPFormLink',
+			[SNPDocument.SNPDocumentTypeSite()]: 'SNPFormSite',
 			[SNPDocument.SNPDocumentTypeEmail()]: 'SNPFormEmail',
 			[SNPDocument.SNPDocumentTypePhone()]: 'SNPFormPhone',
 			[SNPDocument.SNPDocumentTypeWifi()]: 'SNPFormWifi',

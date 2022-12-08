@@ -15,7 +15,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				OLSKRoutingLanguage,
 				SNPCollectDetailItem: JSON.stringify(StubDocumentObjectValid({
 					SNPDocumentURL: Math.random().toString(),
-					SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
+					SNPDocumentType: SNPDocument.SNPDocumentTypeSite(),
 				})),
 			});
 		});

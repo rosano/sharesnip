@@ -22,8 +22,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPMakeTypesNoteButton, uLocalized('SNPMakeTypesNoteButtonText'));
 		});
 
-		it('localizes SNPMakeTypesLinkButton', function () {
-			browser.assert.text(SNPMakeTypesLinkButton, uLocalized('SNPMakeTypesLinkButtonText'));
+		it('localizes SNPMakeTypesSiteButton', function () {
+			browser.assert.text(SNPMakeTypesSiteButton, uLocalized('SNPMakeTypesSiteButtonText'));
 		});
 
 		it('localizes SNPMakeTypesEmailButton', function () {

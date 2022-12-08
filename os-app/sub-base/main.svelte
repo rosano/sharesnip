@@ -54,7 +54,7 @@ $: {
 }
 
 import SNPFormNote from './submodules/SNPFormNote/main.svelte';
-import SNPFormLink from './submodules/SNPFormLink/main.svelte';
+import SNPFormSite from './submodules/SNPFormSite/main.svelte';
 import SNPFormEmail from './submodules/SNPFormEmail/main.svelte';
 import SNPFormPhone from './submodules/SNPFormPhone/main.svelte';
 import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
@@ -66,8 +66,8 @@ import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 	<SNPFormNote SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
-{#if mod._ValueChildClass === 'SNPFormLink' }
-	<SNPFormLink SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
+{#if mod._ValueChildClass === 'SNPFormSite' }
+	<SNPFormSite SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPFormEmail' }

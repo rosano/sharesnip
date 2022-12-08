@@ -7,7 +7,7 @@ describe('SNPCollectDetail_Misc', function () {
 	const item = StubDocumentObjectValid({
 		SNPDocumentName: Math.random().toString(),
 		SNPDocumentData: Math.random().toString(),
-		SNPDocumentType: SNPDocument.SNPDocumentTypeLink(),
+		SNPDocumentType: SNPDocument.SNPDocumentTypeSite(),
 	});
 
 	before(function() {
