@@ -67,7 +67,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <div class="SNPDownload">
 
-<h2 class="SNPDownloadHeading">{ OLSKLocalized('SNPDownloadHeadingText') }</h2>
+<h5 class="SNPDownloadHeading">{ OLSKLocalized('SNPDownloadHeadingText') }</h5>
 
 <input id="SNPDownloadPNGButton" type="radio" value="PNG" bind:group={ mod._ValueFormat } />
 <label class="SNPDownloadPNGButton OLSKDecorTappable" for="SNPDownloadPNGButton">PNG</label>

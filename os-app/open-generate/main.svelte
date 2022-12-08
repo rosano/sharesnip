@@ -104,11 +104,13 @@ import OLSKString from 'OLSKString';
 
 <div class="SNPGenerate OLSKViewport">
 
-<div class="OLSKViewportContent">
+<div class="OLSKViewportContent OLSKDecor">
 	
 <SNPMake SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } />
 
 {#if mod._ValueIsValid }
+
+<hr />
 
 <SNPDownload SNPDownloadData={ mod._ValueData } />
 	
