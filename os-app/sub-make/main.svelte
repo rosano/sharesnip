@@ -209,7 +209,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 }
 
 .SNPMakeTypes button {
-	font-size: 90%;
 	opacity: 90%;
 }
 
