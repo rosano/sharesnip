@@ -26,7 +26,7 @@ const mod = {
 			ecLevel: 'H',
 			size: 100,
 			rounded: 100,
-			quiet: 0,
+			quiet: 1,
 			crisp: false,
 			text: SNPCodeObject.SNPDocumentData,
 		}));

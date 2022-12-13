@@ -46,7 +46,7 @@ const mod = {
 			ecLevel: 'H',
 			size: 1000,
 			rounded: 100,
-			quiet: 0,
+			quiet: 1,
 			text: SNPDownloadData,
 		});
 
