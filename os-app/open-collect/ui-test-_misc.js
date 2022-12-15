@@ -13,14 +13,6 @@ describe('SNPCollect_Misc', function () {
 		browser.assert.attribute('meta[name=viewport]', 'content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
 	});
 	
-	it('sets meta:mobile-web-app-capable', function () {
-		browser.assert.attribute('meta[name=mobile-web-app-capable]', 'content', 'yes');
-	});
-	
-	it('sets meta:apple-mobile-web-app-capable', function () {
-		browser.assert.attribute('meta[name=apple-mobile-web-app-capable]', 'content', 'yes');
-	});
-
 	it('sets manifest', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
