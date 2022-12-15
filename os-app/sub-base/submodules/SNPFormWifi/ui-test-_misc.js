@@ -6,7 +6,7 @@ describe('SNPFormWifi_Misc', function () {
 
 	const SNPDocumentWifiNetwork = Math.random().toString();
 	const SNPDocumentWifiPassword = Math.random().toString();
-	const SNPDocumentWifiSecurity = Math.random().toString();
+	const SNPDocumentWifiSecurity = uRandomElement('WPA', 'WEP', 'nopass');
 	const SNPDocumentWifiHidden = uRandomElement(true, false);
 
 	before(function() {
@@ -52,6 +52,54 @@ describe('SNPFormWifi_Misc', function () {
 
 		it('binds SNPDocumentWifiPassword', function () {
 			browser.assert.input(SNPFormWifiPasswordField, SNPDocumentWifiPassword);
+		});
+		
+	});
+
+	describe('SNPFormWifiSecurityWPAOptionField', function test_SNPFormWifiSecurityWPAOptionField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(SNPFormWifiSecurityWPAOptionField, 'type', 'radio');
+		});
+
+		it('sets value', function () {
+			browser.assert.attribute(SNPFormWifiSecurityWPAOptionField, 'value', 'WPA');
+		});
+
+		it('binds SNPDocumentWifiSecurity', function () {
+			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityWPAOptionField').checked`, SNPDocumentWifiSecurity === 'WPA');
+		});
+		
+	});
+
+	describe('SNPFormWifiSecurityWEPOptionField', function test_SNPFormWifiSecurityWEPOptionField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(SNPFormWifiSecurityWEPOptionField, 'type', 'radio');
+		});
+
+		it('sets value', function () {
+			browser.assert.attribute(SNPFormWifiSecurityWEPOptionField, 'value', 'WEP');
+		});
+
+		it('binds SNPDocumentWifiSecurity', function () {
+			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityWEPOptionField').checked`, SNPDocumentWifiSecurity === 'WEP');
+		});
+		
+	});
+
+	describe('SNPFormWifiSecurityNoneOptionField', function test_SNPFormWifiSecurityNoneOptionField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'type', 'radio');
+		});
+
+		it('sets value', function () {
+			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'value', 'nopass');
+		});
+
+		it('binds SNPDocumentWifiSecurity', function () {
+			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityNoneOptionField').checked`, SNPDocumentWifiSecurity === 'nopass');
 		});
 		
 	});
