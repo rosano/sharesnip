@@ -5,7 +5,7 @@ export let SNPFormNotValid;
 export let SNPFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
-import OLSKFormPhoneLogic from './ui-logic.js';
+import SNPFormPhoneLogic from './ui-logic.js';
 
 const mod = {
 
@@ -13,7 +13,7 @@ const mod = {
 
 	InterfaceFieldDidFill () {
 		const SNPDocumentPhone = this.value.trim();
-		const item = OLSKFormPhoneLogic.SNPFormPhoneDocument({
+		const item = SNPFormPhoneLogic.SNPFormPhoneDocument({
 			SNPDocumentPhone,
 		});
 		SNPFormDidFill(item);

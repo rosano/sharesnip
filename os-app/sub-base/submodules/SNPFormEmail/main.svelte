@@ -6,7 +6,7 @@ export let SNPFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
 import OLSKLink from 'OLSKLink';
-import OLSKFormEmailLogic from './ui-logic.js';
+import SNPFormEmailLogic from './ui-logic.js';
 
 const mod = {
 
@@ -14,7 +14,7 @@ const mod = {
 
 	InterfaceFieldDidFill () {
 		const SNPDocumentEmail = this.value.trim()
-		const item = OLSKFormEmailLogic.SNPFormEmailDocument({
+		const item = SNPFormEmailLogic.SNPFormEmailDocument({
 			SNPDocumentEmail,
 		});
 		SNPFormDidFill(item);

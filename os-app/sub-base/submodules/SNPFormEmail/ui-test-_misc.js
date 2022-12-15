@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const OLSKFormEmailLogic = require('./ui-logic.js').default;
+const SNPFormEmailLogic = require('./ui-logic.js').default;
 
 describe('SNPFormEmail_Misc', function () {
 
@@ -8,7 +8,7 @@ describe('SNPFormEmail_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPFormObject: JSON.stringify(OLSKFormEmailLogic.SNPFormEmailDocument({
+			SNPFormObject: JSON.stringify(SNPFormEmailLogic.SNPFormEmailDocument({
 				SNPDocumentEmail,
 			})),
 		});
@@ -58,14 +58,14 @@ describe('SNPFormEmail_Misc', function () {
 
 			it('sends SNPFormDidFill', function () {
 				browser.assert.text('#TestSNPFormDidFill', '1');
-				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormEmailLogic.SNPFormEmailDocument({
+				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(SNPFormEmailLogic.SNPFormEmailDocument({
 					SNPDocumentEmail,
 				})));
 			});
 
 			it('sends SNPFormValid', function () {
 				browser.assert.text('#TestSNPFormValid', '1');
-				browser.assert.text('#TestSNPFormValidData', JSON.stringify(OLSKFormEmailLogic.SNPFormEmailDocument({
+				browser.assert.text('#TestSNPFormValidData', JSON.stringify(SNPFormEmailLogic.SNPFormEmailDocument({
 					SNPDocumentEmail,
 				})));
 			});
@@ -84,7 +84,7 @@ describe('SNPFormEmail_Misc', function () {
 
 				it('sends SNPFormDidFill', function () {
 					browser.assert.text('#TestSNPFormDidFill', '2');
-					browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormEmailLogic.SNPFormEmailDocument({
+					browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(SNPFormEmailLogic.SNPFormEmailDocument({
 					SNPDocumentEmail,
 				})));
 				});

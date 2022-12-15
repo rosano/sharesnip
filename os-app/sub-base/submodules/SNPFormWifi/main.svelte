@@ -5,7 +5,7 @@ export let SNPFormNotValid;
 export let SNPFormValid;
 
 import { OLSKLocalized } from 'OLSKInternational';
-import OLSKFormWifiLogic from './ui-logic.js';
+import SNPFormWifiLogic from './ui-logic.js';
 
 const mod = {
 
@@ -16,7 +16,7 @@ const mod = {
 	ValueSet (key, value) {
 		mod._ValueObject[key] = value;
 
-		const item = OLSKFormWifiLogic.SNPFormWifiDocument(mod._ValueObject);
+		const item = SNPFormWifiLogic.SNPFormWifiDocument(mod._ValueObject);
 
 		SNPFormDidFill(item);
 		SNPFormValid(item);
