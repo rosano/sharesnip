@@ -113,10 +113,17 @@ const mod = {
 		mod.SetupEverything();
 	},
 
+	LifecycleModuleDidDestroy() {
+		mod.CommandScanStop();
+	},
+
 };
 
 import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleDidLoad);
+
+import { onDestroy } from 'svelte';
+onDestroy(mod.LifecycleModuleDidDestroy);
 </script>
 
 <div class="SNPScan">
