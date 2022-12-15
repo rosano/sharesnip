@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const OLSKFormWifiLogic = require('./ui-logic.js').default;
+const SNPFormWifiLogic = require('./ui-logic.js').default;
 
 describe('SNPFormWifi_Misc', function () {
 
@@ -11,7 +11,7 @@ describe('SNPFormWifi_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			SNPFormObject: JSON.stringify(OLSKFormWifiLogic.SNPFormWifiDocument({
+			SNPFormObject: JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
 				SNPDocumentWifiSecurity,
@@ -74,7 +74,7 @@ describe('SNPFormWifi_Misc', function () {
 
 		it('sends SNPFormDidFill', function () {
 			browser.assert.text('#TestSNPFormDidFill', '1');
-			browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormWifiLogic.SNPFormWifiDocument({
+			browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
 				SNPDocumentWifiSecurity,
@@ -84,7 +84,7 @@ describe('SNPFormWifi_Misc', function () {
 
 		it('sends SNPFormValid', function () {
 			browser.assert.text('#TestSNPFormValid', '1');
-			browser.assert.text('#TestSNPFormValidData', JSON.stringify(OLSKFormWifiLogic.SNPFormWifiDocument({
+			browser.assert.text('#TestSNPFormValidData', JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
 				SNPDocumentWifiSecurity,
@@ -106,7 +106,7 @@ describe('SNPFormWifi_Misc', function () {
 
 			it('sends SNPFormDidFill', function () {
 				browser.assert.text('#TestSNPFormDidFill', '2');
-				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(OLSKFormWifiLogic.SNPFormWifiDocument({
+				browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
 					SNPDocumentWifiNetwork,
 					SNPDocumentWifiPassword,
 					SNPDocumentWifiSecurity,
