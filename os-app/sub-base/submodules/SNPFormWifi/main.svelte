@@ -12,30 +12,36 @@ const mod = {
 
 	// VALUE
 
-	_ValueObject: Object.assign({}, SNPFormObject),
-	_ValueSecurity: SNPFormObject.SNPDocumentWifiSecurity || 'WPA',
+	_ValueObject: Object.assign({
+		SNPDocumentWifiSecurity: 'WPA',
+	}, SNPFormObject),
 
 	ValueSet (key, value) {
 		mod._ValueObject[key] = value;
-
-		const item = SNPFormWifiLogic.SNPFormWifiDocument(mod._ValueObject);
-
-		SNPFormDidFill(item);
-		SNPFormValid(item);
 	},
 
 	// INTERFACE
 
-	InterfaceNetworkFieldDidFill () {
-		mod.ValueSet('SNPDocumentWifiNetwork', this.value.trim());
+	InterfaceNetworkFieldDidInput () {
+		mod.ValueSet('SNPDocumentWifiNetwork', this.value);
+		
+		mod._MessageInputDidChange();
 	},
 
-	InterfacePasswordFieldDidFill () {
-		mod.ValueSet('SNPDocumentWifiPassword', this.value.trim());
+	InterfacePasswordFieldDidInput () {
+		mod.ValueSet('SNPDocumentWifiPassword', this.value);
+		
+		mod._MessageInputDidChange();
 	},
 
-	InterfaceSecurityOptionDidInput () {
-		mod.ValueSet('SNPDocumentWifiSecurity', mod._ValueSecurity);
+	// MESSAGE
+
+	_MessageInputDidChange () {
+		const item = SNPFormWifiLogic.SNPFormWifiDocument(mod._ValueObject);
+
+		SNPFormDidFill(item);
+
+		SNPDocument.SNPDocumentValidateWifi(item.SNPDocumentData) ? SNPFormValid(item) : SNPFormNotValid();
 	},
 
 };
@@ -44,24 +50,27 @@ const mod = {
 <div class="SNPFormWifi">
 
 <p>
-	<input class="SNPFormWifiNetworkField SNPFormDataField" type="text" required autofocus placeholder={ OLSKLocalized('SNPFormWifiNetworkFieldText') } on:input={ mod.InterfaceNetworkFieldDidFill } value={ SNPFormObject.SNPDocumentWifiNetwork || ''}>
+	<input class="SNPFormWifiNetworkField SNPFormDataField" type="text" required autofocus placeholder={ OLSKLocalized('SNPFormWifiNetworkFieldText') } on:input={ mod.InterfaceNetworkFieldDidInput } value={ mod._ValueObject.SNPDocumentWifiNetwork || '' }>
 </p>
 
 <p>
-	<input class="SNPFormWifiPasswordField" type="text" placeholder={ OLSKLocalized('SNPFormWifiPasswordFieldText') } on:input={ mod.InterfacePasswordFieldDidFill } value={ SNPFormObject.SNPDocumentWifiPassword || ''}>
+	<input class="SNPFormWifiPasswordField" type="text" placeholder={ OLSKLocalized('SNPFormWifiPasswordFieldText') } on:input={ mod.InterfacePasswordFieldDidInput } value={ mod._ValueObject.SNPDocumentWifiPassword || '' }>
 </p>
 
 <p>
 	<label class="SNPFormWifiSecurityWPAOption">
-		<input class="SNPFormWifiSecurityWPAOptionField" type="radio" value="WPA" bind:group={ mod._ValueSecurity } on:input={ mod.InterfaceSecurityOptionDidInput } />
+		<input class="SNPFormWifiSecurityWPAOptionField" type="radio" value="WPA" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
+			mod._MessageInputDidChange } />
 		WPA
 	</label>
 	<label class="SNPFormWifiSecurityWEPOption">
-		<input class="SNPFormWifiSecurityWEPOptionField" type="radio" value="WEP" bind:group={ mod._ValueSecurity } on:input={ mod.InterfaceSecurityOptionDidInput } />
+		<input class="SNPFormWifiSecurityWEPOptionField" type="radio" value="WEP" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
+			mod._MessageInputDidChange } />
 		WEP
 	</label>
 	<label class="SNPFormWifiSecurityNoneOption">
-		<input class="SNPFormWifiSecurityNoneOptionField" type="radio" value="nopass" bind:group={ mod._ValueSecurity } on:input={ mod.InterfaceSecurityOptionDidInput } />
+		<input class="SNPFormWifiSecurityNoneOptionField" type="radio" value="nopass" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
+			mod._MessageInputDidChange } />
 		{ OLSKLocalized('SNPFormWifiSecurityNoneOptionText') }
 	</label>
 </p>

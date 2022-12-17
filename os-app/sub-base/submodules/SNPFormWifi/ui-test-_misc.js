@@ -123,9 +123,9 @@ describe('SNPFormWifi_Misc', function () {
 		it('sends SNPFormDidFill', function () {
 			browser.assert.text('#TestSNPFormDidFill', '1');
 			browser.assert.text('#TestSNPFormDidFillData', JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
+				SNPDocumentWifiSecurity,
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
-				SNPDocumentWifiSecurity,
 				SNPDocumentWifiHidden,
 			})));
 		});
@@ -133,9 +133,9 @@ describe('SNPFormWifi_Misc', function () {
 		it('sends SNPFormValid', function () {
 			browser.assert.text('#TestSNPFormValid', '1');
 			browser.assert.text('#TestSNPFormValidData', JSON.stringify(SNPFormWifiLogic.SNPFormWifiDocument({
+				SNPDocumentWifiSecurity,
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
-				SNPDocumentWifiSecurity,
 				SNPDocumentWifiHidden,
 			})));
 		});
