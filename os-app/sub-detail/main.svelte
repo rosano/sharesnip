@@ -72,7 +72,9 @@ const mod = {
 		SNPCollectDetailDispatchUpdate(inputData);
 
 		SNPCollectDetailItem = inputData;
-		
+	},
+
+	OLSKModalViewDidClose () {
 		SNPCollectDetailDispatchDisableEscape(false);
 	},
 
@@ -150,7 +152,7 @@ import SNPCode from '../sub-code/main.svelte';
 	
 </div>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKWordingEditText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } bind:this={ mod._SNPFormBaseModal }>
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKWordingEditText') } OLSKModalViewCloseText={ OLSKLocalized('OLSKWordingCancelText') } OLSKModalViewDidClose={ mod.OLSKModalViewDidClose } bind:this={ mod._SNPFormBaseModal }>
 	<SNPFormBase SNPFormBaseObject={ SNPCollectDetailItem } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormDidFill={ mod.SNPFormDidFill } SNPFormDidSubmit={ mod.SNPFormDidSubmit } />
 </OLSKModalView>
 
