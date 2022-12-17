@@ -179,15 +179,11 @@ describe('SNPCollect_Access', function () {
 		context('submit', function () {
 
 			before(function () {
-				return browser.pressButton(SNPMakeTypesNoteButton);
-			});
-			
-			before(function () {
 				return browser.fill('.SNPFormDataField', Math.random().toString());
 			});
 
 			before(function () {
-				return browser.pressButton(SNPFormBaseSaveButton);
+				return browser.pressButton('.SNPFormBaseSaveButton');
 			});
 
 			it('hides SNPMakeModal', function () {

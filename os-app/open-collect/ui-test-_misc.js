@@ -84,7 +84,7 @@ describe('SNPCollect_Misc', function () {
 	context('clone', function test_clone () {
 
 		before(function () {
-			return browser.fill(SNPCollectDetailFormNameField, 'alfa');
+			return browser.fill('.SNPCollectDetailFormNameField', 'alfa');
 		});
 
 		before(function () {
