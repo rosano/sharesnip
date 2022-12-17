@@ -5,12 +5,12 @@ Object.entries({
 	
 	SNPFormWifiNetworkField: '.SNPFormWifiNetworkField',
 	SNPFormWifiPasswordField: '.SNPFormWifiPasswordField',
+	SNPFormWifiSecurityNoneOption: '.SNPFormWifiSecurityNoneOption',
+	SNPFormWifiSecurityNoneOptionField: '.SNPFormWifiSecurityNoneOptionField',
 	SNPFormWifiSecurityWPAOption: '.SNPFormWifiSecurityWPAOption',
 	SNPFormWifiSecurityWPAOptionField: '.SNPFormWifiSecurityWPAOptionField',
 	SNPFormWifiSecurityWEPOption: '.SNPFormWifiSecurityWEPOption',
 	SNPFormWifiSecurityWEPOptionField: '.SNPFormWifiSecurityWEPOptionField',
-	SNPFormWifiSecurityNoneOption: '.SNPFormWifiSecurityNoneOption',
-	SNPFormWifiSecurityNoneOptionField: '.SNPFormWifiSecurityNoneOptionField',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -33,6 +33,14 @@ describe('SNPFormWifi_Access', function () {
 		browser.assert.elements(SNPFormWifiPasswordField, 1);
 	});
 
+	it('shows SNPFormWifiSecurityNoneOption', function () {
+		browser.assert.elements(SNPFormWifiSecurityNoneOption, 1);
+	});
+
+	it('shows SNPFormWifiSecurityNoneOptionField', function () {
+		browser.assert.elements(SNPFormWifiSecurityNoneOptionField, 1);
+	});
+
 	it('shows SNPFormWifiSecurityWPAOption', function () {
 		browser.assert.elements(SNPFormWifiSecurityWPAOption, 1);
 	});
@@ -47,14 +55,6 @@ describe('SNPFormWifi_Access', function () {
 
 	it('shows SNPFormWifiSecurityWEPOptionField', function () {
 		browser.assert.elements(SNPFormWifiSecurityWEPOptionField, 1);
-	});
-
-	it('shows SNPFormWifiSecurityNoneOption', function () {
-		browser.assert.elements(SNPFormWifiSecurityNoneOption, 1);
-	});
-
-	it('shows SNPFormWifiSecurityNoneOptionField', function () {
-		browser.assert.elements(SNPFormWifiSecurityNoneOptionField, 1);
 	});
 
 });

@@ -22,16 +22,16 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.attribute(SNPFormWifiPasswordField, 'placeholder', uLocalized('SNPFormWifiPasswordFieldText'));
 		});
 
+		it('localizes SNPFormWifiSecurityNoneOption', function () {
+			browser.assert.text(SNPFormWifiSecurityNoneOption, uLocalized('SNPFormWifiSecurityNoneOptionText'));
+		});
+
 		it('localizes SNPFormWifiSecurityWPAOption', function () {
 			browser.assert.text(SNPFormWifiSecurityWPAOption, 'WPA');
 		});
 
 		it('localizes SNPFormWifiSecurityWEPOption', function () {
 			browser.assert.text(SNPFormWifiSecurityWEPOption, 'WEP');
-		});
-
-		it('localizes SNPFormWifiSecurityNoneOption', function () {
-			browser.assert.text(SNPFormWifiSecurityNoneOption, uLocalized('SNPFormWifiSecurityNoneOptionText'));
 		});
 
 	});

@@ -278,7 +278,7 @@ describe('SNPDocumentExplodeWifi', function test_SNPDocumentExplodeWifi() {
 	});
 
 	it('returns object', function() {
-		const SNPDocumentWifiSecurity = uRandomElement('WPA', 'WEP', 'nopass');
+		const SNPDocumentWifiSecurity = uRandomElement('nopass', 'WPA', 'WEP');
 		const SNPDocumentWifiNetwork = Math.random().toString();
 		const SNPDocumentWifiPassword = Math.random().toString();
 		const SNPDocumentWifiHidden = uRandomElement(false, true)

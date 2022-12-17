@@ -6,7 +6,7 @@ describe('SNPFormWifi_Misc', function () {
 
 	const SNPDocumentWifiNetwork = Math.random().toString();
 	const SNPDocumentWifiPassword = Math.random().toString();
-	const SNPDocumentWifiSecurity = uRandomElement('WPA', 'WEP', 'nopass');
+	const SNPDocumentWifiSecurity = uRandomElement('nopass', 'WPA', 'WEP');
 	const SNPDocumentWifiHidden = uRandomElement(true, false);
 
 	before(function() {
@@ -56,6 +56,22 @@ describe('SNPFormWifi_Misc', function () {
 		
 	});
 
+	describe('SNPFormWifiSecurityNoneOptionField', function test_SNPFormWifiSecurityNoneOptionField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'type', 'radio');
+		});
+
+		it('sets value', function () {
+			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'value', 'nopass');
+		});
+
+		it('binds SNPDocumentWifiSecurity', function () {
+			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityNoneOptionField').checked`, SNPDocumentWifiSecurity === 'nopass');
+		});
+		
+	});
+
 	describe('SNPFormWifiSecurityWPAOptionField', function test_SNPFormWifiSecurityWPAOptionField () {
 
 		it('sets type', function () {
@@ -84,22 +100,6 @@ describe('SNPFormWifi_Misc', function () {
 
 		it('binds SNPDocumentWifiSecurity', function () {
 			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityWEPOptionField').checked`, SNPDocumentWifiSecurity === 'WEP');
-		});
-		
-	});
-
-	describe('SNPFormWifiSecurityNoneOptionField', function test_SNPFormWifiSecurityNoneOptionField () {
-
-		it('sets type', function () {
-			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'type', 'radio');
-		});
-
-		it('sets value', function () {
-			browser.assert.attribute(SNPFormWifiSecurityNoneOptionField, 'value', 'nopass');
-		});
-
-		it('binds SNPDocumentWifiSecurity', function () {
-			browser.assert.evaluate(`document.querySelector('.SNPFormWifiSecurityNoneOptionField').checked`, SNPDocumentWifiSecurity === 'nopass');
 		});
 		
 	});
