@@ -10,7 +10,7 @@ const mod = {
 		}
 
 		return Object.assign(inputData, {
-			SNPDocumentData: `WIFI:T:${ inputData.SNPDocumentWifiSecurity };S:${ inputData.SNPDocumentWifiNetwork };P:${ inputData.SNPDocumentWifiPassword };H:${ inputData.SNPDocumentWifiHidden ? true : ''  };;`,
+			SNPDocumentData: `WIFI:T:${ inputData.SNPDocumentWifiSecurity || 'WPA' };S:${ inputData.SNPDocumentWifiNetwork };P:${ inputData.SNPDocumentWifiPassword || '' };H:${ inputData.SNPDocumentWifiHidden ? true : ''  };;`,
 		});
 	},
 

@@ -21,7 +21,7 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 	it('returns string', function() {
 		const SNPDocumentWifiNetwork = Math.random().toString();
 		const SNPDocumentWifiPassword = Math.random().toString();
-		const SNPDocumentWifiSecurity = Math.random().toString();
+		const SNPDocumentWifiSecurity = uRandomElement(Math.random().toString(), '');
 		const SNPDocumentWifiHidden = uRandomElement(true, false);
 		deepEqual(mod.SNPFormWifiDocument({
 			SNPDocumentWifiNetwork,
@@ -32,7 +32,7 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 			SNPDocumentData: uDataWifi({
 				SNPDocumentWifiNetwork,
 				SNPDocumentWifiPassword,
-				SNPDocumentWifiSecurity,
+				SNPDocumentWifiSecurity: SNPDocumentWifiSecurity || 'WPA',
 				SNPDocumentWifiHidden: SNPDocumentWifiHidden || '',
 			}),
 			SNPDocumentWifiNetwork,
@@ -40,6 +40,14 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 			SNPDocumentWifiSecurity,
 			SNPDocumentWifiHidden,
 		});
+	});
+
+	it('substitutes blank for undefined', function() {
+		const SNPDocumentWifiNetwork = Math.random().toString();
+
+		deepEqual(mod.SNPFormWifiDocument({
+			SNPDocumentWifiNetwork,
+		}).SNPDocumentData, 'WIFI:T:WPA;S:' + SNPDocumentWifiNetwork + ';P:;H:;;');
 	});
 
 });
