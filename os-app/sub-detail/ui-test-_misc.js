@@ -290,7 +290,7 @@ describe('SNPCollectDetail_Misc', function () {
 
 	});
 
-	describe('SNPDetailLauncherItemDebug', function test_SNPDetailLauncherItemDebug() {
+	describe.skip('SNPDetailLauncherItemDebug', function test_SNPDetailLauncherItemDebug() {
 
 		before(function () {
 			return browser.OLSKLauncherRun('SNPDetailLauncherItemDebug');
