@@ -4,7 +4,7 @@ export let SNPCollectDetailDispatchBack;
 export let SNPCollectDetailDispatchUpdate;
 export let SNPCollectDetailDispatchClone;
 export let SNPCollectDetailDispatchDiscard;
-export let SNPCollectDetailDispatchPreventEscapeDefault;
+export let SNPCollectDetailDispatchDisableEscape;
 export let _DebugLauncher = false;
 
 export const modPublic = {
@@ -55,7 +55,7 @@ const mod = {
 	InterfaceEditButtonDidClick () {
 		mod._SNPFormBaseModal.modPublic.OLSKModalViewShow();
 
-		SNPCollectDetailDispatchPreventEscapeDefault(true);
+		SNPCollectDetailDispatchDisableEscape(true);
 	},
 
 	// MESSAGE
@@ -72,8 +72,8 @@ const mod = {
 		SNPCollectDetailDispatchUpdate(inputData);
 
 		SNPCollectDetailItem = inputData;
-
-		SNPCollectDetailDispatchPreventEscapeDefault(false);
+		
+		SNPCollectDetailDispatchDisableEscape(false);
 	},
 
 	// REACT

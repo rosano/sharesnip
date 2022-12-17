@@ -284,9 +284,9 @@ describe('SNPCollectDetail_Misc', function () {
 				return browser.pressButton(SNPCollectDetailEditButton);
 			});
 
-			it('sends SNPCollectDetailDispatchPreventEscapeDefault', function () {
-				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefault', '1');
-				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefaultData', 'true');
+			it('sends SNPCollectDetailDispatchDisableEscape', function () {
+				browser.assert.text('#TestSNPCollectDetailDispatchDisableEscape', '1');
+				browser.assert.text('#TestSNPCollectDetailDispatchDisableEscapeData', 'true');
 			});
 		
 		});
@@ -305,9 +305,9 @@ describe('SNPCollectDetail_Misc', function () {
 				browser.assert.input(SNPCollectDetailDataField, SNPDocumentData);
 			});
 
-			it('sends SNPCollectDetailDispatchPreventEscapeDefault', function () {
-				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefault', '2');
-				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefaultData', 'false');
+			it('sends SNPCollectDetailDispatchDisableEscape', function () {
+				browser.assert.text('#TestSNPCollectDetailDispatchDisableEscape', '2');
+				browser.assert.text('#TestSNPCollectDetailDispatchDisableEscapeData', 'false');
 			});
 
 		});

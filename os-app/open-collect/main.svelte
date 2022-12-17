@@ -345,7 +345,7 @@ const mod = {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
-	SNPCollectDetailDispatchPreventEscapeDefault (inputData) {
+	SNPCollectDetailDispatchDisableEscape (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogDisableEscape = inputData;
 	},
 
@@ -682,7 +682,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			SNPCollectDetailDispatchUpdate={ mod.SNPCollectDetailDispatchUpdate }
 			SNPCollectDetailDispatchClone={ mod.SNPCollectDetailDispatchClone }
 			SNPCollectDetailDispatchDiscard={ mod.SNPCollectDetailDispatchDiscard }
-			SNPCollectDetailDispatchPreventEscapeDefault={ mod.SNPCollectDetailDispatchPreventEscapeDefault }
+			SNPCollectDetailDispatchDisableEscape={ mod.SNPCollectDetailDispatchDisableEscape }
 			bind:this={ mod._SNPCollectDetail }
 			/>
 	</div>
