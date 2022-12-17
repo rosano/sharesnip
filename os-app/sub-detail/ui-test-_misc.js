@@ -290,4 +290,16 @@ describe('SNPCollectDetail_Misc', function () {
 
 	});
 
+	describe('SNPDetailLauncherItemDebug', function test_SNPDetailLauncherItemDebug() {
+
+		before(function () {
+			return browser.OLSKLauncherRun('SNPDetailLauncherItemDebug');
+		});
+
+		it('sets window location', function () {
+			browser.assert.evaluate('window.FakeWindowOpen', 'https://inspektor.5apps.com/inspect?path=sharesnip%2Fsnp_documents%2F…');
+		});
+
+	});
+
 });

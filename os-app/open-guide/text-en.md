@@ -37,10 +37,13 @@ Add an inbox item to your collection by pressing the *SNPCollectDetailToolbarClo
 :--- | ---
 | Add new item | `AccessKey+n` |
 | Select previous or next item, if filter field is focused | `Up` or `Down` |
-| Clear filter text and selected item, focus filter field | `Escape` |
-| Close, if filter field is focused | `Escape` |
 | `OLSKTransportLauncherItemImportJSONText` | Launcher |
 | `OLSKTransportLauncherItemExportJSONText` | Launcher |
+
+| Item catalog (when item is selected) ||
+:--- | ---
+| Clear filter text and selected item, focus filter field | `Escape` |
+| `OLSKWordingDebugObjectText` | Launcher |
 
 | Global ||
 :--- | ---

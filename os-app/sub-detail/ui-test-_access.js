@@ -95,6 +95,10 @@ describe('SNPCollectDetail_Access', function () {
 		browser.assert.elements('.OLSKModalView .SNPFormBase', 0);
 	});
 
+	it('shows SNPDetailLauncherItemDebug', function () {
+		return browser.assert.OLSKLauncherItems('SNPDetailLauncherItemDebug', 1);
+	});
+
 	context('edit', function () {
 		
 		before(function () {

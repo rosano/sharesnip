@@ -24,7 +24,20 @@ const mod = {
 	// DATA
 
 	DataCollectDetailRecipes () {
-		const outputData = [];
+		const outputData = [{
+			LCHRecipeSignature: 'SNPDetailLauncherItemDebug',
+			LCHRecipeName: OLSKLocalized('OLSKWordingDebugObjectText'),
+			LCHRecipeCallback: function SNPDetailLauncherItemDebug () {
+				const url = 'https://inspektor.5apps.com/inspect?path=' + encodeURIComponent('sharesnip/snp_documents/') + SNPCollectDetailItem.SNPDocumentID;
+
+				if (OLSK_SPEC_UI()) {
+					window.FakeWindowOpen = url;
+					return;
+				}
+
+				window.open(url);
+			},
+		}];
 
 		if (OLSK_SPEC_UI()) {
 			outputData.push({

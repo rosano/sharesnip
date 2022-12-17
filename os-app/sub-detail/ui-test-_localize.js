@@ -48,6 +48,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPCollectDetailEditButton, uLocalized('OLSKWordingEditText'));
 		});
 
+			it('localizes SNPDetailLauncherItemDebug', function () {
+				return browser.assert.OLSKLauncherItemText('SNPDetailLauncherItemDebug', uLocalized('OLSKWordingDebugObjectText'));
+			});
+
 		context('discard', function () {
 		
 			it('localizes SNPCollectDetailDiscardConfirm', function() {
