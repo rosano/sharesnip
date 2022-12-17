@@ -17,6 +17,10 @@ const SNPCollectDetail = new RollupStart({
 		SNPCollectDetailDispatchDiscard: (function  () {
 			window.TestSNPCollectDetailDispatchDiscard.innerHTML = parseInt(window.TestSNPCollectDetailDispatchDiscard.innerHTML) + 1;
 		}),
+		SNPCollectDetailDispatchPreventEscapeDefault: (function  (inputData) {
+			window.TestSNPCollectDetailDispatchPreventEscapeDefault.innerHTML = parseInt(window.TestSNPCollectDetailDispatchPreventEscapeDefault.innerHTML) + 1;
+			window.TestSNPCollectDetailDispatchPreventEscapeDefaultData.innerHTML = inputData;
+		}),
 		_DebugLauncher: true,
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
 		if (['SNPCollectDetailItem'].includes(e[0])) {

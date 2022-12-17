@@ -345,6 +345,10 @@ const mod = {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
+	SNPCollectDetailDispatchPreventEscapeDefault (inputData) {
+		mod._OLSKCatalog.modPublic.OLSKCatalogDisableEscape = inputData;
+	},
+
 	async OLSKTransportDispatchImportJSON (inputData) {
 		await mod._ValueZDRWrap.App.SNPTransport.SNPTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(inputData));
 
@@ -678,6 +682,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			SNPCollectDetailDispatchUpdate={ mod.SNPCollectDetailDispatchUpdate }
 			SNPCollectDetailDispatchClone={ mod.SNPCollectDetailDispatchClone }
 			SNPCollectDetailDispatchDiscard={ mod.SNPCollectDetailDispatchDiscard }
+			SNPCollectDetailDispatchPreventEscapeDefault={ mod.SNPCollectDetailDispatchPreventEscapeDefault }
 			bind:this={ mod._SNPCollectDetail }
 			/>
 	</div>

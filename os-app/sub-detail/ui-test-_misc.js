@@ -268,24 +268,48 @@ describe('SNPCollectDetail_Misc', function () {
 	
 	});
 
-	describe.skip('SNPCollectDetailEditButton', function test_SNPCollectDetailEditButton () {
+	describe('SNPCollectDetailEditButton', function test_SNPCollectDetailEditButton () {
 
-		const SNPDocumentData = Math.random().toString();
+		const SNPDocumentData = uDataSite(Math.random().toString());
 
-		before(function () {
-			return browser.pressButton(SNPCollectDetailEditButton);
+		context('open modal', function () {
+			
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					SNPCollectDetailItem: JSON.stringify(item),
+				});
+			});
+
+			before(function () {
+				return browser.pressButton(SNPCollectDetailEditButton);
+			});
+
+			it('sends SNPCollectDetailDispatchPreventEscapeDefault', function () {
+				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefault', '1');
+				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefaultData', 'true');
+			});
+		
 		});
 
-		before(function () {
-			return browser.fill('.SNPFormDataField', SNPDocumentData);
-		});
+		context('close modal', function () {
 
-		before(function () {
-			return browser.pressButton('.SNPFormBaseSaveButton');
-		});
+			before(function () {
+				return browser.fill('.SNPFormDataField', SNPDocumentData);
+			});
 
-		it('updates object', function () {
-			browser.assert.input(SNPCollectDetailDataField, SNPDocumentData);
+			before(function () {
+				return browser.pressButton('.SNPFormBaseSaveButton');
+			});
+
+			it('updates object', function () {
+				browser.assert.input(SNPCollectDetailDataField, SNPDocumentData);
+			});
+
+			it('sends SNPCollectDetailDispatchPreventEscapeDefault', function () {
+				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefault', '2');
+				browser.assert.text('#TestSNPCollectDetailDispatchPreventEscapeDefaultData', 'false');
+			});
+
 		});
 
 	});
