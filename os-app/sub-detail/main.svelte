@@ -75,7 +75,9 @@ const mod = {
 	},
 
 	OLSKModalViewDidClose () {
-		SNPCollectDetailDispatchDisableEscape(false);
+		setTimeout(function () {
+			SNPCollectDetailDispatchDisableEscape(false);
+		}, 50);
 	},
 
 	// REACT
