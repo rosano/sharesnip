@@ -319,7 +319,7 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 	context('SNPDocumentTypeSite', function () {
 
 		it('returns object', function() {
-			const SNPDocumentData = uRandomElement('http', 'https') + '://example.com';
+			const SNPDocumentData = uDataSite();
 			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), {
 				SNPDocumentType: mod.SNPDocumentTypeSite(),
 				SNPDocumentData,

@@ -67,7 +67,7 @@ describe('SNPFormSite_Misc', function () {
 
 			context('valid', function () {
 
-				const SNPDocumentData = 'https://example.com';
+				const SNPDocumentData = uDataSite();
 				
 				before(function () {
 					browser.assert.text('#TestSNPFormValid', '0');

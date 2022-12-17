@@ -59,6 +59,10 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return browser.pressButton(SNPFormBaseSaveButton);
 		},
 
+		uDataSite (inputData = '') {
+			return uRandomElement('http', 'https') + '://example.com/' + (inputData || Math.random().toString());
+		},
+
 		uDataEmail (inputData) {
 			return 'mailto:' + uEmail(inputData);
 		},
