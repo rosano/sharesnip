@@ -44,7 +44,7 @@ const mod = {
 					name: 'QR Generator',
 					short_name: 'QR Generator',
 					start_url: res.locals.OLSKCanonical('SNPGenerateRoute'),
-					display: 'standalone',
+					display: 'browser',
 					background_color: 'black',
 					theme_color: 'black',
 					icons: [{

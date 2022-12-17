@@ -10,7 +10,7 @@ describe('SNPGenerateManifest', function () {
 			name: 'QR Generator',
 			short_name: 'QR Generator',
 			start_url: kDefaultRoute.OLSKRoutePath,
-			display: 'standalone',
+			display: 'browser',
 			background_color: 'black',
 			theme_color: 'black',
 			icons: [{
