@@ -119,7 +119,15 @@ const mod = {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
-		return !!inputData.match(/^WIFI:/);
+		if (!inputData.match(/^WIFI:/)) {
+			return false;
+		}
+
+		const item = mod.SNPDocumentExplodeWifi(inputData);
+
+		return !['SNPDocumentWifiSecurity', 'SNPDocumentWifiNetwork', 'SNPDocumentWifiPassword'].filter(function (e) {
+			return !item[e].trim().length;
+		}).length;
 	},
 
 	SNPDocumentExplodeEmail (SNPDocumentData) {
