@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "OLSKPithToolchain": "olsk/OLSKPithToolchain",
-    "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
-    "node-fetch": "2.x"
+    "OLSKRollupScaffold": "olsk/OLSKRollupScaffold"
   }
 }
