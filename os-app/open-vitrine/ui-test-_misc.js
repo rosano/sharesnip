@@ -42,10 +42,14 @@ describe('SNPVitrine_Misc', function () {
 	
 	});
 
-	describe('SNPVitrineVideo', function () {
+	describe('SNPVitrineVideo', function test_SNPVitrineVideo () {
 
 		it('sets src', function () {
 			browser.assert.attribute(SNPVitrineVideo, 'src', process.env.SNP_VITRINE_VIDEO_URL);
+		});
+
+		it('sets allow', function () {
+			browser.assert.attribute(SNPVitrineVideo, 'allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
 		});
 
 		it('sets allowfullscreen', function () {
