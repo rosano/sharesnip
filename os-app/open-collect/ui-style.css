@@ -3,6 +3,8 @@
 	--OLSKDecorForegroundLight: rgb(255, 128, 0);
 	--OLSKDecorFormBlendBackground: #FFF9E5;
 	--OLSKDecorFormBlendBorderColor: var(--OLSKDecorForegroundLight);
+	--OLSKDecorBackgroundDeep: #f3edd4;
+	--OLSKDecorBackgroundDeepEdge: var(--OLSKDecorForegroundLight);
 
 	--OLSKCollectionItemsLocusColorDefault: #9e5705;
 	--OLSKCollectionItemsLocusColorActive: rgb(255, 93, 35);
