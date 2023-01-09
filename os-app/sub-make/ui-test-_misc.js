@@ -208,14 +208,14 @@ describe('SNPMake_Misc', function () {
 			
 		});
 
-		context('Parse', function () {
+		context('parse', function () {
 			
 			before(function () {
 				return browser.pressButton(SNPMakeScanButton);
 			});
 
 			before(function () {
-				browser.assert.text('#TestSNPFormValid', '1');
+				browser.assert.text('#TestSNPFormValid', '2');
 			});
 
 			before(function () {
@@ -223,7 +223,7 @@ describe('SNPMake_Misc', function () {
 			});
 
 			it('sends SNPFormValid', function () {
-				browser.assert.text('#TestSNPFormValid', '2');
+				browser.assert.text('#TestSNPFormValid', '3');
 			});
 
 			context('SNPFormBaseSaveButton', function () {
