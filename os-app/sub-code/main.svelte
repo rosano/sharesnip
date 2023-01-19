@@ -24,7 +24,7 @@ const mod = {
 		mod._ValueContainer.appendChild(kjua({
 			render: 'canvas',
 			ecLevel: 'H',
-			size: 100,
+			size: 150,
 			rounded: 100,
 			quiet: 1,
 			crisp: false,

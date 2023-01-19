@@ -191,8 +191,8 @@ import SNPCode from '../sub-code/main.svelte';
 
 .SNPMakeDataNotValid {
 	display: block;
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	border: 3px solid black;
 	border-style: dotted;
 }
