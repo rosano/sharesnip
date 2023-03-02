@@ -2,6 +2,7 @@ import { factory } from 'ulid';
 const uniqueID = factory();
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 import OLSKLink from 'OLSKLink';
+import ICAL from 'ical.js';
 
 const mod = {
 
@@ -128,6 +129,26 @@ const mod = {
 		return !['SNPDocumentWifiSecurity', 'SNPDocumentWifiNetwork', 'SNPDocumentWifiPassword'].filter(function (e) {
 			return !item[e].trim().length;
 		}).length;
+	},
+
+	SNPDocumentValidateContact (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		try {
+			const result = ICAL.parse(inputData);
+
+			if (result[0] !== 'vcard') {
+				return false;
+			}
+
+			return true;
+		} catch {
+			return false;
+		}
+
+		return false;
 	},
 
 	SNPDocumentExplodeEmail (SNPDocumentData) {

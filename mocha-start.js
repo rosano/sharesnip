@@ -75,6 +75,27 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 			return `WIFI:T:${ inputData.SNPDocumentWifiSecurity || 'WPA' };S:${ inputData.SNPDocumentWifiNetwork || inputData || Math.random().toString() };P:${ inputData.SNPDocumentWifiPassword || inputData || Math.random().toString() };H:${ inputData.SNPDocumentWifiHidden || '' };;`
 		},
 
+		uDataContact (inputData = {}) {
+			Object.assign(inputData, {
+				SNPDocumentContactFirstName: inputData.SNPDocumentContactFirstName || Math.random().toString(),
+				SNPDocumentContactLastName: inputData.SNPDocumentContactLastName || Math.random().toString(),
+				SNPDocumentContactOrganization: inputData.SNPDocumentContactOrganization || Math.random().toString(),
+				SNPDocumentContactPhone: inputData.SNPDocumentContactPhone || Math.random().toString(),
+				SNPDocumentContactEmail: inputData.SNPDocumentContactEmail || Math.random().toString(),
+				SNPDocumentContactLink: inputData.SNPDocumentContactLink || Math.random().toString(),
+			});
+
+			return `BEGIN:VCARD
+VERSION:3.0
+N:${ inputData.SNPDocumentContactLastName };${ inputData.SNPDocumentContactFirstName };;;
+FN:${ inputData.SNPDocumentContactFirstName } ${ inputData.SNPDocumentContactLastName }
+ORG:${ inputData.SNPDocumentContactOrganization }
+EMAIL;type=INTERNET;type=HOME;type=pref:${ inputData.SNPDocumentContactEmail }
+TEL;type=CELL;type=VOICE;type=pref:${ inputData.SNPDocumentContactPhone }
+URL:${ inputData.SNPDocumentContactLink }
+END:VCARD`
+		},
+
 	}).map(function (e) {
 		return global[e.shift()] = e.pop();
 	});
