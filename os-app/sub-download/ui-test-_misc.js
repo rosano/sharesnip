@@ -38,7 +38,7 @@ describe('SNPDownload_Misc', function () {
 
 	describe('SNPDownloadButton', function test_SNPDownloadButton () {
 
-		const button = uRandomElement(SNPDownloadPNGButton, SNPDownloadSVGButton);
+		const button = uRandomElement('.SNPDownloadPNGButton', '.SNPDownloadSVGButton');
 
 		before(function () {
 			return browser.click(button);
