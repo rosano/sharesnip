@@ -180,6 +180,8 @@ import SNPCode from '../sub-code/main.svelte';
 
 <style>
 .SNPMakeTypes button {
+	margin-bottom: 5px;
+	
 	opacity: 90%;
 }
 
