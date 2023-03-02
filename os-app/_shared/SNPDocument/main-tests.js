@@ -241,6 +241,10 @@ describe('SNPDocumentValidateContact', function test_SNPDocumentValidateContact(
 		deepEqual(mod.SNPDocumentValidateContact(Math.random().toString()), false);
 	});
 
+	it('returns false if missing used fields', function() {
+		deepEqual(mod.SNPDocumentValidateContact(require('vcards-js')().getFormattedString()), false);
+	});
+
 	it('returns true', function() {
 		deepEqual(mod.SNPDocumentValidateContact(uDataContact()), true);
 	});
