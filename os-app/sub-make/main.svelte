@@ -49,6 +49,10 @@ const mod = {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypePhone());
 	},
 
+	InterfaceContactButtonDidClick () {
+		mod.CommandSetType(SNPDocument.SNPDocumentTypeContact());
+	},
+
 	InterfaceWifiButtonDidClick () {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeWifi());
 	},
@@ -141,6 +145,8 @@ import SNPCode from '../sub-code/main.svelte';
 <button class="SNPMakeTypesEmailButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeEmail() } on:click={ mod.InterfaceEmailButtonDidClick }>{ OLSKLocalized('SNPMakeTypesEmailButtonText') }</button>
 
 <button class="SNPMakeTypesPhoneButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypePhone() } on:click={ mod.InterfacePhoneButtonDidClick }>{ OLSKLocalized('SNPMakeTypesPhoneButtonText') }</button>
+
+<button class="SNPMakeTypesContactButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeContact() } on:click={ mod.InterfaceContactButtonDidClick }>{ OLSKLocalized('SNPMakeTypesContactButtonText') }</button>
 
 <button class="SNPMakeTypesWifiButton OLSKDecorButtonNoStyle OLSKDecorTappable" class:SNPMakeButtonActive={ !mod._ValueScan && mod._ValueType === SNPDocument.SNPDocumentTypeWifi() } on:click={ mod.InterfaceWifiButtonDidClick }>Wi-Fi</button>
 

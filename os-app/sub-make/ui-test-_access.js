@@ -10,6 +10,7 @@ Object.entries({
 	SNPMakeTypesSiteButton: '.SNPMakeTypesSiteButton',
 	SNPMakeTypesEmailButton: '.SNPMakeTypesEmailButton',
 	SNPMakeTypesPhoneButton: '.SNPMakeTypesPhoneButton',
+	SNPMakeTypesContactButton: '.SNPMakeTypesContactButton',
 	SNPMakeTypesWifiButton: '.SNPMakeTypesWifiButton',
 	
 	SNPMakeDataNotValid: '.SNPMakeDataNotValid',
@@ -49,6 +50,10 @@ describe('SNPMake_Access', function () {
 
 	it('shows SNPMakeTypesPhoneButton', function () {
 		browser.assert.elements(SNPMakeTypesPhoneButton, 1);
+	});
+
+	it('shows SNPMakeTypesContactButton', function () {
+		browser.assert.elements(SNPMakeTypesContactButton, 1);
 	});
 
 	it('shows SNPMakeTypesWifiButton', function () {
@@ -123,14 +128,30 @@ describe('SNPMake_Access', function () {
 	
 	});
 
+	context('SNPMakeTypesContactButton', function () {
+		
+		before(function () {
+			return browser.pressButton(SNPMakeTypesContactButton);
+		});
+
+		it('hides SNPFormPhone', function () {
+			browser.assert.elements('.SNPFormPhone', 0);
+		});
+
+		it('shows SNPFormContact', function () {
+			browser.assert.elements('.SNPFormContact', 1);
+		});
+	
+	});
+
 	context('SNPMakeTypesWifiButton', function () {
 		
 		before(function () {
 			return browser.pressButton(SNPMakeTypesWifiButton);
 		});
 
-		it('hides SNPFormPhone', function () {
-			browser.assert.elements('.SNPFormPhone', 0);
+		it('hides SNPFormContact', function () {
+			browser.assert.elements('.SNPFormContact', 0);
 		});
 
 		it('shows SNPFormWifi', function () {

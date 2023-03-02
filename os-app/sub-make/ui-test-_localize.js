@@ -34,6 +34,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(SNPMakeTypesPhoneButton, uLocalized('SNPMakeTypesPhoneButtonText'));
 		});
 
+		it('localizes SNPMakeTypesContactButton', function () {
+			browser.assert.text(SNPMakeTypesContactButton, uLocalized('SNPMakeTypesContactButtonText'));
+		});
+
 		it('localizes SNPMakeTypesWifiButton', function () {
 			browser.assert.text(SNPMakeTypesWifiButton, 'Wi-Fi');
 		});

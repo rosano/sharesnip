@@ -104,6 +104,18 @@ describe('SNPMake_Misc', function () {
 	
 	});
 
+	describe('SNPMakeTypesContactButton', function test_SNPMakeTypesContactButton () {
+
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(SNPMakeTypesContactButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(SNPMakeTypesContactButton, 'OLSKDecorTappable');
+		});
+	
+	});
+
 	context('valid', function () {
 		
 		before(function () {
