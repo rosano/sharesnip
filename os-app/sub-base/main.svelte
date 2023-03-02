@@ -57,6 +57,7 @@ import SNPFormNote from './submodules/SNPFormNote/main.svelte';
 import SNPFormSite from './submodules/SNPFormSite/main.svelte';
 import SNPFormEmail from './submodules/SNPFormEmail/main.svelte';
 import SNPFormPhone from './submodules/SNPFormPhone/main.svelte';
+import SNPFormContact from './submodules/SNPFormContact/main.svelte';
 import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 </script>
 
@@ -76,6 +77,10 @@ import SNPFormWifi from './submodules/SNPFormWifi/main.svelte';
 
 {#if mod._ValueChildClass === 'SNPFormPhone' }
 	<SNPFormPhone SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
+{/if}
+
+{#if mod._ValueChildClass === 'SNPFormContact' }
+	<SNPFormContact SNPFormDidFill={ SNPFormDidFill } SNPFormNotValid={ mod.SNPFormNotValid } SNPFormValid={ mod.SNPFormValid } SNPFormObject={ SNPFormBaseObject } />
 {/if}
 
 {#if mod._ValueChildClass === 'SNPFormWifi' }
