@@ -332,7 +332,7 @@ describe('SNPDocumentExplodeContact', function test_SNPDocumentExplodeContact() 
 		const SNPDocumentContactOrganization = Math.random().toString();
 		const SNPDocumentContactPhone = Math.random().toString();
 		const SNPDocumentContactEmail = Math.random().toString();
-		const SNPDocumentContactLink = Math.random().toString();
+		const SNPDocumentContactSite = Math.random().toString();
 
 		const SNPDocumentData = uDataContact({
 			SNPDocumentContactFirstName,
@@ -340,7 +340,7 @@ describe('SNPDocumentExplodeContact', function test_SNPDocumentExplodeContact() 
 			SNPDocumentContactOrganization,
 			SNPDocumentContactPhone,
 			SNPDocumentContactEmail,
-			SNPDocumentContactLink,
+			SNPDocumentContactSite,
 		});
 		deepEqual(mod.SNPDocumentExplodeContact(SNPDocumentData), {
 			SNPDocumentData,
@@ -350,7 +350,7 @@ describe('SNPDocumentExplodeContact', function test_SNPDocumentExplodeContact() 
 			SNPDocumentContactOrganization,
 			SNPDocumentContactPhone,
 			SNPDocumentContactEmail,
-			SNPDocumentContactLink,
+			SNPDocumentContactSite,
 		});
 	});
 

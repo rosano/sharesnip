@@ -82,7 +82,7 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 				SNPDocumentContactOrganization: inputData.SNPDocumentContactOrganization || Math.random().toString(),
 				SNPDocumentContactPhone: inputData.SNPDocumentContactPhone || Math.random().toString(),
 				SNPDocumentContactEmail: inputData.SNPDocumentContactEmail || Math.random().toString(),
-				SNPDocumentContactLink: inputData.SNPDocumentContactLink || Math.random().toString(),
+				SNPDocumentContactSite: inputData.SNPDocumentContactSite || Math.random().toString(),
 			});
 
 			return `BEGIN:VCARD
@@ -92,7 +92,7 @@ FN:${ inputData.SNPDocumentContactFirstName } ${ inputData.SNPDocumentContactLas
 ORG:${ inputData.SNPDocumentContactOrganization }
 EMAIL;type=INTERNET;type=HOME;type=pref:${ inputData.SNPDocumentContactEmail }
 TEL;type=CELL;type=VOICE;type=pref:${ inputData.SNPDocumentContactPhone }
-URL:${ inputData.SNPDocumentContactLink }
+URL:${ inputData.SNPDocumentContactSite }
 END:VCARD`
 		},
 

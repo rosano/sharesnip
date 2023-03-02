@@ -208,7 +208,7 @@ const mod = {
 			org: 'SNPDocumentContactOrganization',
 			email: 'SNPDocumentContactEmail',
 			tel: 'SNPDocumentContactPhone',
-			url: 'SNPDocumentContactLink',
+			url: 'SNPDocumentContactSite',
 		};
 
 		return ICAL.parse(SNPDocumentData)[1].reduce(function (coll, item) {
