@@ -1,7 +1,7 @@
 (function OLSKPostinstallHotfix() {
 
 	Object.entries(require('OLSKHotfix').OLSKHotfixPatches(process.env.NODE_ENV, {
-		OLSKHotfixPatchesNotReversible: Object.fromEntries(require('glob').sync('./node_modules/OLSKUIAssets/_OLSKSharedFeature*', {
+		OLSKHotfixPatchesNotReversible: Object.fromEntries(require('glob').globSync('./node_modules/OLSKUIAssets/_OLSKSharedFeature*', {
 			cwd: __dirname,
 			realpath: true,
 		}).map(function (e) {
