@@ -87,7 +87,7 @@ const SNPDocument = require('./os-app/_shared/SNPDocument/main.js').default;
 
 			return `BEGIN:VCARD
 VERSION:3.0
-N:${ inputData.SNPDocumentContactLastName };${ inputData.SNPDocumentContactFirstName };;;
+N:${ inputData.SNPDocumentContactLastName };${ inputData.SNPDocumentContactFirstName }
 FN:${ inputData.SNPDocumentContactFirstName } ${ inputData.SNPDocumentContactLastName }
 ORG:${ inputData.SNPDocumentContactOrganization }
 EMAIL;type=INTERNET;type=HOME;type=pref:${ inputData.SNPDocumentContactEmail }

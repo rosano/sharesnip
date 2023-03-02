@@ -199,6 +199,48 @@ const mod = {
 		};
 	},
 
+	SNPDocumentExplodeContact (SNPDocumentData) {
+		if (typeof SNPDocumentData !== 'string') {
+			throw new Error('SNPErrorInputNotValid');
+		}
+
+		const map = {
+			org: 'SNPDocumentContactOrganization',
+			email: 'SNPDocumentContactEmail',
+			tel: 'SNPDocumentContactPhone',
+			url: 'SNPDocumentContactLink',
+		};
+
+		return ICAL.parse(SNPDocumentData)[1].reduce(function (coll, item) {
+			const key = map[item[0]];
+			let value = item.pop();
+
+			if (item[0] === 'n') {
+				const SNPDocumentContactLastName = value.shift();
+				const SNPDocumentContactFirstName = value.shift();
+
+				if (SNPDocumentContactFirstName) {
+					Object.assign(coll, {
+						SNPDocumentContactFirstName,
+					});
+				}
+
+				if (SNPDocumentContactLastName) {
+					Object.assign(coll, {
+						SNPDocumentContactLastName,
+					});
+				}
+			}
+
+			return Object.assign(coll, !key ? {} : {
+				[key]: value,
+			});
+		}, {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeContact(),
+		});
+	},
+
 	SNPDocumentValidateSite: OLSKLink.OLSKLinkValid,
 
 	SNPDocumentExplode (SNPDocumentData) {

@@ -318,6 +318,44 @@ describe('SNPDocumentExplodeWifi', function test_SNPDocumentExplodeWifi() {
 
 });
 
+describe('SNPDocumentExplodeContact', function test_SNPDocumentExplodeContact() {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.SNPDocumentExplodeContact(null);
+		}, /SNPErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		const SNPDocumentContactFirstName = 'first';
+		const SNPDocumentContactLastName = 'last';
+		const SNPDocumentContactOrganization = Math.random().toString();
+		const SNPDocumentContactPhone = Math.random().toString();
+		const SNPDocumentContactEmail = Math.random().toString();
+		const SNPDocumentContactLink = Math.random().toString();
+
+		const SNPDocumentData = uDataContact({
+			SNPDocumentContactFirstName,
+			SNPDocumentContactLastName,
+			SNPDocumentContactOrganization,
+			SNPDocumentContactPhone,
+			SNPDocumentContactEmail,
+			SNPDocumentContactLink,
+		});
+		deepEqual(mod.SNPDocumentExplodeContact(SNPDocumentData), {
+			SNPDocumentData,
+			SNPDocumentType: mod.SNPDocumentTypeContact(),
+			SNPDocumentContactFirstName,
+			SNPDocumentContactLastName,
+			SNPDocumentContactOrganization,
+			SNPDocumentContactPhone,
+			SNPDocumentContactEmail,
+			SNPDocumentContactLink,
+		});
+	});
+
+});
+
 describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 
 	const uDataAll = {
