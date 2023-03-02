@@ -193,6 +193,10 @@ const mod = {
 			return mod.SNPDocumentExplodePhone(SNPDocumentData);
 		}
 
+		if (mod.SNPDocumentValidateWifi(SNPDocumentData)) {
+			return mod.SNPDocumentExplodeWifi(SNPDocumentData);
+		}
+
 		return {
 			SNPDocumentData,
 			SNPDocumentType: (function(inputData) {

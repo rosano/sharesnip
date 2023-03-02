@@ -302,6 +302,14 @@ describe('SNPDocumentExplodeWifi', function test_SNPDocumentExplodeWifi() {
 
 describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 
+	const uDataAll = {
+		[mod.SNPDocumentTypeNote()]: Math.random().toString(),
+		[mod.SNPDocumentTypeSite()]: uDataSite(),
+		[mod.SNPDocumentTypeEmail()]: uDataEmail(),
+		[mod.SNPDocumentTypePhone()]: uDataPhone(),
+		[mod.SNPDocumentTypeWifi()]: uDataWifi(),
+	};
+
 	it('throws if not string', function () {
 		throws(function () {
 			mod.SNPDocumentExplode(null);
@@ -316,34 +324,34 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 		});
 	});
 
-	context('SNPDocumentTypeSite', function () {
+	mod.SNPDocumentTypes().forEach(function (SNPDocumentType) {
 
-		it('returns object', function() {
-			const SNPDocumentData = uDataSite();
-			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), {
-				SNPDocumentType: mod.SNPDocumentTypeSite(),
-				SNPDocumentData,
+		context(SNPDocumentType, function () {
+
+			it('returns object', function() {
+				const SNPDocumentData = uDataAll[SNPDocumentType];
+				deepEqual(mod.SNPDocumentExplode(SNPDocumentData), (function() {
+					if (SNPDocumentType === mod.SNPDocumentTypeEmail()) {
+						return mod.SNPDocumentExplodeEmail(SNPDocumentData);
+					}
+
+					if (SNPDocumentType === mod.SNPDocumentTypePhone()) {
+						return mod.SNPDocumentExplodePhone(SNPDocumentData);
+					}
+
+					if (SNPDocumentType === mod.SNPDocumentTypeWifi()) {
+						return mod.SNPDocumentExplodeWifi(SNPDocumentData);
+					}
+
+					return {
+						SNPDocumentType,
+						SNPDocumentData,
+					};
+				})());
 			});
+		
 		});
-	
-	});
-
-	context('SNPDocumentTypePhone', function () {
-
-		it('returns object', function() {
-			const SNPDocumentData = uDataPhone();
-			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), mod.SNPDocumentExplodePhone(SNPDocumentData));
-		});
-	
-	});
-
-	context('SNPDocumentTypeEmail', function () {
-
-		it('returns object', function() {
-			const SNPDocumentData = uDataEmail();
-			deepEqual(mod.SNPDocumentExplode(SNPDocumentData), mod.SNPDocumentExplodeEmail(SNPDocumentData));
-		});
-	
+		
 	});
 
 });
