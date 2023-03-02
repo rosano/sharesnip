@@ -364,6 +364,7 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 		[mod.SNPDocumentTypeEmail()]: uDataEmail(),
 		[mod.SNPDocumentTypePhone()]: uDataPhone(),
 		[mod.SNPDocumentTypeWifi()]: uDataWifi(),
+		[mod.SNPDocumentTypeContact()]: uDataContact(),
 	};
 
 	it('throws if not string', function () {
@@ -397,6 +398,10 @@ describe('SNPDocumentExplode', function test_SNPDocumentExplode() {
 
 					if (SNPDocumentType === mod.SNPDocumentTypeWifi()) {
 						return mod.SNPDocumentExplodeWifi(SNPDocumentData);
+					}
+
+					if (SNPDocumentType === mod.SNPDocumentTypeContact()) {
+						return mod.SNPDocumentExplodeContact(SNPDocumentData);
 					}
 
 					return {

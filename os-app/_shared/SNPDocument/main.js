@@ -260,6 +260,10 @@ const mod = {
 			return mod.SNPDocumentExplodeWifi(SNPDocumentData);
 		}
 
+		if (mod.SNPDocumentValidateContact(SNPDocumentData)) {
+			return mod.SNPDocumentExplodeContact(SNPDocumentData);
+		}
+
 		return {
 			SNPDocumentData,
 			SNPDocumentType: (function(inputData) {
