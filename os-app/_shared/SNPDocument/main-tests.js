@@ -213,7 +213,7 @@ describe('SNPDocumentValidateWifi', function test_SNPDocumentValidateWifi() {
 		}, /SNPErrorInputNotValid/);
 	});
 
-	it('returns false if without prefix', function() {
+	it('returns false if not formatted', function() {
 		deepEqual(mod.SNPDocumentValidateWifi(Math.random().toString()), false);
 	});
 
