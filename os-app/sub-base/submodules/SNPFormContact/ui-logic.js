@@ -8,14 +8,16 @@ const mod = {
 		}
 
 		return Object.assign(inputData, {
-			SNPDocumentData: Object.assign(vCardsJS(), {
-				firstName: inputData.SNPDocumentContactFirstName,
-				lastName: inputData.SNPDocumentContactLastName,
-				cellPhone: inputData.SNPDocumentContactPhone,
-				email: inputData.SNPDocumentContactEmail,
-				url: inputData.SNPDocumentContactSite,
-				organization: inputData.SNPDocumentContactOrganization,
-			}).getFormattedString(),
+			SNPDocumentData: Object.assign(vCardsJS(), Object.fromEntries(Object.entries(inputData).map(function ([key, value]) {
+				return [{
+					SNPDocumentContactFirstName: 'firstName',
+					SNPDocumentContactLastName: 'lastName',
+					SNPDocumentContactPhone: 'cellPhone',
+					SNPDocumentContactEmail: 'email',
+					SNPDocumentContactSite: 'url',
+					SNPDocumentContactOrganization: 'organization',
+				}[key], value];
+			}))).getFormattedString(),
 		});
 	},
 

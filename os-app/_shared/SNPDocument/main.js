@@ -143,8 +143,16 @@ const mod = {
 				return false;
 			}
 
-			if (!result[1].reduce(function (coll, item) {
-				return coll.concat('fn org email tel url'.split(' ').includes(item[0]) && !!item.pop() ? item[0] : []);
+			if (!result[1].filter(function (e) {
+				if (!'fn org email tel url'.split(' ').includes(e[0])) {
+					return false;
+				}
+
+				if (!e.slice(-1).pop()) {
+					return false;
+				}
+				
+				return true;
 			}, []).length) {
 				return false;
 			}

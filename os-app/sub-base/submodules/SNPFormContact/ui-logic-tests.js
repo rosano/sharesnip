@@ -49,4 +49,22 @@ describe('SNPFormContactDocument', function test_SNPFormContactDocument() {
 		});
 	});
 
+	it('includes only specified fields', function() {
+		const key = uRandomElement('SNPDocumentContactFirstName SNPDocumentContactLastName SNPDocumentContactOrganization SNPDocumentContactPhone SNPDocumentContactEmail SNPDocumentContactSite'.split(' '));
+		const value = Math.random().toString();
+		
+		deepEqual(mod.SNPFormContactDocument({
+			[key]: value,
+		}).SNPDocumentData.replace(/REV:.{24}/, ''), Object.assign(vCardsJS(), {
+			[{
+				SNPDocumentContactFirstName: 'firstName',
+				SNPDocumentContactLastName: 'lastName',
+				SNPDocumentContactPhone: 'cellPhone',
+				SNPDocumentContactEmail: 'email',
+				SNPDocumentContactSite: 'url',
+				SNPDocumentContactOrganization: 'organization',
+			}[key]]: value,
+		}).getFormattedString().replace(/REV:.{24}/, ''));
+	});
+
 });
