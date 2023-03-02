@@ -327,8 +327,8 @@ describe('SNPDocumentExplodeContact', function test_SNPDocumentExplodeContact() 
 	});
 
 	it('returns object', function() {
-		const SNPDocumentContactFirstName = 'first';
-		const SNPDocumentContactLastName = 'last';
+		const SNPDocumentContactFirstName = Math.random().toString();
+		const SNPDocumentContactLastName = Math.random().toString();
 		const SNPDocumentContactOrganization = Math.random().toString();
 		const SNPDocumentContactPhone = Math.random().toString();
 		const SNPDocumentContactEmail = Math.random().toString();
