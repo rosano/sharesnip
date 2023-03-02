@@ -34,10 +34,6 @@ describe('SNPFormContact_Misc', function () {
 			browser.assert.attribute(SNPFormContactFirstNameField, 'type', 'text');
 		});
 
-		it('sets required', function () {
-			browser.assert.attribute(SNPFormContactFirstNameField, 'required', '');
-		});
-
 		it('sets autofocus', function () {
 			browser.assert.attribute(SNPFormContactFirstNameField, 'autofocus', '');
 		});

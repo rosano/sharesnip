@@ -72,7 +72,7 @@ const mod = {
 <div class="SNPFormContact">
 
 <p>
-	<input class="SNPFormContactFirstNameField" type="text" autofocus placeholder={ OLSKLocalized('SNPFormContactFirstNameFieldText') } on:input={ mod.InterfaceFirstNameFieldDidInput } value={ mod._ValueObject.SNPDocumentContactFirstName || '' }>
+	<input class="SNPFormContactFirstNameField SNPFormDataField" type="text" autofocus placeholder={ OLSKLocalized('SNPFormContactFirstNameFieldText') } on:input={ mod.InterfaceFirstNameFieldDidInput } value={ mod._ValueObject.SNPDocumentContactFirstName || '' }>
 </p>
 
 <p>
