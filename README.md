@@ -4,7 +4,7 @@
 
 _Quickly create or scan QR codes._
 
-<a href="https://sharesnip.rosano.ca">Sharesnip</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://sharesnip.rosano.ca/guide">guide</a> for more details.
+<a href="https://sharesnip.rosano.ca">Sharesnip</a> is a simple QR code generator and scanner that works offline. Read the <a href="https://sharesnip.rosano.ca/guide">guide</a> for more details.
 
 <a href="https://sharesnip.rosano.ca/generate"><img alt="Open app" src="http://static.rosano.ca/_shared/_RCSAppButton.svg" /></a>
 
