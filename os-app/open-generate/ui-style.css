@@ -35,3 +35,7 @@
 .SNPDownloadHeading {
 	display: none;
 }
+
+button {
+	color: black;
+}
