@@ -39,3 +39,7 @@
 button {
 	color: black;
 }
+
+.SNPScanFileInput {
+	max-width: 45%;
+}
