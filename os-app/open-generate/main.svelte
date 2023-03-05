@@ -96,7 +96,6 @@ import SNPMake from '../sub-make/main.svelte';
 import SNPDownload from '../sub-download/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
-import OLSKInstall from 'OLSKInstall';
 import OLSKModalView from 'OLSKModalView';
 import OLSKApropos from 'OLSKApropos';
 import OLSKString from 'OLSKString';
@@ -125,8 +124,6 @@ import OLSKString from 'OLSKString';
 	OLSKAppToolbarDispatchTongue={ mod.OLSKAppToolbarDispatchTongue }
 	OLSKAppToolbarDispatchLauncher={ mod.OLSKAppToolbarDispatchLauncher }
 	/>
-
-<OLSKInstall />
 
 {#if !OLSK_SPEC_UI()}
 	<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('SNPGenerateServiceWorkerRoute') } />
