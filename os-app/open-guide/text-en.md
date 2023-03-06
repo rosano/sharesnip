@@ -21,7 +21,3 @@ Sharesnip helps you create and scan QR codes. It works even if you don't have an
 | `OLSKServiceWorkerLauncherItemReloadText` | Launcher |
 | `OLSKServiceWorkerLauncherItemDebugForceUpdateText` | Launcher |
 | Launcher | `Alt+Space` |
-
----
-
-<small>Try to [collect](SNPCollectRoute) some codes 🙂</small>
