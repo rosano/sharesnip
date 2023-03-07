@@ -29,12 +29,6 @@ locals.OLSKPagePublicConstants = {
 
 <a class="SNPVitrineCollectLink" style="display: none;" href="<%= OLSKCanonical('SNPCollectRoute') %>"><%= OLSKLocalized('SNPCollectTitle') %></a>
 
-<div class="OLSKCommonVideoList">
-	<p class="SNPVitrineVideo OLSKCommonVideoListItem">
-		<iframe src="<%= process.env.SNP_VITRINE_VIDEO_URL %>" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</p>
-</div>
-
 <h1 class="SNPVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
 
 <%- include('../../node_modules/OLSKAppFeatureList/main.ejs', {
