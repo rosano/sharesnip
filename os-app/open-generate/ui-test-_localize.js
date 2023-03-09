@@ -18,6 +18,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text('title', uLocalized('SNPGenerateTitle'));
 		});
 
+		it('localizes SNPGenerateShareLink', function () {
+			browser.assert.text(SNPGenerateShareLink, OLSKTestingFormatted(uLocalized('SNPGenerateShareLinkTextFormat'), 'rosano.ca/qr'));
+		});
+
 	});
 
 });

@@ -4,6 +4,8 @@ Object.entries({
 	SNPGenerate: '.SNPGenerate',
 
 	SNPGenerateViewportFooter: '.SNPGenerateViewportFooter',
+	
+	SNPGenerateShareLink: '.SNPGenerateShareLink',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -36,6 +38,10 @@ describe('SNPGenerate_Access', function () {
 
 	it('shows OLSKAppToolbarLanguageButton', function () {
 		browser.assert.elements('.OLSKAppToolbarLanguageButton', 1);
+	});
+
+	it('shows SNPGenerateShareLink', function () {
+		browser.assert.elements(SNPGenerateShareLink, 1);
 	});
 
 	it('shows OLSKAppToolbarLauncherButton', function () {

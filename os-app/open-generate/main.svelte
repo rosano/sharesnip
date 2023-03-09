@@ -1,5 +1,6 @@
 <script>
 import { OLSKLocalized } from 'OLSKInternational';
+import { OLSKFormatted } from 'OLSKString';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
 
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
@@ -29,6 +30,20 @@ const mod = {
 
 	DataIsMobile () {
 		return window.innerWidth <= 760;
+	},
+
+	// INTERFACE
+
+	InterfaceShareLinkDidClick (event) {
+		if (!navigator.share) {
+			return;
+		}
+
+		event.preventDefault();
+
+		navigator.share({
+	    url: this.href,
+	  });
 	},
 
 	// MESSAGE
@@ -123,7 +138,11 @@ import OLSKString from 'OLSKString';
 	OLSKAppToolbarDispatchApropos={ mod.OLSKAppToolbarDispatchApropos }
 	OLSKAppToolbarDispatchTongue={ mod.OLSKAppToolbarDispatchTongue }
 	OLSKAppToolbarDispatchLauncher={ mod.OLSKAppToolbarDispatchLauncher }
-	/>
+	>
+	<a class="SNPGenerateShareLink OLSKDecorPress OLSKDecorPressCall" href="https://rosano.ca/qr" target="_blank" on:click={ mod.InterfaceShareLinkDidClick }>
+		<small>{ OLSKFormatted(OLSKLocalized('SNPGenerateShareLinkTextFormat'), 'rosano.ca/qr') } </small>
+	</a>
+</OLSKAppToolbar>
 
 {#if !OLSK_SPEC_UI()}
 	<OLSKServiceWorkerView OLSKServiceWorkerRegistrationRoute={ window.OLSKCanonical('SNPGenerateServiceWorkerRoute') } />

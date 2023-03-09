@@ -32,4 +32,16 @@ describe('SNPGenerate_Misc', function () {
 
 	});
 
+	describe('SNPGenerateShareLink', function test_SNPGenerateShareLink () {
+		
+		it('sets target', function () {
+			browser.assert.attribute(SNPGenerateShareLink, 'target', '_blank');
+		});
+
+		it('sets href', function () {
+			browser.assert.attribute(SNPGenerateShareLink, 'href', 'https://rosano.ca/qr');
+		});
+
+	});
+
 });
