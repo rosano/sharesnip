@@ -217,9 +217,15 @@ describe('SNPDocumentValidateWifi', function test_SNPDocumentValidateWifi() {
 		deepEqual(mod.SNPDocumentValidateWifi(Math.random().toString()), false);
 	});
 
-	it('returns false if field empty', function() {
+	it('returns false if SNPDocumentWifiNetwork empty', function() {
 		deepEqual(mod.SNPDocumentValidateWifi(uDataWifi({
-			[uRandomElement('SNPDocumentWifiNetwork', 'SNPDocumentWifiPassword')]: ' ',
+			SNPDocumentWifiNetwork: ' ',
+		})), false);
+	});
+
+	it('returns false if SNPDocumentWifiSecurity empty', function() {
+		deepEqual(mod.SNPDocumentValidateWifi(uDataWifi({
+			SNPDocumentWifiSecurity: ' ',
 		})), false);
 	});
 

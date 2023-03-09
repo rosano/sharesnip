@@ -126,9 +126,15 @@ const mod = {
 
 		const item = mod.SNPDocumentExplodeWifi(inputData);
 
-		return !['SNPDocumentWifiSecurity', 'SNPDocumentWifiNetwork', 'SNPDocumentWifiPassword'].filter(function (e) {
-			return !item[e].trim().length;
-		}).length;
+		if (!item.SNPDocumentWifiNetwork.trim().length) {
+			return false;
+		}
+
+		if (!item.SNPDocumentWifiSecurity.trim().length) {
+			return false;
+		}
+
+		return true
 	},
 
 	SNPDocumentValidateContact (inputData) {
@@ -198,7 +204,7 @@ const mod = {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
-		const SNPDocumentWifiSecurity = SNPDocumentData.match(/WIFI:T:(\w*);S/).pop();
+		const SNPDocumentWifiSecurity = SNPDocumentData.match(/WIFI:T:(.*);S/).pop();
 		const SNPDocumentWifiNetwork = SNPDocumentData.match(/;S:(.*);P/).pop();
 		const SNPDocumentWifiPassword = SNPDocumentData.match(/;P:(.*);H/).pop();
 		const SNPDocumentWifiHidden = !!(SNPDocumentData.match(/;H:(.*);;/) || []).pop();
