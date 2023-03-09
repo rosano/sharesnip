@@ -57,4 +57,16 @@ describe('SNPFormWifi_Access', function () {
 		browser.assert.elements(SNPFormWifiSecurityWEPOptionField, 1);
 	});
 
+	context('SNPFormWifiSecurityNoneOption', function () {
+		
+		before(function () {
+			return browser.click(SNPFormWifiSecurityNoneOption);
+		});
+
+		it('hides SNPFormWifiPasswordField', function () {
+			browser.assert.elements(SNPFormWifiPasswordField, 0);
+		});
+	
+	});
+
 });
