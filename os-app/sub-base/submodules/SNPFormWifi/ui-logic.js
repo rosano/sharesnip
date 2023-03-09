@@ -5,12 +5,8 @@ const mod = {
 			throw new Error('SNPErrorInputNotValid');
 		}
 
-		if (typeof inputData.SNPDocumentWifiNetwork !== 'string') {
-			throw new Error('SNPErrorInputNotValid');
-		}
-
 		return Object.assign(inputData, {
-			SNPDocumentData: `WIFI:T:${ inputData.SNPDocumentWifiSecurity || 'WPA' };S:${ inputData.SNPDocumentWifiNetwork };P:${ inputData.SNPDocumentWifiPassword || '' };H:${ inputData.SNPDocumentWifiHidden ? true : ''  };;`,
+			SNPDocumentData: `WIFI:T:${ inputData.SNPDocumentWifiSecurity || 'WPA' };S:${ inputData.SNPDocumentWifiNetwork || '' };P:${ inputData.SNPDocumentWifiPassword || '' };H:${ inputData.SNPDocumentWifiHidden ? true : ''  };;`,
 		});
 	},
 

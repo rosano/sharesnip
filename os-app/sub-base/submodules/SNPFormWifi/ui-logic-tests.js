@@ -10,14 +10,6 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 		}, /SNPErrorInputNotValid/);
 	});
 
-	it('throws if SNPDocumentWifiNetwork not valid', function () {
-		throws(function () {
-			mod.SNPFormWifiDocument({
-				SNPDocumentWifiNetwork: null,
-			});
-		}, /SNPErrorInputNotValid/);
-	});
-
 	it('returns string', function() {
 		const SNPDocumentWifiNetwork = Math.random().toString();
 		const SNPDocumentWifiPassword = Math.random().toString();
@@ -43,11 +35,7 @@ describe('SNPFormWifiDocument', function test_SNPFormWifiDocument() {
 	});
 
 	it('substitutes blank for undefined', function() {
-		const SNPDocumentWifiNetwork = Math.random().toString();
-
-		deepEqual(mod.SNPFormWifiDocument({
-			SNPDocumentWifiNetwork,
-		}).SNPDocumentData, 'WIFI:T:WPA;S:' + SNPDocumentWifiNetwork + ';P:;H:;;');
+		deepEqual(mod.SNPFormWifiDocument({}).SNPDocumentData, 'WIFI:T:WPA;S:;P:;H:;;');
 	});
 
 });
