@@ -34,6 +34,12 @@ const mod = {
 		mod._MessageInputDidChange();
 	},
 
+	InterfaceSecurityFieldDidInput () {
+		mod.ValueSet('SNPDocumentWifiSecurity', this.value);
+		
+		mod._MessageInputDidChange();
+	},
+
 	// MESSAGE
 
 	_MessageInputDidChange () {
@@ -60,17 +66,17 @@ const mod = {
 <p>
 	<label class="SNPFormWifiSecurityNoneOption">
 		<input class="SNPFormWifiSecurityNoneOptionField" type="radio" value="nopass" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
-			mod._MessageInputDidChange } />
+			mod.InterfaceSecurityFieldDidInput } />
 		{ OLSKLocalized('SNPFormWifiSecurityNoneOptionText') }
 	</label>
 	<label class="SNPFormWifiSecurityWPAOption">
 		<input class="SNPFormWifiSecurityWPAOptionField" type="radio" value="WPA" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
-			mod._MessageInputDidChange } />
+			mod.InterfaceSecurityFieldDidInput } />
 		WPA
 	</label>
 	<label class="SNPFormWifiSecurityWEPOption">
 		<input class="SNPFormWifiSecurityWEPOptionField" type="radio" value="WEP" bind:group={ mod._ValueObject.SNPDocumentWifiSecurity } on:change={ 
-			mod._MessageInputDidChange } />
+			mod.InterfaceSecurityFieldDidInput } />
 		WEP
 	</label>
 </p>
