@@ -115,6 +115,14 @@ const mod = {
 
 	SetupEverything() {
 		mod.CommandSetType(SNPDocument.SNPDocumentTypeNote());
+
+		const params = Object.fromEntries(Array.from(new URLSearchParams(window.location.search)));
+		
+		if (!params.data) {
+			return;
+		}
+
+		mod.SNPScanDidSucceed(SNPDocument.SNPDocumentExplode(params.data));
 	},
 
 	// LIFECYCLE
