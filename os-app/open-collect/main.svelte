@@ -474,6 +474,10 @@ const mod = {
 		}));
 	},
 
+	SetupCleanup() {
+		window.localStorage.removeItem('OLSK_FUND_GRANT_DATA');
+	},
+
 	SetupLoading () {
 		mod._ValueIsLoading = false;
 
