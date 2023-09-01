@@ -464,7 +464,7 @@ const mod = {
 		};
 
 		if (!(await mod._ValueZDRWrap.App.SNPDocument.SNPDocumentList()).map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert).length) {
-			mod.OLSKCatalogDispatchQuantity(0);
+			// mod.OLSKCatalogDispatchQuantity(0);
 		}
 	},
 
@@ -534,7 +534,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCollectionDispatchClick={ mod.OLSKCollectionDispatchClick }
 	OLSKCollectionDispatchArrow={ mod.OLSKCollectionDispatchArrow }
 	OLSKCatalogDispatchDetailActivate={ mod.OLSKCatalogDispatchDetailActivate }
-	OLSKCatalogDispatchQuantity={ mod.OLSKCatalogDispatchQuantity }
 
 	let:OLSKCollectionItem
 	>
