@@ -3,7 +3,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 describe('SNPManifest_Misc', function () {
 
 	it('sends json', async function () {
-		browser.assert.deepEqual(await (await browser.fetch('http://localhost' + kDefaultRoute.OLSKRoutePath)).json(), {
+		browser.assert.deepEqual(await (await browser.fetch('http://localhost:' + process.env.PORT + kDefaultRoute.OLSKRoutePath)).json(), {
 			name: 'Sharesnip',
 			short_name: 'Sharesnip',
 			start_url: require('../open-collect/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,

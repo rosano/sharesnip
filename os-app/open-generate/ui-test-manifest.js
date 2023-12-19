@@ -6,7 +6,7 @@ describe('SNPGenerateManifest', function () {
 
 	it('sends json', async function () {
 		
-		browser.assert.deepEqual(await (await browser.fetch('http://localhost' + kManifestRoute.OLSKRoutePath)).json(), {
+		browser.assert.deepEqual(await (await browser.fetch('http://localhost:' + process.env.PORT + kManifestRoute.OLSKRoutePath)).json(), {
 			name: 'QR Generator',
 			short_name: 'QR Generator',
 			start_url: kDefaultRoute.OLSKRoutePath,

@@ -7,8 +7,8 @@ describe('SNPCollectShare_Misc', function () {
 
 	const items = [StubDocumentObjectValid(), StubDocumentObjectValid()];
 
-	const uValue = function (inputData) {
-		return browser.window.location.origin + require('../open-collect/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath + '/#';
+	const uValue = async function (inputData) {
+		return await browser.evaluate('window.location.origin') + require('../open-collect/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath + '/#';
 	};
 
 	before(function() {
@@ -27,8 +27,8 @@ describe('SNPCollectShare_Misc', function () {
 			browser.assert.attribute(SNPCollectShareLinkField, 'onClick', 'this.select()');
 		});
 
-		it('sets value', function () {
-			browser.assert.input(SNPCollectShareLinkField, uValue(items));
+		it('sets value', async function () {
+			browser.assert.input(SNPCollectShareLinkField, await uValue(items));
 		});
 		
 	});

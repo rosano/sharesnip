@@ -44,10 +44,10 @@ describe('SNPDownload_Misc', function () {
 			return browser.click(button);
 		});
 		
-		it('binds SNPDocumentName', function () {
-			browser.assert.OLSKAlertText(function () {
+		it('binds SNPDocumentName', async function () {
+			deepEqual(await browser.OLSKAlertText(function () {
 				return browser.pressButton(SNPDownloadButton);
-			}, JSON.stringify({
+			}), JSON.stringify({
 				SNPDownloadData,
 				SNPDownloadFilename: `${ SNPDownloadBasename }.${ button.match(/(PNG|SVG)/).pop().toLowerCase() }`,
 			}));
