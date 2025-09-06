@@ -24,7 +24,7 @@
     "kjua": "lrsjng/kjua",
     "html5-qrcode": "latest",
     "vcards-js": "latest",
-    "ical.js": "latest",
+    "ical.js": "1.x",
 
     "OLSKRobots": "olsk/OLSKRobots",
 
