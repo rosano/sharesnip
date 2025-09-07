@@ -26,7 +26,7 @@ import RemoteStorage from 'remotestoragejs';
 import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKTransport from 'OLSKTransport';
-import OLSKPact from 'OLSKPact';
+
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
