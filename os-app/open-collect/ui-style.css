@@ -38,7 +38,7 @@ body {
 }
 
 .OLSKBanner {
-	display: none;
+	display: none !important;
 }
 
 @media (min-width: 450px) {
